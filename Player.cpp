@@ -65,17 +65,35 @@ void Player::update(int deltaTime)
 	{
 		if (!tmap->getBlock(mousePos) != NULL)
 		{
-			int randBlockType = rand() % 4 + 1;
-			tmap->addTile(mousePos, randBlockType);
-			std::cout << randBlockType << " amount: " <<  inventory.getAmount<Block>(randBlockType) << std::endl;
+            int randBlockType = rand() % 4 + 1;
+            int amount = 0;
+            switch (randBlockType)
+            {
+                case Block::TYPE_GOLD:     amount = inventory.getAmount<BlockGold>();     break;
+                case Block::TYPE_RUBY:     amount = inventory.getAmount<BlockRuby>();     break;
+                case Block::TYPE_EMERALD:  amount = inventory.getAmount<BlockEmerald>();  break;
+                case Block::TYPE_SAPPHIRE: amount = inventory.getAmount<BlockSapphire>(); break;
+            }
+
+            if (amount > 0 && tmap->addTile(mousePos, randBlockType))
+            {
+                inventory.dropItem(0);
+            }
 		}
 	}
 	else if (Game::instance().getMouseRightButtonDown())
 	{
-		if (tmap->getBlock(mousePos) != NULL)
+        Block::Type blockType = tmap->getBlock(mousePos);
+        if (blockType != NULL)
 		{
-			tmap->delTile(mousePos);
-			inventory.addItem<Block>(Block::TYPE_GOLD);
+            switch (blockType)
+            {
+                case Block::TYPE_GOLD:     inventory.addItem<BlockGold>();     break;
+                case Block::TYPE_RUBY:     inventory.addItem<BlockRuby>();     break;
+                case Block::TYPE_EMERALD:  inventory.addItem<BlockEmerald>();  break;
+                case Block::TYPE_SAPPHIRE: inventory.addItem<BlockSapphire>(); break;
+            }
+            tmap->delTile(mousePos);
 		}
 	}
 	//

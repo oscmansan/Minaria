@@ -15,62 +15,46 @@ public:
 	~Inventory();
 
 private:
-	vector<Item*> items;
+    vector<Item*> items = vector<Item*>(5, NULL);
 
 public:
 	template<class T>
-	void addItem(int subType = -1)
+    void addItem()
 	{
-		bool found = false;
-		for (int i = 0; i < items.size(); ++i)
-		{
-			if (dynamic_cast<T*>(items[i]) != NULL)
-			{
-				items[i]->increaseAmount();
-				found = true;
-				break;
-			}
-		}
-
-		if (!found)
-		{
+        Item *it = getItem<T>();
+        if (!it)
+        {
 			for (int i = 0; i < items.size(); ++i)
-			{
+            {
 				if (items[i] == NULL)
-				{
-					if (subType == -1) { items[i] = new T(); }
-					else { items[i] = new T(subType); }
+                {
+                    it = items[i] = new T();
 					break;
 				}
 			}
 		}
+        it->increaseAmount();
 	}
 
 	template <class T>
-	T* getItem(int subType = -1) const
+    T* getItem() const
 	{
 		for (Item *it : items)
-		{
-			std::cout << it << std::endl;
+        {
 			T* specItem = dynamic_cast<T*>(it);
 			if (specItem != NULL)
-			{
-				std::cout << "Found specItem!" << std::endl;
-				if (subType == -1) return specItem;
-				else
-				{
-					if (specItem->getSubType() == subType) return specItem;
-				}
+            {
+                return specItem;
 			}
 		}
 		return NULL;
 	}
 
 	template <class T>
-	int getAmount(int subType = -1) const
+    int getAmount() const
 	{
-		Item *it = getItem<T>(subType);
-		return (it == NULL) ? 0 : it->getAmount();
+        Item *it = getItem<T>();
+        return it ? it->getAmount() : 0;
 	}
 
 	void dropItem(int index);

@@ -3,8 +3,10 @@
 #include <sstream>
 #include <vector>
 #include <glm/gtc/matrix_transform.hpp>
-#include "TileMap.h"
+
 #include "Scene.h"
+#include "Block.h"
+#include "TileMap.h"
 
 
 using namespace std;
@@ -276,18 +278,20 @@ bool TileMap::collisionMoveDown(const glm::ivec2 &pos, const glm::ivec2 &size, i
 	return false;
 }
 
-void TileMap::addTile(glm::ivec2 posWorld, int type) 
+bool TileMap::addTile(const glm::ivec2 &posWorld, int type)
 {
-	if (Scene::getInstance()->whosThere(posWorld)) return;
+    if (Scene::getInstance()->whosThere(posWorld)) return false;
+
 	int idx = worldPosToIndex(posWorld);
 	if (idx >= 0 && idx < (mapSize.x * mapSize.y))
 	{
 		map[idx] = type;
 		prepareArrays(*program);
 	}
+    return true;
 }
 
-void TileMap::delTile(glm::ivec2 posWorld) 
+void TileMap::delTile(const glm::ivec2 &posWorld)
 {
 	int idx = worldPosToIndex(posWorld);
 	if (idx >= 0 && idx < (mapSize.x * mapSize.y))
@@ -297,28 +301,28 @@ void TileMap::delTile(glm::ivec2 posWorld)
 	}
 }
 
-int TileMap::getTileAt(glm::ivec2 posWorld) const
+int TileMap::getTileAt(const glm::ivec2 &posWorld) const
 {
 	int idx = worldPosToIndex(posWorld);
 	return ( idx >= 0 && idx < (mapSize.x * mapSize.y)) ? map[idx] : -1;
 }
 
-int TileMap::getBlock(glm::ivec2 posWorld) const
+Block::Type TileMap::getBlock(const glm::ivec2 &posWorld) const
 {
-	return getTileAt(posWorld);
+    return static_cast<Block::Type>(getTileAt(posWorld));
 }
 
-glm::ivec2 TileMap::worldPosToTilePos(glm::ivec2 posWorld) const
+glm::ivec2 TileMap::worldPosToTilePos(const glm::ivec2 &posWorld) const
 {
 	return posWorld / tileSize;
 }
 
-int TileMap::tilePosToIndex(glm::ivec2 posTile) const
+int TileMap::tilePosToIndex(const glm::ivec2 &posTile) const
 {
 	return (posTile.y * mapSize.x) + posTile.x;
 }
 
-int TileMap::worldPosToIndex(glm::ivec2 posWorld) const
+int TileMap::worldPosToIndex(const glm::ivec2 &posWorld) const
 {
 	return tilePosToIndex( worldPosToTilePos(posWorld) );
 }
