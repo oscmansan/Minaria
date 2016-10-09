@@ -136,7 +136,7 @@ void Player::handleItemSelection()
             selectedItemIndex = i;
             break;
         }
-        else  // Mouse selection
+        else if (Game::instance().getMouseLeftButtonDown())  // Mouse selection
         {
             glm::ivec2 mousePosScreen = Game::instance().getMousePosScreen();
             Rect slotRect = inventory.getSlotScreenRect(i);
