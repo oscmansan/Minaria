@@ -6,20 +6,6 @@
 
 class Player : public Character
 {
-private:
-	bool damaged = false;
-	const int damageBlinkFrequency = 300;
-	const int invulnerabilityPeriod = 3000;
-	int invulnerabilityTimer = invulnerabilityPeriod;
-
-	Inventory inventory;
-    Item *selectedItem = nullptr;
-    int selectedItemIndex = 0;
-
-protected:
-	virtual void move(int deltaTime);
-    void handleItemSelection();
-    void handleMouseActions();
 
 public:
 	Player();
@@ -33,5 +19,28 @@ public:
     int getSelectedItemIndex() const;
 
 	void takeDamage();
+
+private:
+    const int maxHealth = 10;
+    int health = maxHealth;
+    const int heartSize = 32;
+    const glm::ivec2 heartLinePosition = glm::ivec2(425, 20);
+    Texture textureHeart;
+    Sprite *spriteHeart = nullptr;
+
+    bool damaged = false;
+    const int damageBlinkFrequency = 300;
+    const int invulnerabilityPeriod = 2000;
+    int invulnerabilityTimer = invulnerabilityPeriod;
+
+    Inventory inventory;
+    Item *selectedItem = nullptr;
+    int selectedItemIndex = 0;
+
+protected:
+    virtual void move(int deltaTime);
+    void handleItemSelection();
+    void handleMouseActions();
+    void renderHearts(ShaderProgram &program);
 };
 

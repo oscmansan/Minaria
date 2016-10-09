@@ -60,7 +60,7 @@ void Inventory::renderSlots()
             Sprite *itemSprite = Sprite::createSprite(itemSize, glm::vec2(1.0f), itTexture, program);
 
             glm::ivec2 itemPos = slotPos + (slotSize - itemSize) / 2;
-            glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(itemPos.x, itemPos.y, 0.f));
+            glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(itemPos.x, itemPos.y, 1.f));
             program->setUniformMatrix4f("model", model);
             itemSprite->render();
             delete itemSprite;
@@ -76,7 +76,6 @@ Rect Inventory::getSlotScreenRect(int i) const
     glm::ivec2 slotPos = position +
                          (padding + slotSize) * glm::ivec2(i, 0) +
                          padding;
-
     return Rect(slotPos.x,  slotPos.y,
                 slotSize.x, slotSize.y);
 }

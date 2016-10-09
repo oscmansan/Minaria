@@ -13,7 +13,7 @@ Scene::Scene()
 	player = NULL;
 	camera = NULL;
 
-	Scene::singleton = this;
+    Scene::singleton = this;
 }
 
 Scene::~Scene()
@@ -53,6 +53,10 @@ void Scene::init()
 	initShaders();
 	//map = TileMap::createTileMap("levels/level02.txt", texProgram);
 	generateProceduralTilemap(); 
+
+    textureBg.loadFromFile("images/background.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    spriteBg = Sprite::createSprite(glm::ivec2(SCREEN_WIDTH, SCREEN_HEIGHT), glm::vec2(1.0f),
+                                    &textureBg, &texProgram);
 
 	projection = glm::ortho(0.f, float(SCREEN_WIDTH - 1), float(SCREEN_HEIGHT - 1), 0.f);
 	currentTime = 0.0f;
@@ -96,7 +100,9 @@ void Scene::render()
 
 	texProgram.use();
 
-	texProgram.setUniformMatrix4f("projection", projection);
+    texProgram.setUniformMatrix4f("projection", projection);
+    texProgram.setUniformMatrix4f("model", glm::mat4(1.0f));
+    spriteBg->render();
 
 	glm::mat4 view = camera->getView();
 	texProgram.setUniformMatrix4f("view", view);

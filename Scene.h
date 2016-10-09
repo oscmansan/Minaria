@@ -43,6 +43,8 @@ private:
 private:
 	Player *player;
 	Camera *camera;
+    Texture textureBg;
+    Sprite *spriteBg = NULL;
 	std::list<Character*> characters;
 
 	TileMap *map;

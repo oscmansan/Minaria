@@ -10,14 +10,28 @@
 
 Player::Player() {}
 
-
-Player::~Player() {}
+Player::~Player()
+{
+    delete spriteHeart;
+}
 
 
 void Player::init(ShaderProgram &shaderProgram)
 {
 	Character::init(shaderProgram);
 
+    // Heart
+    textureHeart.loadFromFile("images/heartSpritesheet.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    textureHeart.setMinFilter(GL_NEAREST);
+    textureHeart.setWrapS(GL_CLAMP_TO_EDGE);
+    spriteHeart = Sprite::createSprite(glm::ivec2(heartSize), glm::vec2(0.29f, 1.0f), &textureHeart, &shaderProgram);
+    spriteHeart->setNumberAnimations(3);
+    spriteHeart->addKeyframe(0, glm::vec2(0.7f, 0.f));
+    spriteHeart->addKeyframe(1, glm::vec2(0.35f, 0.f));
+    spriteHeart->addKeyframe(2, glm::vec2(0.0f, 0.f));
+    //
+
+    // Player
 	spritesheet.loadFromFile("images/bub.png", TEXTURE_PIXEL_FORMAT_RGBA);
 	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25, 0.25), &spritesheet, &shaderProgram);
 	sprite->setNumberAnimations(4);
@@ -37,6 +51,7 @@ void Player::init(ShaderProgram &shaderProgram)
 	sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.f));
 	sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.25f));
 	sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.5f));
+    //
 
     inventory.init(shaderProgram);
 
@@ -68,6 +83,7 @@ void Player::update(int deltaTime)
 void Player::render(ShaderProgram &program)
 {
     Character::render(program);
+    renderHearts(program);
     inventory.render();
 }
 
@@ -194,7 +210,33 @@ void Player::handleMouseActions()
     }
 }
 
+void Player::renderHearts(ShaderProgram &program)
+{
+    int heartMarginX = 10;
+    for (int i = 0; i < maxHealth/2; ++i)
+    {
+        glm::ivec2 heartPos = heartLinePosition + (heartSize + heartMarginX) * glm::ivec2(i, 0);
+        glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(heartPos.x, heartPos.y, 1.f));
+        program.setUniformMatrix4f("model", model);
+        program.setUniformMatrix4f("view", glm::mat4(1.0f));
+        if ((i+1)*2 <= health)
+        {
+            spriteHeart->changeAnimation(2); // FULL HEART
+        }
+        else
+        {
+            if (i*2 + 1 == health) spriteHeart->changeAnimation(1); // MID HEART
+            else spriteHeart->changeAnimation(0); // EMPTY HEART
+        }
+        spriteHeart->render();
+    }
+}
+
 void Player::takeDamage()
 {
-	damaged = true;
+    if (!damaged)
+    {
+        damaged = true;
+        --health;
+    }
 }
