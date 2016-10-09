@@ -42,11 +42,13 @@ public:
 	void mousePress(int button);
 	void mouseRelease(int button);
 
-	glm::ivec2 getMousePos() const;
+    glm::ivec2 getMousePosScreen() const;
 	glm::ivec2 getMousePosWorld() const;
 	bool getMouseLeftButtonDown() const;
 	bool getMouseRightButtonDown() const;
 	bool getKey(int key) const;
+    bool getKeyUp(int key) const;
+    bool getKeyDown(int key) const;
 	bool getSpecialKey(int key) const;
 
 private:
@@ -57,7 +59,8 @@ private:
 	bool bPlay;                       // Continue to play game?
 	Scene scene;                      // Scene to render
 	bool keys[256], specialKeys[256]; // Store key states so that 
-	                                  // we can have access at any time
+                                      // we can have access at any time
+    bool keysLast[256], specialKeysLast[256]; // Store last frame key states so that
 
 };
 

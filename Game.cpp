@@ -22,6 +22,8 @@ void Game::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	scene.render();
+    for (int i = 0; i < 256; ++i) { keysLast[i] = keys[i]; }
+    for (int i = 0; i < 256; ++i) { specialKeysLast[i] = specialKeys[i]; }
 }
 
 void Game::keyPressed(int key)
@@ -73,18 +75,29 @@ bool Game::getMouseRightButtonDown() const
 	return mouseRightButtonDown;
 }
 
-glm::ivec2 Game::getMousePos() const
+glm::ivec2 Game::getMousePosScreen() const
 {
 	return mousePos;
 }
 
 glm::ivec2 Game::getMousePosWorld() const
 {
-	glm::ivec2 mousePosScreen = getMousePos();
+    glm::ivec2 mousePosScreen = getMousePosScreen();
 	glm::vec4 v4 = glm::vec4(mousePosScreen.x, mousePosScreen.y, 0, 1);
 	v4 = glm::inverse(Scene::getCamera()->getView()) * v4; // Pass to world space
 	return glm::ivec2(v4.x, v4.y);
 }
+
+bool Game::getKeyUp(int key) const
+{
+    return keysLast[key] && !keys[key];
+}
+
+bool Game::getKeyDown(int key) const
+{
+    return !keysLast[key] && keys[key];
+}
+
 
 bool Game::getKey(int key) const
 {

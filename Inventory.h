@@ -4,7 +4,14 @@
 #include <vector>
 #include <iostream>
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+
 #include "Item.h"
+#include "Sprite.h"
+#include "Texture.h"
+#include "ShaderProgram.h"
+#include "Rect.h"
 
 using namespace std;
 
@@ -15,9 +22,32 @@ public:
 	~Inventory();
 
 private:
-    vector<Item*> items = vector<Item*>(5, NULL);
+    const int numSlots = 7;
+    vector<Item*> items = vector<Item*>(numSlots, NULL);
+
+    glm::ivec2 position = glm::ivec2(10, 10);
+    glm::ivec2 size = glm::ivec2(400, 50);
+    glm::ivec2 slotSize = glm::ivec2(40, 40);
+    glm::ivec2 itemSize = glm::ivec2(30, 30);
+
+    ShaderProgram *program = nullptr;
+    Texture *textureBg = nullptr;
+    Texture *textureSlot = nullptr;
+    Sprite *spriteBg   = nullptr;
+    Sprite *spriteSlot = nullptr;
+
+    glm::vec4 selectedSlotTint = glm::vec4(1, 0, 0, 0.5f);
+
+    void renderBackground();
+    void renderSlots();
 
 public:
+
+    void init(ShaderProgram &sp);
+
+    void update();
+    void render();
+
 	template<class T>
     void addItem()
 	{
@@ -48,15 +78,29 @@ public:
 			}
 		}
 		return NULL;
-	}
+    }
+
+    Item* getItem(int i) const;
 
 	template <class T>
     int getAmount() const
 	{
         Item *it = getItem<T>();
         return it ? it->getAmount() : 0;
-	}
+    }
 
+    template <class T>
+    int indexOf() const
+    {
+        Item *it = getItem<T>();
+        return indexOf(it);
+    }
+
+    Rect getSlotScreenRect(int i) const;
+
+    int getNumSlots() const;
+
+    int indexOf(Item *it) const;
 	void dropItem(int index);
 
 };

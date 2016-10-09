@@ -4,6 +4,8 @@
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Block.cpp
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Item.h
+CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Texture.h
+CMakeFiles/TerrariaLinux.dir/Block.cpp.o: /usr/local/include/GL/glew.h
 
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: AnimKeyframes.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Block.h
@@ -81,12 +83,28 @@ CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: TileMap.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: /usr/local/include/GL/glew.h
 
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: AnimKeyframes.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Block.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Camera.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Character.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Enemy.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Inventory.cpp
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Inventory.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Item.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Player.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Rect.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Scene.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Shader.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: ShaderProgram.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Sprite.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Texture.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: TileMap.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: /usr/local/include/GL/glew.h
 
 CMakeFiles/TerrariaLinux.dir/Item.cpp.o: Item.cpp
 CMakeFiles/TerrariaLinux.dir/Item.cpp.o: Item.h
+CMakeFiles/TerrariaLinux.dir/Item.cpp.o: Texture.h
+CMakeFiles/TerrariaLinux.dir/Item.cpp.o: /usr/local/include/GL/glew.h
 
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: AnimKeyframes.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Block.h

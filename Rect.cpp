@@ -17,6 +17,16 @@ Rect::~Rect()
 {
 }
 
+glm::ivec2 Rect::getMin() const
+{
+    return glm::ivec2(x, y);
+}
+
+glm::ivec2 Rect::getMax() const
+{
+    return getMin() + glm::ivec2(width, height);
+}
+
 bool Rect::intersects(const Rect &r) const
 {
 	return 

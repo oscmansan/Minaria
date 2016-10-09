@@ -73,7 +73,7 @@ void Scene::init()
 	}
 	
 	camera = new Camera();
-	camera->init(player->getPosition());
+    camera->init(player->getPosition());
 
 	// Add to the list of characters
 	characters.push_back(player);
@@ -176,7 +176,7 @@ void Scene::generateProceduralTilemap()
 		float yAngle = (float(i) / width) * 2 * 3.1415926f * mountainsFreq;
 		glm::ivec2 pos = glm::ivec2(i * tileSize, 
 									((height - 1) - (glm::sin(yAngle) * mountainsAmplitude + 10)) * tileSize);
-		map->addTile(pos, 1);
+        map->addTile(pos, rand() % 4 + 1);
 	}
 }
 

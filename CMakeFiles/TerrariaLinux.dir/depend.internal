@@ -5,6 +5,8 @@ CMakeFiles/TerrariaLinux.dir/Block.cpp.o
  /home/sephirot47/TerrariaLinux/Block.cpp
  /home/sephirot47/TerrariaLinux/Block.h
  /home/sephirot47/TerrariaLinux/Item.h
+ /home/sephirot47/TerrariaLinux/Texture.h
+ /usr/local/include/GL/glew.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o
  /home/sephirot47/TerrariaLinux/AnimKeyframes.h
  /home/sephirot47/TerrariaLinux/Block.h
@@ -82,12 +84,28 @@ CMakeFiles/TerrariaLinux.dir/Game.cpp.o
  /home/sephirot47/TerrariaLinux/TileMap.h
  /usr/local/include/GL/glew.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o
+ /home/sephirot47/TerrariaLinux/AnimKeyframes.h
+ /home/sephirot47/TerrariaLinux/Block.h
+ /home/sephirot47/TerrariaLinux/Camera.h
+ /home/sephirot47/TerrariaLinux/Character.h
+ /home/sephirot47/TerrariaLinux/Enemy.h
  /home/sephirot47/TerrariaLinux/Inventory.cpp
  /home/sephirot47/TerrariaLinux/Inventory.h
  /home/sephirot47/TerrariaLinux/Item.h
+ /home/sephirot47/TerrariaLinux/Player.h
+ /home/sephirot47/TerrariaLinux/Rect.h
+ /home/sephirot47/TerrariaLinux/Scene.h
+ /home/sephirot47/TerrariaLinux/Shader.h
+ /home/sephirot47/TerrariaLinux/ShaderProgram.h
+ /home/sephirot47/TerrariaLinux/Sprite.h
+ /home/sephirot47/TerrariaLinux/Texture.h
+ /home/sephirot47/TerrariaLinux/TileMap.h
+ /usr/local/include/GL/glew.h
 CMakeFiles/TerrariaLinux.dir/Item.cpp.o
  /home/sephirot47/TerrariaLinux/Item.cpp
  /home/sephirot47/TerrariaLinux/Item.h
+ /home/sephirot47/TerrariaLinux/Texture.h
+ /usr/local/include/GL/glew.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o
  /home/sephirot47/TerrariaLinux/AnimKeyframes.h
  /home/sephirot47/TerrariaLinux/Block.h

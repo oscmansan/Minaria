@@ -8,17 +8,40 @@ class Block :
 public:
     enum Type
     {
-        TYPE_GOLD,
-        TYPE_RUBY,
-        TYPE_EMERALD,
-        TYPE_SAPPHIRE
+        TYPE_GOLD     = 1,
+        TYPE_SAPPHIRE = 2,
+        TYPE_RUBY     = 3,
+        TYPE_EMERALD  = 4
     };
 
-    Block();
     virtual ~Block();
+    Type getType() const;
+
+protected:
+    Block();
+    Type type;
 };
 
-class BlockGold     : public Block {};
-class BlockRuby     : public Block {};
-class BlockEmerald  : public Block {};
-class BlockSapphire : public Block {};
+class BlockGold : public Block
+{
+public:
+    BlockGold();
+};
+
+class BlockSapphire : public Block
+{
+public:
+    BlockSapphire();
+};
+
+class BlockRuby : public Block
+{
+public:
+    BlockRuby();
+};
+
+class BlockEmerald : public Block
+{
+public:
+    BlockEmerald();
+};

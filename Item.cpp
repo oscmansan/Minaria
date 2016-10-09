@@ -9,14 +9,22 @@ Item::~Item()
 {
 }
 
-int Item::getAmount() const {
-	return amount;
+Texture* Item::getItemTexture() const
+{
+    return itemTexture;
 }
 
-void Item::increaseAmount() {
+int Item::getAmount() const
+{
+    return amount;
+}
+
+void Item::increaseAmount()
+{
 	++amount;
 }
 
-void Item::decreaseAmount() {
+void Item::decreaseAmount()
+{
 	--amount;
 }

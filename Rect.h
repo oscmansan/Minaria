@@ -13,6 +13,9 @@ public:
 
 	int x = 0, y = 0, width = 0, height = 0;
 	
+    glm::ivec2 getMin() const;
+    glm::ivec2 getMax() const;
+
 	bool intersects(const Rect &r) const;
 	bool contains(const glm::ivec2 &point) const;
 
