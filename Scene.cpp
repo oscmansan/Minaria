@@ -110,6 +110,7 @@ void Scene::render()
 
 	texProgram.setUniform4f("color", 1.0f, 1.0f, 1.0f, 1.0f);
 	texProgram.setUniform2f("texCoordDispl", 0.f, 0.f);
+    texProgram.setUniform2f("windowSize", SCREEN_WIDTH, SCREEN_HEIGHT);
 
 	map->render();
 
@@ -167,37 +168,69 @@ void Scene::generateProceduralTilemap()
 	int tileSize = map->getTileSize();
 	glm::ivec2 mapSize = map->getTotalSizeWorld();
 
-    int groundStartingY = 2000;
+    int groundStartingY = (height - height/4) * tileSize;
 	// Add flat ground
     for (int x = 0; x < width; ++x)
 	{
         glm::ivec2 pos = glm::ivec2(x * tileSize, groundStartingY);
-        for (int dy = 0; dy < SCREEN_HEIGHT; dy += tileSize)
+        for (int dy = 0; dy <= groundStartingY; dy += tileSize)
         {
             map->addTile(pos + glm::ivec2(0, dy), 1, false);
         }
-	}
+    }
 
     // Add mountains using sinus of grounds
     srand(time(0));
-    float sinSpeed1 = float(rand()%10)/10.0f + 0.5f;
-    float sinSpeed2 = float(rand()%10)/10.0f + 0.5f;
-    float sinSpeed3 = float(rand()%10)/10.0f + 0.5f;
-	for (int i = 0; i < width; ++i)
+    float sinSpeed1 = float(rand()%10)/10.0f + 1.0f;
+    float sinSpeed2 = float(rand()%10)/10.0f + 1.0f;
+    float sinSpeed3 = float(rand()%10)/10.0f + 1.0f;
+    for (int i = 0; i < width; ++i)
 	{
-		float mountainsFreq = 5;
-		float mountainsAmplitude = 5;
+        float mountainsFreq = 8;
+        float mountainsAmplitude = 2.0f;
 		float yAngle = (float(i) / width) * 2 * 3.1415926f * mountainsFreq;
         glm::ivec2 pos = glm::ivec2(i * tileSize, groundStartingY);
-        pos.y += (glm::sin(yAngle * sinSpeed1) * mountainsAmplitude * 0.6f - 10) * tileSize;
-        pos.y += (glm::cos(yAngle * sinSpeed2) * mountainsAmplitude * 0.4f - 10) * tileSize;
-        pos.y += (glm::sin(yAngle * sinSpeed3) * mountainsAmplitude * 0.4f - 10) * tileSize;
+        pos.y += (glm::sin(yAngle * sinSpeed1) * mountainsAmplitude) * tileSize;
+        pos.y += (glm::cos(yAngle * sinSpeed2) * mountainsAmplitude) * tileSize;
+        pos.y += (glm::sin(yAngle * sinSpeed3) * mountainsAmplitude) * tileSize;
+        pos.y -= 60;
 
-        for (int dy = 0; dy < SCREEN_HEIGHT; dy += tileSize)
+        for (int dy = 0; dy < mapSize.y; dy += tileSize)
         {
             map->addTile(pos + glm::ivec2(0,dy), 1, false);
         }
-	}
+    }
+
+
+    // Add minerals and holes
+    PerlinNoise perlinSapphire(time(0) * rand()),
+                perlinRuby(time(0) * rand()),
+                perlinEmerald(time(0) * rand()),
+                perlinHoles(time(0) * rand());
+    for (int x = 0; x < width; ++x)
+    {
+        for (int y = 0; y < height; ++y)
+        {
+            glm::ivec2 pos = glm::ivec2(x,y) * tileSize;
+            const float minRange = 0.0f, maxRange = 0.03f;
+            const int octaves = 8;
+            float p = 0;
+            if (map->getTileAt(pos) == 1)
+            {
+                float perlinx = float(pos.x) / map->getTotalSizeWorld().x * 10.0f;
+                float perliny = float(pos.y) / map->getTotalSizeWorld().y * 10.0f;
+                p = perlinSapphire.octaveNoise(perlinx, perliny, octaves);
+                if (p > minRange && p < maxRange) { map->addTile(pos, Block::Type::SAPPHIRE, false); }
+                p = perlinRuby.octaveNoise(perlinx, perliny, octaves);
+                if (p > minRange && p < maxRange) { map->addTile(pos, Block::Type::RUBY, false); }
+                p = perlinEmerald.octaveNoise(perlinx, perliny, octaves);
+                if (p > minRange && p < maxRange) { map->addTile(pos, Block::Type::EMERALD, false); }
+
+                float ph = perlinHoles.octaveNoise(perlinx, perliny, octaves);
+                if (ph > 0.35f || ph < -0.35f) { map->delTile(pos, false); }
+            }
+        }
+    }
 
     // Add side big walls
     for (int x = 25; x >= 0; --x)
@@ -211,42 +244,6 @@ void Scene::generateProceduralTilemap()
         }
     }
 
-    const int NumMineralPotatoes = 300;
-    for (int i = 0; i < NumMineralPotatoes; ++i)
-    {
-        addTerrainPotato();
-    }
-
     map->updateVAO();
-}
-
-void Scene::addTerrainPotato()
-{
-    int blockType = rand() % 3 + 2;
-    glm::ivec2 center;
-    int tileSize = map->getTileSize();
-    while (true)
-    {
-        center = glm::ivec2(rand() % map->getTotalSizeWorld().x,
-                            rand() % map->getTotalSizeWorld().y);
-
-        // Find the center of the tile in a terrain
-        if (map->getTileAt(center) == 1)
-        {
-            // Add potato, with decreasing probability around its center
-            for (int dy = -2; rand() % int(max(1.0, abs(dy * 1.5 + 1))) == 0; ++dy)
-            {
-                for (int dx = -2; rand() % int(max(1.0, abs(dx * 1.5 + 1))) == 0; ++dx)
-                {
-                    glm::ivec2 newPos = center + glm::ivec2(dx,dy) * tileSize;
-                    if (map->getTileAt(newPos) == 1)
-                    {
-                        map->addTile(newPos, blockType, false);
-                    }
-                }
-            }
-            break;
-        }
-    }
 }
 

@@ -18,7 +18,7 @@ Sprite::Sprite(const glm::ivec2 &quadSize, const glm::vec2 &sizeInSpritesheet, T
 					      quadSize.x, quadSize.y, sizeInSpritesheet.x, sizeInSpritesheet.y, 
 						  0.f, 0.f, 0.f, 0.f, 
 					      quadSize.x, quadSize.y, sizeInSpritesheet.x, sizeInSpritesheet.y, 
-						  0.f, quadSize.y, 0.f, sizeInSpritesheet.y};
+                          0.f, quadSize.y, 0.f, sizeInSpritesheet.y};
 
 	glGenVertexArrays(1, &vao);
 	glBindVertexArray(vao);
@@ -51,6 +51,7 @@ void Sprite::render() const
 {
 	if (!visible) return;
 
+    shaderProgram->setUniform1f("noiseAlpha", noiseAlpha);
 	shaderProgram->setUniform4f("tint", tint.x, tint.y, tint.z, tint.a);
 	shaderProgram->setUniform2f("texCoordDispl", texCoordDispl.x, texCoordDispl.y);
 	glEnable(GL_TEXTURE_2D);
@@ -123,5 +124,10 @@ void Sprite::setTint(glm::vec4 tint)
 
 glm::vec4 Sprite::getTint() const
 {
-	return tint;
+    return tint;
+}
+
+void Sprite::setNoiseAlpha(float alpha)
+{
+    noiseAlpha = alpha;
 }

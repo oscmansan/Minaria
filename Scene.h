@@ -10,6 +10,7 @@
 #include "Character.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "PerlinNoise.h"
 
 
 // Scene contains all the entities of our game.
@@ -53,7 +54,6 @@ private:
 	glm::mat4 projection;
 
     void generateProceduralTilemap();
-    void addTerrainPotato();
 };
 
 

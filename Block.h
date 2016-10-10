@@ -25,12 +25,12 @@ public:
 
 protected:
     Block();
-    Type type;
-    State state;
+    Type type = Type::GOLD;
+    State state = State::FULL;
     Texture *texture_full;
     Texture *texture_mid;
     Texture *texture_gone;
-    Texture *getTexture();
+    Texture *getTexture() const;
 };
 
 class BlockGold : public Block
@@ -39,25 +39,40 @@ public:
     BlockGold();
 
 private:
-    static Texture *texture_full;
-    static Texture *texture_mid;
-    static Texture *texture_gone;
+    static Texture *s_texture_full;
+    static Texture *s_texture_mid;
+    static Texture *s_texture_gone;
 };
 
 class BlockSapphire : public Block
 {
 public:
     BlockSapphire();
+
+private:
+    static Texture *s_texture_full;
+    static Texture *s_texture_mid;
+    static Texture *s_texture_gone;
 };
 
 class BlockRuby : public Block
 {
 public:
     BlockRuby();
+
+private:
+    static Texture *s_texture_full;
+    static Texture *s_texture_mid;
+    static Texture *s_texture_gone;
 };
 
 class BlockEmerald : public Block
 {
 public:
     BlockEmerald();
+
+private:
+    static Texture *s_texture_full;
+    static Texture *s_texture_mid;
+    static Texture *s_texture_gone;
 };

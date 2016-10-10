@@ -279,6 +279,30 @@ Item.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Item.cpp.s
 .PHONY : Item.cpp.s
 
+PerlinNoise.o: PerlinNoise.cpp.o
+.PHONY : PerlinNoise.o
+
+# target to build an object file
+PerlinNoise.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.o
+.PHONY : PerlinNoise.cpp.o
+
+PerlinNoise.i: PerlinNoise.cpp.i
+.PHONY : PerlinNoise.i
+
+# target to preprocess a source file
+PerlinNoise.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.i
+.PHONY : PerlinNoise.cpp.i
+
+PerlinNoise.s: PerlinNoise.cpp.s
+.PHONY : PerlinNoise.s
+
+# target to generate assembly for a file
+PerlinNoise.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.s
+.PHONY : PerlinNoise.cpp.s
+
 Player.o: Player.cpp.o
 .PHONY : Player.o
 
@@ -525,6 +549,9 @@ help:
 	@echo "... Item.o"
 	@echo "... Item.i"
 	@echo "... Item.s"
+	@echo "... PerlinNoise.o"
+	@echo "... PerlinNoise.i"
+	@echo "... PerlinNoise.s"
 	@echo "... Player.o"
 	@echo "... Player.i"
 	@echo "... Player.s"

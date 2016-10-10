@@ -30,8 +30,8 @@ TileMap::TileMap(glm::ivec2 size, ShaderProgram &program)
 
 	// Specify sizes
 	mapSize = size;
-	tileSize = 16;                   //
-	blockSize = 32;                  //
+    tileSize = 16;                   //
+    blockSize = 32;                  //
 
 	// Tilesheet related
 	const string tilesheetFile = "images/blocks.png";  // Tilesheet location
@@ -76,6 +76,7 @@ void TileMap::render()
 	glEnableVertexAttribArray(posLocation);
 	glEnableVertexAttribArray(texCoordLocation);
 	program->setUniform4f("tint", 0, 0, 0, 0);
+    program->setUniform1f("noiseAlpha", 0.3f);
 	glDrawArrays(GL_TRIANGLES, 0, 6 * mapSize.x * mapSize.y);
 	glDisable(GL_TEXTURE_2D);
 }
@@ -291,13 +292,13 @@ bool TileMap::addTile(const glm::ivec2 &posWorld, int type, bool mustUpdateVAO)
     return true;
 }
 
-void TileMap::delTile(const glm::ivec2 &posWorld)
+void TileMap::delTile(const glm::ivec2 &posWorld, bool mustUpdateVAO)
 {
 	int idx = worldPosToIndex(posWorld);
 	if (idx >= 0 && idx < (mapSize.x * mapSize.y))
 	{
-		map[idx] = 0;
-        updateVAO();
+        map[idx] = 0;
+        if (mustUpdateVAO) updateVAO();
 	}
 }
 

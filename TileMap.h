@@ -39,7 +39,7 @@ public:
 	bool collisionMoveUp(const glm::ivec2 &pos, const glm::ivec2 &size, int *posY) const;
 
     bool addTile(const glm::ivec2 &posWorld, int type, bool mustUpdateVAO = true);
-    void delTile(const glm::ivec2 &posWorld);
+    void delTile(const glm::ivec2 &posWorld, bool mustUpdateVAO = true);
     int getTileAt(const glm::ivec2 &posWorld) const;
     Block::Type getBlock(const glm::ivec2 &posWorld) const;
 

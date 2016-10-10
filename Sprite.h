@@ -40,9 +40,12 @@ public:
 	void setTint(glm::vec4 tint);
 	glm::vec4 getTint() const;
 
+    void setNoiseAlpha(float alpha);
+
 private:
-	Texture *texture;
-	ShaderProgram *shaderProgram;
+    Texture *texture = NULL;
+    float noiseAlpha = 0.0f;
+    ShaderProgram *shaderProgram = NULL;
 	GLuint vao;
 	GLuint vbo;
 	GLint posLocation, texCoordLocation;

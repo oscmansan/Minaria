@@ -118,14 +118,14 @@ void Player::move(int deltaTime)
 		{
 			if (sprite->animation() != MOVE_LEFT)
 				sprite->changeAnimation(MOVE_LEFT);
-			velocity.x = -2;
+            velocity.x = -8;
 		}
 
 		if (rightPressed)
 		{
 			if (sprite->animation() != MOVE_RIGHT)
 				sprite->changeAnimation(MOVE_RIGHT);
-			velocity.x = 2;
+            velocity.x = 8;
 		}
 	}
 

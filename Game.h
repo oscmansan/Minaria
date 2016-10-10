@@ -44,6 +44,8 @@ public:
 
     glm::ivec2 getMousePosScreen() const;
 	glm::ivec2 getMousePosWorld() const;
+    bool getMouseLeftButton() const;
+    bool getMouseRightButton() const;
 	bool getMouseLeftButtonDown() const;
 	bool getMouseRightButtonDown() const;
 	bool getKey(int key) const;
@@ -53,8 +55,8 @@ public:
 
 private:
 	glm::ivec2 mousePos;
-	bool mouseLeftButtonDown;
-	bool mouseRightButtonDown;
+    bool mouseLeftButtonLast, mouseLeftButton;
+    bool mouseRightButtonLast, mouseRightButton;
 
 	bool bPlay;                       // Continue to play game?
 	Scene scene;                      // Scene to render

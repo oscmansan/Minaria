@@ -8,13 +8,12 @@ void Game::init()
 {
 	bPlay = true;
 	glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
-	scene.init();
+    scene.init();
 }
 
 bool Game::update(int deltaTime)
 {
-	scene.update(deltaTime);
-	
+    scene.update(deltaTime);
 	return bPlay;
 }
 
@@ -24,6 +23,8 @@ void Game::render()
 	scene.render();
     for (int i = 0; i < 256; ++i) { keysLast[i] = keys[i]; }
     for (int i = 0; i < 256; ++i) { specialKeysLast[i] = specialKeys[i]; }
+    mouseLeftButtonLast  = mouseLeftButton;
+    mouseRightButtonLast = mouseRightButton;
 }
 
 void Game::keyPressed(int key)
@@ -55,24 +56,24 @@ void Game::mouseMove(int x, int y)
 
 void Game::mousePress(int button)
 {
-	mouseLeftButtonDown  = (button == 0);
-	mouseRightButtonDown = (button == 2);
+    mouseLeftButton  = mouseLeftButton  || (button == 0);
+    mouseRightButton = mouseRightButton || (button == 2);
 }
 
 void Game::mouseRelease(int button)
 {
-	mouseLeftButtonDown  = mouseLeftButtonDown  && !(button == 0);
-	mouseRightButtonDown = mouseRightButtonDown && !(button == 2);
+    mouseLeftButton  = mouseLeftButton  && !(button == 0);
+    mouseRightButton = mouseRightButton && !(button == 2);
 }
 
 bool Game::getMouseLeftButtonDown() const
 {
-	return mouseLeftButtonDown;
+    return !mouseLeftButtonLast && mouseLeftButton;
 }
 
 bool Game::getMouseRightButtonDown() const
 {
-	return mouseRightButtonDown;
+    return !mouseRightButtonLast && mouseRightButton;
 }
 
 glm::ivec2 Game::getMousePosScreen() const
@@ -85,7 +86,17 @@ glm::ivec2 Game::getMousePosWorld() const
     glm::ivec2 mousePosScreen = getMousePosScreen();
 	glm::vec4 v4 = glm::vec4(mousePosScreen.x, mousePosScreen.y, 0, 1);
 	v4 = glm::inverse(Scene::getCamera()->getView()) * v4; // Pass to world space
-	return glm::ivec2(v4.x, v4.y);
+    return glm::ivec2(v4.x, v4.y);
+}
+
+bool Game::getMouseLeftButton() const
+{
+    return mouseLeftButton;
+}
+
+bool Game::getMouseRightButton() const
+{
+    return mouseRightButton;
 }
 
 bool Game::getKeyUp(int key) const

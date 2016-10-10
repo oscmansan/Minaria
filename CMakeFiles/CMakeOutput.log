@@ -351,3 +351,105 @@ Linking C executable cmTryCompileExec3977064702
 make[1]: Leaving directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
 
 
+Determining if the function XOpenDisplay exists in the /usr/lib/i386-linux-gnu/libX11.so;/usr/lib/i386-linux-gnu/libXext.so passed with the following output:
+Change Dir: /home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec1086224890/fast"
+make[1]: Entering directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec1086224890.dir/build.make CMakeFiles/cmTryCompileExec1086224890.dir/build
+make[2]: Entering directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec1086224890.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTryCompileExec1086224890.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec1086224890
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec1086224890.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTryCompileExec1086224890.dir/CheckFunctionExists.c.o  -o cmTryCompileExec1086224890 -rdynamic -lX11 -lXext 
+make[2]: Leaving directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+
+
+Determining if the function gethostbyname exists passed with the following output:
+Change Dir: /home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3438281962/fast"
+make[1]: Entering directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3438281962.dir/build.make CMakeFiles/cmTryCompileExec3438281962.dir/build
+make[2]: Entering directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3438281962.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTryCompileExec3438281962.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3438281962
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3438281962.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTryCompileExec3438281962.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3438281962 -rdynamic 
+make[2]: Leaving directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+
+
+Determining if the function connect exists passed with the following output:
+Change Dir: /home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec750044014/fast"
+make[1]: Entering directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec750044014.dir/build.make CMakeFiles/cmTryCompileExec750044014.dir/build
+make[2]: Entering directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec750044014.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTryCompileExec750044014.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec750044014
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec750044014.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTryCompileExec750044014.dir/CheckFunctionExists.c.o  -o cmTryCompileExec750044014 -rdynamic 
+make[2]: Leaving directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+
+
+Determining if the function remove exists passed with the following output:
+Change Dir: /home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec3191274426/fast"
+make[1]: Entering directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3191274426.dir/build.make CMakeFiles/cmTryCompileExec3191274426.dir/build
+make[2]: Entering directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec3191274426.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTryCompileExec3191274426.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec3191274426
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec3191274426.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTryCompileExec3191274426.dir/CheckFunctionExists.c.o  -o cmTryCompileExec3191274426 -rdynamic 
+make[2]: Leaving directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+
+
+Determining if the function shmat exists passed with the following output:
+Change Dir: /home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec587062374/fast"
+make[1]: Entering directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec587062374.dir/build.make CMakeFiles/cmTryCompileExec587062374.dir/build
+make[2]: Entering directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec587062374.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTryCompileExec587062374.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec587062374
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec587062374.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTryCompileExec587062374.dir/CheckFunctionExists.c.o  -o cmTryCompileExec587062374 -rdynamic 
+make[2]: Leaving directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+
+
+Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
+Change Dir: /home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec55420021/fast"
+make[1]: Entering directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTryCompileExec55420021.dir/build.make CMakeFiles/cmTryCompileExec55420021.dir/build
+make[2]: Entering directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec55420021.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTryCompileExec55420021.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
+Linking C executable cmTryCompileExec55420021
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTryCompileExec55420021.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTryCompileExec55420021.dir/CheckFunctionExists.c.o  -o cmTryCompileExec55420021 -rdynamic -lICE 
+make[2]: Leaving directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/sephirot47/Terraria-linux/CMakeFiles/CMakeTmp'
+
+
