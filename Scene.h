@@ -52,7 +52,8 @@ private:
 	int currentTime;
 	glm::mat4 projection;
 
-	void generateProceduralTilemap();
+    void generateProceduralTilemap();
+    void addTerrainPotato();
 };
 
 

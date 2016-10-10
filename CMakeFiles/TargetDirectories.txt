@@ -1,1 +1,1 @@
-/home/sephirot47/TerrariaLinux/CMakeFiles/TerrariaLinux.dir
+/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir
