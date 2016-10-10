@@ -58,7 +58,7 @@ TileMap::TileMap(const string &levelFile, ShaderProgram &program)
 {
 	this->program = &program;
 	loadLevel(levelFile);
-	prepareArrays(program);
+    updateVAO();
 }
 
 TileMap::~TileMap()
@@ -138,7 +138,7 @@ bool TileMap::loadLevel(const string &levelFile)
 	return true;
 }
 
-void TileMap::prepareArrays(ShaderProgram &program)
+void TileMap::updateVAO()
 {
 	int tile, nTiles = 0;
 	glm::vec2 posTile, texCoordTile[2], halfTexel;
@@ -182,8 +182,8 @@ void TileMap::prepareArrays(ShaderProgram &program)
 	glGenBuffers(1, &vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glBufferData(GL_ARRAY_BUFFER, 24 * nTiles * sizeof(float), &vertices[0], GL_DYNAMIC_DRAW);
-	posLocation = program.bindVertexAttribute("position", 2, 4*sizeof(float), 0);
-	texCoordLocation = program.bindVertexAttribute("texCoord", 2, 4*sizeof(float), (void *)(2*sizeof(float)));
+    posLocation = program->bindVertexAttribute("position", 2, 4*sizeof(float), 0);
+    texCoordLocation = program->bindVertexAttribute("texCoord", 2, 4*sizeof(float), (void *)(2*sizeof(float)));
 }
 
 glm::ivec2 TileMap::getTotalSizeTiles() const
@@ -278,7 +278,7 @@ bool TileMap::collisionMoveDown(const glm::ivec2 &pos, const glm::ivec2 &size, i
 	return false;
 }
 
-bool TileMap::addTile(const glm::ivec2 &posWorld, int type)
+bool TileMap::addTile(const glm::ivec2 &posWorld, int type, bool mustUpdateVAO)
 {
     if (Scene::getInstance()->whosThere(posWorld)) return false;
 
@@ -286,7 +286,7 @@ bool TileMap::addTile(const glm::ivec2 &posWorld, int type)
 	if (idx >= 0 && idx < (mapSize.x * mapSize.y))
 	{
 		map[idx] = type;
-		prepareArrays(*program);
+        if (mustUpdateVAO) updateVAO();
 	}
     return true;
 }
@@ -297,7 +297,7 @@ void TileMap::delTile(const glm::ivec2 &posWorld)
 	if (idx >= 0 && idx < (mapSize.x * mapSize.y))
 	{
 		map[idx] = 0;
-		prepareArrays(*program);
+        updateVAO();
 	}
 }
 
