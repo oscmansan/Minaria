@@ -12,7 +12,7 @@ protected:
 	Item();
 	virtual ~Item();
 
-    Texture *itemTexture = nullptr;
+    Texture *itemTexture = NULL;
 
 private:
 	string name = "";

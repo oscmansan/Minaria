@@ -178,7 +178,7 @@ void Player::handleMouseActions()
 {
     TileMap *tmap = Scene::getTileMap();
     glm::ivec2 mousePos = Game::instance().getMousePosWorld();
-    if (Game::instance().getMouseLeftButtonDown())
+    if (Game::instance().getMouseLeftButton())
     {
         if (!tmap->getBlock(mousePos) != NULL) // Can it put a block where the mouse is?
         {
@@ -193,17 +193,17 @@ void Player::handleMouseActions()
             }
         }
     }
-    else if (Game::instance().getMouseRightButtonDown())
+    else if (Game::instance().getMouseRightButton())
     {
         Block::Type blockType = tmap->getBlock(mousePos);
         if (blockType != NULL)
         {
             switch (blockType)
             {
-                case Block::TYPE_GOLD:     inventory.addItem<BlockGold>();     break;
-                case Block::TYPE_SAPPHIRE: inventory.addItem<BlockSapphire>(); break;
-                case Block::TYPE_RUBY:     inventory.addItem<BlockRuby>();     break;
-                case Block::TYPE_EMERALD:  inventory.addItem<BlockEmerald>();  break;
+                case Block::GOLD:     inventory.addItem<BlockGold>();     break;
+                case Block::SAPPHIRE: inventory.addItem<BlockSapphire>(); break;
+                case Block::RUBY:     inventory.addItem<BlockRuby>();     break;
+                case Block::EMERALD:  inventory.addItem<BlockEmerald>();  break;
             }
             tmap->delTile(mousePos);
         }

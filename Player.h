@@ -23,10 +23,10 @@ public:
 private:
     const int maxHealth = 10;
     int health = maxHealth;
-    const int heartSize = 32;
-    const glm::ivec2 heartLinePosition = glm::ivec2(425, 20);
+    const int heartSize = 25;
+    const glm::ivec2 heartLinePosition = glm::ivec2(450, 15);
     Texture textureHeart;
-    Sprite *spriteHeart = nullptr;
+    Sprite *spriteHeart = NULL;
 
     bool damaged = false;
     const int damageBlinkFrequency = 300;
@@ -34,7 +34,7 @@ private:
     int invulnerabilityTimer = invulnerabilityPeriod;
 
     Inventory inventory;
-    Item *selectedItem = nullptr;
+    Item *selectedItem = NULL;
     int selectedItemIndex = 0;
 
 protected:

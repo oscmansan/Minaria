@@ -25,10 +25,10 @@ private:
     const int numSlots = 7;
     vector<Item*> items = vector<Item*>(numSlots, NULL);
 
-    const glm::ivec2 position = glm::ivec2(10, 10);
-    const glm::ivec2 size = glm::ivec2(400, 50);
-    const glm::ivec2 slotSize = glm::ivec2(40, 40);
-    const glm::ivec2 itemSize = glm::ivec2(30, 30);
+    const glm::ivec2 position = glm::ivec2(15, 15);
+    const glm::ivec2 size = glm::ivec2(200, 25);
+    const glm::ivec2 slotSize = glm::ivec2(20, 20);
+    const glm::ivec2 itemSize = glm::ivec2(15, 15);
 
     ShaderProgram *program = nullptr;
     Texture *textureBg = nullptr;
