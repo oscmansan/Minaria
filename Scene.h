@@ -48,7 +48,7 @@ private:
     Sprite *spriteBg = NULL;
 	std::list<Character*> characters;
 
-	TileMap *map;
+    TileMap *map, *mapBg;
 	ShaderProgram texProgram;
 	int currentTime;
 	glm::mat4 projection;

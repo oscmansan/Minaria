@@ -44,6 +44,7 @@ public:
     Block::Type getBlock(const glm::ivec2 &posWorld) const;
 
     void updateVAO();
+    void createBg();
 
 private:
     glm::ivec2 worldPosToTilePos(const glm::ivec2 &posWorld) const;
@@ -53,16 +54,15 @@ private:
     bool loadLevel(const string &levelFile);
 
 private:
-	GLuint vao;
-	GLuint vbo;
+    GLuint vao;
+    GLuint vbo;
 	GLint posLocation, texCoordLocation;
 	ShaderProgram *program;
 	glm::ivec2 mapSize, tilesheetSize;
 	int tileSize, blockSize;
 	Texture tilesheet;
 	glm::vec2 tileTexSize;
-	int *map;
-
+    int *map;
 };
 
 

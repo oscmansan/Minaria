@@ -20,6 +20,8 @@ Scene::~Scene()
 {
 	if(map != NULL)
 		delete map;
+    if(mapBg != NULL)
+        delete mapBg;
 	if (player != NULL)
 		delete player;
 }
@@ -112,6 +114,10 @@ void Scene::render()
 	texProgram.setUniform2f("texCoordDispl", 0.f, 0.f);
     texProgram.setUniform2f("windowSize", SCREEN_WIDTH, SCREEN_HEIGHT);
 
+    float bgTint = 0.4f;
+    texProgram.setUniform4f("tint", bgTint, bgTint, bgTint, 1);
+    mapBg->render();
+    texProgram.setUniform4f("tint", 0,0,0,0);
 	map->render();
 
 	for (Character *character : characters)
@@ -150,9 +156,12 @@ void Scene::initShaders()
 	fShader.free();
 }
 
-Character* Scene::whosThere(const glm::ivec2 &pos) {
-	for (Character *c : characters) {
-		if (c->getBoundingBox().contains(pos)) {
+Character* Scene::whosThere(const glm::ivec2 &pos)
+{
+    for (Character *c : characters)
+    {
+        if (c->getBoundingBox().contains(pos))
+        {
 			return c;
 		}
 	}
@@ -163,7 +172,8 @@ void Scene::generateProceduralTilemap()
 {
     int width = 256;
     int height = 128;
-	map = TileMap::createTileMap(glm::ivec2(width, height), texProgram);
+    map   = TileMap::createTileMap(glm::ivec2(width, height), texProgram);
+    mapBg = TileMap::createTileMap(glm::ivec2(width, height), texProgram);
 
 	int tileSize = map->getTileSize();
 	glm::ivec2 mapSize = map->getTotalSizeWorld();
@@ -200,6 +210,18 @@ void Scene::generateProceduralTilemap()
             map->addTile(pos + glm::ivec2(0,dy), 1, false);
         }
     }
+
+    for( int i = 0; i < map->getTotalSizeTiles().x; ++i)
+    {
+        for( int j = 0; j < map->getTotalSizeTiles().y; ++j)
+        {
+            if (map->getTileAt(glm::ivec2(i,j) * tileSize) != 0)
+            {
+                mapBg->addTile(glm::ivec2(i,j) * tileSize, Block::GOLD, false);
+            }
+        }
+    }
+    mapBg->updateVAO();
 
 
     // Add minerals and holes

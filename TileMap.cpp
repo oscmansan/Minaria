@@ -51,7 +51,7 @@ TileMap::TileMap(glm::ivec2 size, ShaderProgram &program)
 		{
 			map[j * mapSize.x + i] = 0;
 		}
-	}
+    }
 }
 
 TileMap::TileMap(const string &levelFile, ShaderProgram &program)
@@ -75,8 +75,6 @@ void TileMap::render()
 	glBindVertexArray(vao);
 	glEnableVertexAttribArray(posLocation);
 	glEnableVertexAttribArray(texCoordLocation);
-	program->setUniform4f("tint", 0, 0, 0, 0);
-    program->setUniform1f("noiseAlpha", 0.3f);
 	glDrawArrays(GL_TRIANGLES, 0, 6 * mapSize.x * mapSize.y);
 	glDisable(GL_TEXTURE_2D);
 }
