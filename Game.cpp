@@ -14,17 +14,17 @@ void Game::init()
 bool Game::update(int deltaTime)
 {
     scene.update(deltaTime);
+    for (int i = 0; i < 256; ++i) { keysLast[i] = keys[i]; }
+    for (int i = 0; i < 256; ++i) { specialKeysLast[i] = specialKeys[i]; }
+    mouseLeftButtonLast  = mouseLeftButton;
+    mouseRightButtonLast = mouseRightButton;
 	return bPlay;
 }
 
 void Game::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	scene.render();
-    for (int i = 0; i < 256; ++i) { keysLast[i] = keys[i]; }
-    for (int i = 0; i < 256; ++i) { specialKeysLast[i] = specialKeys[i]; }
-    mouseLeftButtonLast  = mouseLeftButton;
-    mouseRightButtonLast = mouseRightButton;
+    scene.render();
 }
 
 void Game::keyPressed(int key)

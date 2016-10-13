@@ -417,9 +417,32 @@ CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.o.provides: CMakeFiles/TerrariaLinu
 
 CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.o.provides.build: CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.o
 
+CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: CMakeFiles/TerrariaLinux.dir/flags.make
+CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Tile.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles $(CMAKE_PROGRESS_17)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TerrariaLinux.dir/Tile.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TerrariaLinux.dir/Tile.cpp.o -c /home/sephirot47/Terraria-linux/Tile.cpp
+
+CMakeFiles/TerrariaLinux.dir/Tile.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TerrariaLinux.dir/Tile.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sephirot47/Terraria-linux/Tile.cpp > CMakeFiles/TerrariaLinux.dir/Tile.cpp.i
+
+CMakeFiles/TerrariaLinux.dir/Tile.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TerrariaLinux.dir/Tile.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sephirot47/Terraria-linux/Tile.cpp -o CMakeFiles/TerrariaLinux.dir/Tile.cpp.s
+
+CMakeFiles/TerrariaLinux.dir/Tile.cpp.o.requires:
+.PHONY : CMakeFiles/TerrariaLinux.dir/Tile.cpp.o.requires
+
+CMakeFiles/TerrariaLinux.dir/Tile.cpp.o.provides: CMakeFiles/TerrariaLinux.dir/Tile.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Tile.cpp.o.provides.build
+.PHONY : CMakeFiles/TerrariaLinux.dir/Tile.cpp.o.provides
+
+CMakeFiles/TerrariaLinux.dir/Tile.cpp.o.provides.build: CMakeFiles/TerrariaLinux.dir/Tile.cpp.o
+
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: CMakeFiles/TerrariaLinux.dir/flags.make
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: main.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles $(CMAKE_PROGRESS_17)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles $(CMAKE_PROGRESS_18)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TerrariaLinux.dir/main.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TerrariaLinux.dir/main.cpp.o -c /home/sephirot47/Terraria-linux/main.cpp
 
@@ -458,6 +481,7 @@ TerrariaLinux_OBJECTS = \
 "CMakeFiles/TerrariaLinux.dir/Item.cpp.o" \
 "CMakeFiles/TerrariaLinux.dir/Rect.cpp.o" \
 "CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.o" \
+"CMakeFiles/TerrariaLinux.dir/Tile.cpp.o" \
 "CMakeFiles/TerrariaLinux.dir/main.cpp.o"
 
 # External object files for target TerrariaLinux
@@ -479,6 +503,7 @@ TerrariaLinux: CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/Item.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/Rect.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.o
+TerrariaLinux: CMakeFiles/TerrariaLinux.dir/Tile.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/main.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/build.make
 TerrariaLinux: /usr/lib/i386-linux-gnu/libGLU.so
@@ -516,6 +541,7 @@ CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/Inventory.cp
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/Item.cpp.o.requires
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/Rect.cpp.o.requires
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.o.requires
+CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/Tile.cpp.o.requires
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/main.cpp.o.requires
 .PHONY : CMakeFiles/TerrariaLinux.dir/requires
 

@@ -4,9 +4,10 @@
 
 #include <vector>
 #include <glm/glm.hpp>
-#include "Texture.h"
+
 #include "ShaderProgram.h"
 #include "AnimKeyframes.h"
+#include "Texture.h"
 
 
 // This class is derived from code seen earlier in TexturedQuad but it is also
@@ -40,11 +41,10 @@ public:
 	void setTint(glm::vec4 tint);
 	glm::vec4 getTint() const;
 
-    void setNoiseAlpha(float alpha);
+    void setTexture(Texture *texture);
 
 private:
     Texture *texture = NULL;
-    float noiseAlpha = 0.0f;
     ShaderProgram *shaderProgram = NULL;
 	GLuint vao;
 	GLuint vbo;

@@ -3,30 +3,31 @@
 
 
 #include <glm/glm.hpp>
+#include <vector>
+
+#include "Tile.h"
+#include "Block.h"
+#include "Scene.h"
 #include "Texture.h"
 #include "ShaderProgram.h"
-#include "Block.h"
-
 
 // Class Tilemap is capable of loading a tile map from a text file in a very
 // simple format (see level01.txt for an example). With this information
 // it builds a single VBO that contains all tiles. As a result the render
 // method draws the whole map independently of what is visible.
-
-
 class TileMap
 {
 
 public:
 	// Tile maps can only be created inside an OpenGL context
-	static TileMap *createTileMap(glm::ivec2 size, ShaderProgram &program);
-	static TileMap *createTileMap(const string &levelFile, ShaderProgram &program);
+    static TileMap *createTileMap(glm::ivec2 size, ShaderProgram &program);
 
 	TileMap(glm::ivec2 size, ShaderProgram &program);
 	TileMap(const string &levelFile, ShaderProgram &program);
 	~TileMap();
 
 	void render();
+    void update(int deltaTime);
 	void free();
 	
 	int getTileSize() const { return tileSize; }
@@ -38,20 +39,30 @@ public:
 	bool collisionMoveDown(const glm::ivec2 &pos, const glm::ivec2 &size, int *posY) const;
 	bool collisionMoveUp(const glm::ivec2 &pos, const glm::ivec2 &size, int *posY) const;
 
-    bool addTile(const glm::ivec2 &posWorld, int type, bool mustUpdateVAO = true);
-    void delTile(const glm::ivec2 &posWorld, bool mustUpdateVAO = true);
-    int getTileAt(const glm::ivec2 &posWorld) const;
-    Block::Type getBlock(const glm::ivec2 &posWorld) const;
+    template<class T>
+    T* addTile(const glm::ivec2 &posWorld)
+    {
+        if (Scene::getInstance()->whosThere(posWorld)) return NULL;
 
-    void updateVAO();
-    void createBg();
+        T* added = NULL;
+        glm::ivec2 posTile = worldPosToTilePos(posWorld);
+        int idx = worldPosToIndex(posWorld);
+        if (idx >= 0 && idx < (mapSize.x * mapSize.y))
+        {
+            added = new T( glm::ivec2(posTile.x, posTile.y) * tileSize );
+            map[idx] = added;
+        }
+        return added;
+    }
+
+    void delTile(const glm::ivec2 &posWorld);
+    Tile* getTileAt(const glm::ivec2 &posWorld) const;
+    Block* getBlock(const glm::ivec2 &posWorld) const;
 
 private:
     glm::ivec2 worldPosToTilePos(const glm::ivec2 &posWorld) const;
     int tilePosToIndex(const glm::ivec2 &posTile) const;
     int worldPosToIndex(const glm::ivec2 &posWorld) const;
-
-    bool loadLevel(const string &levelFile);
 
 private:
     GLuint vao;
@@ -62,7 +73,8 @@ private:
 	int tileSize, blockSize;
 	Texture tilesheet;
 	glm::vec2 tileTexSize;
-    int *map;
+
+    std::vector<Tile*> map;
 };
 
 

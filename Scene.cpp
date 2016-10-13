@@ -1,9 +1,13 @@
 #include "Scene.h"
 #include "Game.h"
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 #include <glm/gtc/matrix_transform.hpp>
+
+#include "Tile.h"
+#include "Block.h"
+#include "TileMap.h"
 
 Scene* Scene::singleton = NULL;
 
@@ -46,8 +50,14 @@ Camera *Scene::getCamera()
 	return Scene::getInstance()->camera;
 }
 
-TileMap *Scene::getTileMap() {
-	return Scene::getInstance()->map;
+TileMap *Scene::getTileMap()
+{
+    return Scene::getInstance()->map;
+}
+
+ShaderProgram *Scene::getShaderProgram()
+{
+    return &(Scene::getInstance()->texProgram);
 }
 
 void Scene::init()
@@ -94,6 +104,7 @@ void Scene::update(int deltaTime)
 	}
 
 	camera->update();
+    map->update(deltaTime);
 }
 
 void Scene::render()
@@ -114,10 +125,7 @@ void Scene::render()
 	texProgram.setUniform2f("texCoordDispl", 0.f, 0.f);
     texProgram.setUniform2f("windowSize", SCREEN_WIDTH, SCREEN_HEIGHT);
 
-    float bgTint = 0.4f;
-    texProgram.setUniform4f("tint", bgTint, bgTint, bgTint, 1);
     mapBg->render();
-    texProgram.setUniform4f("tint", 0,0,0,0);
 	map->render();
 
 	for (Character *character : characters)
@@ -185,7 +193,7 @@ void Scene::generateProceduralTilemap()
         glm::ivec2 pos = glm::ivec2(x * tileSize, groundStartingY);
         for (int dy = 0; dy <= groundStartingY; dy += tileSize)
         {
-            map->addTile(pos + glm::ivec2(0, dy), 1, false);
+            map->addTile<BlockGold>(pos + glm::ivec2(0, dy));
         }
     }
 
@@ -207,7 +215,7 @@ void Scene::generateProceduralTilemap()
 
         for (int dy = 0; dy < mapSize.y; dy += tileSize)
         {
-            map->addTile(pos + glm::ivec2(0,dy), 1, false);
+            map->addTile<BlockGold>(pos + glm::ivec2(0,dy));
         }
     }
 
@@ -217,12 +225,15 @@ void Scene::generateProceduralTilemap()
         {
             if (map->getTileAt(glm::ivec2(i,j) * tileSize) != 0)
             {
-                mapBg->addTile(glm::ivec2(i,j) * tileSize, Block::GOLD, false);
+                Tile *t = mapBg->addTile<BlockGold>(glm::ivec2(i,j) * tileSize);
+                if (t)
+                {
+                    float bgTint = 0.4f;
+                    t->getSprite()->setTint( glm::vec4(0, 0, 0, bgTint) );
+                }
             }
         }
     }
-    mapBg->updateVAO();
-
 
     // Add minerals and holes
     PerlinNoise perlinSapphire(time(0) * rand()),
@@ -237,19 +248,21 @@ void Scene::generateProceduralTilemap()
             const float minRange = 0.0f, maxRange = 0.03f;
             const int octaves = 8;
             float p = 0;
-            if (map->getTileAt(pos) == 1)
+            Tile *t = map->getTileAt(pos);
+            Block *b = t ? dynamic_cast<Block*>(t) : NULL;
+            if (b && b->getType() == Block::Type::GOLD)
             {
                 float perlinx = float(pos.x) / map->getTotalSizeWorld().x * 10.0f;
                 float perliny = float(pos.y) / map->getTotalSizeWorld().y * 10.0f;
                 p = perlinSapphire.octaveNoise(perlinx, perliny, octaves);
-                if (p > minRange && p < maxRange) { map->addTile(pos, Block::Type::SAPPHIRE, false); }
+                if (p > minRange && p < maxRange) { map->addTile<BlockSapphire>(pos); }
                 p = perlinRuby.octaveNoise(perlinx, perliny, octaves);
-                if (p > minRange && p < maxRange) { map->addTile(pos, Block::Type::RUBY, false); }
+                if (p > minRange && p < maxRange) { map->addTile<BlockRuby>(pos); }
                 p = perlinEmerald.octaveNoise(perlinx, perliny, octaves);
-                if (p > minRange && p < maxRange) { map->addTile(pos, Block::Type::EMERALD, false); }
+                if (p > minRange && p < maxRange) { map->addTile<BlockEmerald>(pos); }
 
                 float ph = perlinHoles.octaveNoise(perlinx, perliny, octaves);
-                if (ph > 0.35f || ph < -0.35f) { map->delTile(pos, false); }
+                if (ph > 0.35f || ph < -0.35f) { map->delTile(pos); }
             }
         }
     }
@@ -261,11 +274,9 @@ void Scene::generateProceduralTilemap()
         glm::ivec2 pos2 = glm::ivec2(width * tileSize, 0) - pos1;
         for (int y = 0; y < height; ++y)
         {
-            map->addTile(pos1 + glm::ivec2(0, y * tileSize), 1, false); // Left
-            map->addTile(pos2 + glm::ivec2(0, y * tileSize), 1, false); // Right
+            map->addTile<BlockGold>(pos1 + glm::ivec2(0, y * tileSize)); // Left
+            map->addTile<BlockGold>(pos2 + glm::ivec2(0, y * tileSize)); // Right
         }
     }
-
-    map->updateVAO();
 }
 

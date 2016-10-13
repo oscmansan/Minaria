@@ -15,6 +15,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/TerrariaLinux.dir/Item.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/Rect.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.o"
+  "CMakeFiles/TerrariaLinux.dir/Tile.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/main.cpp.o"
   "TerrariaLinux.pdb"
   "TerrariaLinux"

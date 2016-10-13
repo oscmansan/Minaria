@@ -57,13 +57,13 @@ void Inventory::renderSlots()
         if (it) // Add item texture, if any
         {
             Texture *itTexture = it->getItemTexture();
-            Sprite *itemSprite = Sprite::createSprite(itemSize, glm::vec2(1.0f), itTexture, program);
+            if (!itemSprites[i]) { itemSprites[i] = Sprite::createSprite(itemSize, glm::vec2(1.0f), itTexture, program); }
+            itemSprites[i]->setTexture(itTexture);
 
             glm::ivec2 itemPos = slotPos + (slotSize - itemSize) / 2;
             glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(itemPos.x, itemPos.y, 1.f));
             program->setUniformMatrix4f("model", model);
-            itemSprite->render();
-            delete itemSprite;
+            itemSprites[i]->render();
         }
     }
 }

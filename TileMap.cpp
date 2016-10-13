@@ -1,13 +1,16 @@
+#include "TileMap.h"
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <vector>
+
+#define GLM_SWIZZLE
 #include <glm/gtc/matrix_transform.hpp>
 
-#include "Scene.h"
+#include "Game.h"
+#include "Tile.h"
 #include "Block.h"
-#include "TileMap.h"
-
 
 using namespace std;
 
@@ -15,12 +18,6 @@ using namespace std;
 TileMap *TileMap::createTileMap(glm::ivec2 size, ShaderProgram &program)
 {
 	TileMap *map = new TileMap(size, program);
-	return map;
-}
-
-TileMap *TileMap::createTileMap(const string &levelFile, ShaderProgram &program)
-{
-	TileMap *map = new TileMap(levelFile, program);
 	return map;
 }
 
@@ -44,145 +41,58 @@ TileMap::TileMap(glm::ivec2 size, ShaderProgram &program)
 	tileTexSize   = glm::vec2(1.f / tilesheetSize.x, 1.f / tilesheetSize.y);
 	//
 
-	map = new int[mapSize.x * mapSize.y];
+    map = std::vector<Tile*>(mapSize.x * mapSize.y, NULL);
 	for (int j = 0; j < mapSize.y; j++)
 	{
 		for (int i = 0; i < mapSize.x; i++)
 		{
-			map[j * mapSize.x + i] = 0;
+            map[j * mapSize.x + i] = NULL;
 		}
     }
 }
 
-TileMap::TileMap(const string &levelFile, ShaderProgram &program)
-{
-	this->program = &program;
-	loadLevel(levelFile);
-    updateVAO();
-}
-
 TileMap::~TileMap()
 {
-	if(map != NULL)
-		delete map;
 }
 
 
 void TileMap::render()
 {
 	glEnable(GL_TEXTURE_2D);
-	tilesheet.use();
-	glBindVertexArray(vao);
-	glEnableVertexAttribArray(posLocation);
-	glEnableVertexAttribArray(texCoordLocation);
-	glDrawArrays(GL_TRIANGLES, 0, 6 * mapSize.x * mapSize.y);
-	glDisable(GL_TEXTURE_2D);
+
+    glm::mat4 view = Scene::getCamera()->getView();
+    for (Tile *tile : map)
+    {
+        if (tile)
+        {
+            // +-50 to render a bit more than needed;
+            Rect screenRect = Rect(-50, -50, SCREEN_WIDTH+50, SCREEN_HEIGHT+50);
+            glm::vec4 v4 = (view * glm::vec4(tile->getPosition(),0,1));
+            bool isVisible = screenRect.contains( glm::ivec2(v4.x, v4.y) );
+            if (isVisible)
+            {
+                tile->render();
+            }
+        }
+    }
+
+    glDisable(GL_TEXTURE_2D);
+}
+
+void TileMap::update(int deltaTime)
+{
+    for(Tile *t : map)
+    {
+        if (t)
+        {
+            t->update(deltaTime);
+        }
+    }
 }
 
 void TileMap::free()
 {
 	glDeleteBuffers(1, &vbo);
-}
-
-bool TileMap::loadLevel(const string &levelFile)
-{
-	ifstream fin;
-	string line, tilesheetFile;
-	stringstream sstream;
-	char tile;
-	
-	fin.open(levelFile.c_str());
-	if(!fin.is_open())
-		return false;
-	getline(fin, line);
-	if(line.compare(0, 7, "TILEMAP") != 0)
-		return false;
-	getline(fin, line);
-	sstream.str(line);
-	sstream >> mapSize.x >> mapSize.y;
-	getline(fin, line);
-	sstream.str(line);
-	sstream >> tileSize >> blockSize;
-	getline(fin, line);
-	sstream.str(line);
-	sstream >> tilesheetFile;
-	tilesheet.loadFromFile(tilesheetFile, TEXTURE_PIXEL_FORMAT_RGBA);
-	tilesheet.setWrapS(GL_CLAMP_TO_EDGE);
-	tilesheet.setWrapT(GL_CLAMP_TO_EDGE);
-	tilesheet.setMinFilter(GL_NEAREST);
-	tilesheet.setMagFilter(GL_NEAREST);
-	getline(fin, line);
-	sstream.str(line);
-	sstream >> tilesheetSize.x >> tilesheetSize.y;
-	tileTexSize = glm::vec2(1.f / tilesheetSize.x, 1.f / tilesheetSize.y);
-	
-	map = new int[mapSize.x * mapSize.y];
-	for(int j=0; j<mapSize.y; j++)
-	{
-		for(int i=0; i<mapSize.x; i++)
-		{
-			fin.get(tile);
-			if(tile == ' ')
-				map[j*mapSize.x+i] = 0;
-			else
-				map[j*mapSize.x+i] = tile - int('0');
-		}
-		fin.get(tile);
-#ifndef _WIN32
-		fin.get(tile);
-#endif
-	}
-	fin.close();
-	
-	return true;
-}
-
-void TileMap::updateVAO()
-{
-	int tile, nTiles = 0;
-	glm::vec2 posTile, texCoordTile[2], halfTexel;
-	vector<float> vertices;
-	
-	halfTexel = glm::vec2(0.5f / tilesheet.width(), 0.5f / tilesheet.height());
-	for(int j=0; j<mapSize.y; j++)
-	{
-		for(int i=0; i<mapSize.x; i++)
-		{
-			tile = map[j * mapSize.x + i];
-			if(tile != 0)
-			{
-				// Non-empty tile
-				nTiles++;
-				posTile = glm::vec2(i * tileSize, j * tileSize);
-				texCoordTile[0] = glm::vec2(float((tile-1)%2) / tilesheetSize.x, float((tile-1)/2) / tilesheetSize.y);
-				texCoordTile[1] = texCoordTile[0] + tileTexSize;
-				//texCoordTile[0] += halfTexel;
-				texCoordTile[1] -= halfTexel;
-				// First triangle
-				vertices.push_back(posTile.x); vertices.push_back(posTile.y);
-				vertices.push_back(texCoordTile[0].x); vertices.push_back(texCoordTile[0].y);
-				vertices.push_back(posTile.x + blockSize); vertices.push_back(posTile.y);
-				vertices.push_back(texCoordTile[1].x); vertices.push_back(texCoordTile[0].y);
-				vertices.push_back(posTile.x + blockSize); vertices.push_back(posTile.y + blockSize);
-				vertices.push_back(texCoordTile[1].x); vertices.push_back(texCoordTile[1].y);
-				// Second triangle
-				vertices.push_back(posTile.x); vertices.push_back(posTile.y);
-				vertices.push_back(texCoordTile[0].x); vertices.push_back(texCoordTile[0].y);
-				vertices.push_back(posTile.x + blockSize); vertices.push_back(posTile.y + blockSize);
-				vertices.push_back(texCoordTile[1].x); vertices.push_back(texCoordTile[1].y);
-				vertices.push_back(posTile.x); vertices.push_back(posTile.y + blockSize);
-				vertices.push_back(texCoordTile[0].x); vertices.push_back(texCoordTile[1].y);
-			}
-		}
-	}
-
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, 24 * nTiles * sizeof(float), &vertices[0], GL_DYNAMIC_DRAW);
-    posLocation = program->bindVertexAttribute("position", 2, 4*sizeof(float), 0);
-    texCoordLocation = program->bindVertexAttribute("texCoord", 2, 4*sizeof(float), (void *)(2*sizeof(float)));
 }
 
 glm::ivec2 TileMap::getTotalSizeTiles() const
@@ -277,38 +187,29 @@ bool TileMap::collisionMoveDown(const glm::ivec2 &pos, const glm::ivec2 &size, i
 	return false;
 }
 
-bool TileMap::addTile(const glm::ivec2 &posWorld, int type, bool mustUpdateVAO)
-{
-    if (Scene::getInstance()->whosThere(posWorld)) return false;
-
-	int idx = worldPosToIndex(posWorld);
-	if (idx >= 0 && idx < (mapSize.x * mapSize.y))
-	{
-		map[idx] = type;
-        if (mustUpdateVAO) updateVAO();
-	}
-    return true;
-}
-
-void TileMap::delTile(const glm::ivec2 &posWorld, bool mustUpdateVAO)
+void TileMap::delTile(const glm::ivec2 &posWorld)
 {
 	int idx = worldPosToIndex(posWorld);
 	if (idx >= 0 && idx < (mapSize.x * mapSize.y))
 	{
-        map[idx] = 0;
-        if (mustUpdateVAO) updateVAO();
+        if (map[idx] != NULL)
+        {
+            delete map[idx];
+            map[idx] = NULL;
+        }
 	}
 }
 
-int TileMap::getTileAt(const glm::ivec2 &posWorld) const
+Tile* TileMap::getTileAt(const glm::ivec2 &posWorld) const
 {
 	int idx = worldPosToIndex(posWorld);
-	return ( idx >= 0 && idx < (mapSize.x * mapSize.y)) ? map[idx] : -1;
+    return ( idx >= 0 && idx < (mapSize.x * mapSize.y)) ? map[idx] : NULL;
 }
 
-Block::Type TileMap::getBlock(const glm::ivec2 &posWorld) const
+Block* TileMap::getBlock(const glm::ivec2 &posWorld) const
 {
-    return static_cast<Block::Type>(getTileAt(posWorld));
+    Tile *t = getTileAt(posWorld);
+    return t ? dynamic_cast<Block*>(t) : NULL;
 }
 
 glm::ivec2 TileMap::worldPosToTilePos(const glm::ivec2 &posWorld) const

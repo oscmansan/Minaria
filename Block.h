@@ -1,8 +1,11 @@
 #pragma once
 
 #include "Item.h"
+#include "Tile.h"
 
-class Block : public Item {
+class Block : public Item,
+              public Tile
+{
 public:
     enum Type
     {
@@ -20,23 +23,36 @@ public:
 
     virtual ~Block();
     Type getType() const;
-    void hit();
     void restore();
+
+    void onHitBegin();
+    void onHitEnd();
 
 protected:
     Block();
+    Block(const glm::ivec2 &worldPos);
+
+    int timeSinceLastHit = 0;
+    bool beingHit = false;
+    int hitSpeed = 300;
+
     Type type = Type::GOLD;
     State state = State::FULL;
+
     Texture *texture_full;
     Texture *texture_mid;
     Texture *texture_gone;
-    Texture *getTexture() const;
+
+    void advanceState();
+
+    virtual void update(int deltaTime) override;
+    Texture *getTexture() const override;
 };
 
 class BlockGold : public Block
 {
 public:
-    BlockGold();
+    BlockGold(const glm::ivec2 &worldPos = glm::ivec2(0));
 
 private:
     static Texture *s_texture_full;
@@ -47,7 +63,7 @@ private:
 class BlockSapphire : public Block
 {
 public:
-    BlockSapphire();
+    BlockSapphire(const glm::ivec2 &worldPos = glm::ivec2(0));
 
 private:
     static Texture *s_texture_full;
@@ -58,7 +74,7 @@ private:
 class BlockRuby : public Block
 {
 public:
-    BlockRuby();
+    BlockRuby(const glm::ivec2 &worldPos = glm::ivec2(0));
 
 private:
     static Texture *s_texture_full;
@@ -69,7 +85,7 @@ private:
 class BlockEmerald : public Block
 {
 public:
-    BlockEmerald();
+    BlockEmerald(const glm::ivec2 &worldPos = glm::ivec2(0));
 
 private:
     static Texture *s_texture_full;

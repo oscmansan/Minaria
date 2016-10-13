@@ -1,8 +1,8 @@
 #pragma once
 
+#include "Block.h"
 #include "Character.h"
 #include "Inventory.h"
-#include "Block.h"
 
 class Player : public Character
 {
@@ -17,6 +17,8 @@ public:
 
     Item *getSelectedItem() const;
     int getSelectedItemIndex() const;
+
+    Inventory *getInventory();
 
 	void takeDamage();
 

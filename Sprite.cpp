@@ -51,11 +51,14 @@ void Sprite::render() const
 {
 	if (!visible) return;
 
-    shaderProgram->setUniform1f("noiseAlpha", noiseAlpha);
 	shaderProgram->setUniform4f("tint", tint.x, tint.y, tint.z, tint.a);
 	shaderProgram->setUniform2f("texCoordDispl", texCoordDispl.x, texCoordDispl.y);
 	glEnable(GL_TEXTURE_2D);
-	texture->use();
+    if (texture)
+    {
+        texture->use();
+    }
+
 	glBindVertexArray(vao);
 	glEnableVertexAttribArray(posLocation);
 	glEnableVertexAttribArray(texCoordLocation);
@@ -127,7 +130,7 @@ glm::vec4 Sprite::getTint() const
     return tint;
 }
 
-void Sprite::setNoiseAlpha(float alpha)
+void Sprite::setTexture(Texture *texture)
 {
-    noiseAlpha = alpha;
+    this->texture = texture;
 }

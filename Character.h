@@ -1,16 +1,15 @@
 #ifndef _CHARACTER_INCLUDE
 #define _CHARACTER_INCLUDE
 
-#include "Sprite.h"
-#include "TileMap.h"
 #include "Rect.h"
+#include "Sprite.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 
 // Player is basically a Sprite that represents the player. As such it has
 // all properties it needs to track its movement, jumping, and collisions.
 
-
+class TileMap;
 class Character
 {
 public:

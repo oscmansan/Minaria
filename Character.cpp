@@ -1,10 +1,12 @@
 #include "Character.h"
-#include "Game.h"
 
 #include <cmath>
 #include <iostream>
 #include <GL/glew.h>
 #include <GL/glut.h>
+
+#include "TileMap.h"
+#include "Game.h"
 
 Character::Character()
 {
@@ -114,8 +116,8 @@ Rect Character::getBoundingBox() const {
 
 void Character::render(ShaderProgram &program)
 {
-	glm::mat4 modelview = glm::translate(glm::mat4(1.0f), glm::vec3(position.x, position.y, 0.f));
-	program.setUniformMatrix4f("model", modelview);
+    glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(position.x, position.y, 0.f));
+    program.setUniformMatrix4f("model", model);
 	sprite->render();
 }
 

@@ -1,7 +1,6 @@
 #pragma once
 
 #include <string>
-
 #include "Texture.h"
 
 using namespace std;
@@ -20,11 +19,12 @@ private:
 
 public:
     Texture* getItemTexture() const;
+
 	int getAmount() const;
 	void increaseAmount();
-	void decreaseAmount();
+    void decreaseAmount();
 
-	friend class Inventory;
+    friend class Inventory;
 };
 
 

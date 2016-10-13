@@ -7,6 +7,7 @@
 #include <GL/glut.h>
 
 #include "Block.h"
+#include "TileMap.h"
 
 Player::Player() {}
 
@@ -97,6 +98,11 @@ int Player::getSelectedItemIndex() const
     return selectedItemIndex;
 }
 
+Inventory *Player::getInventory()
+{
+    return &inventory;
+}
+
 void Player::move(int deltaTime)
 {
 	bool leftPressed = Game::instance().getSpecialKey(GLUT_KEY_LEFT);
@@ -147,7 +153,7 @@ void Player::handleItemSelection()
     for (int i = 0; i < inventory.getNumSlots(); ++i)
     {
         // Key selection
-        if (Game::instance().getKeyDown( char('1' + i) ))
+        if (Game::instance().getKey( char('1' + i) ))
         {
             selectedItemIndex = i;
             break;
@@ -176,17 +182,32 @@ void Player::handleItemSelection()
 
 void Player::handleMouseActions()
 {
+    static Block *lastMouseBlock = NULL;
+
     TileMap *tmap = Scene::getTileMap();
     glm::ivec2 mousePos = Game::instance().getMousePosWorld();
+
+    Block *mouseBlock = tmap->getBlock(mousePos);
+    if (mouseBlock != lastMouseBlock)
+    {
+        if (lastMouseBlock) lastMouseBlock->onHitEnd();
+    }
+
     if (Game::instance().getMouseLeftButton())
     {
-        if (!tmap->getBlock(mousePos) != NULL) // Can it put a block where the mouse is?
+        if (tmap->getBlock(mousePos) == NULL) // Can it put a block where the mouse is?
         {
             Block *b = selectedItem ? dynamic_cast<Block*>(selectedItem) : NULL;
             if (b != NULL) // Is it a block?
             {
                 int amount = b->getAmount();
-                if (amount > 0 && tmap->addTile(mousePos, b->getType()))
+
+                Tile *addedBlock = NULL;
+                if (b->getType() == Block::GOLD)          { addedBlock = tmap->addTile<BlockGold>(mousePos); }
+                else if (b->getType() == Block::SAPPHIRE) { addedBlock = tmap->addTile<BlockSapphire>(mousePos); }
+                else if (b->getType() == Block::RUBY)     { addedBlock = tmap->addTile<BlockRuby>(mousePos); }
+                else if (b->getType() == Block::EMERALD)  { addedBlock = tmap->addTile<BlockEmerald>(mousePos); }
+                if (amount > 0 && addedBlock)
                 {
                     inventory.dropItem(selectedItemIndex);
                 }
@@ -195,19 +216,21 @@ void Player::handleMouseActions()
     }
     else if (Game::instance().getMouseRightButton())
     {
-        Block::Type blockType = tmap->getBlock(mousePos);
-        if (blockType != NULL)
+        if (mouseBlock && mouseBlock->getType() != 0)
         {
-            switch (blockType)
-            {
-                case Block::GOLD:     inventory.addItem<BlockGold>();     break;
-                case Block::SAPPHIRE: inventory.addItem<BlockSapphire>(); break;
-                case Block::RUBY:     inventory.addItem<BlockRuby>();     break;
-                case Block::EMERALD:  inventory.addItem<BlockEmerald>();  break;
-            }
-            tmap->delTile(mousePos);
+            mouseBlock->onHitBegin();
         }
     }
+
+    if (!Game::instance().getMouseRightButton())
+    {
+        if (lastMouseBlock)
+        {
+            lastMouseBlock->onHitEnd();
+        }
+    }
+
+    lastMouseBlock = mouseBlock;
 }
 
 void Player::renderHearts(ShaderProgram &program)

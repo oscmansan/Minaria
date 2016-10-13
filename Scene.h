@@ -4,19 +4,18 @@
 #include <list>
 #include <glm/glm.hpp>
 
-#include "ShaderProgram.h"
-#include "TileMap.h"
-#include "Camera.h"
-#include "Character.h"
-#include "Player.h"
 #include "Enemy.h"
+#include "Camera.h"
+#include "Player.h"
+#include "Character.h"
 #include "PerlinNoise.h"
+#include "ShaderProgram.h"
 
 
 // Scene contains all the entities of our game.
 // It is responsible for updating and render them.
 
-
+class TileMap;
 class Scene
 {
 
@@ -33,6 +32,7 @@ public:
 	static Player *getPlayer();
 	static Camera *getCamera();
 	static TileMap *getTileMap();
+    static ShaderProgram *getShaderProgram();
 
 	Character* whosThere(const glm::ivec2 &pos);
 
