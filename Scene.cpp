@@ -93,6 +93,12 @@ void Scene::init()
 
 	// Add to the list of characters
 	characters.push_back(player);
+
+    /*
+    Scene::getInstance()->addText("123456789.,", glm::ivec2(0, 0), 16);
+    Scene::getInstance()->addText("ABCDEFGHIJKLMNOPQRSTUVWXYZ", glm::ivec2(0, 20), 16);
+    Scene::getInstance()->addText("abcdefghijklmnopqrstuvwxyz", glm::ivec2(0, 40), 16);
+    */
 }
 
 void Scene::update(int deltaTime)
@@ -109,8 +115,6 @@ void Scene::update(int deltaTime)
 
 void Scene::render()
 {
-	glm::mat4 modelview;
-
 	texProgram.use();
 
     texProgram.setUniformMatrix4f("projection", projection);
@@ -131,7 +135,22 @@ void Scene::render()
 	for (Character *character : characters)
 	{
 		character->render(texProgram);
-	}
+    }
+
+    for (Text *text : texts)
+    {
+        //std::cout << "Rendering " << text << std::endl;
+        text->render();
+    }
+}
+
+Text* Scene::addText(const std::string &str, const glm::ivec2 &pos, int size)
+{
+    Text *t = new Text();
+    t->setText(str, size);
+    t->setPosition(pos);
+    texts.push_back(t);
+    return t;
 }
 
 void Scene::initShaders()

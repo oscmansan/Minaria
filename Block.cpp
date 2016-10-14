@@ -62,6 +62,7 @@ void Block::update(int deltaTime)
                 case Block::RUBY:     inv->addItem<BlockRuby>();     break;
                 case Block::EMERALD:  inv->addItem<BlockEmerald>();  break;
             }
+            Scene::getPlayer()->onBlockDeleted(this);
             Scene::getTileMap()->delTile( getPosition() );
         }
     }

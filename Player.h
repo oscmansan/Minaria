@@ -21,6 +21,9 @@ public:
     Inventory *getInventory();
 
 	void takeDamage();
+    void onBlockDeleted(Block *b);
+
+    Block *lastMouseBlock = NULL;
 
 private:
     const int maxHealth = 10;

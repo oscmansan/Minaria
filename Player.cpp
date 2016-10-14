@@ -182,15 +182,17 @@ void Player::handleItemSelection()
 
 void Player::handleMouseActions()
 {
-    static Block *lastMouseBlock = NULL;
-
     TileMap *tmap = Scene::getTileMap();
     glm::ivec2 mousePos = Game::instance().getMousePosWorld();
 
     Block *mouseBlock = tmap->getBlock(mousePos);
     if (mouseBlock != lastMouseBlock)
     {
-        if (lastMouseBlock) lastMouseBlock->onHitEnd();
+        if (lastMouseBlock)
+        {
+            lastMouseBlock->onHitEnd();
+            lastMouseBlock = NULL;
+        }
     }
 
     if (Game::instance().getMouseLeftButton())
@@ -261,5 +263,13 @@ void Player::takeDamage()
     {
         damaged = true;
         --health;
+    }
+}
+
+void Player::onBlockDeleted(Block *b)
+{
+    if (lastMouseBlock == b)
+    {
+        lastMouseBlock = NULL;
     }
 }

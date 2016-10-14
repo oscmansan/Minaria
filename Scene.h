@@ -11,6 +11,7 @@
 #include "PerlinNoise.h"
 #include "ShaderProgram.h"
 
+#include "Text.h"
 
 // Scene contains all the entities of our game.
 // It is responsible for updating and render them.
@@ -26,6 +27,10 @@ public:
 	void init();
 	void update(int deltaTime);
 	void render();
+
+    Text* addText(const std::string &str = "",
+                  const glm::ivec2 &pos = glm::ivec2(0),
+                  int size = 16);
 
 	static Scene *getInstance();
 	static int getCurrentTime();
@@ -47,6 +52,8 @@ private:
     Texture textureBg;
     Sprite *spriteBg = NULL;
 	std::list<Character*> characters;
+    std::list<Text*> texts;
+
 
     TileMap *map, *mapBg;
 	ShaderProgram texProgram;

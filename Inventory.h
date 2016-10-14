@@ -7,11 +7,12 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+#include "Rect.h"
+#include "Text.h"
 #include "Item.h"
 #include "Sprite.h"
 #include "Texture.h"
 #include "ShaderProgram.h"
-#include "Rect.h"
 
 using namespace std;
 
@@ -25,11 +26,12 @@ private:
     const int numSlots = 7;
     vector<Item*> items = vector<Item*>(numSlots, NULL);
     vector<Sprite*> itemSprites = vector<Sprite*>(numSlots, NULL);
+    vector<Text*> itemTexts   = vector<Text*>(numSlots, NULL);
 
     const glm::ivec2 position = glm::ivec2(15, 15);
-    const glm::ivec2 size = glm::ivec2(200, 25);
-    const glm::ivec2 slotSize = glm::ivec2(20, 20);
-    const glm::ivec2 itemSize = glm::ivec2(15, 15);
+    const glm::ivec2 size = glm::ivec2(400, 50);
+    const glm::ivec2 slotSize = glm::ivec2(40, 40);
+    const glm::ivec2 itemSize = glm::ivec2(35, 35);
 
     ShaderProgram *program = nullptr;
     Texture *textureBg = nullptr;
