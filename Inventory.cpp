@@ -72,7 +72,7 @@ void Inventory::renderSlots()
             int textSize = 16;
             itemTexts[i]->setText(std::to_string(itAmount), textSize);
             itemTexts[i]->setColor(glm::vec4(0,0,0,1));
-            itemTexts[i]->setPosition(itemPos + itemSize - textSize - 1);
+            itemTexts[i]->setPosition(itemPos + 2);
 
             glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(itemPos.x, itemPos.y, 1.f));
             program->setUniformMatrix4f("model", model);
