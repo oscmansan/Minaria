@@ -54,7 +54,7 @@ void Block::update(int deltaTime)
         }
         else if (timeSinceLastHit > hitSpeed * 3 && state == GONE)
         {
-            Inventory *inv = Scene::getPlayer()->getInventory();
+            Inventory *inv = Game::getCurrentSceneGame()->getPlayer()->getInventory();
             switch (getType())
             {
                 case Block::GOLD:     inv->addItem<BlockGold>();     break;
@@ -62,8 +62,8 @@ void Block::update(int deltaTime)
                 case Block::RUBY:     inv->addItem<BlockRuby>();     break;
                 case Block::EMERALD:  inv->addItem<BlockEmerald>();  break;
             }
-            Scene::getPlayer()->onBlockDeleted(this);
-            Scene::getTileMap()->delTile( getPosition() );
+            Game::getCurrentSceneGame()->getPlayer()->onBlockDeleted(this);
+            Game::getCurrentSceneGame()->getTileMap()->delTile( getPosition() );
         }
     }
 }

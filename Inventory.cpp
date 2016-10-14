@@ -1,7 +1,9 @@
 #include "Inventory.h"
 
+#include "Game.h"
 #include "Scene.h"
 #include "Player.h"
+#include "SceneGame.h"
 
 Inventory::Inventory()
 {
@@ -43,7 +45,7 @@ void Inventory::renderSlots()
 {
     program->setUniformMatrix4f("view", glm::mat4(1.0f)); //SS rendering, so no view applied
 
-    int selectedPos = Scene::getPlayer()->getSelectedItemIndex();
+    int selectedPos = Game::getCurrentSceneGame()->getPlayer()->getSelectedItemIndex();
     for (int i = 0; i < numSlots; ++i)
     {
         glm::ivec2 slotPos = getSlotScreenRect(i).getMin();
@@ -63,7 +65,7 @@ void Inventory::renderSlots()
             if (!itemSprites[i])
             {
                 itemSprites[i] = Sprite::createSprite(itemSize, glm::vec2(1.0f), itTexture, program);
-                itemTexts[i] = Scene::getInstance()->createText();
+                itemTexts[i] = Game::getCurrentSceneGame()->createText();
             }
 
             itemSprites[i]->setTexture(itTexture);
@@ -135,7 +137,6 @@ void Inventory::dropItem(int index)
     if (item)
     {
         item->decreaseAmount();
-        std::cout << "Item amount=" << item->getAmount() << std::endl;
         if (item->getAmount() <= 0)
         {
             delete items[index];

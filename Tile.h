@@ -5,6 +5,7 @@
 #include "Texture.h"
 #include "ShaderProgram.h"
 #include <iostream>
+
 class Tile
 {
 public:
@@ -19,6 +20,7 @@ public:
     glm::ivec2 getPosition() const;
 
 protected:
+    static Texture *defaultTexture;
 
     glm::ivec2 position = glm::ivec2(0,0);
 

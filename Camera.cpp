@@ -1,8 +1,9 @@
 #include "Camera.h"
 
-#include "Player.h"
-#include "Scene.h"
 #include "Game.h"
+#include "Scene.h"
+#include "Player.h"
+#include "SceneGame.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -22,7 +23,7 @@ void Camera::init(const glm::ivec2 &playerPosition)
 
 void Camera::update()
 {
-	Player *player = Scene::getPlayer();
+    Player *player = Game::getCurrentSceneGame()->getPlayer();
 	glm::ivec2 playerPosWorld = player->getPosition();
 	position = playerPosWorld + initialOffset;
 

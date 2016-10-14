@@ -27,8 +27,8 @@ TileMap::TileMap(glm::ivec2 size, ShaderProgram &program)
 
 	// Specify sizes
 	mapSize = size;
-    tileSize = 16;                   //
-    blockSize = 32;                  //
+    tileSize = 16;
+    blockSize = 32;
 
 	// Tilesheet related
 	const string tilesheetFile = "images/blocks.png";  // Tilesheet location
@@ -60,18 +60,29 @@ void TileMap::render()
 {
 	glEnable(GL_TEXTURE_2D);
 
-    glm::mat4 view = Scene::getCamera()->getView();
+    TileMap *foreground = Game::getCurrentSceneGame()->getTileMap();
+    glm::mat4 view = Game::getCurrentSceneGame()->getCamera()->getView();
     for (Tile *tile : map)
     {
         if (tile)
         {
-            // +-50 to render a bit more than needed;
-            Rect screenRect = Rect(-50, -50, SCREEN_WIDTH + 50, SCREEN_HEIGHT + 50);
-            glm::vec4 v4 = (view * glm::vec4(tile->getPosition(),0,1));
-            bool isVisible = screenRect.contains( glm::ivec2(v4.x, v4.y) );
-            if (isVisible)
+            bool drawTile = true;
+            if (isBg)
             {
-                tile->render();
+                // Only draw the tiles that the foreground dont cover up
+                drawTile = (foreground->getTileAt(tile->getPosition()) == NULL);
+            }
+
+            if (drawTile)
+            {
+                // +-50 to render a bit more than needed;
+                Rect screenRect = Rect(-50, -50, SCREEN_WIDTH + 50, SCREEN_HEIGHT + 50);
+                glm::vec4 v4 = (view * glm::vec4(tile->getPosition(),0,1));
+                bool isVisible = screenRect.contains( glm::ivec2(v4.x, v4.y) );
+                if (isVisible)
+                {
+                    tile->render();
+                }
             }
         }
     }

@@ -2,18 +2,29 @@
 #include <GL/glut.h>
 
 #include "Game.h"
+#include "Scene.h"
 #include "Camera.h"
 
 void Game::init()
 {
 	bPlay = true;
-	glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
-    scene.init();
+    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
+
+    sceneMenu = new SceneMenu();
+    sceneGame = new SceneGame();
+    sceneCredits = new SceneCredits();
+    currentScene = sceneMenu;
+
+    scenes.push_back(sceneMenu);
+    scenes.push_back(sceneGame);
+    scenes.push_back(sceneCredits);
+
+    currentScene->init();
 }
 
 bool Game::update(int deltaTime)
 {
-    scene.update(deltaTime);
+    currentScene->update(deltaTime);
     for (int i = 0; i < 256; ++i) { keysLast[i] = keys[i]; }
     for (int i = 0; i < 256; ++i) { specialKeysLast[i] = specialKeys[i]; }
     mouseLeftButtonLast  = mouseLeftButton;
@@ -21,10 +32,38 @@ bool Game::update(int deltaTime)
 	return bPlay;
 }
 
+Scene *Game::getCurrentScene()
+{
+    return Game::instance().currentScene;
+}
+
+SceneGame *Game::getCurrentSceneGame()
+{
+    return Game::instance().sceneGame;
+}
+
 void Game::render()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    scene.render();
+    currentScene->_render();
+}
+
+void Game::gotoSceneMenu()
+{
+    currentScene = sceneMenu;
+    currentScene->init();
+}
+
+void Game::gotoSceneGame()
+{
+    currentScene = sceneGame;
+    currentScene->init();
+}
+
+void Game::gotoSceneCredits()
+{
+    currentScene = sceneCredits;
+    currentScene->init();
 }
 
 void Game::keyPressed(int key)
@@ -85,7 +124,11 @@ glm::ivec2 Game::getMousePosWorld() const
 {
     glm::ivec2 mousePosScreen = getMousePosScreen();
 	glm::vec4 v4 = glm::vec4(mousePosScreen.x, mousePosScreen.y, 0, 1);
-	v4 = glm::inverse(Scene::getCamera()->getView()) * v4; // Pass to world space
+    SceneGame *sceneGame = dynamic_cast<SceneGame*>(currentScene);
+    if (sceneGame)
+    {
+        v4 = glm::inverse(sceneGame->getCamera()->getView()) * v4; // Pass to world space
+    }
     return glm::ivec2(v4.x, v4.y);
 }
 

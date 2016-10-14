@@ -1,10 +1,12 @@
 #include "Enemy.h"
-#include "Game.h"
 
 #include <cmath>
 #include <iostream>
 #include <GL/glew.h>
 #include <GL/glut.h>
+
+#include "SceneGame.h"
+#include "Game.h"
 
 Enemy::Enemy() {}
 
@@ -43,7 +45,7 @@ void Enemy::update(int deltaTime)
 {
 	Character::update(deltaTime);
 
-	Player *player = Scene::getPlayer();
+    Player *player = Game::getCurrentSceneGame()->getPlayer();
 	if (player->getBoundingBox().intersects(getBoundingBox()))
 	{
 		player->takeDamage();
@@ -52,7 +54,7 @@ void Enemy::update(int deltaTime)
 
 void Enemy::move(int deltaTime)
 {
-	Player *player = Scene::getPlayer();
+    Player *player = Game::getCurrentSceneGame()->getPlayer();
 	if (player->getPosition().x > position.x)
 	{
 		if (sprite->animation() != MOVE_RIGHT)

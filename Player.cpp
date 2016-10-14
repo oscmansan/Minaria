@@ -8,6 +8,7 @@
 
 #include "Block.h"
 #include "TileMap.h"
+#include "SceneGame.h"
 
 Player::Player() {}
 
@@ -182,7 +183,7 @@ void Player::handleItemSelection()
 
 void Player::handleMouseActions()
 {
-    TileMap *tmap = Scene::getTileMap();
+    TileMap *tmap = Game::getCurrentSceneGame()->getTileMap();
     glm::ivec2 mousePos = Game::instance().getMousePosWorld();
 
     Block *mouseBlock = tmap->getBlock(mousePos);

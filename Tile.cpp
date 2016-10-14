@@ -4,10 +4,17 @@
 
 #include "Scene.h"
 
+Texture *Tile::defaultTexture = NULL;
+
 Tile::Tile()
 {
+    if (!Tile::defaultTexture)
+    {
+        Tile::defaultTexture = new Texture();
+    }
+
     program = Scene::getShaderProgram();
-    sprite = Sprite::createSprite(glm::ivec2(16), glm::vec2(1.0f), getTexture(), program);
+    sprite = Sprite::createSprite(glm::ivec2(16), glm::vec2(1.0f), Tile::defaultTexture, program);
 }
 
 Tile::Tile(const glm::ivec2 &worldPos) : Tile()

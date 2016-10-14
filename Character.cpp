@@ -100,7 +100,7 @@ void Character::update(int deltaTime)
 
 glm::ivec2 Character::getScreenPosition() const
 {
-	return position - Scene::getCamera()->getPosition();
+    return position - Game::getCurrentSceneGame()->getCamera()->getPosition();
 }
 
 glm::ivec2 Character::getPosition() const

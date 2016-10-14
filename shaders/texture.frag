@@ -18,10 +18,11 @@ void main()
         if(texColor.a < 0.5f) discard;
         outColor = texColor * mix(vec4(1), tint, tint.a);
 
-        int fogRegionHeight = 100;
+        /*int fogRegionHeight = 100;
         if (gl_FragCoord.y < fogRegionHeight)
         {
             float fogFactorY = (gl_FragCoord.y / fogRegionHeight);
             outColor *= min( 1.0f, pow(fogFactorY, 0.5) );
         }
+        */
 }

@@ -22,46 +22,29 @@ class Scene
 
 public:
 	Scene();
-	~Scene();
+    virtual ~Scene();
 
-	void init();
-	void update(int deltaTime);
-	void render();
+    virtual void init();
+    virtual void update(int deltaTime);
+    virtual void _render();
+    virtual void render() {}
 
     Text* createText(const std::string &str = "",
                   const glm::ivec2 &pos = glm::ivec2(0),
                   int size = 16);
     void deleteText(Text* text);
 
-	static Scene *getInstance();
-	static int getCurrentTime();
-	static Player *getPlayer();
-	static Camera *getCamera();
-	static TileMap *getTileMap();
+    static int getCurrentTime();
     static ShaderProgram *getShaderProgram();
 
-	Character* whosThere(const glm::ivec2 &pos);
-
-private:
-	static Scene* singleton;
-
+protected:
 	void initShaders();
 
-private:
-	Player *player;
-	Camera *camera;
-    Texture textureBg;
-    Sprite *spriteBg = NULL;
-	std::list<Character*> characters;
     std::list<Text*> texts;
 
-
-    TileMap *map, *mapBg;
-	ShaderProgram texProgram;
+    ShaderProgram texProgram;
 	int currentTime;
-	glm::mat4 projection;
-
-    void generateProceduralTilemap();
+    glm::mat4 projection;
 };
 
 

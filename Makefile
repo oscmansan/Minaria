@@ -375,6 +375,78 @@ Scene.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Scene.cpp.s
 .PHONY : Scene.cpp.s
 
+SceneCredits.o: SceneCredits.cpp.o
+.PHONY : SceneCredits.o
+
+# target to build an object file
+SceneCredits.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o
+.PHONY : SceneCredits.cpp.o
+
+SceneCredits.i: SceneCredits.cpp.i
+.PHONY : SceneCredits.i
+
+# target to preprocess a source file
+SceneCredits.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.i
+.PHONY : SceneCredits.cpp.i
+
+SceneCredits.s: SceneCredits.cpp.s
+.PHONY : SceneCredits.s
+
+# target to generate assembly for a file
+SceneCredits.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.s
+.PHONY : SceneCredits.cpp.s
+
+SceneGame.o: SceneGame.cpp.o
+.PHONY : SceneGame.o
+
+# target to build an object file
+SceneGame.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o
+.PHONY : SceneGame.cpp.o
+
+SceneGame.i: SceneGame.cpp.i
+.PHONY : SceneGame.i
+
+# target to preprocess a source file
+SceneGame.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.i
+.PHONY : SceneGame.cpp.i
+
+SceneGame.s: SceneGame.cpp.s
+.PHONY : SceneGame.s
+
+# target to generate assembly for a file
+SceneGame.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.s
+.PHONY : SceneGame.cpp.s
+
+SceneMenu.o: SceneMenu.cpp.o
+.PHONY : SceneMenu.o
+
+# target to build an object file
+SceneMenu.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o
+.PHONY : SceneMenu.cpp.o
+
+SceneMenu.i: SceneMenu.cpp.i
+.PHONY : SceneMenu.i
+
+# target to preprocess a source file
+SceneMenu.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.i
+.PHONY : SceneMenu.cpp.i
+
+SceneMenu.s: SceneMenu.cpp.s
+.PHONY : SceneMenu.s
+
+# target to generate assembly for a file
+SceneMenu.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.s
+.PHONY : SceneMenu.cpp.s
+
 Shader.o: Shader.cpp.o
 .PHONY : Shader.o
 
@@ -609,6 +681,15 @@ help:
 	@echo "... Scene.o"
 	@echo "... Scene.i"
 	@echo "... Scene.s"
+	@echo "... SceneCredits.o"
+	@echo "... SceneCredits.i"
+	@echo "... SceneCredits.s"
+	@echo "... SceneGame.o"
+	@echo "... SceneGame.i"
+	@echo "... SceneGame.s"
+	@echo "... SceneMenu.o"
+	@echo "... SceneMenu.i"
+	@echo "... SceneMenu.s"
 	@echo "... Shader.o"
 	@echo "... Shader.i"
 	@echo "... Shader.s"

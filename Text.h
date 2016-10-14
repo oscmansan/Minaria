@@ -6,6 +6,7 @@
 
 #include "Sprite.h"
 #include "Texture.h"
+#include "Rect.h"
 
 class Text
 {
@@ -19,8 +20,13 @@ public:
 
     void setColor(const glm::vec4 &color);
     void setText(const std::string &str, int size = 5);
+    void centerHorizontally();
+    void setVisible(bool visible);
+    Rect getBoundingRect() const;
 
 private:
+    bool visible = true;
+    glm::vec4 color = glm::vec4(1,1,1,1);
     glm::ivec2 position = glm::ivec2(0);
     std::string currentText = "";
 

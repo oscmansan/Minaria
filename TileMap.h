@@ -5,10 +5,11 @@
 #include <glm/glm.hpp>
 #include <vector>
 
+#include "Game.h"
 #include "Tile.h"
 #include "Block.h"
-#include "Scene.h"
 #include "Texture.h"
+#include "SceneGame.h"
 #include "ShaderProgram.h"
 
 // Class Tilemap is capable of loading a tile map from a text file in a very
@@ -19,6 +20,9 @@ class TileMap
 {
 
 public:
+
+    bool isBg = false;
+
 	// Tile maps can only be created inside an OpenGL context
     static TileMap *createTileMap(glm::ivec2 size, ShaderProgram &program);
 
@@ -42,7 +46,7 @@ public:
     template<class T>
     T* addTile(const glm::ivec2 &posWorld)
     {
-        if (Scene::getInstance()->whosThere(posWorld)) return NULL;
+        if (Game::getCurrentSceneGame()->whosThere(posWorld)) return NULL;
 
         T* added = NULL;
         glm::ivec2 posTile = worldPosToTilePos(posWorld);
