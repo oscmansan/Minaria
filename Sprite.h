@@ -38,7 +38,7 @@ public:
 	void setVisible(bool visible);
 	bool isVisible() const;
 
-	void setTint(glm::vec4 tint);
+    void setTint(const glm::vec4 &tint);
 	glm::vec4 getTint() const;
 
     void setTexture(Texture *texture);

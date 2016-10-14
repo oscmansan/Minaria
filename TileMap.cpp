@@ -66,7 +66,7 @@ void TileMap::render()
         if (tile)
         {
             // +-50 to render a bit more than needed;
-            Rect screenRect = Rect(-50, -50, SCREEN_WIDTH+50, SCREEN_HEIGHT+50);
+            Rect screenRect = Rect(-50, -50, SCREEN_WIDTH + 50, SCREEN_HEIGHT + 50);
             glm::vec4 v4 = (view * glm::vec4(tile->getPosition(),0,1));
             bool isVisible = screenRect.contains( glm::ivec2(v4.x, v4.y) );
             if (isVisible)

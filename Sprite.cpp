@@ -120,7 +120,7 @@ bool Sprite::isVisible() const
 	return visible;
 }
 
-void Sprite::setTint(glm::vec4 tint)
+void Sprite::setTint(const glm::vec4 &tint)
 {
 	this->tint = tint;
 }
