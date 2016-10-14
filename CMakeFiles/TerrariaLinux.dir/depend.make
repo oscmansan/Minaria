@@ -94,6 +94,7 @@ CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Sprite.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: TileMap.h
 
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: AnimKeyframes.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Block.h

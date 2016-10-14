@@ -74,7 +74,7 @@ private:
 	GLint posLocation, texCoordLocation;
 	ShaderProgram *program;
 	glm::ivec2 mapSize, tilesheetSize;
-	int tileSize, blockSize;
+    int tileSize;
 	Texture tilesheet;
 	glm::vec2 tileTexSize;
 

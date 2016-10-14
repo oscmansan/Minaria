@@ -14,7 +14,7 @@ Tile::Tile()
     }
 
     program = Scene::getShaderProgram();
-    sprite = Sprite::createSprite(glm::ivec2(16), glm::vec2(1.0f), Tile::defaultTexture, program);
+    sprite = Sprite::createSprite(glm::ivec2(32), glm::vec2(1.0f), Tile::defaultTexture, program);
 }
 
 Tile::Tile(const glm::ivec2 &worldPos) : Tile()

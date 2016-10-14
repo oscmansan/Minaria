@@ -57,7 +57,7 @@ void Player::init(ShaderProgram &shaderProgram)
 
     inventory.init(shaderProgram);
 
-    position = glm::vec2(500, 1300);
+    position = glm::vec2(1000, 2600);
 	setPosition(position);
 }
 

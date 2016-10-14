@@ -27,8 +27,7 @@ TileMap::TileMap(glm::ivec2 size, ShaderProgram &program)
 
 	// Specify sizes
 	mapSize = size;
-    tileSize = 16;
-    blockSize = 32;
+    tileSize = 32;
 
 	// Tilesheet related
 	const string tilesheetFile = "images/blocks.png";  // Tilesheet location
@@ -75,8 +74,9 @@ void TileMap::render()
 
             if (drawTile)
             {
-                // +-50 to render a bit more than needed;
-                Rect screenRect = Rect(-50, -50, SCREEN_WIDTH + 50, SCREEN_HEIGHT + 50);
+                // +-offset to render a bit more than needed;
+                int offset = 32;
+                Rect screenRect = Rect(-offset, -offset, SCREEN_WIDTH + offset, SCREEN_HEIGHT + offset);
                 glm::vec4 v4 = (view * glm::vec4(tile->getPosition(),0,1));
                 bool isVisible = screenRect.contains( glm::ivec2(v4.x, v4.y) );
                 if (isVisible)
@@ -187,9 +187,9 @@ bool TileMap::collisionMoveDown(const glm::ivec2 &pos, const glm::ivec2 &size, i
 	{
 		if(map[y*mapSize.x+x] != 0)
 		{
-			if (pos.y - tileSize * y + size.y <= 4)
+            if (pos.y - tileSize * y + size.y <= 4)
 			{
-				*posY = tileSize * y - size.y;
+                *posY = tileSize * y - size.y;
 				return true;
 			}
 		}
