@@ -28,9 +28,10 @@ public:
 	void update(int deltaTime);
 	void render();
 
-    Text* addText(const std::string &str = "",
+    Text* createText(const std::string &str = "",
                   const glm::ivec2 &pos = glm::ivec2(0),
                   int size = 16);
+    void deleteText(Text* text);
 
 	static Scene *getInstance();
 	static int getCurrentTime();

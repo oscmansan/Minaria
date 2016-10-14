@@ -95,7 +95,7 @@ void Scene::init()
 	characters.push_back(player);
 
     /*
-    Scene::getInstance()->addText("123456789.,", glm::ivec2(0, 0), 16);
+    Scene::getInstance()->addText("0123456789.,", glm::ivec2(0, 0), 16);
     Scene::getInstance()->addText("ABCDEFGHIJKLMNOPQRSTUVWXYZ", glm::ivec2(0, 20), 16);
     Scene::getInstance()->addText("abcdefghijklmnopqrstuvwxyz", glm::ivec2(0, 40), 16);
     */
@@ -144,13 +144,23 @@ void Scene::render()
     }
 }
 
-Text* Scene::addText(const std::string &str, const glm::ivec2 &pos, int size)
+Text* Scene::createText(const std::string &str, const glm::ivec2 &pos, int size)
 {
     Text *t = new Text();
     t->setText(str, size);
     t->setPosition(pos);
     texts.push_back(t);
     return t;
+}
+
+void Scene::deleteText(Text *text)
+{
+    for (Text *t : texts)
+    {
+        if (t == text) delete text;
+        break;
+    }
+    texts.remove(text);
 }
 
 void Scene::initShaders()

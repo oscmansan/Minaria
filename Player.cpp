@@ -202,22 +202,27 @@ void Player::handleMouseActions()
             Block *b = selectedItem ? dynamic_cast<Block*>(selectedItem) : NULL;
             if (b != NULL) // Is it a block?
             {
+                // BLOCK ADDING
                 int amount = b->getAmount();
-
-                Tile *addedBlock = NULL;
-                if (b->getType() == Block::GOLD)          { addedBlock = tmap->addTile<BlockGold>(mousePos); }
-                else if (b->getType() == Block::SAPPHIRE) { addedBlock = tmap->addTile<BlockSapphire>(mousePos); }
-                else if (b->getType() == Block::RUBY)     { addedBlock = tmap->addTile<BlockRuby>(mousePos); }
-                else if (b->getType() == Block::EMERALD)  { addedBlock = tmap->addTile<BlockEmerald>(mousePos); }
-                if (amount > 0 && addedBlock)
+                if (amount > 0)
                 {
-                    inventory.dropItem(selectedItemIndex);
+                    Tile *addedBlock = NULL;
+                    if (b->getType() == Block::GOLD)          { addedBlock = tmap->addTile<BlockGold>(mousePos); }
+                    else if (b->getType() == Block::SAPPHIRE) { addedBlock = tmap->addTile<BlockSapphire>(mousePos); }
+                    else if (b->getType() == Block::RUBY)     { addedBlock = tmap->addTile<BlockRuby>(mousePos); }
+                    else if (b->getType() == Block::EMERALD)  { addedBlock = tmap->addTile<BlockEmerald>(mousePos); }
+
+                    if (addedBlock)
+                    {
+                        inventory.dropItem(selectedItemIndex);
+                    }
                 }
             }
         }
     }
     else if (Game::instance().getMouseRightButton())
     {
+        // BLOCK REMOVAL
         if (mouseBlock && mouseBlock->getType() != 0)
         {
             mouseBlock->onHitBegin();

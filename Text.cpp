@@ -59,7 +59,6 @@ void Text::setText(const std::string &str, int size)
                                                         letterSizeInTextsheet,
                                                         Text::textSheet,
                                                         program);
-            letterSprites.push_back(letterSprite);
             letterSprite->setNumberAnimations(1);
 
             int framePosX = 0;
@@ -76,13 +75,16 @@ void Text::setText(const std::string &str, int size)
             }
             else if (c >= '0' && c <= '9')
             {
-                framePosX = int(c - '0') + 14;
+                framePosX = int(c - '0') + 15;
                 framePosY = 0;
             }
             else if (c == '.') { framePosX = 13; framePosY = 0; }
 
             letterSprite->addKeyframe(0, letterSizeInTextsheet * glm::vec2(framePosX, framePosY));
             letterSprite->changeAnimation(0);
+
+            letterSprites.push_back(letterSprite);
         }
+        currentText = str;
     }
 }
