@@ -34,6 +34,7 @@ public:
 	
 	void setTileMap(TileMap *tileMap);
 	void setPosition(const glm::ivec2 &pos);
+    glm::ivec2 getSize();
 
 	bool isGrounded();
 

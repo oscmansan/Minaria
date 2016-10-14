@@ -79,7 +79,7 @@ void Scene::init()
 	player->setTileMap(map);
 
 	// Enemy init
-	for (int i = 0; i < 10; ++i)
+    for (int i = 0; i < 1; ++i)
 	{
 		Enemy *enemy = new Enemy();
 		enemy->init(texProgram);

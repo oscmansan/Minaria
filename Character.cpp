@@ -98,6 +98,10 @@ void Character::update(int deltaTime)
 	setPosition(position);
 }
 
+glm::ivec2 Character::getSize() {
+    return sprite->getSize();
+}
+
 glm::ivec2 Character::getScreenPosition() const
 {
 	return position - Scene::getCamera()->getPosition();

@@ -1,5 +1,6 @@
 #include "Enemy.h"
 #include "Game.h"
+#include "TileMap.h"
 
 #include <cmath>
 #include <iostream>
@@ -34,9 +35,11 @@ void Enemy::init(ShaderProgram &shaderProgram)
 	sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.25f));
 	sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.5f));
 
-	position = glm::vec2(200, SCREEN_HEIGHT - 80);
-	setPosition(position);
+    position = glm::vec2(700, SCREEN_HEIGHT+900);
 	sprite->setTint(glm::vec4(1, 0, 0, 1));
+
+    state = PATROL;
+    jumpSpeed = -5;
 }
 
 void Enemy::update(int deltaTime)
@@ -44,34 +47,82 @@ void Enemy::update(int deltaTime)
 	Character::update(deltaTime);
 
 	Player *player = Scene::getPlayer();
-	if (player->getBoundingBox().intersects(getBoundingBox()))
-	{
-		player->takeDamage();
-	}
+
+    int tileSize = Scene::getInstance()->getTileMap()->getTileSize();
+    int detectThreshold = 10*tileSize;
+    switch(state) {
+        case PATROL:
+            if (abs(player->getPosition().x - position.x) < detectThreshold)
+                state = CHASE;
+            break;
+        case CHASE:
+            if (abs(player->getPosition().x - position.x) < tileSize)
+                state = ATTACK;
+            else if (abs(player->getPosition().x - position.x) > detectThreshold)
+                state = PATROL;
+            break;
+        case ATTACK:
+            if (abs(player->getPosition().x - position.x) > tileSize)
+                state = PATROL;
+            if (player->getBoundingBox().intersects(getBoundingBox()))
+                player->takeDamage();
+            break;
+    }
+
+    switch(state) {
+        case PATROL:
+            sprite->setTint(glm::vec4(0,0,1,1));
+            break;
+        case CHASE:
+            sprite->setTint(glm::vec4(0,1,1,1));
+            break;
+        case ATTACK:
+            sprite->setTint(glm::vec4(1,0,1,1));
+            break;
+    }
+
 }
 
 void Enemy::move(int deltaTime)
 {
 	Player *player = Scene::getPlayer();
-	if (player->getPosition().x > position.x)
-	{
-		if (sprite->animation() != MOVE_RIGHT)
-			sprite->changeAnimation(MOVE_RIGHT);
-		velocity.x = 2;
-	}
-	else
-	{
-			
-		if (sprite->animation() != MOVE_LEFT)
-			sprite->changeAnimation(MOVE_LEFT);
-		velocity.x = -2;
-	}
+    TileMap *tilemap = Scene::getInstance()->getTileMap();
 
+    if (tilemap->collisionMoveLeft(position+glm::ivec2(-5,0),getSize()) or
+            tilemap->collisionMoveRight(position+glm::ivec2(5,0),getSize()))
+        jump();
 
-	if (player->getPosition().y < position.y && int(Scene::getCurrentTime()) % 1000 < 500)
-	{
-		jump();
-	}
+    switch(state) {
+        float v;
+        case PATROL:
+            v = 1;
+            if (int(Scene::getCurrentTime()) % 3000 < 1500) {
+                if (sprite->animation() != MOVE_RIGHT)
+                    sprite->changeAnimation(MOVE_RIGHT);
+                velocity.x = v;
+            }
+            else {
+                if (sprite->animation() != MOVE_LEFT)
+                    sprite->changeAnimation(MOVE_LEFT);
+                velocity.x = -v;
+            }
+            break;
+        case CHASE:
+            v = 3;
+            if (player->getPosition().x > position.x) {
+                if (sprite->animation() != MOVE_RIGHT)
+                    sprite->changeAnimation(MOVE_RIGHT);
+                velocity.x = v;
+            }
+            else {
+                if (sprite->animation() != MOVE_LEFT)
+                    sprite->changeAnimation(MOVE_LEFT);
+                velocity.x = -v;
+            }
+            break;
+        case ATTACK:
+            break;
+    }
 
 	Character::applyGravity();
 }
