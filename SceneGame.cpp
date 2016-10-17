@@ -144,7 +144,7 @@ void SceneGame::generateProceduralTilemap()
         }
     }
 
-    /*// Add mountains using sinus of grounds
+    // Add mountains using sinus of grounds
     srand(time(0));
     float sinSpeed1 = float(rand()%10)/10.0f + 1.0f;
     float sinSpeed2 = float(rand()%10)/10.0f + 1.0f;
@@ -182,7 +182,7 @@ void SceneGame::generateProceduralTilemap()
         }
     }
 
-    // Add minerals and holes
+    /*// Add minerals and holes
     PerlinNoise perlinSapphire(time(0) * rand()),
                 perlinRuby(time(0) * rand()),
                 perlinEmerald(time(0) * rand()),

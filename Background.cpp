@@ -65,7 +65,5 @@ void Background::render() {
 
 void Background::free()
 {
-    for (int i = 0; i < 5; ++i) {
-        glDeleteBuffers(1, &vbo);
-    }
+    glDeleteBuffers(1, &vbo);
 }
