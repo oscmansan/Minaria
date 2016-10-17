@@ -10,6 +10,7 @@ CMakeFiles/TerrariaLinux.dir/Background.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/PerlinNoise.h
@@ -33,6 +34,7 @@ CMakeFiles/TerrariaLinux.dir/Block.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/PerlinNoise.h
@@ -57,6 +59,7 @@ CMakeFiles/TerrariaLinux.dir/Camera.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/PerlinNoise.h
@@ -80,6 +83,7 @@ CMakeFiles/TerrariaLinux.dir/Character.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/PerlinNoise.h
@@ -104,6 +108,55 @@ CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o
  /home/sephirot47/Terraria-linux/Enemy.cpp
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
+ /home/sephirot47/Terraria-linux/Inventory.h
+ /home/sephirot47/Terraria-linux/Item.h
+ /home/sephirot47/Terraria-linux/PerlinNoise.h
+ /home/sephirot47/Terraria-linux/Player.h
+ /home/sephirot47/Terraria-linux/Rect.h
+ /home/sephirot47/Terraria-linux/Scene.h
+ /home/sephirot47/Terraria-linux/SceneCredits.h
+ /home/sephirot47/Terraria-linux/SceneGame.h
+ /home/sephirot47/Terraria-linux/SceneMenu.h
+ /home/sephirot47/Terraria-linux/Shader.h
+ /home/sephirot47/Terraria-linux/ShaderProgram.h
+ /home/sephirot47/Terraria-linux/Sprite.h
+ /home/sephirot47/Terraria-linux/Text.h
+ /home/sephirot47/Terraria-linux/Texture.h
+ /home/sephirot47/Terraria-linux/Tile.h
+CMakeFiles/TerrariaLinux.dir/Game.cpp.o
+ /home/sephirot47/Terraria-linux/AnimKeyframes.h
+ /home/sephirot47/Terraria-linux/Block.h
+ /home/sephirot47/Terraria-linux/Camera.h
+ /home/sephirot47/Terraria-linux/Character.h
+ /home/sephirot47/Terraria-linux/Enemy.h
+ /home/sephirot47/Terraria-linux/Game.cpp
+ /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
+ /home/sephirot47/Terraria-linux/Inventory.h
+ /home/sephirot47/Terraria-linux/Item.h
+ /home/sephirot47/Terraria-linux/PerlinNoise.h
+ /home/sephirot47/Terraria-linux/Player.h
+ /home/sephirot47/Terraria-linux/Rect.h
+ /home/sephirot47/Terraria-linux/Scene.h
+ /home/sephirot47/Terraria-linux/SceneCredits.h
+ /home/sephirot47/Terraria-linux/SceneGame.h
+ /home/sephirot47/Terraria-linux/SceneMenu.h
+ /home/sephirot47/Terraria-linux/Shader.h
+ /home/sephirot47/Terraria-linux/ShaderProgram.h
+ /home/sephirot47/Terraria-linux/Sprite.h
+ /home/sephirot47/Terraria-linux/Text.h
+ /home/sephirot47/Terraria-linux/Texture.h
+ /home/sephirot47/Terraria-linux/Tile.h
+CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o
+ /home/sephirot47/Terraria-linux/AnimKeyframes.h
+ /home/sephirot47/Terraria-linux/Block.h
+ /home/sephirot47/Terraria-linux/Camera.h
+ /home/sephirot47/Terraria-linux/Character.h
+ /home/sephirot47/Terraria-linux/Enemy.h
+ /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.cpp
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/PerlinNoise.h
@@ -120,29 +173,6 @@ CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o
  /home/sephirot47/Terraria-linux/Texture.h
  /home/sephirot47/Terraria-linux/Tile.h
  /home/sephirot47/Terraria-linux/TileMap.h
-CMakeFiles/TerrariaLinux.dir/Game.cpp.o
- /home/sephirot47/Terraria-linux/AnimKeyframes.h
- /home/sephirot47/Terraria-linux/Block.h
- /home/sephirot47/Terraria-linux/Camera.h
- /home/sephirot47/Terraria-linux/Character.h
- /home/sephirot47/Terraria-linux/Enemy.h
- /home/sephirot47/Terraria-linux/Game.cpp
- /home/sephirot47/Terraria-linux/Game.h
- /home/sephirot47/Terraria-linux/Inventory.h
- /home/sephirot47/Terraria-linux/Item.h
- /home/sephirot47/Terraria-linux/PerlinNoise.h
- /home/sephirot47/Terraria-linux/Player.h
- /home/sephirot47/Terraria-linux/Rect.h
- /home/sephirot47/Terraria-linux/Scene.h
- /home/sephirot47/Terraria-linux/SceneCredits.h
- /home/sephirot47/Terraria-linux/SceneGame.h
- /home/sephirot47/Terraria-linux/SceneMenu.h
- /home/sephirot47/Terraria-linux/Shader.h
- /home/sephirot47/Terraria-linux/ShaderProgram.h
- /home/sephirot47/Terraria-linux/Sprite.h
- /home/sephirot47/Terraria-linux/Text.h
- /home/sephirot47/Terraria-linux/Texture.h
- /home/sephirot47/Terraria-linux/Tile.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o
  /home/sephirot47/Terraria-linux/AnimKeyframes.h
  /home/sephirot47/Terraria-linux/Block.h
@@ -150,6 +180,7 @@ CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.cpp
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
@@ -192,6 +223,7 @@ CMakeFiles/TerrariaLinux.dir/Player.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/ItemPickaxe.h
@@ -221,6 +253,7 @@ CMakeFiles/TerrariaLinux.dir/Scene.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/PerlinNoise.h
@@ -245,6 +278,7 @@ CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/PerlinNoise.h
@@ -269,6 +303,7 @@ CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/PerlinNoise.h
@@ -293,6 +328,7 @@ CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/PerlinNoise.h
@@ -330,6 +366,7 @@ CMakeFiles/TerrariaLinux.dir/Text.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/PerlinNoise.h
@@ -357,6 +394,7 @@ CMakeFiles/TerrariaLinux.dir/Tile.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/PerlinNoise.h
@@ -381,6 +419,7 @@ CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/PerlinNoise.h
@@ -405,6 +444,7 @@ CMakeFiles/TerrariaLinux.dir/main.cpp.o
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/Enemy.h
  /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
  /home/sephirot47/Terraria-linux/Inventory.h
  /home/sephirot47/Terraria-linux/Item.h
  /home/sephirot47/Terraria-linux/PerlinNoise.h

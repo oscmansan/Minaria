@@ -255,6 +255,30 @@ Game.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Game.cpp.s
 .PHONY : Game.cpp.s
 
+GroundEnemy.o: GroundEnemy.cpp.o
+.PHONY : GroundEnemy.o
+
+# target to build an object file
+GroundEnemy.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o
+.PHONY : GroundEnemy.cpp.o
+
+GroundEnemy.i: GroundEnemy.cpp.i
+.PHONY : GroundEnemy.i
+
+# target to preprocess a source file
+GroundEnemy.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.i
+.PHONY : GroundEnemy.cpp.i
+
+GroundEnemy.s: GroundEnemy.cpp.s
+.PHONY : GroundEnemy.s
+
+# target to generate assembly for a file
+GroundEnemy.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.s
+.PHONY : GroundEnemy.cpp.s
+
 Inventory.o: Inventory.cpp.o
 .PHONY : Inventory.o
 
@@ -738,6 +762,9 @@ help:
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"
+	@echo "... GroundEnemy.o"
+	@echo "... GroundEnemy.i"
+	@echo "... GroundEnemy.s"
 	@echo "... Inventory.o"
 	@echo "... Inventory.i"
 	@echo "... Inventory.s"

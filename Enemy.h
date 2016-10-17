@@ -5,23 +5,14 @@
 class Enemy : public Character
 {
 public:
-	Enemy();
-	~Enemy();
+    virtual void init(ShaderProgram &shaderProgram) = 0;
+    virtual void update(int deltaTime) = 0;
+    virtual void move(int deltaTime) = 0;
 
-    enum State {
-        PATROL = 0,
-        CHASE  = 1,
-        ATTACK = 2
-    };
-
-	virtual void init(ShaderProgram &shaderProgram);
-	virtual void update(int deltaTime);
-
-    void hit();
+    virtual void hit();
 
 protected:
-    State state;
-
-	virtual void move(int deltaTime);
+    Enemy();
+    virtual ~Enemy();
 };
 

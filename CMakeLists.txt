@@ -29,7 +29,7 @@ link_directories(${GLUT_LIBRARY_DIRS})
 link_directories(${GLEW_LIBRARY_DIRS})
 link_directories(${SOIL_LIBRARY_DIRS})
 
-add_executable(${appName} Player.h Player.cpp AnimKeyframes.h Sprite.h Sprite.cpp TileMap.h TileMap.cpp Texture.h Texture.cpp Scene.h Scene.cpp Shader.h Shader.cpp ShaderProgram.h ShaderProgram.cpp Game.h Game.cpp Block.h Block.cpp Camera.h Camera.cpp Enemy.h Enemy.cpp Character.h Character.cpp Inventory.h Inventory.cpp Item.h Item.cpp Rect.h Rect.cpp PerlinNoise.h PerlinNoise.cpp Tile.h Tile.cpp Text.h Text.cpp SceneGame.h SceneGame.cpp SceneMenu.h SceneMenu.cpp SceneCredits.h SceneCredits.cpp Background.h Background.cpp main.cpp ItemSword.h ItemSword.cpp ItemPickaxe.h ItemPickaxe.cpp)
+add_executable(${appName} Player.h Player.cpp AnimKeyframes.h Sprite.h Sprite.cpp TileMap.h TileMap.cpp Texture.h Texture.cpp Scene.h Scene.cpp Shader.h Shader.cpp ShaderProgram.h ShaderProgram.cpp Game.h Game.cpp Block.h Block.cpp Camera.h Camera.cpp Enemy.h Enemy.cpp GroundEnemy.h GroundEnemy.cpp Character.h Character.cpp Inventory.h Inventory.cpp Item.h Item.cpp Rect.h Rect.cpp PerlinNoise.h PerlinNoise.cpp Tile.h Tile.cpp Text.h Text.cpp SceneGame.h SceneGame.cpp SceneMenu.h SceneMenu.cpp SceneCredits.h SceneCredits.cpp Background.h Background.cpp main.cpp ItemSword.h ItemSword.cpp ItemPickaxe.h ItemPickaxe.cpp)
 
 target_link_libraries(${appName} ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} ${GLEW_LIBRARIES} ${SOIL_LIBRARIES} ${FREETYPE_LIBRARIES}) # ${GLM_LIBRARIES})
 

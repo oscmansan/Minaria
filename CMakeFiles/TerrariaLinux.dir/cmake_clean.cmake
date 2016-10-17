@@ -10,6 +10,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/TerrariaLinux.dir/Block.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/Camera.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o"
+  "CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/Character.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/Item.cpp.o"

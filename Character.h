@@ -51,10 +51,12 @@ protected:
 	float jumpSpeed;
 	float maxFallSpeed;
 
-    glm::ivec2 position;
 	Texture spritesheet;
 	Sprite *sprite;
 	TileMap *map;
+
+private:
+    glm::ivec2 position;
 
 };
 
