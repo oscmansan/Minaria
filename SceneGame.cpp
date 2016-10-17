@@ -55,19 +55,19 @@ void SceneGame::init()
     player->init(texProgram);
     player->setTileMap(map);
 
-    // Add to the list of characters
-    characters.push_back(player);
-
     // Enemy init
-    /*for (int i = 0; i < 10; ++i)
+    int nenemies = 10;
+    for (int i = 0; i < nenemies; ++i)
     {
-        Enemy *enemy = new Enemy();
+        GroundEnemy *enemy = new GroundEnemy();
         enemy->init(texProgram);
         enemy->setPosition(enemy->getPosition() + glm::ivec2(i * 60, -i * 60));
         enemy->setTileMap(map);
         characters.push_back(enemy);
     }
-    */
+
+    // Add to the list of characters
+    characters.push_back(player);
 
     camera = new Camera();
     camera->init(player->getPosition());
@@ -179,7 +179,7 @@ void SceneGame::generateProceduralTilemap()
         }
     }
 
-    /*// Add minerals and holes
+    // Add minerals and holes
     PerlinNoise perlinSapphire(time(0) * rand()),
                 perlinRuby(time(0) * rand()),
                 perlinEmerald(time(0) * rand()),

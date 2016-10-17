@@ -5,7 +5,7 @@
 #include <glm/glm.hpp>
 
 #include "Scene.h"
-#include "Enemy.h"
+#include "GroundEnemy.h"
 #include "Camera.h"
 #include "Player.h"
 #include "Character.h"
