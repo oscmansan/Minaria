@@ -8,6 +8,7 @@
 #include "Tile.h"
 #include "Block.h"
 #include "TileMap.h"
+#include "Background.h"
 
 SceneGame::SceneGame()
 {
@@ -45,16 +46,17 @@ void SceneGame::init()
 {
     Scene::init();
 
+    // Map init
+    background = new Background(texProgram);
     generateProceduralTilemap();
-
-    textureBg.loadFromFile("images/background.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    spriteBg = Sprite::createSprite(glm::ivec2(SCREEN_WIDTH, SCREEN_HEIGHT), glm::vec2(1.0f),
-                                    &textureBg, &texProgram);
 
     // Player init
     player = new Player();
     player->init(texProgram);
     player->setTileMap(map);
+
+    // Add to the list of characters
+    characters.push_back(player);
 
     // Enemy init
     /*for (int i = 0; i < 10; ++i)
@@ -69,9 +71,6 @@ void SceneGame::init()
 
     camera = new Camera();
     camera->init(player->getPosition());
-
-    // Add to the list of characters
-    characters.push_back(player);
 
     /*
     SceneGame::getInstance()->addText("0123456789.,", glm::ivec2(0, 0), 16);
@@ -91,16 +90,16 @@ void SceneGame::update(int deltaTime)
     }
 
     camera->update();
+    background->update(deltaTime);
     map->update(deltaTime);
 }
 
 void SceneGame::render()
 {
-    spriteBg->render();
-
     glm::mat4 view = camera->getView();
     texProgram.setUniformMatrix4f("view", view);
 
+    background->render();
     mapBg->render();
     map->render();
 

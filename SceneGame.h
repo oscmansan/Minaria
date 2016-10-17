@@ -18,6 +18,8 @@
 // It is responsible for updating and render them.
 
 class TileMap;
+class Background;
+
 class SceneGame : public Scene
 {
 
@@ -38,11 +40,10 @@ public:
 private:
     Player *player = NULL;
     Camera *camera = NULL;
-    Sprite *spriteBg = NULL;
     std::list<Character*> characters;
     std::list<Text*> texts;
 
-    Texture textureBg;
+    Background *background = NULL;
 
     TileMap *map = NULL;
     TileMap *mapBg = NULL;
