@@ -18,9 +18,8 @@ private:
     GLuint vbo;
     GLint posLocation, texCoordLocation;
     ShaderProgram *program;
-    Texture texture;
-    glm::vec2 texCoordDispl;
-    float offset;
+    Texture texture[5];
+    float offset[5];
 };
 
 #endif // BACKGROUND_H

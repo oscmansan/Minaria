@@ -144,7 +144,7 @@ void SceneGame::generateProceduralTilemap()
         }
     }
 
-    // Add mountains using sinus of grounds
+    /*// Add mountains using sinus of grounds
     srand(time(0));
     float sinSpeed1 = float(rand()%10)/10.0f + 1.0f;
     float sinSpeed2 = float(rand()%10)/10.0f + 1.0f;
@@ -212,7 +212,7 @@ void SceneGame::generateProceduralTilemap()
                 if (ph > 0.35f || ph < -0.35f) { map->delTile(pos); }
             }
         }
-    }
+    }*/
 
     // Add side big walls
     for (int x = 25; x >= 0; --x)

@@ -4,12 +4,20 @@ Background::Background(ShaderProgram &program)
 {
     this->program = &program;
 
-    const string file = "images/background.png";
-    texture.loadFromFile(file, TEXTURE_PIXEL_FORMAT_RGBA);
-    texture.setWrapS(GL_REPEAT);
-    texture.setWrapT(GL_REPEAT);
-    texture.setMinFilter(GL_NEAREST);
-    texture.setMagFilter(GL_NEAREST);
+    string file[5];
+    file[0] = "images/layer_01.png";
+    file[1] = "images/layer_02.png";
+    file[2] = "images/layer_03.png";
+    file[3] = "images/layer_04.png";
+    file[4] = "images/layer_05.png";
+
+    for (int i = 0; i < 5; ++i) {
+        texture[i].loadFromFile(file[i], TEXTURE_PIXEL_FORMAT_RGBA);
+        texture[i].setWrapS(GL_REPEAT);
+        texture[i].setWrapT(GL_REPEAT);
+        texture[i].setMinFilter(GL_NEAREST);
+        texture[i].setMagFilter(GL_NEAREST);
+    }
 
     float height = SCREEN_HEIGHT;
     float width = SCREEN_WIDTH;
@@ -28,28 +36,36 @@ Background::Background(ShaderProgram &program)
     glBufferData(GL_ARRAY_BUFFER, 24 * sizeof(float), vertices, GL_STATIC_DRAW);
     posLocation = program.bindVertexAttribute("position", 2, 4*sizeof(float), 0);
     texCoordLocation = program.bindVertexAttribute("texCoord", 2, 4*sizeof(float), (void *)(2*sizeof(float)));
-    offset = 0;
 }
 
 void Background::update(int deltaTime) {
     Player *player = Game::getCurrentSceneGame()->getPlayer();
     glm::vec2 v = player->getVelocity();
-    offset += v.x/SCREEN_WIDTH/5;
-    texCoordDispl = glm::vec2(offset,0.f);
+
+    // Parallax
+    offset[0] += v.x/SCREEN_WIDTH/25;
+    offset[1] += v.x/SCREEN_WIDTH/20;
+    offset[2] += v.x/SCREEN_WIDTH/15;
+    offset[3] += v.x/SCREEN_WIDTH/10;
+    offset[4] += v.x/SCREEN_WIDTH/5;
 }
 
 void Background::render() {
-    program->setUniform2f("texCoordDispl", texCoordDispl.x, texCoordDispl.y);
     glEnable(GL_TEXTURE_2D);
-    texture.use();
     glBindVertexArray(vao);
     glEnableVertexAttribArray(posLocation);
     glEnableVertexAttribArray(texCoordLocation);
-    glDrawArrays(GL_TRIANGLES, 0, 6);
+    for (int i = 0; i < 5; ++i) {
+        program->setUniform2f("texCoordDispl", offset[i], 0.4f);
+        texture[i].use();
+        glDrawArrays(GL_TRIANGLES, 0, 6);
+    }
     glDisable(GL_TEXTURE_2D);
 }
 
 void Background::free()
 {
-    glDeleteBuffers(1, &vbo);
+    for (int i = 0; i < 5; ++i) {
+        glDeleteBuffers(1, &vbo);
+    }
 }
