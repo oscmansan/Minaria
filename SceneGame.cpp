@@ -56,10 +56,10 @@ void SceneGame::init()
     player->setTileMap(map);
 
     // Enemy init
-    int nenemies = 10;
+    int nenemies = 5;
     for (int i = 0; i < nenemies; ++i)
     {
-        GroundEnemy *enemy = new GroundEnemy();
+        Enemy *enemy = new FlyingEnemy();
         enemy->init(texProgram);
         enemy->setPosition(enemy->getPosition() + glm::ivec2(i * 60, -i * 60));
         enemy->setTileMap(map);
