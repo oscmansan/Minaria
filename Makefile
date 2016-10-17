@@ -231,6 +231,30 @@ Enemy.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Enemy.cpp.s
 .PHONY : Enemy.cpp.s
 
+FlyingEnemy.o: FlyingEnemy.cpp.o
+.PHONY : FlyingEnemy.o
+
+# target to build an object file
+FlyingEnemy.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o
+.PHONY : FlyingEnemy.cpp.o
+
+FlyingEnemy.i: FlyingEnemy.cpp.i
+.PHONY : FlyingEnemy.i
+
+# target to preprocess a source file
+FlyingEnemy.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.i
+.PHONY : FlyingEnemy.cpp.i
+
+FlyingEnemy.s: FlyingEnemy.cpp.s
+.PHONY : FlyingEnemy.s
+
+# target to generate assembly for a file
+FlyingEnemy.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.s
+.PHONY : FlyingEnemy.cpp.s
+
 Game.o: Game.cpp.o
 .PHONY : Game.o
 
@@ -759,6 +783,9 @@ help:
 	@echo "... Enemy.o"
 	@echo "... Enemy.i"
 	@echo "... Enemy.s"
+	@echo "... FlyingEnemy.o"
+	@echo "... FlyingEnemy.i"
+	@echo "... FlyingEnemy.s"
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"

@@ -8,6 +8,7 @@ CMakeFiles/TerrariaLinux.dir/Background.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/Background.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: Inventory.h
@@ -32,6 +33,7 @@ CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/Block.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Inventory.h
@@ -57,6 +59,7 @@ CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Camera.cpp
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Inventory.h
@@ -81,6 +84,7 @@ CMakeFiles/TerrariaLinux.dir/Character.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: Character.cpp
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/Character.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: Inventory.h
@@ -106,6 +110,7 @@ CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Enemy.cpp
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Inventory.h
@@ -124,11 +129,38 @@ CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Tile.h
 
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: AnimKeyframes.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Block.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Camera.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Character.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: FlyingEnemy.cpp
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: FlyingEnemy.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Game.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: GroundEnemy.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Inventory.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Item.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: PerlinNoise.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Player.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Rect.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Scene.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: SceneCredits.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: SceneMenu.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Shader.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: ShaderProgram.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Sprite.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Text.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Texture.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: TileMap.h
+
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: AnimKeyframes.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/Game.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Game.cpp
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: GroundEnemy.h
@@ -153,6 +185,7 @@ CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: GroundEnemy.cpp
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: GroundEnemy.h
@@ -178,6 +211,7 @@ CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Inventory.cpp
@@ -221,6 +255,7 @@ CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/Player.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Inventory.h
@@ -251,6 +286,7 @@ CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: Inventory.h
@@ -276,6 +312,7 @@ CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: Inventory.h
@@ -301,6 +338,7 @@ CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: Inventory.h
@@ -326,6 +364,7 @@ CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Inventory.h
@@ -364,6 +403,7 @@ CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/Text.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Inventory.h
@@ -392,6 +432,7 @@ CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Inventory.h
@@ -417,6 +458,7 @@ CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: Inventory.h
@@ -442,6 +484,7 @@ CMakeFiles/TerrariaLinux.dir/main.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/main.cpp.o: FlyingEnemy.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: GroundEnemy.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: Inventory.h

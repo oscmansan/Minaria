@@ -6,6 +6,7 @@
 
 #include "Scene.h"
 #include "GroundEnemy.h"
+#include "FlyingEnemy.h"
 #include "Camera.h"
 #include "Player.h"
 #include "Character.h"
