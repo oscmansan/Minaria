@@ -9,8 +9,8 @@ public:
     Background(ShaderProgram &program);
     ~Background();
 
-    void render();
     void update(int deltaTime);
+    void render();
     void free();
 
 private:
@@ -20,6 +20,7 @@ private:
     ShaderProgram *program;
     Texture texture;
     glm::vec2 texCoordDispl;
+    float offset;
 };
 
 #endif // BACKGROUND_H

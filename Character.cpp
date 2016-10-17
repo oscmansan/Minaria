@@ -118,6 +118,10 @@ Rect Character::getBoundingBox() const {
 		        spriteSize.x, spriteSize.y);
 }
 
+glm::vec2 Character::getVelocity() const {
+    return velocity;
+}
+
 void Character::render(ShaderProgram &program)
 {
     glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(position.x, position.y, 0.f));

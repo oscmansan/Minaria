@@ -96,10 +96,11 @@ void SceneGame::update(int deltaTime)
 
 void SceneGame::render()
 {
+    background->render();
+
     glm::mat4 view = camera->getView();
     texProgram.setUniformMatrix4f("view", view);
 
-    background->render();
     mapBg->render();
     map->render();
 

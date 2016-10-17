@@ -14,7 +14,7 @@ class Character
 {
 public:
 	Character();
-	virtual ~Character();
+    virtual ~Character();
 
 protected:
 	enum CharacterAnims
@@ -33,7 +33,7 @@ public:
 	virtual void render(ShaderProgram &program);
 	
 	void setTileMap(TileMap *tileMap);
-	void setPosition(const glm::ivec2 &pos);
+    void setPosition(const glm::ivec2 &pos);
     glm::ivec2 getSize();
 
 	bool isGrounded();
@@ -41,6 +41,7 @@ public:
 	glm::ivec2 getScreenPosition() const;
 	glm::ivec2 getPosition() const;
 	Rect getBoundingBox() const;
+    glm::vec2 getVelocity() const;
 	
 protected:
 	bool bJumping;
@@ -50,7 +51,7 @@ protected:
 	float jumpSpeed;
 	float maxFallSpeed;
 
-	glm::ivec2 position;
+    glm::ivec2 position;
 	Texture spritesheet;
 	Sprite *sprite;
 	TileMap *map;
