@@ -34,8 +34,11 @@ public:
     Player *getPlayer() const;
     Camera *getCamera() const;
     TileMap *getTileMap() const;
+    const std::list<Character*>& getCharacters() const;
 
     Character* whosThere(const glm::ivec2 &pos);
+
+    void destroyCharacter(Character *character);
 
 private:
     Player *player = NULL;

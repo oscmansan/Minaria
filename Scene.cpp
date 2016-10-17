@@ -32,7 +32,7 @@ void Scene::init()
 {
     initShaders();
 
-    projection = glm::ortho(0.f, float(SCREEN_WIDTH - 1), float(SCREEN_HEIGHT - 1), 0.f);
+    projection = glm::ortho(0.f, float(Game::getScreenWidth() - 1), float(Game::getScreenHeight() - 1), 0.f);
     currentTime = 0.0f;
 }
 
@@ -51,7 +51,7 @@ void Scene::_render()
 
     texProgram.setUniform2f("texCoordDispl", 0.f, 0.f);
     texProgram.setUniform4f("color", 1.0f, 1.0f, 1.0f, 1.0f);
-    texProgram.setUniform2f("windowSize", SCREEN_WIDTH, SCREEN_HEIGHT);
+    texProgram.setUniform2f("windowSize", Game::getScreenWidth(), Game::getScreenHeight());
 
     render();
 

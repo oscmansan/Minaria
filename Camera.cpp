@@ -3,9 +3,11 @@
 #include "Game.h"
 #include "Scene.h"
 #include "Player.h"
-#include "SceneGame.h"
 
 #include <glm/gtc/matrix_transform.hpp>
+
+#include "SceneGame.h"
+#include "Game.h"
 
 Camera::Camera()
 {
@@ -18,7 +20,7 @@ Camera::~Camera()
 
 void Camera::init(const glm::ivec2 &playerPosition)
 {
-	initialOffset = glm::ivec2(-SCREEN_WIDTH / 2 + 16/2, -SCREEN_HEIGHT / 2 + 32/2);
+    initialOffset = glm::ivec2(-Game::getScreenWidth() / 2 + 16/2, -Game::getScreenHeight() / 2 + 32/2);
 }
 
 void Camera::update()

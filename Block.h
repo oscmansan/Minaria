@@ -26,7 +26,8 @@ public:
     virtual ~Block();
     Type getType() const;
     void restore();
-    bool hasForegroundBlockAtDistance(int d);
+    bool isBorderBlock(int d) const;
+    bool hasForegroundBlockAtDistance(int d) const;
 
     void onHitBegin();
     void onHitEnd();

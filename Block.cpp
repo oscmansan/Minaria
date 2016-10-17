@@ -57,9 +57,25 @@ void Block::update(int deltaTime)
     // Shadow of bg tiles
     if (isBg)
     {
-        TileMap *foreground = Game::getCurrentSceneGame()->getTileMap();
         if (hasForegroundBlockAtDistance(1)) lighting *= 0.75f;
         else if (hasForegroundBlockAtDistance(2)) lighting *= 0.85f;
+    }
+    else // Shadow of foreground tiles
+    {
+        /*
+        if (isBorderBlock(1))
+        {
+            lighting *= 1.0f;
+        }
+        else if (isBorderBlock(2))
+        {
+            lighting *= 0.6f;
+        }
+        else
+        {
+            lighting *= 0.3f;
+        }
+        */
     }
 
     // States
@@ -109,7 +125,22 @@ void Block::restore()
     timeSinceLastHit = 0;
 }
 
-bool Block::hasForegroundBlockAtDistance(int d)
+bool Block::isBorderBlock(int d) const
+{
+    TileMap *foreground = Game::getCurrentSceneGame()->getTileMap();
+    glm::ivec2 step = glm::ivec2(foreground->getTileSize());
+    glm::ivec2 pos = getPosition();
+    return foreground->getTileAt(pos + d * glm::ivec2( step.x, 0)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(-step.x, 0)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(0,  step.y)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(0, -step.y)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(-step.x, -step.y)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(-step.x,  step.y)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2( step.x, -step.y)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2( step.x,  step.y)) == NULL;
+}
+
+bool Block::hasForegroundBlockAtDistance(int d) const
 {
     TileMap *foreground = Game::getCurrentSceneGame()->getTileMap();
     glm::ivec2 step = glm::ivec2(foreground->getTileSize());

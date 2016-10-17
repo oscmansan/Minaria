@@ -22,6 +22,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/Background.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/main.cpp.o"
+  "CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o"
+  "CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o"
   "TerrariaLinux.pdb"
   "TerrariaLinux"
 )

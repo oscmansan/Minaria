@@ -111,7 +111,7 @@ void Text::setText(const std::string &str, int size)
 
 void Text::centerHorizontally()
 {
-    position.x = (SCREEN_WIDTH - getBoundingRect().width) / 2;
+    position.x = (Game::getScreenWidth() - getBoundingRect().width) / 2;
 }
 
 void Text::setVisible(bool visible)

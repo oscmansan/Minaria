@@ -124,6 +124,7 @@ glm::vec2 Character::getVelocity() const {
 
 void Character::render(ShaderProgram &program)
 {
+    program.setUniformMatrix4f("view", Game::getCurrentSceneGame()->getCamera()->getView());
     glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(position.x, position.y, 0.f));
     program.setUniformMatrix4f("model", model);
 	sprite->render();

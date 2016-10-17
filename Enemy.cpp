@@ -39,8 +39,9 @@ void Enemy::init(ShaderProgram &shaderProgram)
 	sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.25f));
 	sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.5f));
 
-    position = glm::vec2(700, SCREEN_HEIGHT+900);
-	sprite->setTint(glm::vec4(1, 0, 0, 1));
+    position = glm::vec2(700, Game::getScreenHeight() + 900);
+    setPosition(glm::ivec2(500, 1000));
+    //sprite->setTint(glm::vec4(1, 0, 0, 1));
 
     state = PATROL;
     jumpSpeed = -5;
@@ -84,6 +85,11 @@ void Enemy::update(int deltaTime)
             sprite->setTint(glm::vec4(1,0,1,1));
             break;
     }
+}
+
+void Enemy::hit()
+{
+    Game::getCurrentSceneGame()->destroyCharacter(this);
 }
 
 void Enemy::move(int deltaTime)

@@ -16,7 +16,7 @@ void SceneMenu::init()
     Scene::init();
 
     textureMenuBg.loadFromFile("images/menuBg.jpg", TEXTURE_PIXEL_FORMAT_RGBA);
-    spriteBg = Sprite::createSprite(glm::ivec2(SCREEN_WIDTH, SCREEN_HEIGHT), glm::vec2(1.0f), &textureMenuBg, &texProgram);
+    spriteBg = Sprite::createSprite(glm::ivec2(Game::getScreenWidth(), Game::getScreenHeight()), glm::vec2(1.0f), &textureMenuBg, &texProgram);
 
     Text *title = createText("Terraria", glm::ivec2(50, 80), 50);
     title->setColor(glm::vec4(1,1,0,1));

@@ -42,6 +42,11 @@ TileMap *SceneGame::getTileMap() const
     return map;
 }
 
+const std::list<Character *> &SceneGame::getCharacters() const
+{
+    return characters;
+}
+
 void SceneGame::init()
 {
     Scene::init();
@@ -59,7 +64,7 @@ void SceneGame::init()
     characters.push_back(player);
 
     // Enemy init
-    /*for (int i = 0; i < 10; ++i)
+    for (int i = 0; i < 10; ++i)
     {
         Enemy *enemy = new Enemy();
         enemy->init(texProgram);
@@ -67,7 +72,6 @@ void SceneGame::init()
         enemy->setTileMap(map);
         characters.push_back(enemy);
     }
-    */
 
     camera = new Camera();
     camera->init(player->getPosition());
@@ -123,6 +127,12 @@ Character* SceneGame::whosThere(const glm::ivec2 &pos)
     return NULL;
 }
 
+void SceneGame::destroyCharacter(Character *character)
+{
+    delete character;
+    characters.remove(character);
+}
+
 void SceneGame::generateProceduralTilemap()
 {
     int width = 256;
@@ -150,15 +160,17 @@ void SceneGame::generateProceduralTilemap()
     float sinSpeed1 = float(rand()%10)/10.0f + 1.0f;
     float sinSpeed2 = float(rand()%10)/10.0f + 1.0f;
     float sinSpeed3 = float(rand()%10)/10.0f + 1.0f;
+    float mountainsAmplitude1 = 2.0f * (rand() % 100) / 100.0f;
+    float mountainsAmplitude2 = 2.0f * (rand() % 100) / 100.0f;
+    float mountainsAmplitude3 = 2.0f * (rand() % 100) / 100.0f;
     for (int i = 0; i < width; ++i)
     {
         float mountainsFreq = 8;
-        float mountainsAmplitude = 2.0f;
         float yAngle = (float(i) / width) * 2 * 3.1415926f * mountainsFreq;
         glm::ivec2 pos = glm::ivec2(i * tileSize, groundStartingY);
-        pos.y += (glm::sin(yAngle * sinSpeed1) * mountainsAmplitude) * tileSize;
-        pos.y += (glm::cos(yAngle * sinSpeed2) * mountainsAmplitude) * tileSize;
-        pos.y += (glm::sin(yAngle * sinSpeed3) * mountainsAmplitude) * tileSize;
+        pos.y += (glm::sin(yAngle * sinSpeed1) * mountainsAmplitude1) * tileSize;
+        pos.y += (glm::cos(yAngle * sinSpeed2) * mountainsAmplitude2) * tileSize;
+        pos.y += (glm::sin(yAngle * sinSpeed3) * mountainsAmplitude3) * tileSize;
         pos.y -= 60;
 
         for (int dy = 0; dy < mapSize.y; dy += tileSize)

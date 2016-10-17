@@ -152,6 +152,8 @@ CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Inventory.cpp
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Inventory.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Item.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: ItemPickaxe.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: ItemSword.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: PerlinNoise.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Player.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Rect.h
@@ -170,6 +172,16 @@ CMakeFiles/TerrariaLinux.dir/Item.cpp.o: Item.cpp
 CMakeFiles/TerrariaLinux.dir/Item.cpp.o: Item.h
 CMakeFiles/TerrariaLinux.dir/Item.cpp.o: Texture.h
 
+CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o: Item.h
+CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o: ItemPickaxe.cpp
+CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o: ItemPickaxe.h
+CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o: Texture.h
+
+CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o: Item.h
+CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o: ItemSword.cpp
+CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o: ItemSword.h
+CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o: Texture.h
+
 CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.o: PerlinNoise.cpp
 CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.o: PerlinNoise.h
 
@@ -181,6 +193,8 @@ CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Enemy.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Game.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Inventory.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Item.h
+CMakeFiles/TerrariaLinux.dir/Player.cpp.o: ItemPickaxe.h
+CMakeFiles/TerrariaLinux.dir/Player.cpp.o: ItemSword.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: PerlinNoise.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Player.cpp
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Player.h
@@ -358,6 +372,7 @@ CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Tile.cpp
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: TileMap.h
 
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: AnimKeyframes.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: Block.h

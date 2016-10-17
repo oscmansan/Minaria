@@ -303,6 +303,54 @@ Item.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Item.cpp.s
 .PHONY : Item.cpp.s
 
+ItemPickaxe.o: ItemPickaxe.cpp.o
+.PHONY : ItemPickaxe.o
+
+# target to build an object file
+ItemPickaxe.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o
+.PHONY : ItemPickaxe.cpp.o
+
+ItemPickaxe.i: ItemPickaxe.cpp.i
+.PHONY : ItemPickaxe.i
+
+# target to preprocess a source file
+ItemPickaxe.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.i
+.PHONY : ItemPickaxe.cpp.i
+
+ItemPickaxe.s: ItemPickaxe.cpp.s
+.PHONY : ItemPickaxe.s
+
+# target to generate assembly for a file
+ItemPickaxe.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.s
+.PHONY : ItemPickaxe.cpp.s
+
+ItemSword.o: ItemSword.cpp.o
+.PHONY : ItemSword.o
+
+# target to build an object file
+ItemSword.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o
+.PHONY : ItemSword.cpp.o
+
+ItemSword.i: ItemSword.cpp.i
+.PHONY : ItemSword.i
+
+# target to preprocess a source file
+ItemSword.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.i
+.PHONY : ItemSword.cpp.i
+
+ItemSword.s: ItemSword.cpp.s
+.PHONY : ItemSword.s
+
+# target to generate assembly for a file
+ItemSword.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.s
+.PHONY : ItemSword.cpp.s
+
 PerlinNoise.o: PerlinNoise.cpp.o
 .PHONY : PerlinNoise.o
 
@@ -696,6 +744,12 @@ help:
 	@echo "... Item.o"
 	@echo "... Item.i"
 	@echo "... Item.s"
+	@echo "... ItemPickaxe.o"
+	@echo "... ItemPickaxe.i"
+	@echo "... ItemPickaxe.s"
+	@echo "... ItemSword.o"
+	@echo "... ItemSword.i"
+	@echo "... ItemSword.s"
 	@echo "... PerlinNoise.o"
 	@echo "... PerlinNoise.i"
 	@echo "... PerlinNoise.s"

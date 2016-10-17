@@ -13,8 +13,8 @@ void Game::init()
     sceneMenu = new SceneMenu();
     sceneGame = new SceneGame();
     sceneCredits = new SceneCredits();
-    //currentScene = sceneMenu;
-    currentScene = sceneGame;
+    currentScene = sceneMenu;
+    //currentScene = sceneGame;
 
     scenes.push_back(sceneMenu);
     scenes.push_back(sceneGame);
@@ -41,6 +41,16 @@ Scene *Game::getCurrentScene()
 SceneGame *Game::getCurrentSceneGame()
 {
     return Game::instance().sceneGame;
+}
+
+int Game::getScreenWidth()
+{
+    return Game::instance().InitialWidth;
+}
+
+int Game::getScreenHeight()
+{
+    return Game::instance().InitialHeight;
 }
 
 void Game::render()

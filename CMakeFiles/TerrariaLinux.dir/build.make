@@ -578,6 +578,52 @@ CMakeFiles/TerrariaLinux.dir/main.cpp.o.provides: CMakeFiles/TerrariaLinux.dir/m
 
 CMakeFiles/TerrariaLinux.dir/main.cpp.o.provides.build: CMakeFiles/TerrariaLinux.dir/main.cpp.o
 
+CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o: CMakeFiles/TerrariaLinux.dir/flags.make
+CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o: ItemSword.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles $(CMAKE_PROGRESS_24)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o -c /home/sephirot47/Terraria-linux/ItemSword.cpp
+
+CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sephirot47/Terraria-linux/ItemSword.cpp > CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.i
+
+CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sephirot47/Terraria-linux/ItemSword.cpp -o CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.s
+
+CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o.requires:
+.PHONY : CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o.requires
+
+CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o.provides: CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o.provides.build
+.PHONY : CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o.provides
+
+CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o.provides.build: CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o
+
+CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o: CMakeFiles/TerrariaLinux.dir/flags.make
+CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o: ItemPickaxe.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles $(CMAKE_PROGRESS_25)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o -c /home/sephirot47/Terraria-linux/ItemPickaxe.cpp
+
+CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sephirot47/Terraria-linux/ItemPickaxe.cpp > CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.i
+
+CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sephirot47/Terraria-linux/ItemPickaxe.cpp -o CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.s
+
+CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o.requires:
+.PHONY : CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o.requires
+
+CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o.provides: CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o.provides.build
+.PHONY : CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o.provides
+
+CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o.provides.build: CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o
+
 # Object files for target TerrariaLinux
 TerrariaLinux_OBJECTS = \
 "CMakeFiles/TerrariaLinux.dir/Player.cpp.o" \
@@ -602,7 +648,9 @@ TerrariaLinux_OBJECTS = \
 "CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o" \
 "CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o" \
 "CMakeFiles/TerrariaLinux.dir/Background.cpp.o" \
-"CMakeFiles/TerrariaLinux.dir/main.cpp.o"
+"CMakeFiles/TerrariaLinux.dir/main.cpp.o" \
+"CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o" \
+"CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o"
 
 # External object files for target TerrariaLinux
 TerrariaLinux_EXTERNAL_OBJECTS =
@@ -630,6 +678,8 @@ TerrariaLinux: CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/Background.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/main.cpp.o
+TerrariaLinux: CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o
+TerrariaLinux: CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/build.make
 TerrariaLinux: /usr/lib/i386-linux-gnu/libGLU.so
 TerrariaLinux: /usr/lib/i386-linux-gnu/libGL.so
@@ -673,6 +723,8 @@ CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/SceneMenu.cp
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o.requires
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/Background.cpp.o.requires
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/main.cpp.o.requires
+CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o.requires
+CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o.requires
 .PHONY : CMakeFiles/TerrariaLinux.dir/requires
 
 CMakeFiles/TerrariaLinux.dir/clean:

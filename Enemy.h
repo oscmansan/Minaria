@@ -17,6 +17,8 @@ public:
 	virtual void init(ShaderProgram &shaderProgram);
 	virtual void update(int deltaTime);
 
+    void hit();
+
 protected:
     State state;
 

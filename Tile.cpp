@@ -4,6 +4,7 @@
 
 #include "Game.h"
 #include "Scene.h"
+#include "TileMap.h"
 
 Texture *Tile::defaultTexture = NULL;
 
@@ -15,7 +16,8 @@ Tile::Tile()
     }
 
     program = Scene::getShaderProgram();
-    sprite = Sprite::createSprite(glm::ivec2(24), glm::vec2(1.0f), Tile::defaultTexture, program);
+    int tileSize = Game::getCurrentSceneGame()->getTileMap()->getTileSize();
+    sprite = Sprite::createSprite(glm::ivec2(tileSize), glm::vec2(1.0f), Tile::defaultTexture, program);
 }
 
 Tile::Tile(const glm::ivec2 &worldPos) : Tile()
@@ -53,7 +55,7 @@ bool Tile::isVisible() const
     const glm::mat4 &view = Game::getCurrentSceneGame()->getCamera()->getView();
 
     int offset = 32;
-    Rect screenRect = Rect(-offset, -offset, SCREEN_WIDTH + offset, SCREEN_HEIGHT + offset);
+    Rect screenRect = Rect(-offset, -offset, Game::getScreenWidth() + offset, Game::getScreenHeight() + offset);
     glm::vec4 v4 = (view * glm::vec4(getPosition(), 0, 1));
     return screenRect.contains( glm::ivec2(v4.x, v4.y) );
 }

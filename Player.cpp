@@ -9,6 +9,8 @@
 #include "Block.h"
 #include "TileMap.h"
 #include "SceneGame.h"
+#include "ItemSword.h"
+#include "ItemPickaxe.h"
 
 Player::Player() {}
 
@@ -57,7 +59,7 @@ void Player::init(ShaderProgram &shaderProgram)
 
     inventory.init(shaderProgram);
 
-    setPosition(glm::ivec2(800, 2000));
+    setPosition(glm::ivec2(500, 1000));
 }
 
 void Player::update(int deltaTime)
@@ -194,41 +196,6 @@ void Player::handleMouseActions()
             lastMouseBlock = NULL;
         }
     }
-
-    if (Game::instance().getMouseLeftButton())
-    {
-        if (tmap->getBlock(mousePos) == NULL) // Can it put a block where the mouse is?
-        {
-            Block *b = selectedItem ? dynamic_cast<Block*>(selectedItem) : NULL;
-            if (b != NULL) // Is it a block?
-            {
-                // BLOCK ADDING
-                int amount = b->getAmount();
-                if (amount > 0)
-                {
-                    Tile *addedBlock = NULL;
-                    if (b->getType() == Block::GOLD)          { addedBlock = tmap->addTile<BlockGold>(mousePos); }
-                    else if (b->getType() == Block::SAPPHIRE) { addedBlock = tmap->addTile<BlockSapphire>(mousePos); }
-                    else if (b->getType() == Block::RUBY)     { addedBlock = tmap->addTile<BlockRuby>(mousePos); }
-                    else if (b->getType() == Block::EMERALD)  { addedBlock = tmap->addTile<BlockEmerald>(mousePos); }
-
-                    if (addedBlock)
-                    {
-                        inventory.dropItem(selectedItemIndex);
-                    }
-                }
-            }
-        }
-    }
-    else if (Game::instance().getMouseRightButton())
-    {
-        // BLOCK REMOVAL
-        if (mouseBlock && mouseBlock->getType() != 0)
-        {
-            mouseBlock->onHitBegin();
-        }
-    }
-
     if (!Game::instance().getMouseRightButton())
     {
         if (lastMouseBlock)
@@ -236,8 +203,68 @@ void Player::handleMouseActions()
             lastMouseBlock->onHitEnd();
         }
     }
-
     lastMouseBlock = mouseBlock;
+
+    if (!selectedItem || !dynamic_cast<ItemPickaxe*>(selectedItem)) { lastMouseBlock = NULL; }
+    if (selectedItem)
+    {
+        if (dynamic_cast<ItemPickaxe*>(selectedItem))
+        {
+            if (Game::instance().getMouseLeftButton())
+            {
+                // BLOCK REMOVAL
+                if (mouseBlock && mouseBlock->getType() != 0)
+                {
+                    mouseBlock->onHitBegin();
+                }
+            }
+        }
+        else if (dynamic_cast<ItemSword*>(selectedItem))
+        {
+            if (Game::instance().getMouseLeftButton())
+            {
+                for (Character *c : Game::getCurrentSceneGame()->getCharacters())
+                {
+                    if (!c) continue;
+
+                    Enemy *e = dynamic_cast<Enemy*>(c);
+                    if (e)
+                    {
+                        if (e->getBoundingBox().contains(mousePos))
+                        {
+                            e->hit();
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        else if (dynamic_cast<Block*>(selectedItem))
+        {
+            if (Game::instance().getMouseLeftButton())
+            {
+                if (tmap->getBlock(mousePos) == NULL) // Can it put a block where the mouse is?
+                {
+                    Block *b = dynamic_cast<Block*>(selectedItem);
+                    // BLOCK ADDING
+                    int amount = b->getAmount();
+                    if (amount > 0)
+                    {
+                        Tile *addedBlock = NULL;
+                        if (b->getType() == Block::GOLD)          { addedBlock = tmap->addTile<BlockGold>(mousePos); }
+                        else if (b->getType() == Block::SAPPHIRE) { addedBlock = tmap->addTile<BlockSapphire>(mousePos); }
+                        else if (b->getType() == Block::RUBY)     { addedBlock = tmap->addTile<BlockRuby>(mousePos); }
+                        else if (b->getType() == Block::EMERALD)  { addedBlock = tmap->addTile<BlockEmerald>(mousePos); }
+
+                        if (addedBlock)
+                        {
+                            inventory.dropItem(selectedItemIndex);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 void Player::renderHearts(ShaderProgram &program)

@@ -84,11 +84,13 @@ static void idleCallback()
 
 int main(int argc, char **argv)
 {
+    srand(time(0));
+
 	// GLUT initialization
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowPosition(100, 100);
-	glutInitWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+    glutInitWindowSize(Game::getScreenWidth(), Game::getScreenHeight());
 
 	glutCreateWindow(argv[0]);
 	glutDisplayFunc(drawCallback);

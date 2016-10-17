@@ -11,12 +11,7 @@
 
 using namespace std;
 
-#define SCREEN_WIDTH 640
-#define SCREEN_HEIGHT 480
-
-
 // Game is a singleton (a class with a single instance) that represents our whole application
-
 class SceneGame;
 class Game
 {
@@ -32,6 +27,11 @@ public:
         static Game G;
 		return G;
 	}
+
+    int InitialWidth  = 640;
+    int InitialHeight = 480;
+    static int getScreenWidth();
+    static int getScreenHeight();
 	
 	void init();
 	bool update(int deltaTime);

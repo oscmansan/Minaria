@@ -3,7 +3,9 @@
 #include "Game.h"
 #include "Scene.h"
 #include "Player.h"
+#include "ItemSword.h"
 #include "SceneGame.h"
+#include "ItemPickaxe.h"
 
 Inventory::Inventory()
 {
@@ -43,6 +45,9 @@ void Inventory::init(ShaderProgram &sp)
                                                                       slotNumTextPos,
                                                                       slotNumTextSize);
     }
+
+    addItem<ItemPickaxe>();
+    addItem<ItemSword>();
 }
 
 void Inventory::renderBackground()
