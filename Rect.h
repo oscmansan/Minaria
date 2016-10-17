@@ -15,6 +15,7 @@ public:
 	
     glm::ivec2 getMin() const;
     glm::ivec2 getMax() const;
+    glm::ivec2 getSize() const;
 
 	bool intersects(const Rect &r) const;
 	bool contains(const glm::ivec2 &point) const;

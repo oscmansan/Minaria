@@ -16,7 +16,8 @@ void main()
 	// otherwise compose the texture sample with the fragment's interpolated color
 	vec4 texColor = texture(tex, texCoordFrag);
         if(texColor.a < 0.5f) discard;
-        outColor = texColor * mix(vec4(1), tint, tint.a);
+        //outColor = texColor * mix(vec4(1), tint, tint.a);
+        outColor = texColor * tint;
 
         /*int fogRegionHeight = 100;
         if (gl_FragCoord.y < fogRegionHeight)

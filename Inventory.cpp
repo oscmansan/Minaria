@@ -30,6 +30,19 @@ void Inventory::init(ShaderProgram &sp)
     spriteSlot = Sprite::createSprite(slotSize, glm::vec2(1, 1), textureSlot, program);
     spriteSlot->setNumberAnimations(1);
     spriteSlot->addKeyframe(0, glm::vec2(0.0f, 0.f));
+
+    for (int i = 0; i < numSlots; ++i)
+    {
+        glm::ivec2 slotPos = getSlotScreenRect(i).getMin();
+        glm::ivec2 slotSize = getSlotScreenRect(i).getSize();
+        itemAmountTexts[i]  = Game::getCurrentSceneGame()->createText();
+
+        int slotNumTextSize = 16;
+        glm::ivec2 slotNumTextPos = slotPos + glm::ivec2(slotSize.x/2 - slotNumTextSize/2, slotSize.y + 8);
+        itemSlotNumTexts[i] = Game::getCurrentSceneGame()->createText(std::to_string(i+1),
+                                                                      slotNumTextPos,
+                                                                      slotNumTextSize);
+    }
 }
 
 void Inventory::renderBackground()
@@ -65,14 +78,13 @@ void Inventory::renderSlots()
             if (!itemSprites[i])
             {
                 itemSprites[i] = Sprite::createSprite(itemSize, glm::vec2(1.0f), itTexture, program);
-                itemTexts[i] = Game::getCurrentSceneGame()->createText();
             }
 
             itemSprites[i]->setTexture(itTexture);
             int textSize = 16;
-            itemTexts[i]->setText(std::to_string(itAmount), textSize);
-            itemTexts[i]->setColor(glm::vec4(0,0,0,1));
-            itemTexts[i]->setPosition(itemPos + 2);
+            itemAmountTexts[i]->setText(std::to_string(itAmount), textSize);
+            itemAmountTexts[i]->setColor(glm::vec4(0,0,0,1));
+            itemAmountTexts[i]->setPosition(itemPos + 2);
 
             glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(itemPos.x, itemPos.y, 1.f));
             program->setUniformMatrix4f("model", model);
@@ -80,9 +92,9 @@ void Inventory::renderSlots()
         }
         else
         {
-            if (itemTexts[i] && itAmount <= 0)
+            if (itemAmountTexts[i] && itAmount <= 0)
             {
-                itemTexts[i]->setText("");
+                itemAmountTexts[i]->setText("");
             }
         }
     }

@@ -26,7 +26,8 @@ private:
     const int numSlots = 7;
     vector<Item*> items = vector<Item*>(numSlots, NULL);
     vector<Sprite*> itemSprites = vector<Sprite*>(numSlots, NULL);
-    vector<Text*> itemTexts   = vector<Text*>(numSlots, NULL);
+    vector<Text*> itemAmountTexts   = vector<Text*>(numSlots, NULL);
+    vector<Text*> itemSlotNumTexts   = vector<Text*>(numSlots, NULL);
 
     const glm::ivec2 position = glm::ivec2(15, 15);
     const glm::ivec2 size = glm::ivec2(400, 50);

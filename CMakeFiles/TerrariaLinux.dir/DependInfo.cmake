@@ -4,6 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/sephirot47/Terraria-linux/Background.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/Background.cpp.o"
   "/home/sephirot47/Terraria-linux/Block.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/Block.cpp.o"
   "/home/sephirot47/Terraria-linux/Camera.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/Camera.cpp.o"
   "/home/sephirot47/Terraria-linux/Character.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/Character.cpp.o"

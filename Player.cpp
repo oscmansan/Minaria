@@ -57,7 +57,7 @@ void Player::init(ShaderProgram &shaderProgram)
 
     inventory.init(shaderProgram);
 
-    setPosition(glm::ivec2(1000, 2600));
+    setPosition(glm::ivec2(800, 2000));
 }
 
 void Player::update(int deltaTime)

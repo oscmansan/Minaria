@@ -56,6 +56,7 @@ void Background::render() {
     glEnableVertexAttribArray(posLocation);
     glEnableVertexAttribArray(texCoordLocation);
     for (int i = 0; i < 5; ++i) {
+        program->setUniform4f("tint", 1, 1, 1, 0);
         program->setUniform2f("texCoordDispl", offset[i], 0.4f);
         texture[i].use();
         glDrawArrays(GL_TRIANGLES, 0, 6);

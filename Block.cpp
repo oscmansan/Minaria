@@ -1,7 +1,11 @@
 ﻿#include "Block.h"
 
+#define GLM_SWIZZLE
+
 #include "Scene.h"
 #include "TileMap.h"
+
+#include <glm/glm.hpp>
 
 Texture *BlockGold::s_texture_full = NULL;
 Texture *BlockGold::s_texture_mid  = NULL;
@@ -36,15 +40,33 @@ void Block::onHitBegin()
 void Block::onHitEnd()
 {
     beingHit = false;
-    restore();
+    //restore();
 }
 
 void Block::update(int deltaTime)
 {
+    if (!isVisible()) return;
+
+    // Lighting
+    Player *player = Game::getCurrentSceneGame()->getPlayer();
+    float distToPlayer = glm::distance(glm::vec2(getPosition()), glm::vec2(player->getPosition()));
+    float fade = (80.0f / (distToPlayer + 0.1f));
+    fade = glm::clamp(fade, 0.0f, 1.0f);
+    lighting = glm::vec3(fade);
+
+    // Shadow of bg tiles
+    if (isBg)
+    {
+        TileMap *foreground = Game::getCurrentSceneGame()->getTileMap();
+        if (hasForegroundBlockAtDistance(1)) lighting *= 0.75f;
+        else if (hasForegroundBlockAtDistance(2)) lighting *= 0.85f;
+    }
+
+    // States
     if (beingHit)
     {
         timeSinceLastHit += deltaTime;
-        if (timeSinceLastHit > hitSpeed && state == FULL)
+        if (/*timeSinceLastHit > hitSpeed &&*/state == FULL)
         {
             advanceState();
         }
@@ -54,7 +76,7 @@ void Block::update(int deltaTime)
         }
         else if (timeSinceLastHit > hitSpeed * 3 && state == GONE)
         {
-            Inventory *inv = Game::getCurrentSceneGame()->getPlayer()->getInventory();
+            Inventory *inv = player->getInventory();
             switch (getType())
             {
                 case Block::GOLD:     inv->addItem<BlockGold>();     break;
@@ -62,7 +84,7 @@ void Block::update(int deltaTime)
                 case Block::RUBY:     inv->addItem<BlockRuby>();     break;
                 case Block::EMERALD:  inv->addItem<BlockEmerald>();  break;
             }
-            Game::getCurrentSceneGame()->getPlayer()->onBlockDeleted(this);
+            player->onBlockDeleted(this);
             Game::getCurrentSceneGame()->getTileMap()->delTile( getPosition() );
         }
     }
@@ -85,6 +107,21 @@ void Block::restore()
 {
     state = FULL;
     timeSinceLastHit = 0;
+}
+
+bool Block::hasForegroundBlockAtDistance(int d)
+{
+    TileMap *foreground = Game::getCurrentSceneGame()->getTileMap();
+    glm::ivec2 step = glm::ivec2(foreground->getTileSize());
+    glm::ivec2 pos = getPosition();
+    return foreground->getTileAt(pos + d * glm::ivec2( step.x, 0)) != NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(-step.x, 0)) != NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(0,  step.y)) != NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(0, -step.y)) != NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(-step.x, -step.y)) != NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(-step.x,  step.y)) != NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2( step.x, -step.y)) != NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2( step.x,  step.y)) != NULL;
 }
 
 Texture* Block::getTexture() const

@@ -25,20 +25,19 @@ void Camera::update()
 {
     Player *player = Game::getCurrentSceneGame()->getPlayer();
 	glm::ivec2 playerPosWorld = player->getPosition();
-	position = playerPosWorld + initialOffset;
-
-	glm::ivec2 playerPosScreen = player->getScreenPosition();
+    setPosition(playerPosWorld + initialOffset);
 }
 
-glm::mat4 Camera::getView() const
+const glm::mat4 &Camera::getView() const
 {
-	glm::mat4 m = glm::translate(glm::mat4(1.0f), glm::vec3(position,0) );
-	return glm::inverse(m);
+    return view;
 }
 
 void Camera::setPosition(const glm::ivec2 &position)
 {
 	this->position = position;
+    glm::mat4 m = glm::translate(glm::mat4(1.0f), glm::vec3(position,0) );
+    view = glm::inverse(m);
 }
 
 const glm::ivec2& Camera::getPosition()
