@@ -54,6 +54,7 @@ public:
         if (idx >= 0 && idx < (mapSize.x * mapSize.y))
         {
             added = new T( glm::ivec2(posTile.x, posTile.y) * tileSize );
+            added->isBg = this->isBg;
             map[idx] = added;
         }
         return added;

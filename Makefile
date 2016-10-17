@@ -111,6 +111,30 @@ TerrariaLinux/fast:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/build
 .PHONY : TerrariaLinux/fast
 
+Background.o: Background.cpp.o
+.PHONY : Background.o
+
+# target to build an object file
+Background.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Background.cpp.o
+.PHONY : Background.cpp.o
+
+Background.i: Background.cpp.i
+.PHONY : Background.i
+
+# target to preprocess a source file
+Background.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Background.cpp.i
+.PHONY : Background.cpp.i
+
+Background.s: Background.cpp.s
+.PHONY : Background.s
+
+# target to generate assembly for a file
+Background.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Background.cpp.s
+.PHONY : Background.cpp.s
+
 Block.o: Block.cpp.o
 .PHONY : Block.o
 
@@ -648,6 +672,9 @@ help:
 	@echo "... TerrariaLinux"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... Background.o"
+	@echo "... Background.i"
+	@echo "... Background.s"
 	@echo "... Block.o"
 	@echo "... Block.i"
 	@echo "... Block.s"

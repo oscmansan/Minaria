@@ -27,7 +27,7 @@ TileMap::TileMap(glm::ivec2 size, ShaderProgram &program)
 
 	// Specify sizes
 	mapSize = size;
-    tileSize = 32;
+    tileSize = 24;
 
 	// Tilesheet related
 	const string tilesheetFile = "images/blocks.png";  // Tilesheet location
@@ -60,7 +60,6 @@ void TileMap::render()
 	glEnable(GL_TEXTURE_2D);
 
     TileMap *foreground = Game::getCurrentSceneGame()->getTileMap();
-    glm::mat4 view = Game::getCurrentSceneGame()->getCamera()->getView();
     for (Tile *tile : map)
     {
         if (tile)
@@ -74,13 +73,17 @@ void TileMap::render()
 
             if (drawTile)
             {
-                // +-offset to render a bit more than needed;
-                int offset = 32;
-                Rect screenRect = Rect(-offset, -offset, SCREEN_WIDTH + offset, SCREEN_HEIGHT + offset);
-                glm::vec4 v4 = (view * glm::vec4(tile->getPosition(),0,1));
-                bool isVisible = screenRect.contains( glm::ivec2(v4.x, v4.y) );
-                if (isVisible)
+                if ( tile->isVisible() )
                 {
+                    if (isBg)
+                    {
+                        float bgTint = 0.4f;
+                        tile->getSprite()->setTint( glm::vec4(bgTint) );
+                    }
+                    else
+                    {
+                        tile->getSprite()->setTint( glm::vec4(1.0f) );
+                    }
                     tile->render();
                 }
             }

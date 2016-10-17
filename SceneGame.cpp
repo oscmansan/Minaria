@@ -92,6 +92,7 @@ void SceneGame::update(int deltaTime)
     camera->update();
     background->update(deltaTime);
     map->update(deltaTime);
+    mapBg->update(deltaTime);
 }
 
 void SceneGame::render()
@@ -172,12 +173,8 @@ void SceneGame::generateProceduralTilemap()
         {
             if (map->getTileAt(glm::ivec2(i,j) * tileSize) != 0)
             {
+
                 Tile *t = mapBg->addTile<BlockGold>(glm::ivec2(i,j) * tileSize);
-                if (t)
-                {
-                    float bgTint = 0.4f;
-                    t->getSprite()->setTint( glm::vec4(0, 0, 0, bgTint) );
-                }
             }
         }
     }
@@ -212,7 +209,7 @@ void SceneGame::generateProceduralTilemap()
                 if (ph > 0.35f || ph < -0.35f) { map->delTile(pos); }
             }
         }
-    }*/
+    }
 
     // Add side big walls
     for (int x = 25; x >= 0; --x)

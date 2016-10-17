@@ -50,7 +50,7 @@ private:
 	GLuint vbo;
 	GLint posLocation, texCoordLocation;
 	glm::ivec2 size;
-	glm::vec4 tint = glm::vec4(1, 1, 1, 0);
+    glm::vec4 tint = glm::vec4(1, 1, 1, 1);
 	bool visible = true;
 	int currentAnimation, currentKeyframe;
 	float timeAnimation;

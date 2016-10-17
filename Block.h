@@ -7,6 +7,8 @@ class Block : public Item,
               public Tile
 {
 public:
+    bool isBg = false;
+
     enum Type
     {
         GOLD     = 1,
@@ -24,6 +26,7 @@ public:
     virtual ~Block();
     Type getType() const;
     void restore();
+    bool hasForegroundBlockAtDistance(int d);
 
     void onHitBegin();
     void onHitEnd();
