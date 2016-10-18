@@ -9,6 +9,7 @@
 
 Inventory::Inventory()
 {
+    position = glm::ivec2(15, 15);
 }
 
 
@@ -17,9 +18,13 @@ Inventory::~Inventory()
 }
 
 
-void Inventory::init(ShaderProgram &sp)
+void Inventory::init()
 {
-    program = &sp;
+    isScreen = true;
+    Game::getCurrentSceneGame()->addSceneNode(this);
+    craftingBar.init();
+
+    program = Game::getCurrentSceneGame()->getShaderProgram();
 
     textureBg = new Texture();
     textureBg->loadFromFile("images/inventoryBg.png", TEXTURE_PIXEL_FORMAT_RGBA);
@@ -52,24 +57,18 @@ void Inventory::init(ShaderProgram &sp)
 
 void Inventory::renderBackground()
 {
-    glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(position.x, position.y, 0.f));
-    program->setUniformMatrix4f("model", model);
-    program->setUniformMatrix4f("view", glm::mat4(1.0f)); //SS rendering, so no view applied
-
+    prepareModelViewMatrix();
     spriteBg->render();
 }
 
 void Inventory::renderSlots()
 {
-    program->setUniformMatrix4f("view", glm::mat4(1.0f)); //SS rendering, so no view applied
-
     int selectedPos = Game::getCurrentSceneGame()->getPlayer()->getSelectedItemIndex();
     for (int i = 0; i < numSlots; ++i)
     {
         glm::ivec2 slotPos = getSlotScreenRect(i).getMin();
 
-        glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(slotPos.x, slotPos.y, 0.f));
-        program->setUniformMatrix4f("model", model);
+        prepareModelViewMatrix(slotPos);
         spriteSlot->setTint( selectedPos == i ? selectedSlotTint : glm::vec4(1));
         spriteSlot->render();
 
@@ -91,8 +90,7 @@ void Inventory::renderSlots()
             itemAmountTexts[i]->setColor(glm::vec4(0,0,0,1));
             itemAmountTexts[i]->setPosition(itemPos + 2);
 
-            glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(itemPos.x, itemPos.y, 1.f));
-            program->setUniformMatrix4f("model", model);
+            prepareModelViewMatrix(itemPos);
             itemSprites[i]->render();
         }
         else
@@ -117,12 +115,11 @@ Rect Inventory::getSlotScreenRect(int i) const
                 slotSize.x, slotSize.y);
 }
 
-void Inventory::update()
+void Inventory::update(int deltaTime)
 {
-
 }
 
-void Inventory::render()
+void Inventory::render(ShaderProgram &program)
 {
     renderBackground();
     renderSlots();

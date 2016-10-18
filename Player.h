@@ -11,8 +11,8 @@ public:
 	Player();
 	virtual ~Player();
 
-	virtual void init(ShaderProgram &shaderProgram);
-	virtual void update(int deltaTime);
+    virtual void init() override;
+    virtual void update(int deltaTime) override;
     virtual void render(ShaderProgram &program) override;
 
     Item *getSelectedItem() const;

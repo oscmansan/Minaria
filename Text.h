@@ -4,17 +4,18 @@
 #include <vector>
 #include <string>
 
+#include "Rect.h"
 #include "Sprite.h"
 #include "Texture.h"
-#include "Rect.h"
+#include "ISceneNode.h"
 
-class Text
+class Text : public ISceneNode
 {
 public:
     Text();
     std::vector<Sprite*> letterSprites;
 
-    void render();
+    void render(ShaderProgram &program) override;
 
     void setPosition(const glm::ivec2 &pos);
 

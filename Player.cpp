@@ -6,8 +6,10 @@
 #include <GL/glew.h>
 #include <GL/glut.h>
 
+#include "Bomb.h"
 #include "Block.h"
 #include "TileMap.h"
+#include "ItemBomb.h"
 #include "SceneGame.h"
 #include "ItemSword.h"
 #include "ItemPickaxe.h"
@@ -20,15 +22,17 @@ Player::~Player()
 }
 
 
-void Player::init(ShaderProgram &shaderProgram)
+void Player::init()
 {
-	Character::init(shaderProgram);
+    Character::init();
+
+    ShaderProgram *program = Game::getCurrentScene()->getShaderProgram();
 
     // Heart
     textureHeart.loadFromFile("images/heartSpritesheet.png", TEXTURE_PIXEL_FORMAT_RGBA);
     textureHeart.setMinFilter(GL_NEAREST);
     textureHeart.setWrapS(GL_CLAMP_TO_EDGE);
-    spriteHeart = Sprite::createSprite(glm::ivec2(heartSize), glm::vec2(0.29f, 1.0f), &textureHeart, &shaderProgram);
+    spriteHeart = Sprite::createSprite(glm::ivec2(heartSize), glm::vec2(0.29f, 1.0f), &textureHeart, program);
     spriteHeart->setNumberAnimations(3);
     spriteHeart->addKeyframe(0, glm::vec2(0.7f, 0.f));
     spriteHeart->addKeyframe(1, glm::vec2(0.35f, 0.f));
@@ -37,7 +41,7 @@ void Player::init(ShaderProgram &shaderProgram)
 
     // Player
 	spritesheet.loadFromFile("images/bub.png", TEXTURE_PIXEL_FORMAT_RGBA);
-	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25, 0.25), &spritesheet, &shaderProgram);
+    sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25, 0.25), &spritesheet, program);
 	sprite->setNumberAnimations(4);
 
 	sprite->setAnimationSpeed(STAND_RIGHT, 8);
@@ -57,15 +61,16 @@ void Player::init(ShaderProgram &shaderProgram)
 	sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.5f));
     //
 
-    inventory.init(shaderProgram);
+    inventory.init();
 
     setPosition(glm::ivec2(500, 1000));
+
+    for (int i = 0; i < 99; ++i) inventory.addItem<ItemBomb>();
 }
 
 void Player::update(int deltaTime)
 {
-	Character::update(deltaTime);
-    inventory.update();
+    Character::update(deltaTime);
 
 	if (damaged)
 	{
@@ -87,7 +92,6 @@ void Player::render(ShaderProgram &program)
 {
     Character::render(program);
     renderHearts(program);
-    inventory.render();
 }
 
 Item *Player::getSelectedItem() const
@@ -264,6 +268,20 @@ void Player::handleMouseActions()
                 }
             }
         }
+        else if (dynamic_cast<ItemBomb*>(selectedItem))
+        {
+            if (Game::instance().getMouseLeftButtonDown())
+            {
+                Bomb *b = new Bomb();
+                b->setPosition( getPosition() );
+
+                glm::vec2 dir = glm::normalize( glm::vec2(mousePos - getPosition()) );
+                float bombSpeed = 0.1f * glm::min(50.0f, glm::length(glm::vec2(mousePos - getPosition())));
+                b->setVelocity( dir * bombSpeed );
+
+                inventory.dropItem(selectedItemIndex);
+            }
+        }
     }
 }
 
@@ -273,8 +291,7 @@ void Player::renderHearts(ShaderProgram &program)
     for (int i = 0; i < maxHealth/2; ++i)
     {
         glm::ivec2 heartPos = heartLinePosition + (heartSize + heartMarginX) * glm::ivec2(i, 0);
-        glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(heartPos.x, heartPos.y, 1.f));
-        program.setUniformMatrix4f("model", model);
+        prepareModelViewMatrix(heartPos);
         program.setUniformMatrix4f("view", glm::mat4(1.0f));
         if ((i+1)*2 <= health)
         {

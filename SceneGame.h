@@ -30,8 +30,8 @@ public:
 
     void init() override;
     void update(int deltaTime) override;
+    void renderBackLayer() override;
     void render() override;
-
     Player *getPlayer() const;
     Camera *getCamera() const;
     TileMap *getTileMap() const;

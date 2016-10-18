@@ -31,8 +31,7 @@ Tile::~Tile()
 
 void Tile::render()
 {
-    glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(position.x, position.y, 0.f));
-    program->setUniformMatrix4f("model", model);
+    prepareModelViewMatrix();
     sprite->setTexture(getTexture());
 
     glm::vec4 tint = sprite->getTint();
@@ -43,11 +42,6 @@ void Tile::render()
 Sprite *Tile::getSprite() const
 {
     return sprite;
-}
-
-glm::ivec2 Tile::getPosition() const
-{
-    return position;
 }
 
 bool Tile::isVisible() const

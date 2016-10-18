@@ -15,7 +15,7 @@ public:
         ATTACK = 2
     };
 
-    void init(ShaderProgram &shaderProgram) override;
+    void init() override;
     void update(int deltaTime) override;
     void move(int deltaTime) override;
 

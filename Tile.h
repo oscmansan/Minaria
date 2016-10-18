@@ -1,12 +1,14 @@
 #ifndef TILE_H
 #define TILE_H
 
-#include "Sprite.h"
-#include "Texture.h"
-#include "ShaderProgram.h"
 #include <iostream>
 
-class Tile
+#include "Sprite.h"
+#include "Texture.h"
+#include "ISceneNode.h"
+#include "ShaderProgram.h"
+
+class Tile : public ISceneNode
 {
 public:
     Tile();
@@ -17,7 +19,6 @@ public:
     virtual void update(int deltaTime) {}
 
     Sprite* getSprite() const;
-    glm::ivec2 getPosition() const;
 
     bool isVisible() const;
 
@@ -25,7 +26,6 @@ protected:
     static Texture *defaultTexture;
 
     glm::vec3 lighting = glm::vec3(1.0f);
-    glm::ivec2 position = glm::ivec2(0,0);
 
     ShaderProgram *program = NULL;
     Sprite *sprite = NULL;

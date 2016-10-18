@@ -29,6 +29,7 @@ public:
     bool isBorderBlock(int d) const;
     bool hasForegroundBlockAtDistance(int d) const;
 
+    void hit();
     void onHitBegin();
     void onHitEnd();
 

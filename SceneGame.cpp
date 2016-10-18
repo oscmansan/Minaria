@@ -57,7 +57,7 @@ void SceneGame::init()
 
     // Player init
     player = new Player();
-    player->init(texProgram);
+    player->init();
     player->setTileMap(map);
 
     // Add to the list of characters
@@ -68,7 +68,7 @@ void SceneGame::init()
     for (int i = 0; i < nenemies; ++i)
     {
         Enemy *enemy = new FlyingEnemy();
-        enemy->init(texProgram);
+        enemy->init();
         enemy->setPosition(enemy->getPosition() + glm::ivec2(i * 60, -i * 60));
         enemy->setTileMap(map);
         characters.push_back(enemy);
@@ -89,10 +89,6 @@ void SceneGame::update(int deltaTime)
     Scene::update(deltaTime);
 
     currentTime += deltaTime;
-    for (Character *character : characters)
-    {
-        character->update(deltaTime);
-    }
 
     camera->update();
     background->update(deltaTime);
@@ -100,20 +96,17 @@ void SceneGame::update(int deltaTime)
     mapBg->update(deltaTime);
 }
 
+void SceneGame::renderBackLayer()
+{
+    Scene::renderBackLayer();
+    background->render();
+    mapBg->render();
+}
+
 void SceneGame::render()
 {
-    background->render();
-
-    glm::mat4 view = camera->getView();
-    texProgram.setUniformMatrix4f("view", view);
-
-    mapBg->render();
+    Scene::render();
     map->render();
-
-    for (Character *character : characters)
-    {
-        character->render(texProgram);
-    }
 }
 
 Character* SceneGame::whosThere(const glm::ivec2 &pos)

@@ -10,19 +10,20 @@
 
 Character::Character()
 {
+    Game::getCurrentScene()->addSceneNode(this);
 }
 
 Character::~Character()
 {
 }
 
-void Character::init(ShaderProgram &shaderProgram)
+void Character::init()
 {
 	bJumping = false;
 
 	jumpSpeed = -9.0f;
 	gravity = 0.4f;
-	maxFallSpeed = 3.0f;
+    maxFallSpeed = 3.0f;
 }
 
 bool Character::isGrounded()
@@ -98,7 +99,8 @@ void Character::update(int deltaTime)
 	setPosition(position);
 }
 
-glm::ivec2 Character::getSize() {
+glm::ivec2 Character::getSize()
+{
     return sprite->getSize();
 }
 
@@ -107,37 +109,27 @@ glm::ivec2 Character::getScreenPosition() const
     return position - Game::getCurrentSceneGame()->getCamera()->getPosition();
 }
 
-glm::ivec2 Character::getPosition() const
+Rect Character::getBoundingBox() const
 {
-	return position;
-}
-
-Rect Character::getBoundingBox() const {
 	glm::ivec2 spriteSize = sprite->getSize();
 	return Rect(position.x,   position.y, 
 		        spriteSize.x, spriteSize.y);
 }
 
-glm::vec2 Character::getVelocity() const {
+glm::vec2 Character::getVelocity() const
+{
     return velocity;
 }
 
 void Character::render(ShaderProgram &program)
 {
-    program.setUniformMatrix4f("view", Game::getCurrentSceneGame()->getCamera()->getView());
-    glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(position.x, position.y, 0.f));
-    program.setUniformMatrix4f("model", model);
+    prepareModelViewMatrix();
 	sprite->render();
 }
 
 void Character::setTileMap(TileMap *tileMap)
 {
 	map = tileMap;
-}
-
-void Character::setPosition(const glm::ivec2 &pos)
-{
-	position = pos;
 }
 
 

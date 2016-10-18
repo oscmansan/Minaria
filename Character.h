@@ -3,6 +3,7 @@
 
 #include "Rect.h"
 #include "Sprite.h"
+#include "ISceneNode.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -10,7 +11,7 @@
 // all properties it needs to track its movement, jumping, and collisions.
 
 class TileMap;
-class Character
+class Character : public ISceneNode
 {
 public:
 	Character();
@@ -28,18 +29,16 @@ protected:
 	void applyGravity();
 
 public:
-	virtual void init(ShaderProgram &shaderProgram);
-	virtual void update(int deltaTime);
-	virtual void render(ShaderProgram &program);
+    virtual void init() override;
+    virtual void update(int deltaTime) override;
+    virtual void render(ShaderProgram &program) override;
 	
-	void setTileMap(TileMap *tileMap);
-    void setPosition(const glm::ivec2 &pos);
+    void setTileMap(TileMap *tileMap);
     glm::ivec2 getSize();
 
 	bool isGrounded();
 
-	glm::ivec2 getScreenPosition() const;
-	glm::ivec2 getPosition() const;
+    glm::ivec2 getScreenPosition() const;
 	Rect getBoundingBox() const;
     glm::vec2 getVelocity() const;
 	
@@ -54,9 +53,6 @@ protected:
 	Texture spritesheet;
 	Sprite *sprite;
 	TileMap *map;
-
-private:
-    glm::ivec2 position;
 
 };
 

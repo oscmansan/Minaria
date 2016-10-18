@@ -159,6 +159,30 @@ Block.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Block.cpp.s
 .PHONY : Block.cpp.s
 
+Bomb.o: Bomb.cpp.o
+.PHONY : Bomb.o
+
+# target to build an object file
+Bomb.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o
+.PHONY : Bomb.cpp.o
+
+Bomb.i: Bomb.cpp.i
+.PHONY : Bomb.i
+
+# target to preprocess a source file
+Bomb.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Bomb.cpp.i
+.PHONY : Bomb.cpp.i
+
+Bomb.s: Bomb.cpp.s
+.PHONY : Bomb.s
+
+# target to generate assembly for a file
+Bomb.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Bomb.cpp.s
+.PHONY : Bomb.cpp.s
+
 Camera.o: Camera.cpp.o
 .PHONY : Camera.o
 
@@ -206,6 +230,30 @@ Character.s: Character.cpp.s
 Character.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Character.cpp.s
 .PHONY : Character.cpp.s
+
+CraftingBar.o: CraftingBar.cpp.o
+.PHONY : CraftingBar.o
+
+# target to build an object file
+CraftingBar.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o
+.PHONY : CraftingBar.cpp.o
+
+CraftingBar.i: CraftingBar.cpp.i
+.PHONY : CraftingBar.i
+
+# target to preprocess a source file
+CraftingBar.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.i
+.PHONY : CraftingBar.cpp.i
+
+CraftingBar.s: CraftingBar.cpp.s
+.PHONY : CraftingBar.s
+
+# target to generate assembly for a file
+CraftingBar.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.s
+.PHONY : CraftingBar.cpp.s
 
 Enemy.o: Enemy.cpp.o
 .PHONY : Enemy.o
@@ -303,6 +351,30 @@ GroundEnemy.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.s
 .PHONY : GroundEnemy.cpp.s
 
+ISceneNode.o: ISceneNode.cpp.o
+.PHONY : ISceneNode.o
+
+# target to build an object file
+ISceneNode.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o
+.PHONY : ISceneNode.cpp.o
+
+ISceneNode.i: ISceneNode.cpp.i
+.PHONY : ISceneNode.i
+
+# target to preprocess a source file
+ISceneNode.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.i
+.PHONY : ISceneNode.cpp.i
+
+ISceneNode.s: ISceneNode.cpp.s
+.PHONY : ISceneNode.s
+
+# target to generate assembly for a file
+ISceneNode.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.s
+.PHONY : ISceneNode.cpp.s
+
 Inventory.o: Inventory.cpp.o
 .PHONY : Inventory.o
 
@@ -350,6 +422,30 @@ Item.s: Item.cpp.s
 Item.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Item.cpp.s
 .PHONY : Item.cpp.s
+
+ItemBomb.o: ItemBomb.cpp.o
+.PHONY : ItemBomb.o
+
+# target to build an object file
+ItemBomb.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp.o
+.PHONY : ItemBomb.cpp.o
+
+ItemBomb.i: ItemBomb.cpp.i
+.PHONY : ItemBomb.i
+
+# target to preprocess a source file
+ItemBomb.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp.i
+.PHONY : ItemBomb.cpp.i
+
+ItemBomb.s: ItemBomb.cpp.s
+.PHONY : ItemBomb.s
+
+# target to generate assembly for a file
+ItemBomb.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp.s
+.PHONY : ItemBomb.cpp.s
 
 ItemPickaxe.o: ItemPickaxe.cpp.o
 .PHONY : ItemPickaxe.o
@@ -774,12 +870,18 @@ help:
 	@echo "... Block.o"
 	@echo "... Block.i"
 	@echo "... Block.s"
+	@echo "... Bomb.o"
+	@echo "... Bomb.i"
+	@echo "... Bomb.s"
 	@echo "... Camera.o"
 	@echo "... Camera.i"
 	@echo "... Camera.s"
 	@echo "... Character.o"
 	@echo "... Character.i"
 	@echo "... Character.s"
+	@echo "... CraftingBar.o"
+	@echo "... CraftingBar.i"
+	@echo "... CraftingBar.s"
 	@echo "... Enemy.o"
 	@echo "... Enemy.i"
 	@echo "... Enemy.s"
@@ -792,12 +894,18 @@ help:
 	@echo "... GroundEnemy.o"
 	@echo "... GroundEnemy.i"
 	@echo "... GroundEnemy.s"
+	@echo "... ISceneNode.o"
+	@echo "... ISceneNode.i"
+	@echo "... ISceneNode.s"
 	@echo "... Inventory.o"
 	@echo "... Inventory.i"
 	@echo "... Inventory.s"
 	@echo "... Item.o"
 	@echo "... Item.i"
 	@echo "... Item.s"
+	@echo "... ItemBomb.o"
+	@echo "... ItemBomb.i"
+	@echo "... ItemBomb.s"
 	@echo "... ItemPickaxe.o"
 	@echo "... ItemPickaxe.i"
 	@echo "... ItemPickaxe.s"
