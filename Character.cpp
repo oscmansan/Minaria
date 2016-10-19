@@ -17,9 +17,13 @@ Character::~Character()
 {
 }
 
+void Character::move(int deltaTime)
+{
+}
+
 void Character::init()
 {
-	bJumping = false;
+    bJumping = false;
 
 	jumpSpeed = -9.0f;
 	gravity = 0.4f;

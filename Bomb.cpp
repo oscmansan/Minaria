@@ -2,6 +2,7 @@
 
 #include "Game.h"
 #include "TileMap.h"
+#include "BombExplosion.h"
 
 Texture *Bomb::bombTexture = NULL;
 
@@ -21,13 +22,13 @@ Bomb::Bomb()
 
 Bomb::~Bomb()
 {
-    std::cout << "DELETE CALLED" << std::endl;
     delete sprite;
 }
 
 void Bomb::update(int deltaTime)
 {
-    velocity.x *= 0.99f;
+    velocity.x += 0.05f * (velocity.x < 0 ? 1 : -1);
+    velocity.x = max(abs(velocity.x), 0.0f) * (velocity.x < 0 ? -1 : 1);
     velocity.y += 0.3f; // Gravity
     velocity.y = min(3.0f, velocity.y);
 
@@ -86,26 +87,66 @@ glm::ivec2 Bomb::getSize() const
 
 void Bomb::explode()
 {
+    glm::ivec2 centerPos = getPosition() + getSize() / 2;
+
     TileMap *tmap = Game::getCurrentSceneGame()->getTileMap();
     int tileSize = tmap->getTileSize();
-    glm::ivec2 pos = getPosition() + sprite->getSize();
-    for (int dx = -explosionRadius*2; dx <= explosionRadius*2; ++dx)
-    {
-        for (int dy = -explosionRadius*2; dy <= explosionRadius*2; ++dy)
-        {
-            glm::ivec2 tilePosWorld = pos + (glm::ivec2(dx, dy) * tileSize);
 
-            Tile *t = tmap->getTileAt(tilePosWorld);
-            Block *b = t ? dynamic_cast<Block*>(t) : NULL;
-            if (b)
+    int explosionRadiusInTiles = explosionRadius / tileSize;
+    for (int dx = -explosionRadiusInTiles*2; dx <= explosionRadiusInTiles*2; ++dx)
+    {
+        for (int dy = -explosionRadiusInTiles*2; dy <= explosionRadiusInTiles*2; ++dy)
+        {
+            glm::ivec2 tilePosWorld = centerPos + (glm::ivec2(dx, dy) * tileSize);
+            int dist = abs(tilePosWorld.y - centerPos.y) / tileSize + abs(tilePosWorld.x - centerPos.x) / tileSize;
+
+            int deltaDistance = dist - explosionRadiusInTiles;
+            if (deltaDistance <= 0)
             {
-                int dist = abs(tilePosWorld.y - pos.y) / tileSize + abs(tilePosWorld.x - pos.x) / tileSize;
-                if (dist <= explosionRadius) { b->hit(); b->hit(); b->hit(); }
-                else if (dist == explosionRadius + 1) { b->hit(); b->hit(); }
-                else if (dist == explosionRadius + 2) { b->hit(); }
+                Tile *t = tmap->getTileAt(tilePosWorld);
+                Block *b = t ? dynamic_cast<Block*>(t) : NULL;
+                if (b)
+                {
+                    for (int i = 0; i < -deltaDistance; ++i)
+                    {
+                        b->hit();
+                    }
+                }
             }
         }
     }
+
+    const std::list<Character*> characters = Game::getCurrentSceneGame()->getCharacters(); // Copy to avoid problems with remove
+    for (Character *character : characters)
+    {
+        if (!character) continue;
+
+        float distToExplosionCenter = glm::distance(glm::vec2(character->getPosition()), glm::vec2(centerPos));
+        int damage = damageInCenter * (explosionRadius / (distToExplosionCenter + 0.01f));
+        damage = min(damageInCenter, damage);
+
+        if (distToExplosionCenter < explosionRadius)
+        {
+            Enemy *e = dynamic_cast<Enemy*>(character);
+            if (e)
+            {
+                e->takeDamage(damage);
+            }
+            else
+            {
+                Player *p = dynamic_cast<Player*>(character);
+                if (p)
+                {
+                    p->takeDamage(damage);
+                }
+            }
+        }
+    }
+
+    BombExplosion *be = new BombExplosion();
+    be->setPosition(getPosition() + sprite->getSize()/2);
+    be->explosionSize = explosionRadius;
+    be->init();
 
     Game::getCurrentScene()->removeSceneNode(this);
 }

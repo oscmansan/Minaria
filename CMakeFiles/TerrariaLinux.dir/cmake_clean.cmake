@@ -30,6 +30,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o"
+  "CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o"
   "TerrariaLinux.pdb"
   "TerrariaLinux"
 )

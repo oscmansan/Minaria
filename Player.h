@@ -20,7 +20,7 @@ public:
 
     Inventory *getInventory();
 
-	void takeDamage();
+    void takeDamage(int damage = 1);
     void onBlockDeleted(Block *b);
 
     Block *lastMouseBlock = NULL;

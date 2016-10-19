@@ -19,7 +19,8 @@ public:
     void explode();
 
 private:
-    int explosionRadius = 1;
+    int explosionRadius = 96;
+    int damageInCenter = 3;
     glm::vec2 velocity;
     float rotSpeed = 1;
     bool grounded = false;

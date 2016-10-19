@@ -23,7 +23,7 @@ protected:
 		STAND_RIGHT, STAND_LEFT, MOVE_LEFT, MOVE_RIGHT
 	};
 
-	virtual void move(int deltaTime) = 0;
+    virtual void move(int deltaTime);
 	virtual void processCollisions();
 	virtual void jump();
 	void applyGravity();

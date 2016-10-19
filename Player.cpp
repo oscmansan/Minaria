@@ -236,8 +236,7 @@ void Player::handleMouseActions()
                     {
                         if (e->getBoundingBox().contains(mousePos))
                         {
-                            e->hit();
-                            break;
+                            e->takeDamage();
                         }
                     }
                 }
@@ -306,12 +305,12 @@ void Player::renderHearts(ShaderProgram &program)
     }
 }
 
-void Player::takeDamage()
+void Player::takeDamage(int damage)
 {
     if (!damaged)
     {
         damaged = true;
-        --health;
+        health -= damage;
     }
 }
 

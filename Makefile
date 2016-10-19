@@ -183,6 +183,30 @@ Bomb.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Bomb.cpp.s
 .PHONY : Bomb.cpp.s
 
+BombExplosion.o: BombExplosion.cpp.o
+.PHONY : BombExplosion.o
+
+# target to build an object file
+BombExplosion.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o
+.PHONY : BombExplosion.cpp.o
+
+BombExplosion.i: BombExplosion.cpp.i
+.PHONY : BombExplosion.i
+
+# target to preprocess a source file
+BombExplosion.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.i
+.PHONY : BombExplosion.cpp.i
+
+BombExplosion.s: BombExplosion.cpp.s
+.PHONY : BombExplosion.s
+
+# target to generate assembly for a file
+BombExplosion.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.s
+.PHONY : BombExplosion.cpp.s
+
 Camera.o: Camera.cpp.o
 .PHONY : Camera.o
 
@@ -873,6 +897,9 @@ help:
 	@echo "... Bomb.o"
 	@echo "... Bomb.i"
 	@echo "... Bomb.s"
+	@echo "... BombExplosion.o"
+	@echo "... BombExplosion.i"
+	@echo "... BombExplosion.s"
 	@echo "... Camera.o"
 	@echo "... Camera.i"
 	@echo "... Camera.s"

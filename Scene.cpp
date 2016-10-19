@@ -28,13 +28,6 @@ ShaderProgram *Scene::getShaderProgram()
     return &(Game::getCurrentScene()->texProgram);
 }
 
-void Scene::removeSceneNodes()
-{
-    for (ISceneNode *sceneNode : sceneNodesToBeRemoved)
-    {
-        sceneNodes.remove(sceneNode);
-    }
-}
 
 void Scene::init()
 {
@@ -53,11 +46,17 @@ void Scene::update(int deltaTime)
 {
     currentTime += deltaTime;
 
-    for(ISceneNode *sceneNode : sceneNodes)
+    std::list<ISceneNode*> sceneNodesCopy = sceneNodes; // To let user remove sceneNodes stuff in his update
+    for(ISceneNode *sceneNode : sceneNodesCopy)
     {
         sceneNode->update(deltaTime);
     }
-    removeSceneNodes();
+
+    for(ISceneNode *sceneNode : sceneNodesToDelete)
+    {
+        delete sceneNode;
+    }
+    sceneNodesToDelete.clear();
 }
 
 void Scene::_render()
@@ -105,7 +104,8 @@ void Scene::addSceneNode(ISceneNode *sceneNode)
 
 void Scene::removeSceneNode(ISceneNode *sceneNode)
 {
-    sceneNodesToBeRemoved.push_back(sceneNode);
+    sceneNodes.remove(sceneNode);
+    sceneNodesToDelete.push_back(sceneNode);
 }
 
 void Scene::initShaders()

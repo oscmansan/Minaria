@@ -16,7 +16,7 @@ FlyingEnemy::~FlyingEnemy() {};
 
 void FlyingEnemy::init()
 {
-    Character::init();
+    Enemy::init();
 
     ShaderProgram *program = Game::getCurrentScene()->getShaderProgram();
 
@@ -40,7 +40,7 @@ void FlyingEnemy::init()
     sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.25f));
     sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.5f));
 
-    setPosition(glm::ivec2(1000, 2000));
+    setPosition(glm::ivec2(700, 1300));
     sprite->setTint(glm::vec4(1, 0, 0, 1));
 
     movTime = 1000;
@@ -48,39 +48,46 @@ void FlyingEnemy::init()
 
 void FlyingEnemy::update(int deltaTime)
 {
-    Character::update(deltaTime);
+    Enemy::update(deltaTime);
     movTime -= deltaTime;
     movTime = max(0,movTime);
 }
 
 void FlyingEnemy::move(int deltaTime)
 {
-    if (movTime > 0) return;
+    if (!dead)
+    {
+        if (movTime > 0) return;
 
-    movTime = 1000;
+        movTime = 1000;
 
-    float v = 1;
-    int mov = rand() % 4;
-    switch (mov) {
-    case 0:
-        if (sprite->animation() != MOVE_RIGHT)
-            sprite->changeAnimation(MOVE_RIGHT);
-        velocity.x = v;
-        break;
-    case 1:
-        if (sprite->animation() != MOVE_LEFT)
-            sprite->changeAnimation(MOVE_LEFT);
-        velocity.x = -v;
-        break;
-    case 2:
-        if (sprite->animation() != MOVE_RIGHT)
-            sprite->changeAnimation(MOVE_RIGHT);
-        velocity.y = v;
-        break;
-    case 3:
-        if (sprite->animation() != MOVE_LEFT)
-            sprite->changeAnimation(MOVE_LEFT);
-        velocity.y = -v;
-        break;
+        float v = 1;
+        int mov = rand() % 4;
+        switch (mov) {
+        case 0:
+            if (sprite->animation() != MOVE_RIGHT)
+                sprite->changeAnimation(MOVE_RIGHT);
+            velocity.x = v;
+            break;
+        case 1:
+            if (sprite->animation() != MOVE_LEFT)
+                sprite->changeAnimation(MOVE_LEFT);
+            velocity.x = -v;
+            break;
+        case 2:
+            if (sprite->animation() != MOVE_RIGHT)
+                sprite->changeAnimation(MOVE_RIGHT);
+            velocity.y = v;
+            break;
+        case 3:
+            if (sprite->animation() != MOVE_LEFT)
+                sprite->changeAnimation(MOVE_LEFT);
+            velocity.y = -v;
+            break;
+        }
+    }
+    else
+    {
+        Enemy::applyGravity();
     }
 }

@@ -64,10 +64,11 @@ void SceneGame::init()
     characters.push_back(player);
 
     // Enemy init
-    int nenemies = 5;
+    int nenemies = 50;
     for (int i = 0; i < nenemies; ++i)
     {
-        Enemy *enemy = new FlyingEnemy();
+        Enemy *enemy;
+        if (rand() % 2 == 0) enemy = new FlyingEnemy(); else enemy = new GroundEnemy();
         enemy->init();
         enemy->setPosition(enemy->getPosition() + glm::ivec2(i * 60, -i * 60));
         enemy->setTileMap(map);
@@ -109,21 +110,21 @@ void SceneGame::render()
     map->render();
 }
 
-Character* SceneGame::whosThere(const glm::ivec2 &pos)
+std::list<Character*> SceneGame::whosThere(const glm::ivec2 &pos)
 {
+    std::list<Character*> result;
     for (Character *c : characters)
     {
         if (c->getBoundingBox().contains(pos))
         {
-            return c;
+            result.push_back(c);
         }
     }
-    return NULL;
+    return result;
 }
 
-void SceneGame::destroyCharacter(Character *character)
+void SceneGame::removeCharacter(Character *character)
 {
-    delete character;
     characters.remove(character);
 }
 

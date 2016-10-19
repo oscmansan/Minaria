@@ -43,11 +43,10 @@ public:
 
 protected:
 
-    void removeSceneNodes();
 	void initShaders();
 
     std::list<ISceneNode*> sceneNodes;
-    std::list<ISceneNode*> sceneNodesToBeRemoved;
+    std::list<ISceneNode*> sceneNodesToDelete;
 
     ShaderProgram texProgram;
 	int currentTime;

@@ -46,7 +46,7 @@ public:
     template<class T>
     T* addTile(const glm::ivec2 &posWorld)
     {
-        if (Game::getCurrentSceneGame()->whosThere(posWorld)) return NULL;
+        if (Game::getCurrentSceneGame()->whosThere(posWorld).size() > 0) return NULL;
 
         T* added = NULL;
         glm::ivec2 posTile = worldPosToTilePos(posWorld);

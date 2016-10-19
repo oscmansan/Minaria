@@ -7,16 +7,9 @@
 
 class ISceneNode
 {
-protected:
-    bool isScreen = false;
-
-    ISceneNode();
+public:
     virtual ~ISceneNode();
 
-    glm::ivec2 position;
-    float rotation = 0.0f;
-
-public:
     virtual void init() {}
     virtual void update(int deltaTime) {}
     virtual void render(ShaderProgram &program) {}
@@ -28,6 +21,14 @@ public:
     virtual glm::ivec2 getSize() const { return glm::ivec2(0,0); }
 
     bool isScreenNode() const;
+
+protected:
+    bool isScreen = false;
+
+    ISceneNode();
+
+    glm::ivec2 position;
+    float rotation = 0.0f;
 };
 
 #endif // SCENENODE_H

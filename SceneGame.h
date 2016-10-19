@@ -37,9 +37,9 @@ public:
     TileMap *getTileMap() const;
     const std::list<Character*>& getCharacters() const;
 
-    Character* whosThere(const glm::ivec2 &pos);
+    std::list<Character*> whosThere(const glm::ivec2 &pos);
 
-    void destroyCharacter(Character *character);
+    void removeCharacter(Character *character);
 
 private:
     Player *player = NULL;
