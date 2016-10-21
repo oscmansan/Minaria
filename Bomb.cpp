@@ -107,7 +107,7 @@ void Bomb::explode()
                 Block *b = t ? dynamic_cast<Block*>(t) : NULL;
                 if (b)
                 {
-                    for (int i = 0; i < -deltaDistance; ++i)
+                    for (int i = 0; i < -deltaDistance * 4; ++i)
                     {
                         b->hit();
                     }

@@ -17,6 +17,16 @@ Character::~Character()
 {
 }
 
+bool Character::lookingLeft() const
+{
+    return velocity.x < 0.0f ||
+           sprite->animation() == STAND_LEFT ||
+           sprite->animation() == MOVE_LEFT ||
+           sprite->animation() == PICKAXE_LEFT ||
+           sprite->animation() == SWORD_LEFT ||
+           sprite->animation() == BOMB_LEFT;
+}
+
 void Character::move(int deltaTime)
 {
 }

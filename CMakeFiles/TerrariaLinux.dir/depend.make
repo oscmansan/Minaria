@@ -82,6 +82,7 @@ CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: ShaderProgram.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: Sprite.h
+CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: TemporaryEffect.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: Tile.h
@@ -111,6 +112,7 @@ CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: ShaderProgram.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: Sprite.h
+CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: TemporaryEffect.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: Tile.h
@@ -546,6 +548,34 @@ CMakeFiles/TerrariaLinux.dir/Sprite.cpp.o: ShaderProgram.h
 CMakeFiles/TerrariaLinux.dir/Sprite.cpp.o: Sprite.cpp
 CMakeFiles/TerrariaLinux.dir/Sprite.cpp.o: Sprite.h
 CMakeFiles/TerrariaLinux.dir/Sprite.cpp.o: Texture.h
+
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: AnimKeyframes.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Block.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Camera.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Character.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: CraftingBar.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: FlyingEnemy.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Game.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: GroundEnemy.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: ISceneNode.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Inventory.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Item.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: PerlinNoise.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Player.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Rect.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Scene.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: SceneCredits.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: SceneMenu.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Shader.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: ShaderProgram.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Sprite.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: TemporaryEffect.cpp
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: TemporaryEffect.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Text.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Texture.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Tile.h
 
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: AnimKeyframes.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Block.h

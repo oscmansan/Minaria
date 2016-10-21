@@ -7,29 +7,43 @@
 
 #include <glm/glm.hpp>
 
-Texture *BlockGold::s_texture_full = NULL;
-Texture *BlockGold::s_texture_mid  = NULL;
-Texture *BlockGold::s_texture_gone = NULL;
-Texture *BlockSapphire::s_texture_full = NULL;
-Texture *BlockSapphire::s_texture_mid  = NULL;
-Texture *BlockSapphire::s_texture_gone = NULL;
-Texture *BlockRuby::s_texture_full = NULL;
-Texture *BlockRuby::s_texture_mid  = NULL;
-Texture *BlockRuby::s_texture_gone = NULL;
-Texture *BlockEmerald::s_texture_full = NULL;
-Texture *BlockEmerald::s_texture_mid  = NULL;
-Texture *BlockEmerald::s_texture_gone = NULL;
+Texture *BlockDirt::s_texture    = NULL;
+Texture *BlockRock::s_texture    = NULL;
+Texture *BlockBedRock::s_texture = NULL;
+Texture *BlockWood::s_texture    = NULL;
 
 Block::Block()
 {
+    initBlock();
 }
 
 Block::~Block()
 {
 }
 
+void Block::initBlock()
+{
+    delete sprite;
+
+    int tileSize = Game::getCurrentSceneGame()->getTileMap()->getTileSize();
+    sprite = Sprite::createSprite(glm::ivec2(tileSize), glm::vec2(1.0f / 8.0f, 1.0f), Tile::defaultTexture, program);
+    sprite->setNumberAnimations(GONE - 1);
+
+    float xDisplacement = 1.0f / 8.0f;
+    sprite->addKeyframe(FULL,   float(FULL  ) * glm::vec2(xDisplacement, 0.0f));
+    sprite->addKeyframe(DEST_1, float(DEST_1) * glm::vec2(xDisplacement, 0.0f));
+    sprite->addKeyframe(DEST_2, float(DEST_2) * glm::vec2(xDisplacement, 0.0f));
+    sprite->addKeyframe(DEST_3, float(DEST_3) * glm::vec2(xDisplacement, 0.0f));
+    sprite->addKeyframe(DEST_4, float(DEST_4) * glm::vec2(xDisplacement, 0.0f));
+    sprite->addKeyframe(DEST_5, float(DEST_5) * glm::vec2(xDisplacement, 0.0f));
+    sprite->addKeyframe(DEST_6, float(DEST_6) * glm::vec2(xDisplacement, 0.0f));
+    sprite->addKeyframe(DEST_7, float(DEST_7) * glm::vec2(xDisplacement, 0.0f));
+    sprite->addKeyframe(GONE,   float(GONE  ) * glm::vec2(xDisplacement, 0.0f));
+}
+
 Block::Block(const glm::ivec2 &worldPos) : Tile(worldPos)
 {
+    initBlock();
 }
 
 void Block::onHitBegin()
@@ -50,7 +64,7 @@ void Block::update(int deltaTime)
     // Lighting
     Player *player = Game::getCurrentSceneGame()->getPlayer();
     float distToPlayer = glm::distance(glm::vec2(getPosition()), glm::vec2(player->getPosition()));
-    float fade = (80.0f / (distToPlayer + 0.1f));
+    float fade = (40.0f / (distToPlayer + 0.1f));
     fade = glm::clamp(fade, 0.0f, 1.0f);
     lighting = glm::vec3(fade);
 
@@ -83,19 +97,17 @@ void Block::update(int deltaTime)
     if (beingHit)
     {
         timeSinceLastHit += deltaTime;
-        if (/*timeSinceLastHit > hitSpeed &&*/state == FULL)
+        if (timeSinceLastHit > hitSpeed)
         {
             advanceState();
-        }
-        else if (timeSinceLastHit > hitSpeed * 2 && state == MID)
-        {
-            advanceState();
-        }
-        else if (timeSinceLastHit > hitSpeed * 3 && state == GONE)
-        {
-            advanceState();
+            timeSinceLastHit = 0;
         }
     }
+}
+
+int Block::getAnimationFrame() const
+{
+    return static_cast<int>(state);
 }
 
 Block::Type Block::getType() const
@@ -106,22 +118,29 @@ Block::Type Block::getType() const
 void Block::advanceState()
 {
     Player *player = Game::getCurrentSceneGame()->getPlayer();
-    if (state == GONE)
+    if (state == DEST_7)
     {
         Inventory *inv = player->getInventory();
         switch (getType())
         {
-            case Block::GOLD:     inv->addItem<BlockGold>();     break;
-            case Block::SAPPHIRE: inv->addItem<BlockSapphire>(); break;
-            case Block::RUBY:     inv->addItem<BlockRuby>();     break;
-            case Block::EMERALD:  inv->addItem<BlockEmerald>();  break;
+            case Block::DIRT:    inv->addItem<BlockDirt>();    break;
+            case Block::ROCK:    inv->addItem<BlockRock>();    break;
+            case Block::BEDROCK: inv->addItem<BlockBedRock>(); break;
+            case Block::WOOD:    inv->addItem<BlockWood>();    break;
         }
         player->onBlockDeleted(this);
         Game::getCurrentSceneGame()->getTileMap()->delTile( getPosition() );
     }
     else
     {
-        state = (state == FULL) ? MID : GONE;
+        if (state == FULL)        state = DEST_1;
+        else if (state == DEST_1) state = DEST_2;
+        else if (state == DEST_2) state = DEST_3;
+        else if (state == DEST_3) state = DEST_4;
+        else if (state == DEST_4) state = DEST_5;
+        else if (state == DEST_5) state = DEST_6;
+        else if (state == DEST_6) state = DEST_7;
+        else if (state == DEST_7) state = GONE;
     }
 }
 
@@ -158,7 +177,7 @@ bool Block::hasForegroundBlockAtDistance(int d) const
            foreground->getTileAt(pos + d * glm::ivec2(-step.x, -step.y)) != NULL ||
            foreground->getTileAt(pos + d * glm::ivec2(-step.x,  step.y)) != NULL ||
            foreground->getTileAt(pos + d * glm::ivec2( step.x, -step.y)) != NULL ||
-            foreground->getTileAt(pos + d * glm::ivec2( step.x,  step.y)) != NULL;
+           foreground->getTileAt(pos + d * glm::ivec2( step.x,  step.y)) != NULL;
 }
 
 void Block::hit()
@@ -166,116 +185,62 @@ void Block::hit()
     advanceState();
 }
 
-Texture* Block::getTexture() const
+
+BlockDirt::BlockDirt(const glm::ivec2 &worldPos) : Block(worldPos)
 {
-    switch(state)
+    type = DIRT;
+
+    if (!s_texture)
     {
-        case FULL:
-            return texture_full;
-        case MID:
-            return texture_mid;
-        case GONE:
-            return texture_gone;
+        s_texture = new Texture();
+        s_texture->loadFromFile("images/dirt.png", TEXTURE_PIXEL_FORMAT_RGBA);
     }
-    return NULL;
+    sprite->setTexture(s_texture);
+
+    itemTexture = s_texture;
 }
 
 
-BlockGold::BlockGold(const glm::ivec2 &worldPos) : Block(worldPos)
+BlockRock::BlockRock(const glm::ivec2 &worldPos) : Block(worldPos)
 {
-    type = GOLD;
+    type = ROCK;
 
-    if (!s_texture_full) {
-        s_texture_full = new Texture();
-        s_texture_full->loadFromFile("images/goldItemFull.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    if (!s_texture)
+    {
+        s_texture = new Texture();
+        s_texture->loadFromFile("images/rock.png", TEXTURE_PIXEL_FORMAT_RGBA);
     }
-    if (!s_texture_mid) {
-        s_texture_mid = new Texture();
-        s_texture_mid->loadFromFile("images/goldItemMid.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    }
-    if (!s_texture_gone) {
-        s_texture_gone = new Texture();
-        s_texture_gone->loadFromFile("images/goldItemGone.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    }
+    sprite->setTexture(s_texture);
 
-    texture_full = BlockGold::s_texture_full;
-    texture_mid  = BlockGold::s_texture_mid;
-    texture_gone = BlockGold::s_texture_gone;
-
-    itemTexture = texture_full;
+    itemTexture = s_texture;
 }
 
-
-BlockSapphire::BlockSapphire(const glm::ivec2 &worldPos) : Block(worldPos)
+BlockBedRock::BlockBedRock(const glm::ivec2 &worldPos) : Block(worldPos)
 {
-    type = SAPPHIRE;
+    type = BEDROCK;
 
-    if (!s_texture_full) {
-        s_texture_full = new Texture();
-        s_texture_full->loadFromFile("images/sapphireItem.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    if (!s_texture)
+    {
+        s_texture = new Texture();
+        s_texture->loadFromFile("images/bedRock.png", TEXTURE_PIXEL_FORMAT_RGBA);
     }
-    if (!s_texture_mid) {
-        s_texture_mid = new Texture();
-        s_texture_mid->loadFromFile("images/sapphireItem.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    }
-    if (!s_texture_gone) {
-        s_texture_gone = new Texture();
-        s_texture_gone->loadFromFile("images/sapphireItem.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    }
+    sprite->setTexture(s_texture);
 
-    texture_full = BlockSapphire::s_texture_full;
-    texture_mid  = BlockSapphire::s_texture_mid;
-    texture_gone = BlockSapphire::s_texture_gone;
-
-    itemTexture = texture_full;
+    itemTexture = s_texture;
 }
 
-BlockRuby::BlockRuby(const glm::ivec2 &worldPos) : Block(worldPos)
+BlockWood::BlockWood(const glm::ivec2 &worldPos) : Block(worldPos)
 {
-    type = RUBY;
+    type = WOOD;
 
-    if (!s_texture_full) {
-        s_texture_full = new Texture();
-        s_texture_full->loadFromFile("images/rubyItem.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    if (!s_texture)
+    {
+        s_texture = new Texture();
+        s_texture->loadFromFile("images/wood.png", TEXTURE_PIXEL_FORMAT_RGBA);
     }
-    if (!s_texture_mid) {
-        s_texture_mid = new Texture();
-        s_texture_mid->loadFromFile("images/rubyItem.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    }
-    if (!s_texture_gone) {
-        s_texture_gone = new Texture();
-        s_texture_gone->loadFromFile("images/rubyItem.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    }
+    sprite->setTexture(s_texture);
 
-    texture_full = BlockRuby::s_texture_full;
-    texture_mid  = BlockRuby::s_texture_mid;
-    texture_gone = BlockRuby::s_texture_gone;
-
-    itemTexture = texture_full;
-}
-
-BlockEmerald::BlockEmerald(const glm::ivec2 &worldPos) : Block(worldPos)
-{
-    type = EMERALD;
-
-    if (!s_texture_full) {
-        s_texture_full = new Texture();
-        s_texture_full->loadFromFile("images/emeraldItem.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    }
-    if (!s_texture_mid) {
-        s_texture_mid = new Texture();
-        s_texture_mid->loadFromFile("images/emeraldItem.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    }
-    if (!s_texture_gone) {
-        s_texture_gone = new Texture();
-        s_texture_gone->loadFromFile("images/emeraldItem.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    }
-
-    texture_full = BlockEmerald::s_texture_full;
-    texture_mid  = BlockEmerald::s_texture_mid;
-    texture_gone = BlockEmerald::s_texture_gone;
-
-    itemTexture = texture_full;
+    itemTexture = s_texture;
 }
 
 

@@ -10,17 +10,7 @@ void Game::init()
 	bPlay = true;
     glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
 
-    sceneMenu = new SceneMenu();
-    sceneGame = new SceneGame();
-    sceneCredits = new SceneCredits();
-    currentScene = sceneMenu;
-    //currentScene = sceneGame;
-
-    scenes.push_back(sceneMenu);
-    scenes.push_back(sceneGame);
-    scenes.push_back(sceneCredits);
-
-    currentScene->init();
+    gotoSceneGame();
 }
 
 bool Game::update(int deltaTime)
@@ -61,18 +51,24 @@ void Game::render()
 
 void Game::gotoSceneMenu()
 {
+    if (currentScene) delete currentScene;
+    sceneMenu = new SceneMenu();
     currentScene = sceneMenu;
     currentScene->init();
 }
 
 void Game::gotoSceneGame()
 {
+    if (currentScene) delete currentScene;
+    sceneGame = new SceneGame();
     currentScene = sceneGame;
     currentScene->init();
 }
 
 void Game::gotoSceneCredits()
 {
+    if (currentScene) delete currentScene;
+    sceneCredits = new SceneCredits();
     currentScene = sceneCredits;
     currentScene->init();
 }

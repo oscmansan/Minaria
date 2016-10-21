@@ -21,11 +21,17 @@ public:
     Inventory *getInventory();
 
     void takeDamage(int damage = 1);
+    void beginToDie();
+    void die();
     void onBlockDeleted(Block *b);
 
     Block *lastMouseBlock = NULL;
 
 private:
+    bool usingItem = false;
+    bool dead = false;
+    float timeSinceDead = 0.0f;
+
     const int maxHealth = 10;
     int health = maxHealth;
     const int heartSize = 25;

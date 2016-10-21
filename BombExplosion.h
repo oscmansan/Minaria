@@ -1,17 +1,13 @@
 #ifndef BOMBEXPLOSION_H
 #define BOMBEXPLOSION_H
 
-#include "Sprite.h"
 #include "Texture.h"
-#include "ISceneNode.h"
+#include "TemporaryEffect.h"
 
-class BombExplosion : public ISceneNode
+class BombExplosion : public TemporaryEffect
 {
 private:
     static Texture* explosionTexture;
-
-    Sprite *sprite = NULL;
-    float time = 0.0f;
 
 public:
     float explosionSize = 0.0f;

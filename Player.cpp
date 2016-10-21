@@ -40,30 +40,54 @@ void Player::init()
     //
 
     // Player
-	spritesheet.loadFromFile("images/bub.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25, 0.25), &spritesheet, program);
-	sprite->setNumberAnimations(4);
+    spritesheet.loadFromFile("images/miner.png", TEXTURE_PIXEL_FORMAT_RGBA);
 
-	sprite->setAnimationSpeed(STAND_RIGHT, 8);
-	sprite->addKeyframe(STAND_RIGHT, glm::vec2(0.25f, 0.f));
+    float dx = 1.0f / 10, dy = 1.0f / 4;
+    sprite = Sprite::createSprite(glm::ivec2(36, 48), glm::vec2(0.075f, 0.25f), &spritesheet, program);
+    sprite->setNumberAnimations(DEAD+1);
 
 	sprite->setAnimationSpeed(STAND_LEFT, 8);
-	sprite->addKeyframe(STAND_LEFT, glm::vec2(0.f, 0.f));
+    sprite->addKeyframe(STAND_LEFT, glm::vec2(dx * 0, dy * 0));
+    sprite->setAnimationSpeed(STAND_RIGHT, 8);
+    sprite->addKeyframe(STAND_RIGHT, glm::vec2(dx * 0, dy * 1));
 
 	sprite->setAnimationSpeed(MOVE_LEFT, 8);
-	sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.f, 0.f));
-	sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.f, 0.25f));
-	sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.f, 0.5f));
-
+    sprite->addKeyframe(MOVE_LEFT, glm::vec2(dx * 0, dy * 0));
+    sprite->addKeyframe(MOVE_LEFT, glm::vec2(dx * 1, dy * 0));
+    sprite->addKeyframe(MOVE_LEFT, glm::vec2(dx * 2, dy * 0));
 	sprite->setAnimationSpeed(MOVE_RIGHT, 8);
-	sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.f));
-	sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.25f));
-	sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.5f));
+    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(dx * 0, dy * 1));
+    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(dx * 1, dy * 1));
+    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(dx * 2, dy * 1));
+
+    /*
+        PICKAXE_LEFT, PICKAXE_RIGHT,
+        SWORD_LEFT, SWORD_RIGHT,
+        BOMB_LEFT, BOMB_RIGHT,
+        DEAD
+        */
+    sprite->setAnimationSpeed(PICKAXE_LEFT, 8);
+    sprite->addKeyframe(PICKAXE_LEFT, glm::vec2(dx * 3, dy * 0));
+    sprite->addKeyframe(PICKAXE_LEFT, glm::vec2(dx * 4, dy * 0));
+    sprite->addKeyframe(PICKAXE_LEFT, glm::vec2(dx * 5, dy * 0));
+    sprite->setAnimationSpeed(PICKAXE_RIGHT, 8);
+    sprite->addKeyframe(PICKAXE_RIGHT, glm::vec2(dx * 3, dy * 1));
+    sprite->addKeyframe(PICKAXE_RIGHT, glm::vec2(dx * 4, dy * 1));
+    sprite->addKeyframe(PICKAXE_RIGHT, glm::vec2(dx * 5, dy * 1));
+
+    sprite->setAnimationSpeed(SWORD_LEFT, 8);
+    sprite->addKeyframe(SWORD_LEFT, glm::vec2(dx * 7, dy * 2));
+    sprite->addKeyframe(SWORD_LEFT, glm::vec2(dx * 8, dy * 2));
+    sprite->addKeyframe(SWORD_LEFT, glm::vec2(dx * 9, dy * 2));
+    sprite->setAnimationSpeed(SWORD_RIGHT, 8);
+    sprite->addKeyframe(SWORD_RIGHT, glm::vec2(dx * 7, dy * 2));
+    sprite->addKeyframe(SWORD_RIGHT, glm::vec2(dx * 8, dy * 2));
+    sprite->addKeyframe(SWORD_RIGHT, glm::vec2(dx * 9, dy * 2));
     //
 
     inventory.init();
 
-    setPosition(glm::ivec2(500, 1000));
+    setPosition(glm::ivec2(700, 1200));
 
     for (int i = 0; i < 99; ++i) inventory.addItem<ItemBomb>();
 }
@@ -72,20 +96,32 @@ void Player::update(int deltaTime)
 {
     Character::update(deltaTime);
 
-	if (damaged)
-	{
-		sprite->setVisible(Scene::getCurrentTime() % (damageBlinkFrequency * 2) < damageBlinkFrequency);
-		invulnerabilityTimer -= deltaTime;
-	}
+    if (!dead)
+    {
+        if (damaged)
+        {
+            sprite->setVisible(Scene::getCurrentTime() % (damageBlinkFrequency * 2) < damageBlinkFrequency);
+            invulnerabilityTimer -= deltaTime;
+        }
 
-	if (invulnerabilityTimer <= 0) {
-		damaged = false;
-		sprite->setVisible(true);
-		invulnerabilityTimer = invulnerabilityPeriod;
-	}
+        if (invulnerabilityTimer <= 0) {
+            damaged = false;
+            sprite->setVisible(true);
+            invulnerabilityTimer = invulnerabilityPeriod;
+        }
 
-    handleItemSelection();
-    handleMouseActions();
+        handleItemSelection();
+        handleMouseActions();
+    }
+    else
+    {
+        rotation += 0.5f;
+        timeSinceDead += deltaTime;
+        if (timeSinceDead > 2000)
+        {
+            die();
+        }
+    }
 }
 
 void Player::render(ShaderProgram &program)
@@ -118,25 +154,34 @@ void Player::move(int deltaTime)
 
 	if (bothPressed || (velocity.x == 0 && !anyPressed))
 	{
-		if (sprite->animation() == MOVE_LEFT)
-			sprite->changeAnimation(STAND_LEFT);
-		else if (sprite->animation() == MOVE_RIGHT)
-			sprite->changeAnimation(STAND_RIGHT);
+        if (!usingItem)
+        {
+            if (sprite->animation() == MOVE_LEFT)
+                sprite->changeAnimation(STAND_LEFT);
+            else if (sprite->animation() == MOVE_RIGHT)
+                sprite->changeAnimation(STAND_RIGHT);
+        }
 		velocity.x = 0;
 	}
 	else
 	{
 		if(leftPressed)
 		{
-			if (sprite->animation() != MOVE_LEFT)
-				sprite->changeAnimation(MOVE_LEFT);
+            if (!usingItem)
+            {
+                if (sprite->animation() != MOVE_LEFT)
+                    sprite->changeAnimation(MOVE_LEFT);
+            }
             velocity.x = -8;
 		}
 
 		if (rightPressed)
 		{
-			if (sprite->animation() != MOVE_RIGHT)
-				sprite->changeAnimation(MOVE_RIGHT);
+            if (!usingItem)
+            {
+                if (sprite->animation() != MOVE_RIGHT)
+                    sprite->changeAnimation(MOVE_RIGHT);
+            }
             velocity.x = 8;
 		}
 	}
@@ -191,6 +236,9 @@ void Player::handleMouseActions()
     TileMap *tmap = Game::getCurrentSceneGame()->getTileMap();
     glm::ivec2 mousePos = Game::instance().getMousePosWorld();
 
+    if (!Game::instance().getMouseLeftButton())
+        usingItem = false;
+
     Block *mouseBlock = tmap->getBlock(mousePos);
     if (mouseBlock != lastMouseBlock)
     {
@@ -214,6 +262,12 @@ void Player::handleMouseActions()
     {
         if (dynamic_cast<ItemPickaxe*>(selectedItem))
         {
+            if (Game::instance().getMouseLeftButtonDown())
+            {
+                usingItem = true;
+                sprite->changeAnimation(lookingLeft() ? PICKAXE_LEFT : PICKAXE_RIGHT);
+            }
+
             if (Game::instance().getMouseLeftButton())
             {
                 // BLOCK REMOVAL
@@ -225,6 +279,12 @@ void Player::handleMouseActions()
         }
         else if (dynamic_cast<ItemSword*>(selectedItem))
         {
+            if (Game::instance().getMouseLeftButtonDown())
+            {
+                usingItem = true;
+                sprite->changeAnimation(lookingLeft() ? SWORD_LEFT : SWORD_RIGHT);
+            }
+
             if (Game::instance().getMouseLeftButton())
             {
                 for (Character *c : Game::getCurrentSceneGame()->getCharacters())
@@ -254,10 +314,10 @@ void Player::handleMouseActions()
                     if (amount > 0)
                     {
                         Tile *addedBlock = NULL;
-                        if (b->getType() == Block::GOLD)          { addedBlock = tmap->addTile<BlockGold>(mousePos); }
-                        else if (b->getType() == Block::SAPPHIRE) { addedBlock = tmap->addTile<BlockSapphire>(mousePos); }
-                        else if (b->getType() == Block::RUBY)     { addedBlock = tmap->addTile<BlockRuby>(mousePos); }
-                        else if (b->getType() == Block::EMERALD)  { addedBlock = tmap->addTile<BlockEmerald>(mousePos); }
+                        if (b->getType() == Block::DIRT)         { addedBlock = tmap->addTile<BlockDirt>(mousePos); }
+                        else if (b->getType() == Block::ROCK)    { addedBlock = tmap->addTile<BlockRock>(mousePos); }
+                        else if (b->getType() == Block::BEDROCK) { addedBlock = tmap->addTile<BlockBedRock>(mousePos); }
+                        else if (b->getType() == Block::WOOD)    { addedBlock = tmap->addTile<BlockWood>(mousePos); }
 
                         if (addedBlock)
                         {
@@ -271,11 +331,13 @@ void Player::handleMouseActions()
         {
             if (Game::instance().getMouseLeftButtonDown())
             {
+                usingItem = true;
+
                 Bomb *b = new Bomb();
                 b->setPosition( getPosition() );
 
                 glm::vec2 dir = glm::normalize( glm::vec2(mousePos - getPosition()) );
-                float bombSpeed = 0.1f * glm::min(50.0f, glm::length(glm::vec2(mousePos - getPosition())));
+                float bombSpeed = 0.2f * glm::min(50.0f, glm::length(glm::vec2(mousePos - getPosition())));
                 b->setVelocity( dir * bombSpeed );
 
                 inventory.dropItem(selectedItemIndex);
@@ -311,7 +373,21 @@ void Player::takeDamage(int damage)
     {
         damaged = true;
         health -= damage;
+        if (health < 0)
+        {
+            beginToDie();
+        }
     }
+}
+
+void Player::beginToDie()
+{
+    dead = true;
+}
+
+void Player::die()
+{
+    Game::instance().gotoSceneGame();
 }
 
 void Player::onBlockDeleted(Block *b)

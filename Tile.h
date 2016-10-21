@@ -30,7 +30,7 @@ protected:
     ShaderProgram *program = NULL;
     Sprite *sprite = NULL;
 
-    virtual Texture *getTexture() const { return NULL; }
+    virtual int getAnimationFrame() const { return 0; }
 };
 
 #endif // TILE_H

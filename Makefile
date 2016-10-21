@@ -759,6 +759,30 @@ Sprite.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Sprite.cpp.s
 .PHONY : Sprite.cpp.s
 
+TemporaryEffect.o: TemporaryEffect.cpp.o
+.PHONY : TemporaryEffect.o
+
+# target to build an object file
+TemporaryEffect.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o
+.PHONY : TemporaryEffect.cpp.o
+
+TemporaryEffect.i: TemporaryEffect.cpp.i
+.PHONY : TemporaryEffect.i
+
+# target to preprocess a source file
+TemporaryEffect.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.i
+.PHONY : TemporaryEffect.cpp.i
+
+TemporaryEffect.s: TemporaryEffect.cpp.s
+.PHONY : TemporaryEffect.s
+
+# target to generate assembly for a file
+TemporaryEffect.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.s
+.PHONY : TemporaryEffect.cpp.s
+
 Text.o: Text.cpp.o
 .PHONY : Text.o
 
@@ -969,6 +993,9 @@ help:
 	@echo "... Sprite.o"
 	@echo "... Sprite.i"
 	@echo "... Sprite.s"
+	@echo "... TemporaryEffect.o"
+	@echo "... TemporaryEffect.i"
+	@echo "... TemporaryEffect.s"
 	@echo "... Text.o"
 	@echo "... Text.i"
 	@echo "... Text.s"

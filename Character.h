@@ -20,9 +20,15 @@ public:
 protected:
 	enum CharacterAnims
 	{
-		STAND_RIGHT, STAND_LEFT, MOVE_LEFT, MOVE_RIGHT
+        STAND_RIGHT = 0, STAND_LEFT,
+        MOVE_LEFT, MOVE_RIGHT,
+        PICKAXE_LEFT, PICKAXE_RIGHT,
+        SWORD_LEFT, SWORD_RIGHT,
+        BOMB_LEFT, BOMB_RIGHT,
+        DEAD
 	};
 
+    bool lookingLeft() const;
     virtual void move(int deltaTime);
 	virtual void processCollisions();
 	virtual void jump();

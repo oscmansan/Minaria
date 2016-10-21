@@ -27,7 +27,7 @@ TileMap::TileMap(glm::ivec2 size, ShaderProgram &program)
 
 	// Specify sizes
 	mapSize = size;
-    tileSize = 16;
+    tileSize = 24;
 
 	// Tilesheet related
 	const string tilesheetFile = "images/blocks.png";  // Tilesheet location
