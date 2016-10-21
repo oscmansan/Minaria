@@ -12,7 +12,8 @@ public:
     enum State {
         PATROL = 0,
         CHASE  = 1,
-        ATTACK = 2
+        ATTACK_DOWN = 2,
+        ATTACK_UP = 3
     };
 
     void init(ShaderProgram &shaderProgram) override;
@@ -21,7 +22,10 @@ public:
 
 private:
     State state;
-    int movTime;
+    glm::ivec2 attackPosStart;
+    glm::ivec2 attackPosEnd;
+
+    void randomFly();
 };
 
 #endif // FLYINGENEMY_H

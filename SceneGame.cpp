@@ -56,7 +56,7 @@ void SceneGame::init()
     player->setTileMap(map);
 
     // Enemy init
-    int nenemies = 5;
+    int nenemies = 1;
     for (int i = 0; i < nenemies; ++i)
     {
         Enemy *enemy = new FlyingEnemy();

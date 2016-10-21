@@ -18,7 +18,7 @@ void GroundEnemy::init(ShaderProgram &shaderProgram)
 {
     Character::init(shaderProgram);
 
-    spritesheet.loadFromFile("images/bub.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    spritesheet.loadFromFile("images/bub_bad.png", TEXTURE_PIXEL_FORMAT_RGBA);
     sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25, 0.25), &spritesheet, &shaderProgram);
     sprite->setNumberAnimations(4);
 
@@ -39,7 +39,6 @@ void GroundEnemy::init(ShaderProgram &shaderProgram)
     sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.5f));
 
     setPosition(glm::ivec2(1000, 2000));
-    sprite->setTint(glm::vec4(1, 0, 0, 1));
 
     state = PATROL;
     jumpSpeed = -5;
