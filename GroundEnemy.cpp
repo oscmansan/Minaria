@@ -14,12 +14,14 @@ GroundEnemy::GroundEnemy() {}
 
 GroundEnemy::~GroundEnemy() {}
 
-void GroundEnemy::init(ShaderProgram &shaderProgram)
+void GroundEnemy::init()
 {
-    Character::init(shaderProgram);
+    Enemy::init();
 
-    spritesheet.loadFromFile("images/bub_bad.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25, 0.25), &spritesheet, &shaderProgram);
+    ShaderProgram *program = Game::getCurrentScene()->getShaderProgram();
+
+    spritesheet.loadFromFile("images/bub.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25, 0.25), &spritesheet, program);
     sprite->setNumberAnimations(4);
 
     sprite->setAnimationSpeed(STAND_LEFT, 8);
@@ -38,7 +40,8 @@ void GroundEnemy::init(ShaderProgram &shaderProgram)
     sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.25f));
     sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.5f));
 
-    setPosition(glm::ivec2(1000, 2000));
+    setPosition(glm::ivec2(1000, 0));
+    sprite->setTint(glm::vec4(1, 0, 0, 1));
 
     state = PATROL;
     jumpSpeed = -5;
@@ -46,7 +49,7 @@ void GroundEnemy::init(ShaderProgram &shaderProgram)
 
 void GroundEnemy::update(int deltaTime)
 {
-    Character::update(deltaTime);
+    Enemy::update(deltaTime);
 
     Player *player = Game::getCurrentSceneGame()->getPlayer();
 
@@ -89,41 +92,48 @@ void GroundEnemy::move(int deltaTime)
     Player *player = Game::getCurrentSceneGame()->getPlayer();
     TileMap *tilemap = Game::getCurrentSceneGame()->getTileMap();
 
-    if (tilemap->collisionMoveLeft(getPosition()+glm::ivec2(-5,0),getSize()) or
-            tilemap->collisionMoveRight(getPosition()+glm::ivec2(5,0),getSize()))
-        jump();
+    if (!dead)
+    {
+        if (tilemap->collisionMoveLeft(getPosition()+glm::ivec2(-5,0),getSize()) or
+                tilemap->collisionMoveRight(getPosition()+glm::ivec2(5,0),getSize()))
+            jump();
 
-    switch(state) {
-        float v;
-        case PATROL:
-            v = 1;
-            if (int(Scene::getCurrentTime()) % 3000 < 1500) {
-                if (sprite->animation() != MOVE_RIGHT)
-                    sprite->changeAnimation(MOVE_RIGHT);
-                velocity.x = v;
-            }
-            else {
-                if (sprite->animation() != MOVE_LEFT)
-                    sprite->changeAnimation(MOVE_LEFT);
-                velocity.x = -v;
-            }
-            break;
-        case CHASE:
-            v = 3;
-            if (player->getPosition().x > getPosition().x) {
-                if (sprite->animation() != MOVE_RIGHT)
-                    sprite->changeAnimation(MOVE_RIGHT);
-                velocity.x = v;
-            }
-            else {
-                if (sprite->animation() != MOVE_LEFT)
-                    sprite->changeAnimation(MOVE_LEFT);
-                velocity.x = -v;
-            }
-            break;
-        case ATTACK:
-            break;
+        switch(state) {
+            float v;
+            case PATROL:
+                v = 1;
+                if (int(Scene::getCurrentTime()) % 3000 < 1500) {
+                    if (sprite->animation() != MOVE_RIGHT)
+                        sprite->changeAnimation(MOVE_RIGHT);
+                    velocity.x = v;
+                }
+                else {
+                    if (sprite->animation() != MOVE_LEFT)
+                        sprite->changeAnimation(MOVE_LEFT);
+                    velocity.x = -v;
+                }
+                break;
+            case CHASE:
+                v = 3;
+                if (player->getPosition().x > getPosition().x) {
+                    if (sprite->animation() != MOVE_RIGHT)
+                        sprite->changeAnimation(MOVE_RIGHT);
+                    velocity.x = v;
+                }
+                else {
+                    if (sprite->animation() != MOVE_LEFT)
+                        sprite->changeAnimation(MOVE_LEFT);
+                    velocity.x = -v;
+                }
+                break;
+            case ATTACK:
+                break;
+        }
+    }
+    else
+    {
+
     }
 
-    Character::applyGravity();
+    Enemy::applyGravity();
 }

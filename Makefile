@@ -159,6 +159,54 @@ Block.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Block.cpp.s
 .PHONY : Block.cpp.s
 
+Bomb.o: Bomb.cpp.o
+.PHONY : Bomb.o
+
+# target to build an object file
+Bomb.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o
+.PHONY : Bomb.cpp.o
+
+Bomb.i: Bomb.cpp.i
+.PHONY : Bomb.i
+
+# target to preprocess a source file
+Bomb.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Bomb.cpp.i
+.PHONY : Bomb.cpp.i
+
+Bomb.s: Bomb.cpp.s
+.PHONY : Bomb.s
+
+# target to generate assembly for a file
+Bomb.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Bomb.cpp.s
+.PHONY : Bomb.cpp.s
+
+BombExplosion.o: BombExplosion.cpp.o
+.PHONY : BombExplosion.o
+
+# target to build an object file
+BombExplosion.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o
+.PHONY : BombExplosion.cpp.o
+
+BombExplosion.i: BombExplosion.cpp.i
+.PHONY : BombExplosion.i
+
+# target to preprocess a source file
+BombExplosion.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.i
+.PHONY : BombExplosion.cpp.i
+
+BombExplosion.s: BombExplosion.cpp.s
+.PHONY : BombExplosion.s
+
+# target to generate assembly for a file
+BombExplosion.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.s
+.PHONY : BombExplosion.cpp.s
+
 Camera.o: Camera.cpp.o
 .PHONY : Camera.o
 
@@ -207,6 +255,30 @@ Character.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Character.cpp.s
 .PHONY : Character.cpp.s
 
+CraftingBar.o: CraftingBar.cpp.o
+.PHONY : CraftingBar.o
+
+# target to build an object file
+CraftingBar.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o
+.PHONY : CraftingBar.cpp.o
+
+CraftingBar.i: CraftingBar.cpp.i
+.PHONY : CraftingBar.i
+
+# target to preprocess a source file
+CraftingBar.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.i
+.PHONY : CraftingBar.cpp.i
+
+CraftingBar.s: CraftingBar.cpp.s
+.PHONY : CraftingBar.s
+
+# target to generate assembly for a file
+CraftingBar.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.s
+.PHONY : CraftingBar.cpp.s
+
 Enemy.o: Enemy.cpp.o
 .PHONY : Enemy.o
 
@@ -231,6 +303,30 @@ Enemy.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Enemy.cpp.s
 .PHONY : Enemy.cpp.s
 
+FlyingEnemy.o: FlyingEnemy.cpp.o
+.PHONY : FlyingEnemy.o
+
+# target to build an object file
+FlyingEnemy.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o
+.PHONY : FlyingEnemy.cpp.o
+
+FlyingEnemy.i: FlyingEnemy.cpp.i
+.PHONY : FlyingEnemy.i
+
+# target to preprocess a source file
+FlyingEnemy.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.i
+.PHONY : FlyingEnemy.cpp.i
+
+FlyingEnemy.s: FlyingEnemy.cpp.s
+.PHONY : FlyingEnemy.s
+
+# target to generate assembly for a file
+FlyingEnemy.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.s
+.PHONY : FlyingEnemy.cpp.s
+
 Game.o: Game.cpp.o
 .PHONY : Game.o
 
@@ -254,6 +350,54 @@ Game.s: Game.cpp.s
 Game.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Game.cpp.s
 .PHONY : Game.cpp.s
+
+GroundEnemy.o: GroundEnemy.cpp.o
+.PHONY : GroundEnemy.o
+
+# target to build an object file
+GroundEnemy.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o
+.PHONY : GroundEnemy.cpp.o
+
+GroundEnemy.i: GroundEnemy.cpp.i
+.PHONY : GroundEnemy.i
+
+# target to preprocess a source file
+GroundEnemy.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.i
+.PHONY : GroundEnemy.cpp.i
+
+GroundEnemy.s: GroundEnemy.cpp.s
+.PHONY : GroundEnemy.s
+
+# target to generate assembly for a file
+GroundEnemy.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.s
+.PHONY : GroundEnemy.cpp.s
+
+ISceneNode.o: ISceneNode.cpp.o
+.PHONY : ISceneNode.o
+
+# target to build an object file
+ISceneNode.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o
+.PHONY : ISceneNode.cpp.o
+
+ISceneNode.i: ISceneNode.cpp.i
+.PHONY : ISceneNode.i
+
+# target to preprocess a source file
+ISceneNode.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.i
+.PHONY : ISceneNode.cpp.i
+
+ISceneNode.s: ISceneNode.cpp.s
+.PHONY : ISceneNode.s
+
+# target to generate assembly for a file
+ISceneNode.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.s
+.PHONY : ISceneNode.cpp.s
 
 Inventory.o: Inventory.cpp.o
 .PHONY : Inventory.o
@@ -302,6 +446,78 @@ Item.s: Item.cpp.s
 Item.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Item.cpp.s
 .PHONY : Item.cpp.s
+
+ItemBomb.o: ItemBomb.cpp.o
+.PHONY : ItemBomb.o
+
+# target to build an object file
+ItemBomb.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp.o
+.PHONY : ItemBomb.cpp.o
+
+ItemBomb.i: ItemBomb.cpp.i
+.PHONY : ItemBomb.i
+
+# target to preprocess a source file
+ItemBomb.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp.i
+.PHONY : ItemBomb.cpp.i
+
+ItemBomb.s: ItemBomb.cpp.s
+.PHONY : ItemBomb.s
+
+# target to generate assembly for a file
+ItemBomb.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp.s
+.PHONY : ItemBomb.cpp.s
+
+ItemPickaxe.o: ItemPickaxe.cpp.o
+.PHONY : ItemPickaxe.o
+
+# target to build an object file
+ItemPickaxe.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o
+.PHONY : ItemPickaxe.cpp.o
+
+ItemPickaxe.i: ItemPickaxe.cpp.i
+.PHONY : ItemPickaxe.i
+
+# target to preprocess a source file
+ItemPickaxe.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.i
+.PHONY : ItemPickaxe.cpp.i
+
+ItemPickaxe.s: ItemPickaxe.cpp.s
+.PHONY : ItemPickaxe.s
+
+# target to generate assembly for a file
+ItemPickaxe.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.s
+.PHONY : ItemPickaxe.cpp.s
+
+ItemSword.o: ItemSword.cpp.o
+.PHONY : ItemSword.o
+
+# target to build an object file
+ItemSword.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o
+.PHONY : ItemSword.cpp.o
+
+ItemSword.i: ItemSword.cpp.i
+.PHONY : ItemSword.i
+
+# target to preprocess a source file
+ItemSword.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.i
+.PHONY : ItemSword.cpp.i
+
+ItemSword.s: ItemSword.cpp.s
+.PHONY : ItemSword.s
+
+# target to generate assembly for a file
+ItemSword.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.s
+.PHONY : ItemSword.cpp.s
 
 PerlinNoise.o: PerlinNoise.cpp.o
 .PHONY : PerlinNoise.o
@@ -678,24 +894,51 @@ help:
 	@echo "... Block.o"
 	@echo "... Block.i"
 	@echo "... Block.s"
+	@echo "... Bomb.o"
+	@echo "... Bomb.i"
+	@echo "... Bomb.s"
+	@echo "... BombExplosion.o"
+	@echo "... BombExplosion.i"
+	@echo "... BombExplosion.s"
 	@echo "... Camera.o"
 	@echo "... Camera.i"
 	@echo "... Camera.s"
 	@echo "... Character.o"
 	@echo "... Character.i"
 	@echo "... Character.s"
+	@echo "... CraftingBar.o"
+	@echo "... CraftingBar.i"
+	@echo "... CraftingBar.s"
 	@echo "... Enemy.o"
 	@echo "... Enemy.i"
 	@echo "... Enemy.s"
+	@echo "... FlyingEnemy.o"
+	@echo "... FlyingEnemy.i"
+	@echo "... FlyingEnemy.s"
 	@echo "... Game.o"
 	@echo "... Game.i"
 	@echo "... Game.s"
+	@echo "... GroundEnemy.o"
+	@echo "... GroundEnemy.i"
+	@echo "... GroundEnemy.s"
+	@echo "... ISceneNode.o"
+	@echo "... ISceneNode.i"
+	@echo "... ISceneNode.s"
 	@echo "... Inventory.o"
 	@echo "... Inventory.i"
 	@echo "... Inventory.s"
 	@echo "... Item.o"
 	@echo "... Item.i"
 	@echo "... Item.s"
+	@echo "... ItemBomb.o"
+	@echo "... ItemBomb.i"
+	@echo "... ItemBomb.s"
+	@echo "... ItemPickaxe.o"
+	@echo "... ItemPickaxe.i"
+	@echo "... ItemPickaxe.s"
+	@echo "... ItemSword.o"
+	@echo "... ItemSword.i"
+	@echo "... ItemSword.s"
 	@echo "... PerlinNoise.o"
 	@echo "... PerlinNoise.i"
 	@echo "... PerlinNoise.s"

@@ -57,9 +57,26 @@ void Block::update(int deltaTime)
     // Shadow of bg tiles
     if (isBg)
     {
-        TileMap *foreground = Game::getCurrentSceneGame()->getTileMap();
-        if (hasForegroundBlockAtDistance(1)) lighting *= 0.75f;
-        else if (hasForegroundBlockAtDistance(2)) lighting *= 0.85f;
+        if (hasForegroundBlockAtDistance(1)) lighting *= 0.5f;
+        else if (hasForegroundBlockAtDistance(2)) lighting *= 0.65f;
+        else if (hasForegroundBlockAtDistance(3)) lighting *= 0.85f;
+    }
+    else // Shadow of foreground tiles
+    {
+        /*
+        if (isBorderBlock(1))
+        {
+            lighting *= 1.0f;
+        }
+        else if (isBorderBlock(2))
+        {
+            lighting *= 0.6f;
+        }
+        else
+        {
+            lighting *= 0.3f;
+        }
+        */
     }
 
     // States
@@ -76,16 +93,7 @@ void Block::update(int deltaTime)
         }
         else if (timeSinceLastHit > hitSpeed * 3 && state == GONE)
         {
-            Inventory *inv = player->getInventory();
-            switch (getType())
-            {
-                case Block::GOLD:     inv->addItem<BlockGold>();     break;
-                case Block::SAPPHIRE: inv->addItem<BlockSapphire>(); break;
-                case Block::RUBY:     inv->addItem<BlockRuby>();     break;
-                case Block::EMERALD:  inv->addItem<BlockEmerald>();  break;
-            }
-            player->onBlockDeleted(this);
-            Game::getCurrentSceneGame()->getTileMap()->delTile( getPosition() );
+            advanceState();
         }
     }
 }
@@ -97,7 +105,21 @@ Block::Type Block::getType() const
 
 void Block::advanceState()
 {
-    if (state < GONE)
+    Player *player = Game::getCurrentSceneGame()->getPlayer();
+    if (state == GONE)
+    {
+        Inventory *inv = player->getInventory();
+        switch (getType())
+        {
+            case Block::GOLD:     inv->addItem<BlockGold>();     break;
+            case Block::SAPPHIRE: inv->addItem<BlockSapphire>(); break;
+            case Block::RUBY:     inv->addItem<BlockRuby>();     break;
+            case Block::EMERALD:  inv->addItem<BlockEmerald>();  break;
+        }
+        player->onBlockDeleted(this);
+        Game::getCurrentSceneGame()->getTileMap()->delTile( getPosition() );
+    }
+    else
     {
         state = (state == FULL) ? MID : GONE;
     }
@@ -109,7 +131,22 @@ void Block::restore()
     timeSinceLastHit = 0;
 }
 
-bool Block::hasForegroundBlockAtDistance(int d)
+bool Block::isBorderBlock(int d) const
+{
+    TileMap *foreground = Game::getCurrentSceneGame()->getTileMap();
+    glm::ivec2 step = glm::ivec2(foreground->getTileSize());
+    glm::ivec2 pos = getPosition();
+    return foreground->getTileAt(pos + d * glm::ivec2( step.x, 0)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(-step.x, 0)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(0,  step.y)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(0, -step.y)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(-step.x, -step.y)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2(-step.x,  step.y)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2( step.x, -step.y)) == NULL ||
+           foreground->getTileAt(pos + d * glm::ivec2( step.x,  step.y)) == NULL;
+}
+
+bool Block::hasForegroundBlockAtDistance(int d) const
 {
     TileMap *foreground = Game::getCurrentSceneGame()->getTileMap();
     glm::ivec2 step = glm::ivec2(foreground->getTileSize());
@@ -121,7 +158,12 @@ bool Block::hasForegroundBlockAtDistance(int d)
            foreground->getTileAt(pos + d * glm::ivec2(-step.x, -step.y)) != NULL ||
            foreground->getTileAt(pos + d * glm::ivec2(-step.x,  step.y)) != NULL ||
            foreground->getTileAt(pos + d * glm::ivec2( step.x, -step.y)) != NULL ||
-           foreground->getTileAt(pos + d * glm::ivec2( step.x,  step.y)) != NULL;
+            foreground->getTileAt(pos + d * glm::ivec2( step.x,  step.y)) != NULL;
+}
+
+void Block::hit()
+{
+    advanceState();
 }
 
 Texture* Block::getTexture() const

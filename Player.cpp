@@ -6,9 +6,13 @@
 #include <GL/glew.h>
 #include <GL/glut.h>
 
+#include "Bomb.h"
 #include "Block.h"
 #include "TileMap.h"
+#include "ItemBomb.h"
 #include "SceneGame.h"
+#include "ItemSword.h"
+#include "ItemPickaxe.h"
 
 Player::Player() {}
 
@@ -18,15 +22,17 @@ Player::~Player()
 }
 
 
-void Player::init(ShaderProgram &shaderProgram)
+void Player::init()
 {
-	Character::init(shaderProgram);
+    Character::init();
+
+    ShaderProgram *program = Game::getCurrentScene()->getShaderProgram();
 
     // Heart
     textureHeart.loadFromFile("images/heartSpritesheet.png", TEXTURE_PIXEL_FORMAT_RGBA);
     textureHeart.setMinFilter(GL_NEAREST);
     textureHeart.setWrapS(GL_CLAMP_TO_EDGE);
-    spriteHeart = Sprite::createSprite(glm::ivec2(heartSize), glm::vec2(0.29f, 1.0f), &textureHeart, &shaderProgram);
+    spriteHeart = Sprite::createSprite(glm::ivec2(heartSize), glm::vec2(0.29f, 1.0f), &textureHeart, program);
     spriteHeart->setNumberAnimations(3);
     spriteHeart->addKeyframe(0, glm::vec2(0.7f, 0.f));
     spriteHeart->addKeyframe(1, glm::vec2(0.35f, 0.f));
@@ -35,7 +41,7 @@ void Player::init(ShaderProgram &shaderProgram)
 
     // Player
 	spritesheet.loadFromFile("images/bub.png", TEXTURE_PIXEL_FORMAT_RGBA);
-	sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25, 0.25), &spritesheet, &shaderProgram);
+    sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25, 0.25), &spritesheet, program);
 	sprite->setNumberAnimations(4);
 
 	sprite->setAnimationSpeed(STAND_RIGHT, 8);
@@ -55,15 +61,16 @@ void Player::init(ShaderProgram &shaderProgram)
 	sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.5f));
     //
 
-    inventory.init(shaderProgram);
+    inventory.init();
 
-    setPosition(glm::ivec2(800, 2000));
+    setPosition(glm::ivec2(500, 1000));
+
+    for (int i = 0; i < 99; ++i) inventory.addItem<ItemBomb>();
 }
 
 void Player::update(int deltaTime)
 {
-	Character::update(deltaTime);
-    inventory.update();
+    Character::update(deltaTime);
 
 	if (damaged)
 	{
@@ -85,7 +92,6 @@ void Player::render(ShaderProgram &program)
 {
     Character::render(program);
     renderHearts(program);
-    inventory.render();
 }
 
 Item *Player::getSelectedItem() const
@@ -194,41 +200,6 @@ void Player::handleMouseActions()
             lastMouseBlock = NULL;
         }
     }
-
-    if (Game::instance().getMouseLeftButton())
-    {
-        if (tmap->getBlock(mousePos) == NULL) // Can it put a block where the mouse is?
-        {
-            Block *b = selectedItem ? dynamic_cast<Block*>(selectedItem) : NULL;
-            if (b != NULL) // Is it a block?
-            {
-                // BLOCK ADDING
-                int amount = b->getAmount();
-                if (amount > 0)
-                {
-                    Tile *addedBlock = NULL;
-                    if (b->getType() == Block::GOLD)          { addedBlock = tmap->addTile<BlockGold>(mousePos); }
-                    else if (b->getType() == Block::SAPPHIRE) { addedBlock = tmap->addTile<BlockSapphire>(mousePos); }
-                    else if (b->getType() == Block::RUBY)     { addedBlock = tmap->addTile<BlockRuby>(mousePos); }
-                    else if (b->getType() == Block::EMERALD)  { addedBlock = tmap->addTile<BlockEmerald>(mousePos); }
-
-                    if (addedBlock)
-                    {
-                        inventory.dropItem(selectedItemIndex);
-                    }
-                }
-            }
-        }
-    }
-    else if (Game::instance().getMouseRightButton())
-    {
-        // BLOCK REMOVAL
-        if (mouseBlock && mouseBlock->getType() != 0)
-        {
-            mouseBlock->onHitBegin();
-        }
-    }
-
     if (!Game::instance().getMouseRightButton())
     {
         if (lastMouseBlock)
@@ -236,8 +207,81 @@ void Player::handleMouseActions()
             lastMouseBlock->onHitEnd();
         }
     }
-
     lastMouseBlock = mouseBlock;
+
+    if (!selectedItem || !dynamic_cast<ItemPickaxe*>(selectedItem)) { lastMouseBlock = NULL; }
+    if (selectedItem)
+    {
+        if (dynamic_cast<ItemPickaxe*>(selectedItem))
+        {
+            if (Game::instance().getMouseLeftButton())
+            {
+                // BLOCK REMOVAL
+                if (mouseBlock && mouseBlock->getType() != 0)
+                {
+                    mouseBlock->onHitBegin();
+                }
+            }
+        }
+        else if (dynamic_cast<ItemSword*>(selectedItem))
+        {
+            if (Game::instance().getMouseLeftButton())
+            {
+                for (Character *c : Game::getCurrentSceneGame()->getCharacters())
+                {
+                    if (!c) continue;
+
+                    Enemy *e = dynamic_cast<Enemy*>(c);
+                    if (e)
+                    {
+                        if (e->getBoundingBox().contains(mousePos))
+                        {
+                            e->takeDamage();
+                        }
+                    }
+                }
+            }
+        }
+        else if (dynamic_cast<Block*>(selectedItem))
+        {
+            if (Game::instance().getMouseLeftButton())
+            {
+                if (tmap->getBlock(mousePos) == NULL) // Can it put a block where the mouse is?
+                {
+                    Block *b = dynamic_cast<Block*>(selectedItem);
+                    // BLOCK ADDING
+                    int amount = b->getAmount();
+                    if (amount > 0)
+                    {
+                        Tile *addedBlock = NULL;
+                        if (b->getType() == Block::GOLD)          { addedBlock = tmap->addTile<BlockGold>(mousePos); }
+                        else if (b->getType() == Block::SAPPHIRE) { addedBlock = tmap->addTile<BlockSapphire>(mousePos); }
+                        else if (b->getType() == Block::RUBY)     { addedBlock = tmap->addTile<BlockRuby>(mousePos); }
+                        else if (b->getType() == Block::EMERALD)  { addedBlock = tmap->addTile<BlockEmerald>(mousePos); }
+
+                        if (addedBlock)
+                        {
+                            inventory.dropItem(selectedItemIndex);
+                        }
+                    }
+                }
+            }
+        }
+        else if (dynamic_cast<ItemBomb*>(selectedItem))
+        {
+            if (Game::instance().getMouseLeftButtonDown())
+            {
+                Bomb *b = new Bomb();
+                b->setPosition( getPosition() );
+
+                glm::vec2 dir = glm::normalize( glm::vec2(mousePos - getPosition()) );
+                float bombSpeed = 0.1f * glm::min(50.0f, glm::length(glm::vec2(mousePos - getPosition())));
+                b->setVelocity( dir * bombSpeed );
+
+                inventory.dropItem(selectedItemIndex);
+            }
+        }
+    }
 }
 
 void Player::renderHearts(ShaderProgram &program)
@@ -246,8 +290,7 @@ void Player::renderHearts(ShaderProgram &program)
     for (int i = 0; i < maxHealth/2; ++i)
     {
         glm::ivec2 heartPos = heartLinePosition + (heartSize + heartMarginX) * glm::ivec2(i, 0);
-        glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(heartPos.x, heartPos.y, 1.f));
-        program.setUniformMatrix4f("model", model);
+        prepareModelViewMatrix(heartPos);
         program.setUniformMatrix4f("view", glm::mat4(1.0f));
         if ((i+1)*2 <= health)
         {
@@ -262,12 +305,12 @@ void Player::renderHearts(ShaderProgram &program)
     }
 }
 
-void Player::takeDamage()
+void Player::takeDamage(int damage)
 {
     if (!damaged)
     {
         damaged = true;
-        --health;
+        health -= damage;
     }
 }
 

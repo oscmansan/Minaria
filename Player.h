@@ -11,8 +11,8 @@ public:
 	Player();
 	virtual ~Player();
 
-	virtual void init(ShaderProgram &shaderProgram);
-	virtual void update(int deltaTime);
+    virtual void init() override;
+    virtual void update(int deltaTime) override;
     virtual void render(ShaderProgram &program) override;
 
     Item *getSelectedItem() const;
@@ -20,7 +20,7 @@ public:
 
     Inventory *getInventory();
 
-	void takeDamage();
+    void takeDamage(int damage = 1);
     void onBlockDeleted(Block *b);
 
     Block *lastMouseBlock = NULL;

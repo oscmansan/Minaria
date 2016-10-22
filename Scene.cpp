@@ -28,21 +28,40 @@ ShaderProgram *Scene::getShaderProgram()
     return &(Game::getCurrentScene()->texProgram);
 }
 
+
 void Scene::init()
 {
     initShaders();
 
-    projection = glm::ortho(0.f, float(SCREEN_WIDTH - 1), float(SCREEN_HEIGHT - 1), 0.f);
+    projection = glm::ortho(0.f, float(Game::getScreenWidth() - 1), float(Game::getScreenHeight() - 1), 0.f);
     currentTime = 0.0f;
+
+    for(ISceneNode *sceneNode : sceneNodes)
+    {
+        sceneNode->init();
+    }
 }
 
 void Scene::update(int deltaTime)
 {
     currentTime += deltaTime;
+
+    std::list<ISceneNode*> sceneNodesCopy = sceneNodes; // To let user remove sceneNodes stuff in his update
+    for(ISceneNode *sceneNode : sceneNodesCopy)
+    {
+        sceneNode->update(deltaTime);
+    }
+
+    for(ISceneNode *sceneNode : sceneNodesToDelete)
+    {
+        delete sceneNode;
+    }
+    sceneNodesToDelete.clear();
 }
 
 void Scene::_render()
 {
+    glEnable(GL_TEXTURE_2D);
     texProgram.use();
 
     texProgram.setUniformMatrix4f("projection", projection);
@@ -51,13 +70,21 @@ void Scene::_render()
 
     texProgram.setUniform2f("texCoordDispl", 0.f, 0.f);
     texProgram.setUniform4f("color", 1.0f, 1.0f, 1.0f, 1.0f);
-    texProgram.setUniform2f("windowSize", SCREEN_WIDTH, SCREEN_HEIGHT);
+    texProgram.setUniform2f("windowSize", Game::getScreenWidth(), Game::getScreenHeight());
 
+    renderBackLayer();
     render();
 
-    for (Text *text : texts)
+    for(ISceneNode *sceneNode : sceneNodes)
     {
-        text->render();
+        if (!sceneNode->isScreenNode())
+            sceneNode->render(texProgram);
+    }
+
+    for(ISceneNode *sceneNode : sceneNodes)
+    {
+        if (sceneNode->isScreenNode())
+            sceneNode->render(texProgram);
     }
 }
 
@@ -66,18 +93,19 @@ Text* Scene::createText(const std::string &str, const glm::ivec2 &pos, int size)
     Text *t = new Text();
     t->setText(str, size);
     t->setPosition(pos);
-    texts.push_back(t);
+    addSceneNode(t);
     return t;
 }
 
-void Scene::deleteText(Text *text)
+void Scene::addSceneNode(ISceneNode *sceneNode)
 {
-    for (Text *t : texts)
-    {
-        if (t == text) delete text;
-        break;
-    }
-    texts.remove(text);
+    sceneNodes.push_back(sceneNode);
+}
+
+void Scene::removeSceneNode(ISceneNode *sceneNode)
+{
+    sceneNodes.remove(sceneNode);
+    sceneNodesToDelete.push_back(sceneNode);
 }
 
 void Scene::initShaders()

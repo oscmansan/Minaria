@@ -8,6 +8,8 @@ glm::vec2 Text::letterSizeInTextsheet = glm::vec2(1.0f / 32, 1.0f / 3.1f);
 
 Text::Text()
 {
+    isScreen = true;
+
     if (!Text::textSheet)
     {
         Text::textSheet = new Texture();
@@ -15,7 +17,7 @@ Text::Text()
     }
 }
 
-void Text::render()
+void Text::render(ShaderProgram &program)
 {
     if (letterSprites.size() <= 0 || !visible) return;
     glm::ivec2 letterSize = letterSprites.front()->getSize(); // The first char cant be a space !!!
@@ -26,19 +28,14 @@ void Text::render()
         if (letterSprite) letterSprite->setTint(color);
     }
 
-    ShaderProgram *program = Scene::getShaderProgram();
-
     glm::ivec2 currentPos = position;
     for (Sprite *letterSprite : letterSprites)
     {
         if (letterSprite != NULL) // NULL = Space char
         {
-            program->setUniformMatrix4f("view", glm::mat4(1.0f));
-            glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(currentPos.x, currentPos.y, 0.f));
-            program->setUniformMatrix4f("model", model);
+            prepareModelViewMatrix(currentPos);
             letterSprite->render();
         }
-
         currentPos.x += letterSize.x;
     }
 }
@@ -111,7 +108,7 @@ void Text::setText(const std::string &str, int size)
 
 void Text::centerHorizontally()
 {
-    position.x = (SCREEN_WIDTH - getBoundingRect().width) / 2;
+    position.x = (Game::getScreenWidth() - getBoundingRect().width) / 2;
 }
 
 void Text::setVisible(bool visible)

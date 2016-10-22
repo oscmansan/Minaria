@@ -30,13 +30,16 @@ public:
 
     void init() override;
     void update(int deltaTime) override;
+    void renderBackLayer() override;
     void render() override;
-
     Player *getPlayer() const;
     Camera *getCamera() const;
     TileMap *getTileMap() const;
+    const std::list<Character*>& getCharacters() const;
 
-    Character* whosThere(const glm::ivec2 &pos);
+    std::list<Character*> whosThere(const glm::ivec2 &pos);
+
+    void removeCharacter(Character *character);
 
 private:
     Player *player = NULL;

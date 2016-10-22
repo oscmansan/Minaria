@@ -8,6 +8,7 @@
 #include "Camera.h"
 #include "Player.h"
 #include "Character.h"
+#include "ISceneNode.h"
 #include "PerlinNoise.h"
 #include "ShaderProgram.h"
 
@@ -27,20 +28,25 @@ public:
     virtual void init();
     virtual void update(int deltaTime);
     virtual void _render();
+    virtual void renderBackLayer() {}
     virtual void render() {}
 
     Text* createText(const std::string &str = "",
-                  const glm::ivec2 &pos = glm::ivec2(0),
-                  int size = 16);
-    void deleteText(Text* text);
+                     const glm::ivec2 &pos = glm::ivec2(0),
+                     int size = 16);
+
+    virtual void addSceneNode(ISceneNode *sceneNode);
+    virtual void removeSceneNode(ISceneNode *sceneNode);
 
     static int getCurrentTime();
     static ShaderProgram *getShaderProgram();
 
 protected:
+
 	void initShaders();
 
-    std::list<Text*> texts;
+    std::list<ISceneNode*> sceneNodes;
+    std::list<ISceneNode*> sceneNodesToDelete;
 
     ShaderProgram texProgram;
 	int currentTime;

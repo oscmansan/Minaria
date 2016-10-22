@@ -5,12 +5,20 @@
 class Enemy : public Character
 {
 public:
-    virtual void init(ShaderProgram &shaderProgram) = 0;
-    virtual void update(int deltaTime) = 0;
-    virtual void move(int deltaTime) = 0;
+    bool dead = false;
+    float timeSinceDead = 0.0f;
+
+    virtual void init();
+    virtual void update(int deltaTime);
+    virtual void move(int deltaTime);
+
+    virtual void takeDamage(int damage = 1);
 
 protected:
     Enemy();
     virtual ~Enemy();
+
+    void beginToDie();
+    void die();
 };
 

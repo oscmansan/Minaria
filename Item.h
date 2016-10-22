@@ -18,7 +18,7 @@ private:
     int amount = 0;
 
 public:
-    Texture* getItemTexture() const;
+    virtual Texture* getItemTexture() const;
 
 	int getAmount() const;
 	void increaseAmount();

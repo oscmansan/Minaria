@@ -12,24 +12,27 @@
 #include "Item.h"
 #include "Sprite.h"
 #include "Texture.h"
+#include "ISceneNode.h"
+#include "CraftingBar.h"
 #include "ShaderProgram.h"
 
 using namespace std;
 
-class Inventory
+class Inventory : public ISceneNode
 {
 public:
 	Inventory();
 	~Inventory();
 
 private:
+    CraftingBar craftingBar;
+
     const int numSlots = 7;
     vector<Item*> items = vector<Item*>(numSlots, NULL);
     vector<Sprite*> itemSprites = vector<Sprite*>(numSlots, NULL);
     vector<Text*> itemAmountTexts   = vector<Text*>(numSlots, NULL);
     vector<Text*> itemSlotNumTexts   = vector<Text*>(numSlots, NULL);
 
-    const glm::ivec2 position = glm::ivec2(15, 15);
     const glm::ivec2 size = glm::ivec2(400, 50);
     const glm::ivec2 slotSize = glm::ivec2(40, 40);
     const glm::ivec2 itemSize = glm::ivec2(35, 35);
@@ -47,10 +50,9 @@ private:
 
 public:
 
-    void init(ShaderProgram &sp);
-
-    void update();
-    void render();
+    virtual void init() override;
+    virtual void update(int deltaTime) override;
+    virtual void render(ShaderProgram &program) override;
 
 	template<class T>
     void addItem()

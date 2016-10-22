@@ -42,6 +42,11 @@ TileMap *SceneGame::getTileMap() const
     return map;
 }
 
+const std::list<Character *> &SceneGame::getCharacters() const
+{
+    return characters;
+}
+
 void SceneGame::init()
 {
     Scene::init();
@@ -52,22 +57,23 @@ void SceneGame::init()
 
     // Player init
     player = new Player();
-    player->init(texProgram);
+    player->init();
     player->setTileMap(map);
+
+    // Add to the list of characters
+    characters.push_back(player);
 
     // Enemy init
     int nenemies = 1;
     for (int i = 0; i < nenemies; ++i)
     {
-        Enemy *enemy = new FlyingEnemy();
-        enemy->init(texProgram);
+        Enemy *enemy;
+        if (rand() % 2 == 0) enemy = new FlyingEnemy(); else enemy = new GroundEnemy();
+        enemy->init();
         enemy->setPosition(enemy->getPosition() + glm::ivec2(i * 60, -i * 60));
         enemy->setTileMap(map);
         characters.push_back(enemy);
     }
-
-    // Add to the list of characters
-    characters.push_back(player);
 
     camera = new Camera();
     camera->init(player->getPosition());
@@ -84,10 +90,6 @@ void SceneGame::update(int deltaTime)
     Scene::update(deltaTime);
 
     currentTime += deltaTime;
-    for (Character *character : characters)
-    {
-        character->update(deltaTime);
-    }
 
     camera->update();
     background->update(deltaTime);
@@ -95,32 +97,35 @@ void SceneGame::update(int deltaTime)
     mapBg->update(deltaTime);
 }
 
-void SceneGame::render()
+void SceneGame::renderBackLayer()
 {
+    Scene::renderBackLayer();
     background->render();
-
-    glm::mat4 view = camera->getView();
-    texProgram.setUniformMatrix4f("view", view);
-
     mapBg->render();
-    map->render();
-
-    for (Character *character : characters)
-    {
-        character->render(texProgram);
-    }
 }
 
-Character* SceneGame::whosThere(const glm::ivec2 &pos)
+void SceneGame::render()
 {
+    Scene::render();
+    map->render();
+}
+
+std::list<Character*> SceneGame::whosThere(const glm::ivec2 &pos)
+{
+    std::list<Character*> result;
     for (Character *c : characters)
     {
         if (c->getBoundingBox().contains(pos))
         {
-            return c;
+            result.push_back(c);
         }
     }
-    return NULL;
+    return result;
+}
+
+void SceneGame::removeCharacter(Character *character)
+{
+    characters.remove(character);
 }
 
 void SceneGame::generateProceduralTilemap()
@@ -150,15 +155,17 @@ void SceneGame::generateProceduralTilemap()
     float sinSpeed1 = float(rand()%10)/10.0f + 1.0f;
     float sinSpeed2 = float(rand()%10)/10.0f + 1.0f;
     float sinSpeed3 = float(rand()%10)/10.0f + 1.0f;
+    float mountainsAmplitude1 = 2.0f * (rand() % 100) / 100.0f;
+    float mountainsAmplitude2 = 2.0f * (rand() % 100) / 100.0f;
+    float mountainsAmplitude3 = 2.0f * (rand() % 100) / 100.0f;
     for (int i = 0; i < width; ++i)
     {
         float mountainsFreq = 8;
-        float mountainsAmplitude = 2.0f;
         float yAngle = (float(i) / width) * 2 * 3.1415926f * mountainsFreq;
         glm::ivec2 pos = glm::ivec2(i * tileSize, groundStartingY);
-        pos.y += (glm::sin(yAngle * sinSpeed1) * mountainsAmplitude) * tileSize;
-        pos.y += (glm::cos(yAngle * sinSpeed2) * mountainsAmplitude) * tileSize;
-        pos.y += (glm::sin(yAngle * sinSpeed3) * mountainsAmplitude) * tileSize;
+        pos.y += (glm::sin(yAngle * sinSpeed1) * mountainsAmplitude1) * tileSize;
+        pos.y += (glm::cos(yAngle * sinSpeed2) * mountainsAmplitude2) * tileSize;
+        pos.y += (glm::sin(yAngle * sinSpeed3) * mountainsAmplitude3) * tileSize;
         pos.y -= 60;
 
         for (int dy = 0; dy < mapSize.y; dy += tileSize)

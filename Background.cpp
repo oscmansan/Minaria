@@ -19,8 +19,8 @@ Background::Background(ShaderProgram &program)
         texture[i].setMagFilter(GL_NEAREST);
     }
 
-    float height = SCREEN_HEIGHT;
-    float width = SCREEN_WIDTH;
+    float height = Game::getScreenHeight();
+    float width = Game::getScreenWidth();
 
     float vertices[24] = {0.f, 0.f, 0.f, 0.f,
                           width, 0.f, 1.f, 0.f,
@@ -38,30 +38,31 @@ Background::Background(ShaderProgram &program)
     texCoordLocation = program.bindVertexAttribute("texCoord", 2, 4*sizeof(float), (void *)(2*sizeof(float)));
 }
 
-void Background::update(int deltaTime) {
+void Background::update(int deltaTime)
+{
     Player *player = Game::getCurrentSceneGame()->getPlayer();
     glm::vec2 v = player->getVelocity();
 
     // Parallax
-    offset[0] += v.x/SCREEN_WIDTH/25;
-    offset[1] += v.x/SCREEN_WIDTH/20;
-    offset[2] += v.x/SCREEN_WIDTH/15;
-    offset[3] += v.x/SCREEN_WIDTH/10;
-    offset[4] += v.x/SCREEN_WIDTH/5;
+    offset[0] += v.x/Game::getScreenWidth()/25;
+    offset[1] += v.x/Game::getScreenWidth()/20;
+    offset[2] += v.x/Game::getScreenWidth()/15;
+    offset[3] += v.x/Game::getScreenWidth()/10;
+    offset[4] += v.x/Game::getScreenWidth()/5;
 }
 
-void Background::render() {
-    glEnable(GL_TEXTURE_2D);
+void Background::render()
+{
     glBindVertexArray(vao);
     glEnableVertexAttribArray(posLocation);
     glEnableVertexAttribArray(texCoordLocation);
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 5; ++i)
+    {
         program->setUniform4f("tint", 1, 1, 1, 0);
         program->setUniform2f("texCoordDispl", offset[i], 0.4f);
         texture[i].use();
         glDrawArrays(GL_TRIANGLES, 0, 6);
     }
-    glDisable(GL_TEXTURE_2D);
 }
 
 void Background::free()
