@@ -146,7 +146,7 @@ void SceneGame::generateProceduralTilemap()
         glm::ivec2 pos = glm::ivec2(x * tileSize, groundStartingY);
         for (int dy = 0; dy <= groundStartingY; dy += tileSize)
         {
-            map->addTile<BlockGold>(pos + glm::ivec2(0, dy));
+            map->addTile<BlockDirt>(pos + glm::ivec2(0, dy));
         }
     }
 
@@ -170,7 +170,7 @@ void SceneGame::generateProceduralTilemap()
 
         for (int dy = 0; dy < mapSize.y; dy += tileSize)
         {
-            map->addTile<BlockGold>(pos + glm::ivec2(0,dy));
+            map->addTile<BlockDirt>(pos + glm::ivec2(0,dy));
         }
     }
 
@@ -180,8 +180,7 @@ void SceneGame::generateProceduralTilemap()
         {
             if (map->getTileAt(glm::ivec2(i,j) * tileSize) != 0)
             {
-
-                /*Tile *t = */mapBg->addTile<BlockGold>(glm::ivec2(i,j) * tileSize);
+                mapBg->addTile<BlockDirt>(glm::ivec2(i,j) * tileSize);
             }
         }
     }
@@ -201,16 +200,16 @@ void SceneGame::generateProceduralTilemap()
             float p = 0;
             Tile *t = map->getTileAt(pos);
             Block *b = t ? dynamic_cast<Block*>(t) : NULL;
-            if (b && b->getType() == Block::Type::GOLD)
+            if (b && b->getType() == Block::Type::DIRT)
             {
                 float perlinx = float(pos.x) / map->getTotalSizeWorld().x * 10.0f;
                 float perliny = float(pos.y) / map->getTotalSizeWorld().y * 10.0f;
                 p = perlinSapphire.octaveNoise(perlinx, perliny, octaves);
-                if (p > minRange && p < maxRange) { map->addTile<BlockSapphire>(pos); }
+                if (p > minRange && p < maxRange) { map->addTile<BlockRock>(pos); }
                 p = perlinRuby.octaveNoise(perlinx, perliny, octaves);
-                if (p > minRange && p < maxRange) { map->addTile<BlockRuby>(pos); }
+                if (p > minRange && p < maxRange) { map->addTile<BlockBedRock>(pos); }
                 p = perlinEmerald.octaveNoise(perlinx, perliny, octaves);
-                if (p > minRange && p < maxRange) { map->addTile<BlockEmerald>(pos); }
+                if (p > minRange && p < maxRange) { map->addTile<BlockWood>(pos); }
 
                 float ph = perlinHoles.octaveNoise(perlinx, perliny, octaves);
                 if (ph > 0.35f || ph < -0.35f) { map->delTile(pos); }
@@ -225,8 +224,8 @@ void SceneGame::generateProceduralTilemap()
         glm::ivec2 pos2 = glm::ivec2(width * tileSize, 0) - pos1;
         for (int y = 0; y < height; ++y)
         {
-            map->addTile<BlockGold>(pos1 + glm::ivec2(0, y * tileSize)); // Left
-            map->addTile<BlockGold>(pos2 + glm::ivec2(0, y * tileSize)); // Right
+            map->addTile<BlockDirt>(pos1 + glm::ivec2(0, y * tileSize)); // Left
+            map->addTile<BlockDirt>(pos2 + glm::ivec2(0, y * tileSize)); // Right
         }
     }
 }

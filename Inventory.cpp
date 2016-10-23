@@ -79,9 +79,10 @@ void Inventory::renderSlots()
             glm::ivec2 itemPos = slotPos + (slotSize - itemSize) / 2;
 
             Texture *itTexture = it->getItemTexture();
+
             if (!itemSprites[i])
             {
-                itemSprites[i] = Sprite::createSprite(itemSize, glm::vec2(1.0f), itTexture, program);
+                itemSprites[i] = Sprite::createSprite(itemSize, it->getSpriteFrame(), itTexture, program);
             }
 
             itemSprites[i]->setTexture(itTexture);

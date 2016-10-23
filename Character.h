@@ -18,10 +18,6 @@ public:
     virtual ~Character();
 
 protected:
-	enum CharacterAnims
-	{
-		STAND_RIGHT, STAND_LEFT, MOVE_LEFT, MOVE_RIGHT
-	};
 
     virtual void move(int deltaTime);
 	virtual void processCollisions();

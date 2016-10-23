@@ -63,6 +63,21 @@ void Bomb::update(int deltaTime)
         collided = true;
     }
 
+    for (Character *c : Game::getCurrentSceneGame()->getCharacters())
+    {
+        Enemy *e = dynamic_cast<Enemy*>(c);
+        if (e)
+        {
+            Rect eRect = e->getBoundingBox();
+            Rect bRect(getPosition().x, getPosition().y,
+                       getSize().x, getSize().y);
+            if (eRect.intersects(bRect))
+            {
+                collided = true;
+            }
+        }
+    }
+
     if (collided)
     {
         explode();
@@ -107,7 +122,7 @@ void Bomb::explode()
                 Block *b = t ? dynamic_cast<Block*>(t) : NULL;
                 if (b)
                 {
-                    for (int i = 0; i < -deltaDistance; ++i)
+                    for (int i = 0; i < -deltaDistance * 4; ++i)
                     {
                         b->hit();
                     }
@@ -116,6 +131,7 @@ void Bomb::explode()
         }
     }
 
+    // Collision with enemies
     const std::list<Character*> characters = Game::getCurrentSceneGame()->getCharacters(); // Copy to avoid problems with remove
     for (Character *character : characters)
     {
@@ -128,7 +144,7 @@ void Bomb::explode()
         if (distToExplosionCenter < explosionRadius)
         {
             Enemy *e = dynamic_cast<Enemy*>(character);
-            if (e)
+            if (e && !e->dead)
             {
                 e->takeDamage(damage);
             }

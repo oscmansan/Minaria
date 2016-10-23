@@ -32,9 +32,9 @@ Tile::~Tile()
 void Tile::render()
 {
     prepareModelViewMatrix();
-    sprite->setTexture(getTexture());
 
     glm::vec4 tint = sprite->getTint();
+    sprite->changeAnimation( getAnimationFrame() );
     sprite->setTint( glm::vec4(lighting * glm::vec3(tint.x, tint.y, tint.z), tint.w) );
     sprite->render();
 }

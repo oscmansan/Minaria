@@ -785,6 +785,29 @@ CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o.provides: CMakeFiles/TerrariaLi
 
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o.provides.build: CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o
 
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: CMakeFiles/TerrariaLinux.dir/flags.make
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: TemporaryEffect.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles $(CMAKE_PROGRESS_33)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o -c /home/sephirot47/Terraria-linux/TemporaryEffect.cpp
+
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sephirot47/Terraria-linux/TemporaryEffect.cpp > CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.i
+
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sephirot47/Terraria-linux/TemporaryEffect.cpp -o CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.s
+
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o.requires:
+.PHONY : CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o.requires
+
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o.provides: CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o.provides.build
+.PHONY : CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o.provides
+
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o.provides.build: CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o
+
 # Object files for target TerrariaLinux
 TerrariaLinux_OBJECTS = \
 "CMakeFiles/TerrariaLinux.dir/Player.cpp.o" \
@@ -818,7 +841,8 @@ TerrariaLinux_OBJECTS = \
 "CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp.o" \
 "CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o" \
 "CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o" \
-"CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o"
+"CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o" \
+"CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o"
 
 # External object files for target TerrariaLinux
 TerrariaLinux_EXTERNAL_OBJECTS =
@@ -855,6 +879,7 @@ TerrariaLinux: CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o
+TerrariaLinux: CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/build.make
 TerrariaLinux: /usr/lib/i386-linux-gnu/libGLU.so
 TerrariaLinux: /usr/lib/i386-linux-gnu/libGL.so
@@ -907,6 +932,7 @@ CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o.requires
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o.requires
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o.requires
+CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o.requires
 .PHONY : CMakeFiles/TerrariaLinux.dir/requires
 
 CMakeFiles/TerrariaLinux.dir/clean:

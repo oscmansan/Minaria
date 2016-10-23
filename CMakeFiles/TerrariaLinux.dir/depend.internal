@@ -83,6 +83,7 @@ CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o
  /home/sephirot47/Terraria-linux/Shader.h
  /home/sephirot47/Terraria-linux/ShaderProgram.h
  /home/sephirot47/Terraria-linux/Sprite.h
+ /home/sephirot47/Terraria-linux/TemporaryEffect.h
  /home/sephirot47/Terraria-linux/Text.h
  /home/sephirot47/Terraria-linux/Texture.h
  /home/sephirot47/Terraria-linux/Tile.h
@@ -112,6 +113,7 @@ CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o
  /home/sephirot47/Terraria-linux/Shader.h
  /home/sephirot47/Terraria-linux/ShaderProgram.h
  /home/sephirot47/Terraria-linux/Sprite.h
+ /home/sephirot47/Terraria-linux/TemporaryEffect.h
  /home/sephirot47/Terraria-linux/Text.h
  /home/sephirot47/Terraria-linux/Texture.h
  /home/sephirot47/Terraria-linux/Tile.h
@@ -229,6 +231,7 @@ CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o
  /home/sephirot47/Terraria-linux/AnimKeyframes.h
  /home/sephirot47/Terraria-linux/Block.h
+ /home/sephirot47/Terraria-linux/Bomb.h
  /home/sephirot47/Terraria-linux/Camera.h
  /home/sephirot47/Terraria-linux/Character.h
  /home/sephirot47/Terraria-linux/CraftingBar.h
@@ -547,6 +550,34 @@ CMakeFiles/TerrariaLinux.dir/Sprite.cpp.o
  /home/sephirot47/Terraria-linux/Sprite.cpp
  /home/sephirot47/Terraria-linux/Sprite.h
  /home/sephirot47/Terraria-linux/Texture.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o
+ /home/sephirot47/Terraria-linux/AnimKeyframes.h
+ /home/sephirot47/Terraria-linux/Block.h
+ /home/sephirot47/Terraria-linux/Camera.h
+ /home/sephirot47/Terraria-linux/Character.h
+ /home/sephirot47/Terraria-linux/CraftingBar.h
+ /home/sephirot47/Terraria-linux/Enemy.h
+ /home/sephirot47/Terraria-linux/FlyingEnemy.h
+ /home/sephirot47/Terraria-linux/Game.h
+ /home/sephirot47/Terraria-linux/GroundEnemy.h
+ /home/sephirot47/Terraria-linux/ISceneNode.h
+ /home/sephirot47/Terraria-linux/Inventory.h
+ /home/sephirot47/Terraria-linux/Item.h
+ /home/sephirot47/Terraria-linux/PerlinNoise.h
+ /home/sephirot47/Terraria-linux/Player.h
+ /home/sephirot47/Terraria-linux/Rect.h
+ /home/sephirot47/Terraria-linux/Scene.h
+ /home/sephirot47/Terraria-linux/SceneCredits.h
+ /home/sephirot47/Terraria-linux/SceneGame.h
+ /home/sephirot47/Terraria-linux/SceneMenu.h
+ /home/sephirot47/Terraria-linux/Shader.h
+ /home/sephirot47/Terraria-linux/ShaderProgram.h
+ /home/sephirot47/Terraria-linux/Sprite.h
+ /home/sephirot47/Terraria-linux/TemporaryEffect.cpp
+ /home/sephirot47/Terraria-linux/TemporaryEffect.h
+ /home/sephirot47/Terraria-linux/Text.h
+ /home/sephirot47/Terraria-linux/Texture.h
+ /home/sephirot47/Terraria-linux/Tile.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o
  /home/sephirot47/Terraria-linux/AnimKeyframes.h
  /home/sephirot47/Terraria-linux/Block.h

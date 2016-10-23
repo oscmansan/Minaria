@@ -13,11 +13,13 @@ BombExplosion::BombExplosion()
         BombExplosion::explosionTexture->loadFromFile("images/explosion.png", TEXTURE_PIXEL_FORMAT_RGBA);
     }
 
-    Game::getCurrentSceneGame()->addSceneNode(this);
+    lifeTime = 280;
 }
 
 void BombExplosion::init()
 {
+    TemporaryEffect::init();
+
     int size = explosionSize;
     float frameSizeX = 0.04f;
     sprite = Sprite::createSprite(glm::ivec2(size), glm::vec2(frameSizeX, 1.0f), BombExplosion::explosionTexture, Game::getCurrentScene()->getShaderProgram());
@@ -34,17 +36,10 @@ void BombExplosion::init()
 
 void BombExplosion::update(int deltaTime)
 {
-    time += deltaTime;
-    sprite->update(deltaTime);
-
-    if (time > 280)
-    {
-        Game::getCurrentSceneGame()->removeSceneNode(this);
-    }
+    TemporaryEffect::update(deltaTime);
 }
 
 void BombExplosion::render(ShaderProgram &program)
 {
-    prepareModelViewMatrix();
-    sprite->render();
+    TemporaryEffect::render(program);
 }

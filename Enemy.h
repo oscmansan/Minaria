@@ -5,6 +5,13 @@
 class Enemy : public Character
 {
 public:
+    enum EnemyAnims
+    {
+        STAND_RIGHT = 0, STAND_LEFT,
+        MOVE_LEFT, MOVE_RIGHT,
+        DEAD
+    };
+
     bool dead = false;
     float timeSinceDead = 0.0f;
 

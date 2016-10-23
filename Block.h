@@ -11,23 +11,32 @@ public:
 
     enum Type
     {
-        GOLD     = 1,
-        SAPPHIRE = 2,
-        RUBY     = 3,
-        EMERALD  = 4
+        DIRT    = 1,
+        ROCK    = 2,
+        BEDROCK = 3,
+        WOOD    = 4
     };
 
     enum State {
         FULL = 0,
-        MID = 1,
-        GONE = 2
+        DEST_1 = 1,
+        DEST_2,
+        DEST_3,
+        DEST_4,
+        DEST_5,
+        DEST_6,
+        DEST_7,
+        GONE
     };
 
     virtual ~Block();
+
     Type getType() const;
     void restore();
     bool isBorderBlock(int d) const;
     bool hasForegroundBlockAtDistance(int d) const;
+
+    void initBlock();
 
     void hit();
     void onHitBegin();
@@ -41,59 +50,48 @@ protected:
     bool beingHit = false;
     int hitSpeed = 300;
 
-    Type type = Type::GOLD;
+    Type type = Type::DIRT;
     State state = State::FULL;
-
-    Texture *texture_full;
-    Texture *texture_mid;
-    Texture *texture_gone;
 
     void advanceState();
 
     virtual void update(int deltaTime) override;
-    Texture *getTexture() const override;
+    int getAnimationFrame() const;
+    glm::vec2 getSpriteFrame() const override;
 };
 
-class BlockGold : public Block
+class BlockDirt : public Block
 {
 public:
-    BlockGold(const glm::ivec2 &worldPos = glm::ivec2(0));
+    BlockDirt(const glm::ivec2 &worldPos = glm::ivec2(0));
 
 private:
-    static Texture *s_texture_full;
-    static Texture *s_texture_mid;
-    static Texture *s_texture_gone;
+    static Texture *s_texture;
 };
 
-class BlockSapphire : public Block
+class BlockRock : public Block
 {
 public:
-    BlockSapphire(const glm::ivec2 &worldPos = glm::ivec2(0));
+    BlockRock(const glm::ivec2 &worldPos = glm::ivec2(0));
 
 private:
-    static Texture *s_texture_full;
-    static Texture *s_texture_mid;
-    static Texture *s_texture_gone;
+    static Texture *s_texture;
 };
 
-class BlockRuby : public Block
+class BlockBedRock : public Block
 {
 public:
-    BlockRuby(const glm::ivec2 &worldPos = glm::ivec2(0));
+    BlockBedRock(const glm::ivec2 &worldPos = glm::ivec2(0));
 
 private:
-    static Texture *s_texture_full;
-    static Texture *s_texture_mid;
-    static Texture *s_texture_gone;
+    static Texture *s_texture;
 };
 
-class BlockEmerald : public Block
+class BlockWood : public Block
 {
 public:
-    BlockEmerald(const glm::ivec2 &worldPos = glm::ivec2(0));
+    BlockWood(const glm::ivec2 &worldPos = glm::ivec2(0));
 
 private:
-    static Texture *s_texture_full;
-    static Texture *s_texture_mid;
-    static Texture *s_texture_gone;
+    static Texture *s_texture;
 };

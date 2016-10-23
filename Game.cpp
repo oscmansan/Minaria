@@ -24,6 +24,7 @@ void Game::init()
     currentScene->init();
 
     SoundManager* sm = new SoundManager();
+    gotoSceneGame();
 }
 
 bool Game::update(int deltaTime)
@@ -64,18 +65,24 @@ void Game::render()
 
 void Game::gotoSceneMenu()
 {
+    if (currentScene) delete currentScene;
+    sceneMenu = new SceneMenu();
     currentScene = sceneMenu;
     currentScene->init();
 }
 
 void Game::gotoSceneGame()
 {
+    if (currentScene) delete currentScene;
+    sceneGame = new SceneGame();
     currentScene = sceneGame;
     currentScene->init();
 }
 
 void Game::gotoSceneCredits()
 {
+    if (currentScene) delete currentScene;
+    sceneCredits = new SceneCredits();
     currentScene = sceneCredits;
     currentScene->init();
 }

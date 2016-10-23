@@ -67,8 +67,8 @@ private:
     SceneCredits *sceneCredits = NULL;
     Scene *currentScene = NULL;
 
-	glm::ivec2 mousePos;
-    std::list<Scene*> scenes;
+    glm::ivec2 mousePos;
+
     bool mouseLeftButtonLast, mouseLeftButton;
     bool mouseRightButtonLast, mouseRightButton;
 
