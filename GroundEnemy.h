@@ -6,7 +6,7 @@
 class GroundEnemy : public Enemy
 {
 public:
-    GroundEnemy();
+    GroundEnemy(int posx);
     ~GroundEnemy();
 
     enum State {
@@ -21,6 +21,8 @@ public:
 
 private:
     State state;
+
+    int origx;
 };
 
 #endif // GROUNDENEMY_H

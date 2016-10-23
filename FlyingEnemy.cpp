@@ -9,10 +9,13 @@
 #include "TileMap.h"
 #include "SceneGame.h"
 #include "Game.h"
+#include "Bomb.h"
 
-FlyingEnemy::FlyingEnemy() {};
+FlyingEnemy::FlyingEnemy(int posx) {
+    origx = posx;
+}
 
-FlyingEnemy::~FlyingEnemy() {};
+FlyingEnemy::~FlyingEnemy() {}
 
 void FlyingEnemy::init()
 {
@@ -43,53 +46,125 @@ void FlyingEnemy::init()
     sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.48f, 0.5f));
     sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.72f, 0.5f));
 
-    setPosition(glm::ivec2(700, 2000));
+    int surfaceLevel = Game::getCurrentSceneGame()->getTileMap()->getSurfaceLevel(origx);
+    int origy = surfaceLevel - 200;
+    setPosition(glm::ivec2(origx, origy));
 
-    movTime = 1000;
+    velocity = 3.f * glm::vec2(rand() % 2 - 1, rand() % 2 - 1);
+    state = PATROL;
 }
 
 void FlyingEnemy::update(int deltaTime)
 {
-    Enemy::update(deltaTime);
-    movTime -= deltaTime;
-    movTime = max(0,movTime);
+    Character::update(deltaTime);
+
+    Player *player = Game::getCurrentSceneGame()->getPlayer();
+    int tileSize = Game::getCurrentSceneGame()->getTileMap()->getTileSize();
+    int detectThreshold = 10*tileSize;
+    switch(state) {
+    case PATROL:
+        if (abs(player->getPosition().x - getPosition().x) < detectThreshold) {
+            //state = CHASE;
+            if (bombTimer == 0) {
+                Bomb *b = new Bomb();
+                b->setPosition(getPosition());
+                glm::vec2 dir = glm::normalize(glm::vec2(player->getPosition() - getPosition()));
+                float bombSpeed = 0.1f * glm::min(50.0f, glm::length(glm::vec2(player->getPosition() - getPosition())));
+                b->setVelocity(dir * bombSpeed);
+                bombTimer = 5000;
+            }
+        }
+        break;
+    case CHASE:
+        if (abs(player->getPosition().x - getPosition().x) < tileSize) {
+            attackPosEnd = player->getPosition();
+            attackPosStart = getPosition();
+            state = ATTACK_DOWN;
+        }
+        else if (abs(player->getPosition().x - getPosition().x) > detectThreshold)
+            state = PATROL;
+        break;
+    case ATTACK_DOWN:
+        if (glm::distance(glm::vec2(getPosition()),glm::vec2(attackPosEnd)) < 20) {
+            if (player->getBoundingBox().intersects(getBoundingBox()))
+                player->takeDamage();
+            state = ATTACK_UP;
+        }
+        break;
+    case ATTACK_UP:
+        if (glm::distance(glm::vec2(getPosition()),glm::vec2(attackPosStart)) == 0)
+            state = PATROL;
+        break;
+    }
+
+    switch(state) {
+    case PATROL:
+        sprite->setTint(glm::vec4(0,0,1,1));
+        break;
+    case CHASE:
+        sprite->setTint(glm::vec4(0,1,1,1));
+        break;
+    case ATTACK_DOWN:
+        sprite->setTint(glm::vec4(1,0,1,1));
+        break;
+    case ATTACK_UP:
+        sprite->setTint(glm::vec4(1,0,1,1));
+        break;
+    }
+
+    bombTimer -= deltaTime;
+    bombTimer = max(0,bombTimer);
 }
 
 void FlyingEnemy::move(int deltaTime)
 {
-    if (!dead)
-    {
-        if (movTime > 0) return;
-
-        movTime = 1000;
-
-        float v = 1;
-        int mov = rand() % 4;
-        switch (mov) {
-        case 0:
-            if (sprite->animation() != MOVE_RIGHT)
-                sprite->changeAnimation(MOVE_RIGHT);
-            velocity.x = v;
-            break;
-        case 1:
-            if (sprite->animation() != MOVE_LEFT)
-                sprite->changeAnimation(MOVE_LEFT);
-            velocity.x = -v;
-            break;
-        case 2:
-            if (sprite->animation() != MOVE_RIGHT)
-                sprite->changeAnimation(MOVE_RIGHT);
-            velocity.y = v;
-            break;
-        case 3:
-            if (sprite->animation() != MOVE_LEFT)
-                sprite->changeAnimation(MOVE_LEFT);
-            velocity.y = -v;
-            break;
-        }
+    Player *player = Game::getCurrentSceneGame()->getPlayer();
+    //TileMap *tilemap = Game::getCurrentSceneGame()->getTileMap();
+    
+    if (!dead) {
+      float v;
+      glm::vec2 dir;
+      switch(state) {
+      case PATROL:
+          v = 1;
+          if (int(Scene::getCurrentTime()) % 5000 < 2500) {
+              if (sprite->animation() != MOVE_RIGHT)
+              sprite->changeAnimation(MOVE_RIGHT);
+              velocity.x = v;
+          }
+          else {
+              if (sprite->animation() != MOVE_LEFT)
+              sprite->changeAnimation(MOVE_LEFT);
+              velocity.x = -v;
+          }
+          velocity.y = 2*sin(Scene::getCurrentTime()/200);
+          break;
+      case CHASE:
+          v = 3;
+          if (player->getPosition().x > getPosition().x) {
+              if (sprite->animation() != MOVE_RIGHT)
+              sprite->changeAnimation(MOVE_RIGHT);
+              velocity.x = v;
+          }
+          else if (player->getPosition().x < getPosition().x){
+              if (sprite->animation() != MOVE_LEFT)
+              sprite->changeAnimation(MOVE_LEFT);
+              velocity.x = -v;
+          }
+          break;
+      case ATTACK_DOWN:
+          v = 5;
+          dir = glm::normalize(glm::vec2(attackPosEnd - attackPosStart));
+          velocity = v*dir;
+          break;
+      case ATTACK_UP:
+          v = 3;
+          dir = glm::normalize(glm::vec2(attackPosStart - attackPosEnd));
+          velocity = v*dir;
+          break;
+      }
     }
-    else
-    {
-        Enemy::applyGravity();
+    else {
+      Enemy::applyGravity();
     }
 }

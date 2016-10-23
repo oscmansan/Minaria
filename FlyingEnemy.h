@@ -6,13 +6,14 @@
 class FlyingEnemy : public Enemy
 {
 public:
-    FlyingEnemy();
+    FlyingEnemy(int posx);
     ~FlyingEnemy();
 
     enum State {
         PATROL = 0,
         CHASE  = 1,
-        ATTACK = 2
+        ATTACK_DOWN = 2,
+        ATTACK_UP = 3
     };
 
     void init() override;
@@ -21,7 +22,10 @@ public:
 
 private:
     State state;
-    int movTime;
+    glm::ivec2 attackPosStart;
+    glm::ivec2 attackPosEnd;
+    int origx;
+    int bombTimer;
 };
 
 #endif // FLYINGENEMY_H

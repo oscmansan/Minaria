@@ -64,14 +64,13 @@ void SceneGame::init()
     characters.push_back(player);
 
     // Enemy init
-    int nenemies = 50;
+    int nenemies = 1;
     for (int i = 0; i < nenemies; ++i)
     {
         Enemy *enemy;
-        enemy = new FlyingEnemy();
         //if (rand() % 2 == 0) enemy = new FlyingEnemy(); else enemy = new GroundEnemy();
+        enemy = new FlyingEnemy(800 + i * 60);
         enemy->init();
-        enemy->setPosition(enemy->getPosition() + glm::ivec2(i * 60, 0));
         enemy->setTileMap(map);
         characters.push_back(enemy);
     }
@@ -181,8 +180,7 @@ void SceneGame::generateProceduralTilemap()
         {
             if (map->getTileAt(glm::ivec2(i,j) * tileSize) != 0)
             {
-
-                Tile *t = mapBg->addTile<BlockDirt>(glm::ivec2(i,j) * tileSize);
+                mapBg->addTile<BlockDirt>(glm::ivec2(i,j) * tileSize);
             }
         }
     }

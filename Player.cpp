@@ -108,7 +108,10 @@ void Player::init()
 
     inventory.init();
 
-    setPosition(glm::ivec2(700, 2000));
+    int x = 700;
+    int surfaceLevel = Game::getCurrentSceneGame()->getTileMap()->getSurfaceLevel(x);
+    int y = surfaceLevel - 3 * sprite->getSize().y;
+    setPosition(glm::ivec2(x, y));
 
     for (int i = 0; i < 99; ++i) inventory.addItem<ItemBomb>();
 }

@@ -230,6 +230,7 @@ CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Tile.h
 
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: AnimKeyframes.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Block.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Bomb.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: CraftingBar.h
