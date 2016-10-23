@@ -63,6 +63,7 @@ public:
     void delTile(const glm::ivec2 &posWorld);
     Tile* getTileAt(const glm::ivec2 &posWorld) const;
     Block* getBlock(const glm::ivec2 &posWorld) const;
+    int getSurfaceLevel(int x);
 
 private:
     glm::ivec2 worldPosToTilePos(const glm::ivec2 &posWorld) const;

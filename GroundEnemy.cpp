@@ -10,7 +10,9 @@
 #include "SceneGame.h"
 #include "Game.h"
 
-GroundEnemy::GroundEnemy() {}
+GroundEnemy::GroundEnemy(int posx) {
+    origx = posx;
+}
 
 GroundEnemy::~GroundEnemy() {}
 
@@ -40,7 +42,10 @@ void GroundEnemy::init()
     sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.25f));
     sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.5f));
 
-    setPosition(glm::ivec2(1000, 0));
+    int surfaceLevel = Game::getCurrentSceneGame()->getTileMap()->getSurfaceLevel(origx);
+    int origy = surfaceLevel - sprite->getSize().y;
+    setPosition(glm::ivec2(origx, origy));
+
     sprite->setTint(glm::vec4(1, 0, 0, 1));
 
     state = PATROL;

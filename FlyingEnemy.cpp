@@ -10,9 +10,11 @@
 #include "SceneGame.h"
 #include "Game.h"
 
-FlyingEnemy::FlyingEnemy() {};
+FlyingEnemy::FlyingEnemy(int posx) {
+    origx = posx;
+}
 
-FlyingEnemy::~FlyingEnemy() {};
+FlyingEnemy::~FlyingEnemy() {}
 
 void FlyingEnemy::init()
 {
@@ -40,7 +42,10 @@ void FlyingEnemy::init()
     sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.25f));
     sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.5f));
 
-    setPosition(glm::ivec2(700, 1300));
+    int surfaceLevel = Game::getCurrentSceneGame()->getTileMap()->getSurfaceLevel(origx);
+    int origy = surfaceLevel - 200;
+    setPosition(glm::ivec2(origx,origy));
+
     sprite->setTint(glm::vec4(1, 0, 0, 1));
 
     velocity = 3.f*glm::vec2(rand()%2-1,rand()%2-1);
@@ -62,49 +67,37 @@ void FlyingEnemy::update(int deltaTime)
         case CHASE:
             if (abs(player->getPosition().x - getPosition().x) < tileSize) {
                 state = ATTACK_DOWN;
-                attackPosStart = getPosition();
                 attackPosEnd = player->getPosition();
+                attackPosStart = getPosition();
             }
             else if (abs(player->getPosition().x - getPosition().x) > detectThreshold)
                 state = PATROL;
             break;
         case ATTACK_DOWN:
-            if (glm::distance(glm::vec2(getPosition()),glm::vec2(attackPosEnd)) < 30) {
+            if (glm::distance(glm::vec2(getPosition()),glm::vec2(attackPosEnd)) < 20) {
                 if (player->getBoundingBox().intersects(getBoundingBox()))
                     player->takeDamage();
                 state = ATTACK_UP;
             }
             break;
         case ATTACK_UP:
-            if (glm::distance(glm::vec2(getPosition()),glm::vec2(attackPosStart)) < 30)
+            if (glm::distance(glm::vec2(getPosition()),glm::vec2(attackPosStart)) == 0)
                 state = PATROL;
+            break;
     }
-}
 
-void FlyingEnemy::randomFly() {
-    float v = 3;
-
-    int mov = rand() % 4;
-    switch (mov) {
-    case 0:
-        if (sprite->animation() != MOVE_RIGHT)
-            sprite->changeAnimation(MOVE_RIGHT);
-        velocity.x = v;
+    switch(state) {
+    case PATROL:
+        sprite->setTint(glm::vec4(0,0,1,1));
         break;
-    case 1:
-        if (sprite->animation() != MOVE_LEFT)
-            sprite->changeAnimation(MOVE_LEFT);
-        velocity.x = -v;
+    case CHASE:
+        sprite->setTint(glm::vec4(0,1,1,1));
         break;
-    case 2:
-        if (sprite->animation() != MOVE_RIGHT)
-            sprite->changeAnimation(MOVE_RIGHT);
-        velocity.y = v;
+    case ATTACK_DOWN:
+        sprite->setTint(glm::vec4(1,0,1,1));
         break;
-    case 3:
-        if (sprite->animation() != MOVE_LEFT)
-            sprite->changeAnimation(MOVE_LEFT);
-        velocity.y = -v;
+    case ATTACK_UP:
+        sprite->setTint(glm::vec4(1,0,1,1));
         break;
     }
 }
@@ -112,58 +105,49 @@ void FlyingEnemy::randomFly() {
 void FlyingEnemy::move(int deltaTime)
 {
     Player *player = Game::getCurrentSceneGame()->getPlayer();
-    TileMap *tilemap = Game::getCurrentSceneGame()->getTileMap();
+    //TileMap *tilemap = Game::getCurrentSceneGame()->getTileMap();
     
     if (!dead) {
-      // Detect collisions
-      /*if (tilemap->collisionMoveRight(getPosition()+glm::ivec2(5,0),getSize()))
-	  velocity.x = -velocity.x;
-      if (tilemap->collisionMoveLeft(getPosition()+glm::ivec2(-5,0),getSize()))
-	  velocity.x = -velocity.x;
-      if (tilemap->collisionMoveUp(getPosition()+glm::ivec2(0,5),getSize(),NULL))
-	  velocity.y= -velocity.y;
-      if (tilemap->collisionMoveDown(getPosition()+glm::ivec2(0,-5),getSize(),NULL))
-	  velocity.y = -velocity.y;*/
-
       float v;
       glm::vec2 dir;
       switch(state) {
       case PATROL:
-	  v = 1;
-	  if (int(Scene::getCurrentTime()) % 3000 < 1500) {
-	      if (sprite->animation() != MOVE_RIGHT)
-		  sprite->changeAnimation(MOVE_RIGHT);
-	      velocity.x = v;
-	  }
-	  else {
-	      if (sprite->animation() != MOVE_LEFT)
-		  sprite->changeAnimation(MOVE_LEFT);
-	      velocity.x = -v;
-	  }
-	  break;
+          v = 1;
+          if (int(Scene::getCurrentTime()) % 5000 < 2500) {
+              if (sprite->animation() != MOVE_RIGHT)
+              sprite->changeAnimation(MOVE_RIGHT);
+              velocity.x = v;
+          }
+          else {
+              if (sprite->animation() != MOVE_LEFT)
+              sprite->changeAnimation(MOVE_LEFT);
+              velocity.x = -v;
+          }
+          velocity.y = 2*sin(Scene::getCurrentTime()/200);
+          break;
       case CHASE:
-	  v = 3;
-	  if (player->getPosition().x > getPosition().x) {
-	      if (sprite->animation() != MOVE_RIGHT)
-		  sprite->changeAnimation(MOVE_RIGHT);
-	      velocity.x = v;
-	  }
-	  else if (player->getPosition().x < getPosition().x){
-	      if (sprite->animation() != MOVE_LEFT)
-		  sprite->changeAnimation(MOVE_LEFT);
-	      velocity.x = -v;
-	  }
-	  break;
+          v = 3;
+          if (player->getPosition().x > getPosition().x) {
+              if (sprite->animation() != MOVE_RIGHT)
+              sprite->changeAnimation(MOVE_RIGHT);
+              velocity.x = v;
+          }
+          else if (player->getPosition().x < getPosition().x){
+              if (sprite->animation() != MOVE_LEFT)
+              sprite->changeAnimation(MOVE_LEFT);
+              velocity.x = -v;
+          }
+          break;
       case ATTACK_DOWN:
-	  v = 5;
-	  dir = glm::normalize(glm::vec2(attackPosEnd - getPosition()));
-	  velocity = v*dir;
-	  break;
+          v = 5;
+          dir = glm::normalize(glm::vec2(attackPosEnd - attackPosStart));
+          velocity = v*dir;
+          break;
       case ATTACK_UP:
-	  v = 3;
-	  dir = glm::normalize(glm::vec2(attackPosStart - getPosition()));
-	  velocity = v*dir;
-	  break;
+          v = 3;
+          dir = glm::normalize(glm::vec2(attackPosStart - attackPosEnd));
+          velocity = v*dir;
+          break;
       }
     }
     else {

@@ -6,7 +6,7 @@
 class FlyingEnemy : public Enemy
 {
 public:
-    FlyingEnemy();
+    FlyingEnemy(int posx);
     ~FlyingEnemy();
 
     enum State {
@@ -24,8 +24,7 @@ private:
     State state;
     glm::ivec2 attackPosStart;
     glm::ivec2 attackPosEnd;
-
-    void randomFly();
+    int origx;
 };
 
 #endif // FLYINGENEMY_H

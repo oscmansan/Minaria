@@ -222,6 +222,15 @@ Block* TileMap::getBlock(const glm::ivec2 &posWorld) const
     return t ? dynamic_cast<Block*>(t) : NULL;
 }
 
+int TileMap::getSurfaceLevel(int x) {
+    for (int y = 0; y < mapSize.y*tileSize; y += tileSize) {
+        Block *b = getBlock(glm::ivec2(x,y));
+        if (b)
+            return y;
+    }
+    return 0;
+}
+
 glm::ivec2 TileMap::worldPosToTilePos(const glm::ivec2 &posWorld) const
 {
 	return posWorld / tileSize;

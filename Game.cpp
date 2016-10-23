@@ -13,8 +13,8 @@ void Game::init()
     sceneMenu = new SceneMenu();
     sceneGame = new SceneGame();
     sceneCredits = new SceneCredits();
-    currentScene = sceneMenu;
-    //currentScene = sceneGame;
+    //currentScene = sceneMenu;
+    currentScene = sceneGame;
 
     scenes.push_back(sceneMenu);
     scenes.push_back(sceneGame);
