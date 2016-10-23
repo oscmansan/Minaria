@@ -34,14 +34,13 @@ void Enemy::move(int deltaTime)
 void Enemy::takeDamage(int damage)
 {
     beginToDie();
-    rotation = -3.141592f / 2;
 }
-
 
 void Enemy::beginToDie()
 {
     dead = true;
     velocity.x = 0.0f;
+    sprite->changeAnimation(DEAD);
 }
 
 void Enemy::die()

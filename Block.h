@@ -57,6 +57,7 @@ protected:
 
     virtual void update(int deltaTime) override;
     int getAnimationFrame() const;
+    glm::vec2 getSpriteFrame() const override;
 };
 
 class BlockDirt : public Block

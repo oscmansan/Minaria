@@ -110,6 +110,11 @@ int Block::getAnimationFrame() const
     return static_cast<int>(state);
 }
 
+glm::vec2 Block::getSpriteFrame() const
+{
+    return glm::vec2(1.0f / 8.0f, 1.0f);
+}
+
 Block::Type Block::getType() const
 {
     return type;

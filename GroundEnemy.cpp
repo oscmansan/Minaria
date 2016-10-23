@@ -20,27 +20,31 @@ void GroundEnemy::init()
 
     ShaderProgram *program = Game::getCurrentScene()->getShaderProgram();
 
-    spritesheet.loadFromFile("images/bub.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25, 0.25), &spritesheet, program);
-    sprite->setNumberAnimations(4);
+    spritesheet.loadFromFile("images/miner.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    float sizeFactor = ((rand() % 10) / 100.0f * (rand()%2 == 0 ? 1 : -1)) + 1.0f;
+    sprite = Sprite::createSprite(glm::ivec2(int(36 * sizeFactor), int(48 * sizeFactor)), glm::vec2(0.075f, 0.23f), &spritesheet, program);
+    sprite->setNumberAnimations(5);
 
     sprite->setAnimationSpeed(STAND_LEFT, 8);
-    sprite->addKeyframe(STAND_LEFT, glm::vec2(0.f, 0.f));
+    sprite->addKeyframe(STAND_LEFT, glm::vec2(0.f, 0.51f));
 
     sprite->setAnimationSpeed(STAND_RIGHT, 8);
-    sprite->addKeyframe(STAND_RIGHT, glm::vec2(0.25f, 0.f));
+    sprite->addKeyframe(STAND_RIGHT, glm::vec2(0.0f, 0.75f));
 
     sprite->setAnimationSpeed(MOVE_LEFT, 8);
-    sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.f, 0.f));
-    sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.f, 0.25f));
-    sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.f, 0.5f));
+    sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.0f, 0.51f));
+    sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.1f, 0.51f));
+    sprite->addKeyframe(MOVE_LEFT, glm::vec2(0.2f, 0.51f));
 
     sprite->setAnimationSpeed(MOVE_RIGHT, 8);
-    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.f));
-    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.25f));
-    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25, 0.5f));
+    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.0f, 0.75f));
+    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.1f, 0.75f));
+    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.2f, 0.75f));
 
-    setPosition(glm::ivec2(1000, 0));
+    sprite->setAnimationSpeed(DEAD, 1);
+    sprite->addKeyframe(DEAD, glm::vec2(0.575f, 0.515f));
+
+    setPosition(glm::ivec2(700, 1000));
     sprite->setTint(glm::vec4(1, 0, 0, 1));
 
     state = PATROL;
@@ -50,6 +54,8 @@ void GroundEnemy::init()
 void GroundEnemy::update(int deltaTime)
 {
     Enemy::update(deltaTime);
+
+    if (dead) return;
 
     Player *player = Game::getCurrentSceneGame()->getPlayer();
 
@@ -74,6 +80,7 @@ void GroundEnemy::update(int deltaTime)
             break;
     }
 
+    /*
     switch(state) {
         case PATROL:
             sprite->setTint(glm::vec4(0,0,1,1));
@@ -85,6 +92,7 @@ void GroundEnemy::update(int deltaTime)
             sprite->setTint(glm::vec4(1,0,1,1));
             break;
     }
+    */
 }
 
 void GroundEnemy::move(int deltaTime)
@@ -129,10 +137,6 @@ void GroundEnemy::move(int deltaTime)
             case ATTACK:
                 break;
         }
-    }
-    else
-    {
-
     }
 
     Enemy::applyGravity();

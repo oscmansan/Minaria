@@ -68,9 +68,10 @@ void SceneGame::init()
     for (int i = 0; i < nenemies; ++i)
     {
         Enemy *enemy;
-        if (rand() % 2 == 0) enemy = new FlyingEnemy(); else enemy = new GroundEnemy();
+        enemy = new FlyingEnemy();
+        //if (rand() % 2 == 0) enemy = new FlyingEnemy(); else enemy = new GroundEnemy();
         enemy->init();
-        enemy->setPosition(enemy->getPosition() + glm::ivec2(i * 60, -i * 60));
+        enemy->setPosition(enemy->getPosition() + glm::ivec2(i * 60, 0));
         enemy->setTileMap(map);
         characters.push_back(enemy);
     }

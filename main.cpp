@@ -8,6 +8,7 @@
 
 
 #define TIME_PER_FRAME 1000.f / 60.f // Approx. 60 fps
+//#define TIME_PER_FRAME 1000.f / 1.0f // Approx. 60 fps
 
 
 static int prevTime;
