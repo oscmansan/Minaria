@@ -25,6 +25,7 @@ private:
     glm::ivec2 attackPosStart;
     glm::ivec2 attackPosEnd;
     int origx;
+    int bombTimer;
 };
 
 #endif // FLYINGENEMY_H

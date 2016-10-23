@@ -9,6 +9,7 @@
 #include "TileMap.h"
 #include "SceneGame.h"
 #include "Game.h"
+#include "Bomb.h"
 
 FlyingEnemy::FlyingEnemy(int posx) {
     origx = posx;
@@ -47,7 +48,6 @@ void FlyingEnemy::init()
     setPosition(glm::ivec2(origx,origy));
 
     sprite->setTint(glm::vec4(1, 0, 0, 1));
-
     velocity = 3.f*glm::vec2(rand()%2-1,rand()%2-1);
     state = PATROL;
 }
@@ -60,30 +60,39 @@ void FlyingEnemy::update(int deltaTime)
     int tileSize = Game::getCurrentSceneGame()->getTileMap()->getTileSize();
     int detectThreshold = 10*tileSize;
     switch(state) {
-        case PATROL:
-            if (abs(player->getPosition().x - getPosition().x) < detectThreshold)
-                state = CHASE;
-            break;
-        case CHASE:
-            if (abs(player->getPosition().x - getPosition().x) < tileSize) {
-                state = ATTACK_DOWN;
-                attackPosEnd = player->getPosition();
-                attackPosStart = getPosition();
+    case PATROL:
+        if (abs(player->getPosition().x - getPosition().x) < detectThreshold) {
+            //state = CHASE;
+            if (bombTimer == 0) {
+                Bomb *b = new Bomb();
+                b->setPosition(getPosition());
+                glm::vec2 dir = glm::normalize(glm::vec2(player->getPosition() - getPosition()));
+                float bombSpeed = 0.1f * glm::min(50.0f, glm::length(glm::vec2(player->getPosition() - getPosition())));
+                b->setVelocity(dir * bombSpeed);
+                bombTimer = 5000;
             }
-            else if (abs(player->getPosition().x - getPosition().x) > detectThreshold)
-                state = PATROL;
-            break;
-        case ATTACK_DOWN:
-            if (glm::distance(glm::vec2(getPosition()),glm::vec2(attackPosEnd)) < 20) {
-                if (player->getBoundingBox().intersects(getBoundingBox()))
-                    player->takeDamage();
-                state = ATTACK_UP;
-            }
-            break;
-        case ATTACK_UP:
-            if (glm::distance(glm::vec2(getPosition()),glm::vec2(attackPosStart)) == 0)
-                state = PATROL;
-            break;
+        }
+        break;
+    case CHASE:
+        if (abs(player->getPosition().x - getPosition().x) < tileSize) {
+            attackPosEnd = player->getPosition();
+            attackPosStart = getPosition();
+            state = ATTACK_DOWN;
+        }
+        else if (abs(player->getPosition().x - getPosition().x) > detectThreshold)
+            state = PATROL;
+        break;
+    case ATTACK_DOWN:
+        if (glm::distance(glm::vec2(getPosition()),glm::vec2(attackPosEnd)) < 20) {
+            if (player->getBoundingBox().intersects(getBoundingBox()))
+                player->takeDamage();
+            state = ATTACK_UP;
+        }
+        break;
+    case ATTACK_UP:
+        if (glm::distance(glm::vec2(getPosition()),glm::vec2(attackPosStart)) == 0)
+            state = PATROL;
+        break;
     }
 
     switch(state) {
@@ -100,6 +109,9 @@ void FlyingEnemy::update(int deltaTime)
         sprite->setTint(glm::vec4(1,0,1,1));
         break;
     }
+
+    bombTimer -= deltaTime;
+    bombTimer = max(0,bombTimer);
 }
 
 void FlyingEnemy::move(int deltaTime)
