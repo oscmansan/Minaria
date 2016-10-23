@@ -31,6 +31,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o"
+  "CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o"
   "TerrariaLinux.pdb"
   "TerrariaLinux"

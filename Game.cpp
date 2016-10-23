@@ -17,10 +17,6 @@ void Game::init()
     //currentScene = sceneMenu;
     currentScene = sceneGame;
 
-    scenes.push_back(sceneMenu);
-    scenes.push_back(sceneGame);
-    scenes.push_back(sceneCredits);
-
     currentScene->init();
 
     SoundManager* sm = new SoundManager();

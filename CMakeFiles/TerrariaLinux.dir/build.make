@@ -785,9 +785,32 @@ CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o.provides: CMakeFiles/TerrariaLi
 
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o.provides.build: CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o
 
+CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o: CMakeFiles/TerrariaLinux.dir/flags.make
+CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o: SoundManager.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles $(CMAKE_PROGRESS_33)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o -c /home/sephirot47/Terraria-linux/SoundManager.cpp
+
+CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sephirot47/Terraria-linux/SoundManager.cpp > CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.i
+
+CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sephirot47/Terraria-linux/SoundManager.cpp -o CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.s
+
+CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o.requires:
+.PHONY : CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o.requires
+
+CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o.provides: CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o.provides.build
+.PHONY : CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o.provides
+
+CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o.provides.build: CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o
+
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: CMakeFiles/TerrariaLinux.dir/flags.make
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: TemporaryEffect.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles $(CMAKE_PROGRESS_33)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles $(CMAKE_PROGRESS_34)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o -c /home/sephirot47/Terraria-linux/TemporaryEffect.cpp
 
@@ -842,6 +865,7 @@ TerrariaLinux_OBJECTS = \
 "CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o" \
 "CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o" \
 "CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o" \
+"CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o" \
 "CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o"
 
 # External object files for target TerrariaLinux
@@ -879,6 +903,7 @@ TerrariaLinux: CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o
+TerrariaLinux: CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/build.make
 TerrariaLinux: /usr/lib/i386-linux-gnu/libGLU.so
@@ -932,6 +957,7 @@ CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o.requires
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o.requires
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o.requires
+CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o.requires
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o.requires
 .PHONY : CMakeFiles/TerrariaLinux.dir/requires
 

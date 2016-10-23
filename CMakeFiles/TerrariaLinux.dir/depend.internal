@@ -280,6 +280,7 @@ CMakeFiles/TerrariaLinux.dir/Game.cpp.o
  /home/sephirot47/Terraria-linux/SceneMenu.h
  /home/sephirot47/Terraria-linux/Shader.h
  /home/sephirot47/Terraria-linux/ShaderProgram.h
+ /home/sephirot47/Terraria-linux/SoundManager.h
  /home/sephirot47/Terraria-linux/Sprite.h
  /home/sephirot47/Terraria-linux/Text.h
  /home/sephirot47/Terraria-linux/Texture.h
@@ -543,6 +544,9 @@ CMakeFiles/TerrariaLinux.dir/ShaderProgram.cpp.o
  /home/sephirot47/Terraria-linux/Shader.h
  /home/sephirot47/Terraria-linux/ShaderProgram.cpp
  /home/sephirot47/Terraria-linux/ShaderProgram.h
+CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o
+ /home/sephirot47/Terraria-linux/SoundManager.cpp
+ /home/sephirot47/Terraria-linux/SoundManager.h
 CMakeFiles/TerrariaLinux.dir/Sprite.cpp.o
  /home/sephirot47/Terraria-linux/AnimKeyframes.h
  /home/sephirot47/Terraria-linux/Shader.h

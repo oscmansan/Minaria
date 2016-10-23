@@ -735,6 +735,30 @@ ShaderProgram.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ShaderProgram.cpp.s
 .PHONY : ShaderProgram.cpp.s
 
+SoundManager.o: SoundManager.cpp.o
+.PHONY : SoundManager.o
+
+# target to build an object file
+SoundManager.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o
+.PHONY : SoundManager.cpp.o
+
+SoundManager.i: SoundManager.cpp.i
+.PHONY : SoundManager.i
+
+# target to preprocess a source file
+SoundManager.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.i
+.PHONY : SoundManager.cpp.i
+
+SoundManager.s: SoundManager.cpp.s
+.PHONY : SoundManager.s
+
+# target to generate assembly for a file
+SoundManager.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.s
+.PHONY : SoundManager.cpp.s
+
 Sprite.o: Sprite.cpp.o
 .PHONY : Sprite.o
 
@@ -990,6 +1014,9 @@ help:
 	@echo "... ShaderProgram.o"
 	@echo "... ShaderProgram.i"
 	@echo "... ShaderProgram.s"
+	@echo "... SoundManager.o"
+	@echo "... SoundManager.i"
+	@echo "... SoundManager.s"
 	@echo "... Sprite.o"
 	@echo "... Sprite.i"
 	@echo "... Sprite.s"

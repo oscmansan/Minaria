@@ -279,6 +279,7 @@ CMakeFiles/TerrariaLinux.dir/Game.cpp.o: SceneGame.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: ShaderProgram.h
+CMakeFiles/TerrariaLinux.dir/Game.cpp.o: SoundManager.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Sprite.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Texture.h
@@ -542,6 +543,9 @@ CMakeFiles/TerrariaLinux.dir/Shader.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/ShaderProgram.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/ShaderProgram.cpp.o: ShaderProgram.cpp
 CMakeFiles/TerrariaLinux.dir/ShaderProgram.cpp.o: ShaderProgram.h
+
+CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o: SoundManager.cpp
+CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o: SoundManager.h
 
 CMakeFiles/TerrariaLinux.dir/Sprite.cpp.o: AnimKeyframes.h
 CMakeFiles/TerrariaLinux.dir/Sprite.cpp.o: Shader.h

@@ -30,6 +30,7 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/sephirot47/Terraria-linux/SceneMenu.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o"
   "/home/sephirot47/Terraria-linux/Shader.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/Shader.cpp.o"
   "/home/sephirot47/Terraria-linux/ShaderProgram.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/ShaderProgram.cpp.o"
+  "/home/sephirot47/Terraria-linux/SoundManager.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o"
   "/home/sephirot47/Terraria-linux/Sprite.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/Sprite.cpp.o"
   "/home/sephirot47/Terraria-linux/TemporaryEffect.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o"
   "/home/sephirot47/Terraria-linux/Text.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/Text.cpp.o"
@@ -46,8 +47,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
+  "SFML32/include"
   "/usr/include/SOIL"
-  "alure/include"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
