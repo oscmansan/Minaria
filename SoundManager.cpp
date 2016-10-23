@@ -1,13 +1,23 @@
 #include "SoundManager.h"
 
-#include <iostream>
-#include <SFML/Audio.hpp>
+SoundManager::SoundManager() {}
 
-using namespace std;
+void SoundManager::playSound(string file) {
+    // Load a sound buffer from a wav file
+    buffer = new sf::SoundBuffer();
+    if (!buffer->loadFromFile(file))
+         return;
+    // Create a sound instance and play it
+    sound = new sf::Sound(*buffer);
+    sound->play();
+}
 
-SoundManager::SoundManager()
-{
-    sf::SoundBuffer buffer;
-    if (!buffer.loadFromFile("sound.wav"))
-         cout << "Could not load file" << endl;
+void SoundManager::playMusic(string file) {
+    // Load an ogg music file
+    music = new sf::Music();
+    if (!music->openFromFile(file))
+        return;
+    // Play it
+    music->setLoop(true);
+    music->play();
 }

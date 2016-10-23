@@ -8,6 +8,7 @@
 #include "SceneMenu.h"
 #include "SceneGame.h"
 #include "SceneCredits.h"
+#include "SoundManager.h"
 
 using namespace std;
 
@@ -66,6 +67,7 @@ private:
     SceneGame *sceneGame = NULL;
     SceneCredits *sceneCredits = NULL;
     Scene *currentScene = NULL;
+    SoundManager* soundManager = NULL;
 
     glm::ivec2 mousePos;
 

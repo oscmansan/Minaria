@@ -17,7 +17,7 @@ const sf::Uint8 endOfStream = 2;
 ////////////////////////////////////////////////////////////
 class NetworkRecorder : public sf::SoundRecorder
 {
-public:
+public :
 
     ////////////////////////////////////////////////////////////
     /// Constructor
@@ -32,22 +32,10 @@ public:
     {
     }
 
-    ////////////////////////////////////////////////////////////
-    /// Destructor
-    ///
-    /// \see SoundRecorder::~SoundRecorder()
-    ///
-    ////////////////////////////////////////////////////////////
-    ~NetworkRecorder()
-    {
-        // Make sure to stop the recording thread
-        stop();
-    }
-
-private:
+private :
 
     ////////////////////////////////////////////////////////////
-    /// \see SoundRecorder::onStart
+    /// /see SoundRecorder::OnStart
     ///
     ////////////////////////////////////////////////////////////
     virtual bool onStart()
@@ -64,7 +52,7 @@ private:
     }
 
     ////////////////////////////////////////////////////////////
-    /// \see SoundRecorder::onProcessSamples
+    /// /see SoundRecorder::ProcessSamples
     ///
     ////////////////////////////////////////////////////////////
     virtual bool onProcessSamples(const sf::Int16* samples, std::size_t sampleCount)
@@ -79,7 +67,7 @@ private:
     }
 
     ////////////////////////////////////////////////////////////
-    /// \see SoundRecorder::onStop
+    /// /see SoundRecorder::OnStop
     ///
     ////////////////////////////////////////////////////////////
     virtual void onStop()
@@ -110,7 +98,7 @@ private:
 void doClient(unsigned short port)
 {
     // Check that the device can capture audio
-    if (!sf::SoundRecorder::isAvailable())
+    if (sf::SoundRecorder::isAvailable() == false)
     {
         std::cout << "Sorry, audio capture is not supported by your system" << std::endl;
         return;
@@ -120,7 +108,7 @@ void doClient(unsigned short port)
     sf::IpAddress server;
     do
     {
-        std::cout << "Type address or name of the server to connect to: ";
+        std::cout << "Type address or name of the server to connect to : ";
         std::cin  >> server;
     }
     while (server == sf::IpAddress::None);

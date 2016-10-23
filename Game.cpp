@@ -4,7 +4,6 @@
 #include "Game.h"
 #include "Scene.h"
 #include "Camera.h"
-#include "SoundManager.h"
 
 void Game::init()
 {
@@ -19,8 +18,9 @@ void Game::init()
 
     currentScene->init();
 
-    SoundManager* sm = new SoundManager();
     gotoSceneGame();
+    soundManager = new SoundManager();
+    soundManager->playMusic("../sounds/hack_the_forest.ogg");
 }
 
 bool Game::update(int deltaTime)

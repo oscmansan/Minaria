@@ -27,7 +27,7 @@ find_package(GLUT REQUIRED)
 find_package(GLEW REQUIRED)
 find_package(GLM REQUIRED)
 find_package(SOIL REQUIRED)
-link_libraries(sfml-audio)
+link_libraries(sfml-audio sfml-system)
 
 include_directories(${OPENGL_INCLUDE_DIRS})
 include_directories(${GLUT_INCLUDE_DIRS})
