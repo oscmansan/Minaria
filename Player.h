@@ -51,7 +51,7 @@ private:
     const int maxHealth = 10;
     int health = maxHealth;
     const int heartSize = 25;
-    const glm::ivec2 heartLinePosition = glm::ivec2(450, 15);
+    const glm::ivec2 heartLinePosition = glm::ivec2(450, 30);
     Texture textureHeart;
     Sprite *spriteHeart = NULL;
 

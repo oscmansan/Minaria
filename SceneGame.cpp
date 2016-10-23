@@ -206,8 +206,8 @@ void SceneGame::generateProceduralTilemap()
                 float perliny = float(pos.y) / map->getTotalSizeWorld().y * 10.0f;
                 p = perlinSapphire.octaveNoise(perlinx, perliny, octaves);
                 if (p > minRange && p < maxRange) { map->addTile<BlockRock>(pos); }
-                p = perlinRuby.octaveNoise(perlinx, perliny, octaves);
-                if (p > minRange && p < maxRange) { map->addTile<BlockBedRock>(pos); }
+                //p = perlinRuby.octaveNoise(perlinx, perliny, octaves);
+                //if (p > minRange && p < maxRange) { map->addTile<BlockBedRock>(pos); }
                 p = perlinEmerald.octaveNoise(perlinx, perliny, octaves);
                 if (p > minRange && p < maxRange) { map->addTile<BlockWood>(pos); }
 
@@ -224,8 +224,13 @@ void SceneGame::generateProceduralTilemap()
         glm::ivec2 pos2 = glm::ivec2(width * tileSize, 0) - pos1;
         for (int y = 0; y < height; ++y)
         {
-            map->addTile<BlockDirt>(pos1 + glm::ivec2(0, y * tileSize)); // Left
-            map->addTile<BlockDirt>(pos2 + glm::ivec2(0, y * tileSize)); // Right
+            map->addTile<BlockBedRock>(pos1 + glm::ivec2(0, y * tileSize)); // Left
+            map->addTile<BlockBedRock>(pos2 + glm::ivec2(0, y * tileSize)); // Right
         }
+    }
+    // Add bedrock ground
+    for (int x = 0; x < width; ++x)
+    {
+        map->addTile<BlockBedRock>(glm::ivec2(x * tileSize, mapSize.y - 1));
     }
 }

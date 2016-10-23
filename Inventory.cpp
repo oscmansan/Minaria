@@ -9,7 +9,7 @@
 
 Inventory::Inventory()
 {
-    position = glm::ivec2(15, 15);
+    position = glm::ivec2(5, 5);
 }
 
 
@@ -33,7 +33,7 @@ void Inventory::init()
     spriteBg->addKeyframe(0, glm::vec2(0.0f, 0.f));
 
     textureSlot = new Texture();
-    textureSlot->loadFromFile("images/inventorySlot.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    textureSlot->loadFromFile("images/invSlot.png", TEXTURE_PIXEL_FORMAT_RGBA);
     spriteSlot = Sprite::createSprite(slotSize, glm::vec2(1, 1), textureSlot, program);
     spriteSlot->setNumberAnimations(1);
     spriteSlot->addKeyframe(0, glm::vec2(0.0f, 0.f));
@@ -46,9 +46,10 @@ void Inventory::init()
 
         int slotNumTextSize = 16;
         glm::ivec2 slotNumTextPos = slotPos + glm::ivec2(slotSize.x/2 - slotNumTextSize/2, slotSize.y + 8);
-        itemSlotNumTexts[i] = Game::getCurrentSceneGame()->createText(std::to_string(i+1),
+       /* itemSlotNumTexts[i] = Game::getCurrentSceneGame()->createText(std::to_string(i+1),
                                                                       slotNumTextPos,
                                                                       slotNumTextSize);
+        */
     }
 
     addItem<ItemPickaxe>();
@@ -58,7 +59,7 @@ void Inventory::init()
 void Inventory::renderBackground()
 {
     prepareModelViewMatrix();
-    spriteBg->render();
+    //spriteBg->render();
 }
 
 void Inventory::renderSlots()
@@ -70,6 +71,9 @@ void Inventory::renderSlots()
 
         prepareModelViewMatrix(slotPos);
         spriteSlot->setTint( selectedPos == i ? selectedSlotTint : glm::vec4(1));
+        spriteSlot->render();
+
+        prepareModelViewMatrix(slotPos + glm::ivec2(0, slotSize.y + 2),  glm::vec2(1.0f, 0.5f));
         spriteSlot->render();
 
         Item *it = getItem(i);
@@ -86,10 +90,10 @@ void Inventory::renderSlots()
             }
 
             itemSprites[i]->setTexture(itTexture);
-            int textSize = 16;
+            int textSize = 11;
             itemAmountTexts[i]->setText(std::to_string(itAmount), textSize);
-            itemAmountTexts[i]->setColor(glm::vec4(0,0,0,1));
-            itemAmountTexts[i]->setPosition(itemPos + 2);
+            itemAmountTexts[i]->setColor(glm::vec4(1,1,1,1));
+            itemAmountTexts[i]->setPosition(slotPos + glm::ivec2(0, slotSize.y) + 5);
 
             prepareModelViewMatrix(itemPos);
             itemSprites[i]->render();

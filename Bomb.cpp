@@ -12,6 +12,7 @@ Bomb::Bomb()
     {
         Bomb::bombTexture = new Texture();
         Bomb::bombTexture->loadFromFile("images/bomb.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        Bomb::bombTexture->setMinFilter(GL_NEAREST);
     }
 
     ShaderProgram *program = Game::getCurrentSceneGame()->getShaderProgram();

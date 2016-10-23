@@ -10,17 +10,9 @@ void Game::init()
 	bPlay = true;
     glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
 
-    sceneMenu = new SceneMenu();
-    sceneGame = new SceneGame();
-    sceneCredits = new SceneCredits();
-    //currentScene = sceneMenu;
-    currentScene = sceneGame;
-
-    currentScene->init();
-
     gotoSceneGame();
     soundManager = new SoundManager();
-    soundManager->playMusic("../sounds/hack_the_forest.ogg");
+    soundManager->playMusic("sounds/hack_the_forest.ogg");
 }
 
 bool Game::update(int deltaTime)

@@ -64,7 +64,8 @@ void Block::update(int deltaTime)
     // Lighting
     Player *player = Game::getCurrentSceneGame()->getPlayer();
     float distToPlayer = glm::distance(glm::vec2(getPosition()), glm::vec2(player->getPosition()));
-    float fade = (40.0f / (distToPlayer + 0.1f));
+    float fade = (80.0f / (distToPlayer + 0.1f));
+    fade *= fade;
     fade = glm::clamp(fade, 0.0f, 1.0f);
     lighting = glm::vec3(fade);
 
@@ -84,11 +85,15 @@ void Block::update(int deltaTime)
         }
         else if (isBorderBlock(2))
         {
-            lighting *= 0.6f;
+            lighting *= 0.5f;
+        }
+        else if (isBorderBlock(3))
+        {
+            lighting *= 0.3f;
         }
         else
         {
-            lighting *= 0.3f;
+            lighting *= 0.0f;
         }
         */
     }
@@ -122,6 +127,8 @@ Block::Type Block::getType() const
 
 void Block::advanceState()
 {
+    if (undestroyable) return;
+
     Player *player = Game::getCurrentSceneGame()->getPlayer();
     if (state == DEST_7)
     {
@@ -223,6 +230,7 @@ BlockRock::BlockRock(const glm::ivec2 &worldPos) : Block(worldPos)
 BlockBedRock::BlockBedRock(const glm::ivec2 &worldPos) : Block(worldPos)
 {
     type = BEDROCK;
+    undestroyable = true;
 
     if (!s_texture)
     {

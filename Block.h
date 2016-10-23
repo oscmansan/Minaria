@@ -8,6 +8,7 @@ class Block : public Item,
 {
 public:
     bool isBg = false;
+    bool undestroyable = false;
 
     enum Type
     {

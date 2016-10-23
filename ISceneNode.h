@@ -15,7 +15,7 @@ public:
     virtual void render(ShaderProgram &program) {}
 
     virtual void prepareModelViewMatrix() const;
-    virtual void prepareModelViewMatrix(const glm::ivec2 &pos) const;
+    virtual void prepareModelViewMatrix(const glm::ivec2 &pos, const glm::vec2 &scale = glm::vec2(1.0f)) const;
     virtual void setPosition(const glm::ivec2 &position);
     virtual const glm::ivec2& getPosition() const;
     virtual glm::ivec2 getSize() const { return glm::ivec2(0,0); }

@@ -35,7 +35,7 @@ private:
 
     const glm::ivec2 size = glm::ivec2(400, 50);
     const glm::ivec2 slotSize = glm::ivec2(40, 40);
-    const glm::ivec2 itemSize = glm::ivec2(35, 35);
+    const glm::ivec2 itemSize = glm::ivec2(30, 30);
 
     ShaderProgram *program = nullptr;
     Texture *textureBg = nullptr;

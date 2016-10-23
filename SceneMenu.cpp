@@ -15,7 +15,7 @@ void SceneMenu::init()
 {
     Scene::init();
 
-    textureMenuBg.loadFromFile("images/menuBg.jpg", TEXTURE_PIXEL_FORMAT_RGBA);
+    textureMenuBg.loadFromFile("images/background.png", TEXTURE_PIXEL_FORMAT_RGBA);
     spriteBg = Sprite::createSprite(glm::ivec2(Game::getScreenWidth(), Game::getScreenHeight()), glm::vec2(1.0f), &textureMenuBg, &texProgram);
 
     Text *title = createText("Minaria", glm::ivec2(50, 80), 50);
@@ -41,6 +41,7 @@ void SceneMenu::update(int deltaTime)
         if (game->getMouseLeftButtonDown())
         {
             game->gotoSceneGame();
+            return;
         }
     }
     else
@@ -67,6 +68,7 @@ void SceneMenu::update(int deltaTime)
         if (game->getMouseLeftButtonDown())
         {
             game->gotoSceneCredits();
+            return;
         }
     }
     else
