@@ -4,6 +4,7 @@
 #include "Game.h"
 #include "Scene.h"
 #include "Camera.h"
+#include "SoundManager.h"
 
 void Game::init()
 {
@@ -21,6 +22,8 @@ void Game::init()
     scenes.push_back(sceneCredits);
 
     currentScene->init();
+
+    SoundManager* sm = new SoundManager();
 }
 
 bool Game::update(int deltaTime)
