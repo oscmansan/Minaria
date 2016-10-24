@@ -131,18 +131,20 @@ void Block::advanceState(bool mining)
     if (undestroyable) return;
 
     Player *player = Game::getCurrentSceneGame()->getPlayer();
-    if (state == DEST_7 and mining)
+    if (state == DEST_7)
     {
-        Inventory *inv = player->getInventory();
-        switch (getType())
-        {
-            case Block::DIRT:    inv->addItem<BlockDirt>();    break;
-            case Block::ROCK:    inv->addItem<BlockRock>();    break;
-            case Block::BEDROCK: inv->addItem<BlockBedRock>(); break;
-            case Block::WOOD:    inv->addItem<BlockWood>();    break;
-            case Block::PURPLE:    inv->addItem<BlockWood>();    break;
+        if (mining) {
+            Inventory *inv = player->getInventory();
+            switch (getType())
+            {
+                case Block::DIRT:    inv->addItem<BlockDirt>();    break;
+                case Block::ROCK:    inv->addItem<BlockRock>();    break;
+                case Block::BEDROCK: inv->addItem<BlockBedRock>(); break;
+                case Block::WOOD:    inv->addItem<BlockWood>();    break;
+                case Block::PURPLE:    inv->addItem<BlockWood>();    break;
+            }
+            player->onBlockDeleted(this);
         }
-        player->onBlockDeleted(this);
         Game::getCurrentSceneGame()->getTileMap()->delTile( getPosition() );
     }
     else
