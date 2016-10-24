@@ -11,6 +11,7 @@ Texture *BlockDirt::s_texture    = NULL;
 Texture *BlockRock::s_texture    = NULL;
 Texture *BlockBedRock::s_texture = NULL;
 Texture *BlockWood::s_texture    = NULL;
+Texture *BlockPurple::s_texture  = NULL;
 
 Block::Block() : Tile(), Item()
 {
@@ -139,6 +140,7 @@ void Block::advanceState()
             case Block::ROCK:    inv->addItem<BlockRock>();    break;
             case Block::BEDROCK: inv->addItem<BlockBedRock>(); break;
             case Block::WOOD:    inv->addItem<BlockWood>();    break;
+            case Block::PURPLE:    inv->addItem<BlockWood>();    break;
         }
         player->onBlockDeleted(this);
         Game::getCurrentSceneGame()->getTileMap()->delTile( getPosition() );
@@ -200,6 +202,7 @@ void Block::hit()
 
 BlockDirt::BlockDirt(const glm::ivec2 &worldPos) : Block(worldPos)
 {
+    hitSpeed = 80;
     type = DIRT;
 
     if (!s_texture)
@@ -215,6 +218,7 @@ BlockDirt::BlockDirt(const glm::ivec2 &worldPos) : Block(worldPos)
 
 BlockRock::BlockRock(const glm::ivec2 &worldPos) : Block(worldPos)
 {
+    hitSpeed = 300;
     type = ROCK;
 
     if (!s_texture)
@@ -229,6 +233,7 @@ BlockRock::BlockRock(const glm::ivec2 &worldPos) : Block(worldPos)
 
 BlockBedRock::BlockBedRock(const glm::ivec2 &worldPos) : Block(worldPos)
 {
+    hitSpeed = 9999999;
     type = BEDROCK;
     undestroyable = true;
 
@@ -244,6 +249,7 @@ BlockBedRock::BlockBedRock(const glm::ivec2 &worldPos) : Block(worldPos)
 
 BlockWood::BlockWood(const glm::ivec2 &worldPos) : Block(worldPos)
 {
+    hitSpeed = 400;
     type = WOOD;
 
     if (!s_texture)
@@ -255,6 +261,24 @@ BlockWood::BlockWood(const glm::ivec2 &worldPos) : Block(worldPos)
 
     itemTexture = s_texture;
 }
+
+BlockPurple::BlockPurple(const glm::ivec2 &worldPos) : Block(worldPos)
+{
+    hitSpeed = 500;
+    type = PURPLE;
+
+    if (!s_texture)
+    {
+        s_texture = new Texture();
+        s_texture->loadFromFile("images/purple.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    }
+    sprite->setTexture(s_texture);
+
+    itemTexture = s_texture;
+}
+
+
+
 
 
 

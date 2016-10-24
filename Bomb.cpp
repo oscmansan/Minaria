@@ -155,7 +155,7 @@ void Bomb::explode()
                 Player *p = dynamic_cast<Player*>(character);
                 if (p)
                 {
-                    p->takeDamage(damage * 100);
+                    p->takeDamage(damage);
                 }
             }
         }

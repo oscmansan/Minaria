@@ -14,6 +14,7 @@ Text::Text()
     {
         Text::textSheet = new Texture();
         Text::textSheet->loadFromFile("images/textsheet.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        Text::textSheet->setMinFilter(GL_NEAREST);
     }
 }
 

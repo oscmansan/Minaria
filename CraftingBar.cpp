@@ -18,8 +18,12 @@ CraftingBar::~CraftingBar()
 {
     delete swordTexture;
     delete bombTexture;
+    delete swordOverlayTexture;
+    delete spriteSwordOverlay;
     delete spriteSword;
     delete spriteBomb;
+    delete bombOverlayTexture;
+    delete spriteBombOverlay;
 }
 
 void CraftingBar::init()
@@ -30,15 +34,23 @@ void CraftingBar::init()
     swordPosition = glm::ivec2(Game::getScreenWidth() - 64, Game::getScreenHeight() - 64);
     swordTexture = new Texture();
     swordTexture->loadFromFile("images/sword.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    spriteSword = Sprite::createSprite(glm::ivec2(CraftingSlotSize), glm::vec2(1.0f), swordTexture, program);
+    spriteSword = Sprite::createSprite(glm::ivec2(glm::vec2(CraftingSlotSize) * 0.8f), glm::vec2(1.0f), swordTexture, program);
+
+    swordOverlayTexture = new Texture();
+    swordOverlayTexture->loadFromFile("images/sword.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    spriteSwordOverlay = Sprite::createSprite(glm::ivec2(glm::vec2(OverlaySize) * 0.8f), glm::vec2(1.0f), swordTexture, program);
 
     bombPosition = glm::ivec2(Game::getScreenWidth() - 112, swordPosition.y);
     bombTexture = new Texture();
     bombTexture->loadFromFile("images/bomb.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    spriteBomb = Sprite::createSprite(glm::ivec2(CraftingSlotSize), glm::vec2(1.0f), bombTexture, program);
+    spriteBomb = Sprite::createSprite(glm::ivec2(glm::vec2(CraftingSlotSize) * 0.8f), glm::vec2(1.0f), bombTexture, program);
+
+    bombOverlayTexture = new Texture();
+    bombOverlayTexture->loadFromFile("images/sword.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    spriteBombOverlay = Sprite::createSprite(glm::ivec2(glm::vec2(OverlaySize) * 0.8f), glm::vec2(1.0f), swordTexture, program);
 
     textureSlot = new Texture();
-    textureSlot->loadFromFile("images/inventorySlot.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    textureSlot->loadFromFile("images/invSlot.png", TEXTURE_PIXEL_FORMAT_RGBA);
     spriteSlot = Sprite::createSprite(glm::ivec2(CraftingSlotSize), glm::vec2(1.0f), textureSlot, program);
 
     craftingText = Game::getCurrentSceneGame()->createText("CRAFTING", bombPosition + glm::ivec2(-10, -16), 12);
@@ -70,9 +82,11 @@ void CraftingBar::render(ShaderProgram &program)
 {
     prepareModelViewMatrix(swordPosition);
     spriteSlot->render();
+    prepareModelViewMatrix(swordPosition + (CraftingSlotSize-spriteSword->getSize())/2);
     spriteSword->render();
 
     prepareModelViewMatrix(bombPosition);
     spriteSlot->render();
+    prepareModelViewMatrix(bombPosition + (CraftingSlotSize-spriteBomb->getSize())/2);
     spriteBomb->render();
 }

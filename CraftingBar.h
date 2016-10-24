@@ -22,17 +22,22 @@ public:
 
 private:
     const int CraftingSlotSize = 32;
+    const glm::ivec2 OverlaySize = glm::ivec2(64, 32);
 
     Text *craftingText = NULL;
 
     glm::ivec2 swordPosition;
     Texture *swordTexture = NULL;
     Sprite *spriteSword =  NULL;
+    Texture *swordOverlayTexture = NULL;
+    Sprite *spriteSwordOverlay =  NULL;
 
 
     glm::ivec2 bombPosition;
     Texture *bombTexture = NULL;
     Sprite *spriteBomb =  NULL;
+    Texture *bombOverlayTexture = NULL;
+    Sprite *spriteBombOverlay =  NULL;
 
     Texture *textureSlot = NULL;
     Sprite *spriteSlot =  NULL;

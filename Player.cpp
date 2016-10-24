@@ -147,7 +147,11 @@ void Player::update(int deltaTime)
         sprite->changeAnimation(DEAD);
 
         timeSinceDead += deltaTime;
-        if (timeSinceDead > 2000)
+        float timeToDie = 4000.0f;
+        Game::getCurrentSceneGame()->getShaderProgram()->
+                setUniform1f("grayAmount", timeSinceDead / timeToDie);
+
+        if (timeSinceDead > timeToDie)
         {
             die();
         }
@@ -249,6 +253,20 @@ void Player::handleMouseActions()
     int tileSize = tmap->getTileSize();
     glm::ivec2 playerCenter = getPosition() + getSize() / 2;
 
+    glm::vec2 mouseDir = glm::normalize(glm::vec2(mousePos) - glm::vec2(playerCenter));
+    mouseBlock = tmap->getBlock(playerCenter + glm::ivec2(mouseDir * float(tileSize) * 0.5f));
+    mouseBlock = mouseBlock ? mouseBlock : tmap->getBlock(playerCenter + glm::ivec2(mouseDir * float(tileSize) * 1.0f));
+    mouseBlock = mouseBlock ? mouseBlock : tmap->getBlock(playerCenter + glm::ivec2(mouseDir * float(tileSize) * 1.5f));
+    mouseBlock = mouseBlock ? mouseBlock : tmap->getBlock(playerCenter + glm::ivec2(mouseDir * float(tileSize) * 2.0f));
+    if (mouseBlock != lastMouseBlock || !Game::instance().getMouseLeftButton())
+    {
+        if (lastMouseBlock)
+        {
+            lastMouseBlock->onHitEnd();
+            lastMouseBlock = NULL;
+        }
+    }
+
     if (!selectedItem || !dynamic_cast<ItemPickaxe*>(selectedItem)) { lastMouseBlock = NULL; }
     if (selectedItem)
     {
@@ -264,20 +282,6 @@ void Player::handleMouseActions()
 
             if (Game::instance().getMouseLeftButton())
             {
-                glm::vec2 mouseDir = glm::normalize(glm::vec2(mousePos) - glm::vec2(playerCenter));
-
-                mouseBlock = tmap->getBlock(playerCenter + glm::ivec2(mouseDir * float(tileSize) * 0.5f));
-                mouseBlock = mouseBlock ? mouseBlock : tmap->getBlock(playerCenter + glm::ivec2(mouseDir * float(tileSize) * 1.0f));
-                mouseBlock = mouseBlock ? mouseBlock : tmap->getBlock(playerCenter + glm::ivec2(mouseDir * float(tileSize) * 1.5f));
-
-                if (mouseBlock != lastMouseBlock)
-                {
-                    if (lastMouseBlock)
-                    {
-                        lastMouseBlock->onHitEnd();
-                        lastMouseBlock = NULL;
-                    }
-                }
 
                 if (mouseBlock && mouseBlock->getType() != 0)
                 {
@@ -331,6 +335,7 @@ void Player::handleMouseActions()
                             else if (b->getType() == Block::ROCK)    { addedBlock = tmap->addTile<BlockRock>(mousePos); }
                             else if (b->getType() == Block::BEDROCK) { addedBlock = tmap->addTile<BlockBedRock>(mousePos); }
                             else if (b->getType() == Block::WOOD)    { addedBlock = tmap->addTile<BlockWood>(mousePos); }
+                            else if (b->getType() == Block::PURPLE)  { addedBlock = tmap->addTile<BlockPurple>(mousePos); }
 
                             if (addedBlock)
                             {
@@ -402,6 +407,8 @@ void Player::takeDamage(int damage)
 void Player::beginToDie()
 {
     dead = true;
+    Text *t = Game::getCurrentSceneGame()->createText("You died", glm::ivec2(0, 200), 60);
+    t->centerHorizontally();
 }
 
 void Player::die()
