@@ -40,7 +40,7 @@ public:
 
     void initBlock();
 
-    void hit();
+    void hit(bool mining);
     void onHitBegin();
     void onHitEnd();
 
@@ -55,7 +55,7 @@ protected:
     Type type = Type::DIRT;
     State state = State::FULL;
 
-    void advanceState();
+    void advanceState(bool mining);
 
     virtual void update(int deltaTime) override;
     int getAnimationFrame() const;

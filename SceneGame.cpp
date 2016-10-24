@@ -64,7 +64,7 @@ void SceneGame::init()
     {
         Enemy *enemy;
         //if (rand() % 2 == 0) enemy = new FlyingEnemy(); else enemy = new GroundEnemy();
-        enemy = new FlyingEnemy(1000 + i * 60);
+        enemy = new FlyingEnemy(1000 + i * 100);
         enemy->init();
         enemy->setTileMap(map);
         characters.push_back(enemy);

@@ -12,8 +12,7 @@ public:
     enum State {
         PATROL = 0,
         CHASE  = 1,
-        ATTACK_DOWN = 2,
-        ATTACK_UP = 3
+        ATTACK = 2,
     };
 
     void init() override;
