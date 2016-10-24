@@ -21,7 +21,6 @@ public:
 
     static Scene *getCurrentScene();
     static SceneGame *getCurrentSceneGame();
-    SoundManager* soundManager = NULL;
 	
 	static Game &instance()
 	{
@@ -61,11 +60,12 @@ public:
     bool getKeyUp(int key) const;
     bool getKeyDown(int key) const;
 	bool getSpecialKey(int key) const;
+    SoundManager* getSoundManager();
 
 private:
     Scene *currentScene = NULL;
     Scene *nextScene = NULL;
-    //SoundManager* soundManager = NULL;
+    SoundManager* soundManager = NULL;
 
     glm::ivec2 mousePos;
 
