@@ -60,6 +60,7 @@ public:
     bool getKeyUp(int key) const;
     bool getKeyDown(int key) const;
 	bool getSpecialKey(int key) const;
+    SoundManager* getSoundManager();
 
 private:
     Scene *currentScene = NULL;

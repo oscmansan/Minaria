@@ -409,6 +409,7 @@ void Player::beginToDie()
     dead = true;
     Text *t = Game::getCurrentSceneGame()->createText("You died", glm::ivec2(0, 200), 60);
     t->centerHorizontally();
+    Game::instance().getSoundManager()->playSound("../sounds/Wilhelm_Scream.ogg");
 }
 
 void Player::die()

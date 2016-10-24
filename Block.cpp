@@ -146,7 +146,6 @@ void Block::advanceState(bool mining)
             }
             player->onBlockDeleted(this);
         }
-
         Game::getCurrentSceneGame()->getTileMap()->delTile( getPosition() );
     }
     else
