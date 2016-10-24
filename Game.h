@@ -21,6 +21,7 @@ public:
 
     static Scene *getCurrentScene();
     static SceneGame *getCurrentSceneGame();
+    SoundManager* soundManager = NULL;
 	
 	static Game &instance()
 	{
@@ -64,7 +65,7 @@ public:
 private:
     Scene *currentScene = NULL;
     Scene *nextScene = NULL;
-    SoundManager* soundManager = NULL;
+    //SoundManager* soundManager = NULL;
 
     glm::ivec2 mousePos;
 
