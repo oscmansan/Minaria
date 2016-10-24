@@ -167,7 +167,7 @@ int Inventory::indexOf(Item *it) const
 }
 
 
-void Inventory::dropItem(int index) 
+void Inventory::dropItem(int index)
 {
 	Item *item = items[index];
     if (item)

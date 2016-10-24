@@ -131,18 +131,22 @@ void Block::advanceState(bool mining)
     if (undestroyable) return;
 
     Player *player = Game::getCurrentSceneGame()->getPlayer();
-    if (state == DEST_7 and mining)
+    if (state == DEST_7)
     {
-        Inventory *inv = player->getInventory();
-        switch (getType())
+        if (mining)
         {
-            case Block::DIRT:    inv->addItem<BlockDirt>();    break;
-            case Block::ROCK:    inv->addItem<BlockRock>();    break;
-            case Block::BEDROCK: inv->addItem<BlockBedRock>(); break;
-            case Block::WOOD:    inv->addItem<BlockWood>();    break;
-            case Block::PURPLE:    inv->addItem<BlockWood>();    break;
+            Inventory *inv = player->getInventory();
+            switch (getType())
+            {
+                case Block::DIRT:    inv->addItem<BlockDirt>();    break;
+                case Block::ROCK:    inv->addItem<BlockRock>();    break;
+                case Block::BEDROCK: inv->addItem<BlockBedRock>(); break;
+                case Block::WOOD:    inv->addItem<BlockWood>();    break;
+                case Block::PURPLE:  inv->addItem<BlockPurple>();    break;
+            }
+            player->onBlockDeleted(this);
         }
-        player->onBlockDeleted(this);
+
         Game::getCurrentSceneGame()->getTileMap()->delTile( getPosition() );
     }
     else
@@ -209,6 +213,7 @@ BlockDirt::BlockDirt(const glm::ivec2 &worldPos) : Block(worldPos)
     {
         s_texture = new Texture();
         s_texture->loadFromFile("images/dirt.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        s_texture->setMagFilter(GL_NEAREST); s_texture->setMinFilter(GL_NEAREST);
     }
     sprite->setTexture(s_texture);
 
@@ -225,6 +230,7 @@ BlockRock::BlockRock(const glm::ivec2 &worldPos) : Block(worldPos)
     {
         s_texture = new Texture();
         s_texture->loadFromFile("images/rock.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        s_texture->setMagFilter(GL_NEAREST); s_texture->setMinFilter(GL_NEAREST);
     }
     sprite->setTexture(s_texture);
 
@@ -241,6 +247,7 @@ BlockBedRock::BlockBedRock(const glm::ivec2 &worldPos) : Block(worldPos)
     {
         s_texture = new Texture();
         s_texture->loadFromFile("images/bedRock.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        s_texture->setMagFilter(GL_NEAREST); s_texture->setMinFilter(GL_NEAREST);
     }
     sprite->setTexture(s_texture);
 
@@ -256,6 +263,7 @@ BlockWood::BlockWood(const glm::ivec2 &worldPos) : Block(worldPos)
     {
         s_texture = new Texture();
         s_texture->loadFromFile("images/wood.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        s_texture->setMagFilter(GL_NEAREST); s_texture->setMinFilter(GL_NEAREST);
     }
     sprite->setTexture(s_texture);
 
@@ -271,6 +279,7 @@ BlockPurple::BlockPurple(const glm::ivec2 &worldPos) : Block(worldPos)
     {
         s_texture = new Texture();
         s_texture->loadFromFile("images/purple.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        s_texture->setMagFilter(GL_NEAREST); s_texture->setMinFilter(GL_NEAREST);
     }
     sprite->setTexture(s_texture);
 

@@ -96,6 +96,19 @@ public:
     }
 
     template <class T>
+    void drop(int amount)
+    {
+        int index = indexOf<T>();
+        if (index != -1)
+        {
+            for (int i = 0; i < amount; ++i)
+            {
+                dropItem(index);
+            }
+        }
+    }
+
+    template <class T>
     int indexOf() const
     {
         Item *it = getItem<T>();

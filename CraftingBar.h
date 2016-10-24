@@ -22,7 +22,8 @@ public:
 
 private:
     const int CraftingSlotSize = 32;
-    const glm::ivec2 OverlaySize = glm::ivec2(64, 32);
+    const glm::ivec2 OverlaySize = glm::ivec2(96, 50);
+    glm::ivec2 OverlayPos;
 
     Text *craftingText = NULL;
 
@@ -31,6 +32,7 @@ private:
     Sprite *spriteSword =  NULL;
     Texture *swordOverlayTexture = NULL;
     Sprite *spriteSwordOverlay =  NULL;
+    Sprite *spriteSlotSword =  NULL;
 
 
     glm::ivec2 bombPosition;
@@ -38,9 +40,9 @@ private:
     Sprite *spriteBomb =  NULL;
     Texture *bombOverlayTexture = NULL;
     Sprite *spriteBombOverlay =  NULL;
+    Sprite *spriteSlotBomb = NULL;
 
     Texture *textureSlot = NULL;
-    Sprite *spriteSlot =  NULL;
 };
 
 #endif // CRAFTINGBAR_H
