@@ -15,6 +15,7 @@ Character::Character()
 
 Character::~Character()
 {
+    delete sprite;
 }
 
 void Character::move(int deltaTime)

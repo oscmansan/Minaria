@@ -12,7 +12,7 @@ Texture *BlockRock::s_texture    = NULL;
 Texture *BlockBedRock::s_texture = NULL;
 Texture *BlockWood::s_texture    = NULL;
 
-Block::Block()
+Block::Block() : Tile(), Item()
 {
     initBlock();
 }
@@ -23,7 +23,7 @@ Block::~Block()
 
 void Block::initBlock()
 {
-    delete sprite;
+    if (sprite) delete sprite;
 
     int tileSize = Game::getCurrentSceneGame()->getTileMap()->getTileSize();
     sprite = Sprite::createSprite(glm::ivec2(tileSize), glm::vec2(1.0f / 8.0f, 1.0f), Tile::defaultTexture, program);

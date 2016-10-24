@@ -1,4 +1,7 @@
 #include <SOIL.h>
+
+#include <iostream>
+
 #include "Texture.h"
 
 
@@ -10,38 +13,46 @@ Texture::Texture()
 	wrapS = GL_REPEAT;
 	wrapT = GL_REPEAT;
 	minFilter = GL_LINEAR_MIPMAP_LINEAR;
-	magFilter = GL_LINEAR_MIPMAP_LINEAR;
+    magFilter = GL_LINEAR_MIPMAP_LINEAR;
 }
 
+Texture::~Texture()
+{
+    if (texId != 0) free();
+}
 
 bool Texture::loadFromFile(const string &filename, PixelFormat format)
 {
+
 	unsigned char *image = NULL;
 	
 	switch(format)
 	{
-	case TEXTURE_PIXEL_FORMAT_RGB:
-		image = SOIL_load_image(filename.c_str(), &widthTex, &heightTex, 0, SOIL_LOAD_RGB);
-		break;
-	case TEXTURE_PIXEL_FORMAT_RGBA:
-		image = SOIL_load_image(filename.c_str(), &widthTex, &heightTex, 0, SOIL_LOAD_RGBA);
-		break;
+        case TEXTURE_PIXEL_FORMAT_RGB:
+            image = SOIL_load_image(filename.c_str(), &widthTex, &heightTex, 0, SOIL_LOAD_RGB);
+            break;
+        case TEXTURE_PIXEL_FORMAT_RGBA:
+            image = SOIL_load_image(filename.c_str(), &widthTex, &heightTex, 0, SOIL_LOAD_RGBA);
+            break;
 	}
-	if(image == NULL)
-		return false;
+
+    if (image == NULL) { return false; }
+
+    if (texId != 0) free();
 	glGenTextures(1, &texId);
 	glBindTexture(GL_TEXTURE_2D, texId);
 	switch(format)
 	{
-	case TEXTURE_PIXEL_FORMAT_RGB:
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, widthTex, heightTex, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
-		break;
-	case TEXTURE_PIXEL_FORMAT_RGBA:
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, widthTex, heightTex, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
-		break;
+        case TEXTURE_PIXEL_FORMAT_RGB:
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, widthTex, heightTex, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+            break;
+        case TEXTURE_PIXEL_FORMAT_RGBA:
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, widthTex, heightTex, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+            break;
 	}
-	glGenerateMipmap(GL_TEXTURE_2D);
-	
+    glGenerateMipmap(GL_TEXTURE_2D);
+
+    SOIL_free_image_data(image);
 	return true;
 }
 
@@ -107,7 +118,13 @@ void Texture::use() const
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wrapS);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wrapT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, minFilter);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, magFilter);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, magFilter);
+}
+
+void Texture::free()
+{
+    glDeleteTextures(1, &texId);
+    texId = 0;
 }
 
 

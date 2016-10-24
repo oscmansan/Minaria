@@ -10,11 +10,28 @@
 Inventory::Inventory()
 {
     position = glm::ivec2(5, 5);
+    craftingBar = new CraftingBar();
 }
 
 
 Inventory::~Inventory()
 {
+    delete spriteBg;
+    delete spriteSlot;
+    delete textureBg;
+    delete textureSlot;
+
+    for (Sprite* sp : itemSprites)
+    {
+        if (sp) delete sp;
+    }
+
+    for (Item *it : items)
+    {
+        if (it) delete it;
+    }
+
+    // Dont delete craftingBar
 }
 
 
@@ -22,7 +39,7 @@ void Inventory::init()
 {
     isScreen = true;
     Game::getCurrentSceneGame()->addSceneNode(this);
-    craftingBar.init();
+    craftingBar->init();
 
     program = Game::getCurrentSceneGame()->getShaderProgram();
 

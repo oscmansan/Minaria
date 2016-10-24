@@ -11,7 +11,8 @@ Background::Background(ShaderProgram &program)
     file[3] = "images/layer_04.png";
     file[4] = "images/layer_05.png";
 
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 5; ++i)
+    {
         texture[i].loadFromFile(file[i], TEXTURE_PIXEL_FORMAT_RGBA);
         texture[i].setWrapS(GL_REPEAT);
         texture[i].setWrapT(GL_REPEAT);
@@ -36,6 +37,11 @@ Background::Background(ShaderProgram &program)
     glBufferData(GL_ARRAY_BUFFER, 24 * sizeof(float), vertices, GL_STATIC_DRAW);
     posLocation = program.bindVertexAttribute("position", 2, 4*sizeof(float), 0);
     texCoordLocation = program.bindVertexAttribute("texCoord", 2, 4*sizeof(float), (void *)(2*sizeof(float)));
+}
+
+Background::~Background()
+{
+    free();
 }
 
 void Background::update(int deltaTime)

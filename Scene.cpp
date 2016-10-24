@@ -16,6 +16,13 @@ Scene::Scene()
 
 Scene::~Scene()
 {
+    for (ISceneNode *sn : sceneNodes)
+    {
+        if (sn)
+        {
+            delete sn;
+        }
+    }
 }
 
 int Scene::getCurrentTime()

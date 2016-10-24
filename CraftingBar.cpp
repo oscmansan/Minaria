@@ -14,6 +14,14 @@ CraftingBar::CraftingBar()
     isScreen = true;
 }
 
+CraftingBar::~CraftingBar()
+{
+    delete swordTexture;
+    delete bombTexture;
+    delete spriteSword;
+    delete spriteBomb;
+}
+
 void CraftingBar::init()
 {
     ShaderProgram *program = Game::getCurrentSceneGame()->getShaderProgram();

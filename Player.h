@@ -60,7 +60,7 @@ private:
     const int invulnerabilityPeriod = 2000;
     int invulnerabilityTimer = invulnerabilityPeriod;
 
-    Inventory inventory;
+    Inventory *inventory = NULL;
     Item *selectedItem = NULL;
     int selectedItemIndex = 0;
 

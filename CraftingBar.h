@@ -14,6 +14,7 @@ class CraftingBar : public ISceneNode
 
 public:
     CraftingBar();
+    virtual ~CraftingBar();
 
     virtual void init() override;
     virtual void update(int deltaTime) override;

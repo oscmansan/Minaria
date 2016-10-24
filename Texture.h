@@ -21,6 +21,7 @@ class Texture
 
 public:
 	Texture();
+    virtual ~Texture();
 
 	bool loadFromFile(const string &filename, PixelFormat format);
 	void loadFromGlyphBuffer(unsigned char *buffer, int width, int height);
@@ -35,13 +36,14 @@ public:
 	void setMagFilter(GLint value);
 	
 	void use() const;
+    void free();
 	
 	int width() const { return widthTex; }
 	int height() const { return heightTex; }
 
 private:
 	int widthTex, heightTex;
-	GLuint texId;
+    GLuint texId = 0;
 	GLint wrapS, wrapT, minFilter, magFilter;
 
 };

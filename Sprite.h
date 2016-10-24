@@ -22,6 +22,7 @@ public:
 	static Sprite *createSprite(const glm::ivec2 &quadSize, const glm::vec2 &sizeInSpritesheet, Texture *spritesheet, ShaderProgram *program);
 
 	Sprite(const glm::ivec2 &quadSize, const glm::vec2 &sizeInSpritesheet, Texture *spritesheet, ShaderProgram *program);
+    virtual ~Sprite();
 
 	void update(int deltaTime);
 	void render() const;

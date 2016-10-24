@@ -6,7 +6,9 @@ Enemy::Enemy()
 {
 }
 
-Enemy::~Enemy() {}
+Enemy::~Enemy()
+{
+}
 
 void Enemy::init()
 {

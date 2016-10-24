@@ -28,7 +28,7 @@ public:
 
 	TileMap(glm::ivec2 size, ShaderProgram &program);
 	TileMap(const string &levelFile, ShaderProgram &program);
-	~TileMap();
+    virtual ~TileMap();
 
 	void render();
     void update(int deltaTime);
@@ -55,6 +55,7 @@ public:
         {
             added = new T( glm::ivec2(posTile.x, posTile.y) * tileSize );
             added->isBg = this->isBg;
+            if (map[idx]) { delete map[idx]; }
             map[idx] = added;
         }
         return added;
@@ -65,19 +66,15 @@ public:
     Block* getBlock(const glm::ivec2 &posWorld) const;
     int getSurfaceLevel(int x);
 
-private:
+public:
     glm::ivec2 worldPosToTilePos(const glm::ivec2 &posWorld) const;
     int tilePosToIndex(const glm::ivec2 &posTile) const;
     int worldPosToIndex(const glm::ivec2 &posWorld) const;
 
 private:
-    GLuint vao;
-    GLuint vbo;
-	GLint posLocation, texCoordLocation;
 	ShaderProgram *program;
-	glm::ivec2 mapSize, tilesheetSize;
+    glm::ivec2 mapSize;
     int tileSize;
-	Texture tilesheet;
 	glm::vec2 tileTexSize;
 
     std::vector<Tile*> map;

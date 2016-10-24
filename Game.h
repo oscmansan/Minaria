@@ -16,7 +16,6 @@ using namespace std;
 class SceneGame;
 class Game
 {
-
 public:
 	Game() {}
 
@@ -63,10 +62,8 @@ public:
 	bool getSpecialKey(int key) const;
 
 private:
-    SceneMenu *sceneMenu = NULL;
-    SceneGame *sceneGame = NULL;
-    SceneCredits *sceneCredits = NULL;
     Scene *currentScene = NULL;
+    Scene *nextScene = NULL;
     SoundManager* soundManager = NULL;
 
     glm::ivec2 mousePos;

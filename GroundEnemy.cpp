@@ -14,7 +14,9 @@ GroundEnemy::GroundEnemy(int posx) {
     origx = posx;
 }
 
-GroundEnemy::~GroundEnemy() {}
+GroundEnemy::~GroundEnemy()
+{
+}
 
 void GroundEnemy::init()
 {

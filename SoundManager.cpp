@@ -2,7 +2,8 @@
 
 SoundManager::SoundManager() {}
 
-void SoundManager::playSound(string file) {
+void SoundManager::playSound(string file)
+{
     // Load a sound buffer from a wav file
     buffer = new sf::SoundBuffer();
     if (!buffer->loadFromFile(file))
@@ -12,7 +13,8 @@ void SoundManager::playSound(string file) {
     sound->play();
 }
 
-void SoundManager::playMusic(string file) {
+void SoundManager::playMusic(string file)
+{
     // Load an ogg music file
     music = new sf::Music();
     if (!music->openFromFile(file))

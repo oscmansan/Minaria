@@ -2,7 +2,7 @@
 #include <GL/gl.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include "Sprite.h"
-
+#include <iostream>
 
 Sprite *Sprite::createSprite(const glm::ivec2 &quadSize, const glm::vec2 &sizeInSpritesheet, Texture *spritesheet, ShaderProgram *program)
 {
@@ -30,7 +30,12 @@ Sprite::Sprite(const glm::ivec2 &quadSize, const glm::vec2 &sizeInSpritesheet, T
 	texture = spritesheet;
 	shaderProgram = program;
 	currentAnimation = -1;
-	size = quadSize;
+    size = quadSize;
+}
+
+Sprite::~Sprite()
+{
+    free();
 }
 
 void Sprite::update(int deltaTime)
@@ -69,6 +74,7 @@ void Sprite::render() const
 void Sprite::free()
 {
 	glDeleteBuffers(1, &vbo);
+    glDeleteVertexArrays(1, &vao);
 }
 
 void Sprite::setNumberAnimations(int nAnimations)

@@ -7,7 +7,7 @@ class Background
 {
 public:
     Background(ShaderProgram &program);
-    ~Background();
+    virtual ~Background();
 
     void update(int deltaTime);
     void render();

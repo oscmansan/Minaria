@@ -7,8 +7,8 @@
 
 void Game::init()
 {
-	bPlay = true;
-    glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
+    bPlay = true;
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
     gotoSceneGame();
     soundManager = new SoundManager();
@@ -17,6 +17,14 @@ void Game::init()
 
 bool Game::update(int deltaTime)
 {
+    if (nextScene) // Change scene
+    {
+        if (currentScene) delete currentScene;
+        currentScene = nextScene;
+        currentScene->init();
+        nextScene = NULL;
+    }
+
     currentScene->update(deltaTime);
     for (int i = 0; i < 256; ++i) { keysLast[i] = keys[i]; }
     for (int i = 0; i < 256; ++i) { specialKeysLast[i] = specialKeys[i]; }
@@ -32,7 +40,7 @@ Scene *Game::getCurrentScene()
 
 SceneGame *Game::getCurrentSceneGame()
 {
-    return Game::instance().sceneGame;
+    return dynamic_cast<SceneGame*>(Game::instance().currentScene);
 }
 
 int Game::getScreenWidth()
@@ -47,32 +55,27 @@ int Game::getScreenHeight()
 
 void Game::render()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    currentScene->_render();
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    if (currentScene)
+    {
+        currentScene->_render();
+    }
 }
 
 void Game::gotoSceneMenu()
 {
-    if (currentScene) delete currentScene;
-    sceneMenu = new SceneMenu();
-    currentScene = sceneMenu;
-    currentScene->init();
+    nextScene = new SceneMenu();
 }
 
 void Game::gotoSceneGame()
 {
-    if (currentScene) delete currentScene;
-    sceneGame = new SceneGame();
-    currentScene = sceneGame;
-    currentScene->init();
+    nextScene = new SceneGame();
 }
 
 void Game::gotoSceneCredits()
 {
-    if (currentScene) delete currentScene;
-    sceneCredits = new SceneCredits();
-    currentScene = sceneCredits;
-    currentScene->init();
+    nextScene = new SceneCredits();
 }
 
 void Game::keyPressed(int key)

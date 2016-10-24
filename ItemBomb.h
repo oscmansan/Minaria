@@ -7,6 +7,9 @@ class ItemBomb: public Item
 {
 public:
     ItemBomb();
+    virtual ~ItemBomb();
 };
+
+
 
 #endif // ITEMBOMB_H

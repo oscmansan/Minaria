@@ -14,7 +14,10 @@
 #include "ItemSword.h"
 #include "ItemPickaxe.h"
 
-Player::Player() {}
+Player::Player()
+{
+    inventory = new Inventory();
+}
 
 Player::~Player()
 {
@@ -52,7 +55,7 @@ void Player::init()
     // Player
     spritesheet.loadFromFile("images/miner.png", TEXTURE_PIXEL_FORMAT_RGBA);
 
-    sprite = Sprite::createSprite(glm::ivec2(36, 48), glm::vec2(0.081f, 0.24f), &spritesheet, program);
+    sprite = Sprite::createSprite(glm::ivec2(36, 46), glm::vec2(0.081f, 0.24f), &spritesheet, program);
     sprite->setNumberAnimations(DEAD+1);
 
 	sprite->setAnimationSpeed(STAND_LEFT, 8);
@@ -106,14 +109,14 @@ void Player::init()
     sprite->addKeyframe(DEAD, glm::vec2(0.575f, 0.05f));
     //
 
-    inventory.init();
+    inventory->init();
 
     int x = 700;
     int surfaceLevel = Game::getCurrentSceneGame()->getTileMap()->getSurfaceLevel(x);
     int y = surfaceLevel - 3 * sprite->getSize().y;
     setPosition(glm::ivec2(x, y));
 
-    for (int i = 0; i < 99; ++i) inventory.addItem<ItemBomb>();
+    for (int i = 0; i < 99; ++i) inventory->addItem<ItemBomb>();
 }
 
 void Player::update(int deltaTime)
@@ -171,7 +174,7 @@ int Player::getSelectedItemIndex() const
 
 Inventory *Player::getInventory()
 {
-    return &inventory;
+    return inventory;
 }
 
 void Player::move(int deltaTime)
@@ -200,7 +203,7 @@ void Player::move(int deltaTime)
 
 void Player::handleItemSelection()
 {
-    for (int i = 0; i < inventory.getNumSlots(); ++i)
+    for (int i = 0; i < inventory->getNumSlots(); ++i)
     {
         // Key selection
         if (Game::instance().getKey( char('1' + i) ))
@@ -211,7 +214,7 @@ void Player::handleItemSelection()
         else if (Game::instance().getMouseLeftButtonDown())  // Mouse selection
         {
             glm::ivec2 mousePosScreen = Game::instance().getMousePosScreen();
-            Rect slotRect = inventory.getSlotScreenRect(i);
+            Rect slotRect = inventory->getSlotScreenRect(i);
             if (slotRect.contains(mousePosScreen))
             {
                 selectedItemIndex = i;
@@ -225,9 +228,9 @@ void Player::handleItemSelection()
     if (Game::instance().getKeyDown('e')) { ++selectedItemIndex; }
 
     // Limit itemIndex and update selectedItem
-    selectedItemIndex = min(selectedItemIndex, inventory.getNumSlots()-1);
+    selectedItemIndex = min(selectedItemIndex, inventory->getNumSlots()-1);
     selectedItemIndex = max(selectedItemIndex, 0);
-    selectedItem = inventory.getItem(selectedItemIndex);
+    selectedItem = inventory->getItem(selectedItemIndex);
 }
 
 void Player::handleMouseActions()
@@ -313,23 +316,26 @@ void Player::handleMouseActions()
             if (Game::instance().getMouseLeftButton())
             {
                 timeSinceLastItemUsed = 0;
-                if (glm::distance(glm::vec2(mousePos), glm::vec2(playerCenter)) < tileSize * 2)
-                if (tmap->getBlock(mousePos) == NULL) // Can it put a block where the mouse is?
+                if (glm::distance(glm::vec2(mousePos), glm::vec2(playerCenter)) < tileSize * 3)
                 {
-                    Block *b = dynamic_cast<Block*>(selectedItem);
-                    // BLOCK ADDING
-                    int amount = b->getAmount();
-                    if (amount > 0)
+                    // Can it put a block where the mouse is?
+                    if (tmap->getBlock(mousePos) == NULL && Game::getCurrentSceneGame()->whosThereTile(mousePos).size() == 0)
                     {
-                        Tile *addedBlock = NULL;
-                        if (b->getType() == Block::DIRT)         { addedBlock = tmap->addTile<BlockDirt>(mousePos); }
-                        else if (b->getType() == Block::ROCK)    { addedBlock = tmap->addTile<BlockRock>(mousePos); }
-                        else if (b->getType() == Block::BEDROCK) { addedBlock = tmap->addTile<BlockBedRock>(mousePos); }
-                        else if (b->getType() == Block::WOOD)    { addedBlock = tmap->addTile<BlockWood>(mousePos); }
-
-                        if (addedBlock)
+                        Block *b = dynamic_cast<Block*>(selectedItem);
+                        // BLOCK ADDING
+                        int amount = b->getAmount();
+                        if (amount > 0)
                         {
-                            inventory.dropItem(selectedItemIndex);
+                            Tile *addedBlock = NULL;
+                            if (b->getType() == Block::DIRT)         { addedBlock = tmap->addTile<BlockDirt>(mousePos); }
+                            else if (b->getType() == Block::ROCK)    { addedBlock = tmap->addTile<BlockRock>(mousePos); }
+                            else if (b->getType() == Block::BEDROCK) { addedBlock = tmap->addTile<BlockBedRock>(mousePos); }
+                            else if (b->getType() == Block::WOOD)    { addedBlock = tmap->addTile<BlockWood>(mousePos); }
+
+                            if (addedBlock)
+                            {
+                                inventory->dropItem(selectedItemIndex);
+                            }
                         }
                     }
                 }
@@ -351,7 +357,7 @@ void Player::handleMouseActions()
                 float bombSpeed = 0.2f * glm::min(50.0f, glm::length(glm::vec2(mousePos - getPosition())));
                 b->setVelocity( dir * bombSpeed );
 
-                inventory.dropItem(selectedItemIndex);
+                inventory->dropItem(selectedItemIndex);
             }
         }
     }

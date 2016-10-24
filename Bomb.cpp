@@ -13,6 +13,7 @@ Bomb::Bomb()
         Bomb::bombTexture = new Texture();
         Bomb::bombTexture->loadFromFile("images/bomb.png", TEXTURE_PIXEL_FORMAT_RGBA);
         Bomb::bombTexture->setMinFilter(GL_NEAREST);
+        Bomb::bombTexture->setMagFilter(GL_NEAREST);
     }
 
     ShaderProgram *program = Game::getCurrentSceneGame()->getShaderProgram();
@@ -154,7 +155,7 @@ void Bomb::explode()
                 Player *p = dynamic_cast<Player*>(character);
                 if (p)
                 {
-                    p->takeDamage(damage);
+                    p->takeDamage(damage * 100);
                 }
             }
         }

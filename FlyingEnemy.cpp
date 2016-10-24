@@ -11,11 +11,14 @@
 #include "Game.h"
 #include "Bomb.h"
 
-FlyingEnemy::FlyingEnemy(int posx) {
+FlyingEnemy::FlyingEnemy(int posx)
+{
     origx = posx;
 }
 
-FlyingEnemy::~FlyingEnemy() {}
+FlyingEnemy::~FlyingEnemy()
+{
+}
 
 void FlyingEnemy::init()
 {

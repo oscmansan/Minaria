@@ -22,10 +22,10 @@ class Inventory : public ISceneNode
 {
 public:
 	Inventory();
-	~Inventory();
+    virtual ~Inventory();
 
 private:
-    CraftingBar craftingBar;
+    CraftingBar *craftingBar = NULL;
 
     const int numSlots = 7;
     vector<Item*> items = vector<Item*>(numSlots, NULL);

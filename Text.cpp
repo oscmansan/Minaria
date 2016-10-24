@@ -17,6 +17,10 @@ Text::Text()
     }
 }
 
+Text::~Text()
+{
+}
+
 void Text::render(ShaderProgram &program)
 {
     if (letterSprites.size() <= 0 || !visible) return;

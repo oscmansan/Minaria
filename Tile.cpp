@@ -27,6 +27,7 @@ Tile::Tile(const glm::ivec2 &worldPos) : Tile()
 
 Tile::~Tile()
 {
+    delete sprite;
 }
 
 void Tile::render()

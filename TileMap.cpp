@@ -17,7 +17,7 @@ using namespace std;
 
 TileMap *TileMap::createTileMap(glm::ivec2 size, ShaderProgram &program)
 {
-	TileMap *map = new TileMap(size, program);
+    TileMap *map = new TileMap(size, program);
 	return map;
 }
 
@@ -26,32 +26,22 @@ TileMap::TileMap(glm::ivec2 size, ShaderProgram &program)
 	this->program = &program;
 
 	// Specify sizes
-	mapSize = size;
     tileSize = 24;
 
-	// Tilesheet related
-	const string tilesheetFile = "images/blocks.png";  // Tilesheet location
-	tilesheet.loadFromFile(tilesheetFile, TEXTURE_PIXEL_FORMAT_RGBA);
-	tilesheet.setWrapS(GL_CLAMP_TO_EDGE);
-	tilesheet.setWrapT(GL_CLAMP_TO_EDGE);
-	tilesheet.setMinFilter(GL_NEAREST);
-	tilesheet.setMagFilter(GL_NEAREST);
-	tilesheetSize = glm::ivec2(2, 2); // Number of tiles in the tilesheet
-	tileTexSize   = glm::vec2(1.f / tilesheetSize.x, 1.f / tilesheetSize.y);
-	//
-
+    mapSize = size;
     map = std::vector<Tile*>(mapSize.x * mapSize.y, NULL);
-	for (int j = 0; j < mapSize.y; j++)
-	{
-		for (int i = 0; i < mapSize.x; i++)
-		{
-            map[j * mapSize.x + i] = NULL;
-		}
-    }
 }
 
 TileMap::~TileMap()
 {
+    for (int i = 0; i < map.size(); ++i)
+    {
+        if (map[i] != NULL)
+        {
+            delete map[i];
+        }
+    }
+    free();
 }
 
 
@@ -102,7 +92,6 @@ void TileMap::update(int deltaTime)
 
 void TileMap::free()
 {
-	glDeleteBuffers(1, &vbo);
 }
 
 glm::ivec2 TileMap::getTotalSizeTiles() const

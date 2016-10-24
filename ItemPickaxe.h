@@ -7,6 +7,7 @@ class ItemPickaxe : public Item
 {
 public:
     ItemPickaxe();
+    virtual ~ItemPickaxe();
 };
 
 #endif // ITEMPICKAXE_H

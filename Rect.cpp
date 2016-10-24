@@ -32,13 +32,18 @@ glm::ivec2 Rect::getSize() const
     return glm::ivec2(width, height);
 }
 
+bool Rect::_intersects(const Rect &r) const
+{
+    return
+        r.contains(glm::ivec2(x, y)) ||
+        r.contains(glm::ivec2(x, y + height)) ||
+        r.contains(glm::ivec2(x + width, y)) ||
+        r.contains(glm::ivec2(x + width, y + height));
+}
+
 bool Rect::intersects(const Rect &r) const
 {
-	return 
-		r.contains(glm::ivec2(x, y)) ||
-		r.contains(glm::ivec2(x, y + height)) ||
-		r.contains(glm::ivec2(x + width, y)) ||
-		r.contains(glm::ivec2(x + width, y + height));
+    return _intersects(r) || r._intersects(*this);
 }
 
 bool Rect::contains(const glm::ivec2 &point) const

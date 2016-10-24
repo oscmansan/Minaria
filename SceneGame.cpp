@@ -12,19 +12,14 @@
 
 SceneGame::SceneGame()
 {
-    map = NULL;
-    player = NULL;
-    camera = NULL;
+
 }
 
 SceneGame::~SceneGame()
 {
-    if(map != NULL)
-        delete map;
-    if(mapBg != NULL)
-        delete mapBg;
-    if (player != NULL)
-        delete player;
+    if (map) delete map;
+    if (mapBg) delete mapBg;
+    if (background) delete background;
 }
 
 Player *SceneGame::getPlayer() const
@@ -116,6 +111,23 @@ std::list<Character*> SceneGame::whosThere(const glm::ivec2 &pos)
     for (Character *c : characters)
     {
         if (c->getBoundingBox().contains(pos))
+        {
+            result.push_back(c);
+        }
+    }
+    return result;
+}
+
+std::list<Character*> SceneGame::whosThereTile(const glm::ivec2 &posWorld)
+{
+    int tileSize = map->getTileSize();
+    Rect tileBoundingRect = Rect(map->worldPosToTilePos(posWorld).x * tileSize,
+                                 map->worldPosToTilePos(posWorld).y * tileSize,
+                                 tileSize, tileSize);
+    std::list<Character*> result;
+    for (Character *c : characters)
+    {
+        if (c->getBoundingBox().intersects(tileBoundingRect))
         {
             result.push_back(c);
         }

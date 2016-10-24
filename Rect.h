@@ -6,6 +6,9 @@
 
 class Rect
 {
+private:
+    bool _intersects(const Rect &r) const;
+
 public:
 	Rect();
 	Rect(int x, int y, int width, int height);
@@ -17,7 +20,7 @@ public:
     glm::ivec2 getMax() const;
     glm::ivec2 getSize() const;
 
-	bool intersects(const Rect &r) const;
+    bool intersects(const Rect &r) const;
 	bool contains(const glm::ivec2 &point) const;
 
 	std::string toString() const;

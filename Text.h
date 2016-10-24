@@ -13,6 +13,8 @@ class Text : public ISceneNode
 {
 public:
     Text();
+    virtual ~Text();
+
     std::vector<Sprite*> letterSprites;
 
     void render(ShaderProgram &program) override;

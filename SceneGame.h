@@ -26,7 +26,7 @@ class SceneGame : public Scene
 
 public:
     SceneGame();
-    ~SceneGame();
+    virtual ~SceneGame();
 
     void init() override;
     void update(int deltaTime) override;
@@ -38,6 +38,7 @@ public:
     const std::list<Character*>& getCharacters() const;
 
     std::list<Character*> whosThere(const glm::ivec2 &pos);
+    std::list<Character*> whosThereTile(const glm::ivec2 &posTileWorld);
 
     void removeCharacter(Character *character);
 
