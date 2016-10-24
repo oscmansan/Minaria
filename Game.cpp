@@ -12,7 +12,7 @@ void Game::init()
 
     gotoSceneGame();
     soundManager = new SoundManager();
-    soundManager->playMusic("sounds/hack_the_forest.ogg");
+    soundManager->playMusic("../sounds/hack_the_forest.ogg");
 }
 
 bool Game::update(int deltaTime)

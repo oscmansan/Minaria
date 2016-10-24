@@ -47,7 +47,7 @@ void FlyingEnemy::init()
     sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.72f, 0.5f));
 
     int surfaceLevel = Game::getCurrentSceneGame()->getTileMap()->getSurfaceLevel(origx);
-    int origy = surfaceLevel - 200;
+    int origy = surfaceLevel - 7 * sprite->getSize().y;
     setPosition(glm::ivec2(origx, origy));
 
     velocity = 3.f * glm::vec2(rand() % 2 - 1, rand() % 2 - 1);
@@ -67,7 +67,7 @@ void FlyingEnemy::update(int deltaTime)
             //state = CHASE;
             if (bombTimer == 0) {
                 Bomb *b = new Bomb();
-                b->setPosition(getPosition());
+                b->setPosition(getPosition()+glm::ivec2(0,sprite->getSize().y));
                 glm::vec2 dir = glm::normalize(glm::vec2(player->getPosition() - getPosition()));
                 float bombSpeed = 0.1f * glm::min(50.0f, glm::length(glm::vec2(player->getPosition() - getPosition())));
                 b->setVelocity(dir * bombSpeed);
