@@ -104,7 +104,7 @@ void Block::update(int deltaTime)
         timeSinceLastHit += deltaTime;
         if (timeSinceLastHit > hitSpeed)
         {
-            advanceState();
+            advanceState(true);
             timeSinceLastHit = 0;
         }
     }
@@ -125,12 +125,12 @@ Block::Type Block::getType() const
     return type;
 }
 
-void Block::advanceState()
+void Block::advanceState(bool mining)
 {
     if (undestroyable) return;
 
     Player *player = Game::getCurrentSceneGame()->getPlayer();
-    if (state == DEST_7)
+    if (state == DEST_7 and mining)
     {
         Inventory *inv = player->getInventory();
         switch (getType())
@@ -192,9 +192,9 @@ bool Block::hasForegroundBlockAtDistance(int d) const
            foreground->getTileAt(pos + d * glm::ivec2( step.x,  step.y)) != NULL;
 }
 
-void Block::hit()
+void Block::hit(bool mining)
 {
-    advanceState();
+    advanceState(mining);
 }
 
 

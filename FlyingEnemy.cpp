@@ -24,7 +24,7 @@ void FlyingEnemy::init()
     ShaderProgram *program = Game::getCurrentScene()->getShaderProgram();
 
     spritesheet.loadFromFile("images/bat.png", TEXTURE_PIXEL_FORMAT_RGBA);
-    sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.215f, 0.3f), &spritesheet, program);
+    sprite = Sprite::createSprite(glm::ivec2(32, 32), glm::vec2(0.25f, 1/3.f), &spritesheet, program);
     spritesheet.setWrapS(GL_CLAMP);
     sprite->setNumberAnimations(5);
 
@@ -42,9 +42,9 @@ void FlyingEnemy::init()
 
     sprite->setAnimationSpeed(MOVE_RIGHT, 8);
     sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.00f, 1/3.f));
-    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.23f, 1/3.f));
-    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.48f, 1/3.f));
-    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.72f, 1/3.f));
+    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.25f, 1/3.f));
+    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.5f, 1/3.f));
+    sprite->addKeyframe(MOVE_RIGHT, glm::vec2(0.75f, 1/3.f));
 
     sprite->setAnimationSpeed(DEAD, 8);
     sprite->addKeyframe(DEAD, glm::vec2(0.f, 2/3.f));

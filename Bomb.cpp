@@ -125,7 +125,7 @@ void Bomb::explode()
                 {
                     for (int i = 0; i < -deltaDistance * 4; ++i)
                     {
-                        b->hit();
+                        b->hit(false);
                     }
                 }
             }
