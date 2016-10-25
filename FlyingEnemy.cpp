@@ -9,7 +9,7 @@
 #include "TileMap.h"
 #include "SceneGame.h"
 #include "Game.h"
-#include "Bomb.h"
+#include "Projectile.h"
 
 FlyingEnemy::FlyingEnemy(int posx)
 {
@@ -58,6 +58,7 @@ void FlyingEnemy::init()
 
     velocity = 3.f * glm::vec2(rand() % 2 - 1, rand() % 2 - 1);
     state = PATROL;
+    bombTimer = rand() % 3000;
 }
 
 void FlyingEnemy::update(int deltaTime)
@@ -82,12 +83,12 @@ void FlyingEnemy::update(int deltaTime)
             state = PATROL;
         break;
     case ATTACK:
-        Bomb *b = new Bomb();
-        b->setPosition(getPosition()+glm::ivec2(0,sprite->getSize().y));
+        Projectile *p = new Projectile();
+        p->setPosition(getPosition());
         glm::vec2 dir = glm::normalize(glm::vec2(player->getPosition() - getPosition()));
-        float bombSpeed = 0.1f * glm::min(50.0f, glm::length(glm::vec2(player->getPosition() - getPosition())));
-        b->setVelocity(dir * bombSpeed);
-        bombTimer = 5000;
+        float speed = 0.1f * glm::min(50.0f, glm::length(glm::vec2(player->getPosition() - getPosition())));
+        p->setVelocity(dir * speed);
+        bombTimer = rand() % 3000 + 2000;
         state = PATROL;
         break;
     }
