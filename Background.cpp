@@ -4,14 +4,15 @@ Background::Background(ShaderProgram &program)
 {
     this->program = &program;
 
-    string file[5];
+    string file[6];
     file[0] = "images/layer_01.png";
-    file[1] = "images/layer_02.png";
-    file[2] = "images/layer_03.png";
-    file[3] = "images/layer_04.png";
-    file[4] = "images/layer_05.png";
+    file[1] = "images/parallax1.png";
+    file[2] = "images/parallax3.png";
+    file[3] = "images/parallax4.png";
+    file[4] = "images/parallax5.png";
+    file[5] = "images/parallax8.png";
 
-    for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < 6; ++i)
     {
         texture[i].loadFromFile(file[i], TEXTURE_PIXEL_FORMAT_RGBA);
         texture[i].setWrapS(GL_REPEAT);
@@ -24,10 +25,10 @@ Background::Background(ShaderProgram &program)
     float width = Game::getScreenWidth();
 
     float vertices[24] = {0.f, 0.f, 0.f, 0.f,
-                          width, 0.f, 1.f, 0.f,
-                          width, height, 1.f, 1.f,
+                          width, 0.f, 0.5f, 0.f,
+                          width, height, 0.5f, 1.f,
                           0.f, 0.f, 0.f, 0.f,
-                          width, height, 1.f, 1.f,
+                          width, height, 0.5f, 1.f,
                           0.f, height, 0.f, 1.f};
 
     glGenVertexArrays(1, &vao);
@@ -50,11 +51,12 @@ void Background::update(int deltaTime)
     glm::vec2 v = player->getVelocity();
 
     // Parallax
-    offset[0] += v.x/Game::getScreenWidth()/25;
-    offset[1] += v.x/Game::getScreenWidth()/20;
-    offset[2] += v.x/Game::getScreenWidth()/15;
-    offset[3] += v.x/Game::getScreenWidth()/10;
-    offset[4] += v.x/Game::getScreenWidth()/5;
+    offset[0] += v.x/Game::getScreenWidth()/30;
+    offset[1] += v.x/Game::getScreenWidth()/25;
+    offset[2] += v.x/Game::getScreenWidth()/20;
+    offset[3] += v.x/Game::getScreenWidth()/15;
+    offset[4] += v.x/Game::getScreenWidth()/10;
+    offset[5] += v.x/Game::getScreenWidth()/5;
 }
 
 void Background::render()
@@ -62,10 +64,10 @@ void Background::render()
     glBindVertexArray(vao);
     glEnableVertexAttribArray(posLocation);
     glEnableVertexAttribArray(texCoordLocation);
-    for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < 6; ++i)
     {
         program->setUniform4f("tint", 1, 1, 1, 0);
-        program->setUniform2f("texCoordDispl", offset[i], 0.4f);
+        program->setUniform2f("texCoordDispl", offset[i], 0.f);
         texture[i].use();
         glDrawArrays(GL_TRIANGLES, 0, 6);
     }

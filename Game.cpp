@@ -11,8 +11,6 @@ void Game::init()
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
     gotoSceneGame();
-    soundManager = new SoundManager();
-    soundManager->playMusic("../sounds/hack_the_forest.ogg");
 }
 
 bool Game::update(int deltaTime)
@@ -174,11 +172,6 @@ bool Game::getSpecialKey(int key) const
 {
 	return specialKeys[key];
 }
-
-SoundManager* Game::getSoundManager() {
-    return soundManager;
-}
-
 
 
 

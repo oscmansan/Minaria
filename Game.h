@@ -8,7 +8,6 @@
 #include "SceneMenu.h"
 #include "SceneGame.h"
 #include "SceneCredits.h"
-#include "SoundManager.h"
 
 using namespace std;
 
@@ -60,12 +59,10 @@ public:
     bool getKeyUp(int key) const;
     bool getKeyDown(int key) const;
 	bool getSpecialKey(int key) const;
-    SoundManager* getSoundManager();
 
 private:
     Scene *currentScene = NULL;
     Scene *nextScene = NULL;
-    SoundManager* soundManager = NULL;
 
     glm::ivec2 mousePos;
 

@@ -78,6 +78,9 @@ void SceneGame::init()
     SceneGame::getInstance()->addText("ABCDEFGHIJKLMNOPQRSTUVWXYZ", glm::ivec2(0, 20), 16);
     SceneGame::getInstance()->addText("abcdefghijklmnopqrstuvwxyz", glm::ivec2(0, 40), 16);
     */
+
+    soundManager = new SoundManager();
+    //soundManager->playMusic("../sounds/hack_the_forest.ogg");
 }
 
 void SceneGame::update(int deltaTime)
@@ -139,6 +142,11 @@ void SceneGame::removeCharacter(Character *character)
 {
     characters.remove(character);
 }
+
+SoundManager* SceneGame::getSoundManager() {
+    return soundManager;
+}
+
 
 void SceneGame::generateProceduralTilemap()
 {

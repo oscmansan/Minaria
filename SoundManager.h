@@ -13,6 +13,8 @@ public:
 
     void playSound(string file);
     void playMusic(string file);
+    void stopSound();
+    void stopMusic();
 
 private:
     sf::SoundBuffer* buffer;

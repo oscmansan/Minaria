@@ -14,6 +14,7 @@
 #include "ShaderProgram.h"
 
 #include "Text.h"
+#include "SoundManager.h"
 
 // SceneGame contains all the entities of our game.
 // It is responsible for updating and render them.
@@ -42,6 +43,8 @@ public:
 
     void removeCharacter(Character *character);
 
+    SoundManager* getSoundManager();
+
 private:
     Player *player = NULL;
     Camera *camera = NULL;
@@ -52,6 +55,8 @@ private:
 
     TileMap *map = NULL;
     TileMap *mapBg = NULL;
+
+    SoundManager* soundManager = NULL;
 
     void generateProceduralTilemap();
 };

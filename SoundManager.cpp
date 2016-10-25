@@ -23,3 +23,14 @@ void SoundManager::playMusic(string file)
     music->setLoop(true);
     music->play();
 }
+
+void SoundManager::stopSound() {
+    sound->stop();
+    delete buffer;
+    delete sound;
+}
+
+void SoundManager::stopMusic() {
+    music->stop();
+    delete music;
+}
