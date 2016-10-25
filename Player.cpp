@@ -197,7 +197,7 @@ void Player::move(int deltaTime)
         velocity.x = leftPressed ? -8 : 8;
     }
 	
-    if (Game::instance().getKey('w') && !bJumping)
+    if (Game::instance().getKey('w') && !bJumping && isGrounded())
 	{
 		jump();
 	}
@@ -317,7 +317,7 @@ void Player::handleMouseActions()
         }
         else if (dynamic_cast<Block*>(selectedItem))
         {
-            if (Game::instance().getMouseLeftButton())
+            if (Game::instance().getMouseLeftButton() && isGrounded())
             {
                 timeSinceLastItemUsed = 0;
                 if (glm::distance(glm::vec2(mousePos), glm::vec2(playerCenter)) < tileSize * 3)
