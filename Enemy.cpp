@@ -43,6 +43,7 @@ void Enemy::beginToDie()
     dead = true;
     velocity.x = 0.0f;
     sprite->changeAnimation(DEAD);
+    Game::getCurrentSceneGame()->removeCharacter(this);
 }
 
 void Enemy::die()

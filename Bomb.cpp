@@ -105,6 +105,7 @@ glm::ivec2 Bomb::getSize() const
 void Bomb::explode()
 {
     glm::ivec2 centerPos = getPosition() + getSize() / 2;
+    Game::getCurrentSceneGame()->getCamera()->tremble(2, 500);
 
     TileMap *tmap = Game::getCurrentSceneGame()->getTileMap();
     int tileSize = tmap->getTileSize();

@@ -23,11 +23,17 @@ void Camera::init(const glm::ivec2 &playerPosition)
     initialOffset = glm::ivec2(-Game::getScreenWidth() / 2 + 16/2, -Game::getScreenHeight() / 2 + 32/2);
 }
 
-void Camera::update()
+void Camera::update(int deltaTime)
 {
     Player *player = Game::getCurrentSceneGame()->getPlayer();
 	glm::ivec2 playerPosWorld = player->getPosition();
     setPosition(playerPosWorld + initialOffset);
+
+    if (trembleChrono < trembleTime)
+    {
+        setPosition(getPosition() + glm::ivec2(rand() % 3 - 1, rand() % 3 - 1) * trembleAmount);
+        trembleChrono += deltaTime;
+    }
 }
 
 const glm::mat4 &Camera::getView() const
@@ -44,5 +50,13 @@ void Camera::setPosition(const glm::ivec2 &position)
 
 const glm::ivec2& Camera::getPosition()
 {
-	return position;
+    return position;
+}
+
+void Camera::tremble(int amount, int time)
+{
+    trembling = true;
+    trembleChrono = 0;
+    trembleTime = time;
+    trembleAmount = amount;
 }

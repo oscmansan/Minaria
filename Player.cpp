@@ -282,9 +282,9 @@ void Player::handleMouseActions()
 
             if (Game::instance().getMouseLeftButton())
             {
-
                 if (mouseBlock && mouseBlock->getType() != 0)
                 {
+                    Game::getCurrentSceneGame()->getCamera()->tremble(1, 50);
                     mouseBlock->onHitBegin();
                 }
             }

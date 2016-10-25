@@ -89,7 +89,7 @@ void SceneGame::update(int deltaTime)
 
     currentTime += deltaTime;
 
-    camera->update();
+    camera->update(deltaTime);
     background->update(deltaTime);
     map->update(deltaTime);
     mapBg->update(deltaTime);
