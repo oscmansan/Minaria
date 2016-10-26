@@ -14,6 +14,8 @@ public:
 
 private:
     Text *oscarText, *victorText, *creditsText, *backText;
+    Sprite *spriteBg;
+    Texture textureMenuBg;
 };
 
 #endif // SCENECREDITS_H

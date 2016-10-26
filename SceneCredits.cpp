@@ -10,6 +10,9 @@ void SceneCredits::init()
 {
     Scene::init();
 
+    textureMenuBg.loadFromFile("images/creditsBG.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    spriteBg = Sprite::createSprite(glm::ivec2(Game::getScreenWidth(), Game::getScreenHeight()), glm::vec2(1.0f), &textureMenuBg, &texProgram);
+
     creditsText = createText("Credits", glm::ivec2(210, 100), 25);
     oscarText = createText("Oscar Manas", glm::ivec2(180, 200), 25);
     victorText = createText("Victor Anton", glm::ivec2(160, 250), 25);
@@ -47,5 +50,5 @@ void SceneCredits::update(int deltaTime)
 
 void SceneCredits::render()
 {
-
+    spriteBg->render();
 }
