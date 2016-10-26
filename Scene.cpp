@@ -98,6 +98,8 @@ void Scene::_render()
         if (sceneNode->isScreenNode())
             sceneNode->render(texProgram);
     }
+
+    renderOverlay();
 }
 
 Text* Scene::createText(const std::string &str, const glm::ivec2 &pos, int size)

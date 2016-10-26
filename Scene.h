@@ -30,6 +30,7 @@ public:
     virtual void _render();
     virtual void renderBackLayer() {}
     virtual void render() {}
+    virtual void renderOverlay() {}
 
     Text* createText(const std::string &str = "",
                      const glm::ivec2 &pos = glm::ivec2(0),

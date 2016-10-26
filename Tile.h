@@ -15,7 +15,7 @@ public:
     Tile(const glm::ivec2 &worldPos);
     virtual ~Tile();
 
-    void render();
+    virtual void render();
     virtual void update(int deltaTime) {}
 
     Sprite* getSprite() const;

@@ -163,7 +163,6 @@ void Player::update(int deltaTime)
 void Player::render(ShaderProgram &program)
 {
     Character::render(program);
-    renderHearts(program);
 }
 
 Item *Player::getSelectedItem() const
@@ -239,15 +238,9 @@ void Player::handleItemSelection()
 
 void Player::handleMouseActions()
 {
-    if (timeSinceLastItemUsed < itemCooldown) return;
-
     TileMap *tmap = Game::getCurrentSceneGame()->getTileMap();
     glm::ivec2 mousePos = Game::instance().getMousePosWorld();
     bool mouseToLeft = (mousePos.x < (getPosition() + getSize() / 2).x);
-
-
-    if (!Game::instance().getMouseLeftButton())
-        usingItem = false;
 
     Block *mouseBlock = NULL;
     int tileSize = tmap->getTileSize();
@@ -258,6 +251,7 @@ void Player::handleMouseActions()
     mouseBlock = mouseBlock ? mouseBlock : tmap->getBlock(playerCenter + glm::ivec2(mouseDir * float(tileSize) * 1.0f));
     mouseBlock = mouseBlock ? mouseBlock : tmap->getBlock(playerCenter + glm::ivec2(mouseDir * float(tileSize) * 1.5f));
     mouseBlock = mouseBlock ? mouseBlock : tmap->getBlock(playerCenter + glm::ivec2(mouseDir * float(tileSize) * 2.0f));
+
     if (mouseBlock != lastMouseBlock || !Game::instance().getMouseLeftButton())
     {
         if (lastMouseBlock)
@@ -266,6 +260,13 @@ void Player::handleMouseActions()
             lastMouseBlock = NULL;
         }
     }
+
+    if (timeSinceLastItemUsed < itemCooldown) return;
+
+
+    if (!Game::instance().getMouseLeftButton())
+        usingItem = false;
+
 
     if (!selectedItem || !dynamic_cast<ItemPickaxe*>(selectedItem)) { lastMouseBlock = NULL; }
     if (selectedItem)
@@ -389,6 +390,11 @@ void Player::renderHearts(ShaderProgram &program)
         }
         spriteHeart->render();
     }
+}
+
+bool Player::isBlockSelected(Block *b)
+{
+    return lastMouseBlock == b && dynamic_cast<ItemPickaxe*>(selectedItem);
 }
 
 void Player::takeDamage(int damage)

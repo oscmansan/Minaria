@@ -161,6 +161,14 @@ void Block::advanceState(bool mining)
     }
 }
 
+void Block::render()
+{
+    SceneGame *sc = Game::getCurrentSceneGame();
+    sc->getShaderProgram()->setUniform1f("isSelectedByPlayer", sc->getPlayer()->isBlockSelected(this) ? 1.0f : 0.0f);
+    Tile::render();
+    sc->getShaderProgram()->setUniform1f("isSelectedByPlayer", 0.0f);
+}
+
 void Block::restore()
 {
     state = FULL;

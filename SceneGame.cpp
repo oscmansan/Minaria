@@ -54,16 +54,24 @@ void SceneGame::init()
     player->init();
     player->setTileMap(map);
 
-    Text *tutoText1 = createText("Arrive to the other", player->getPosition() + glm::ivec2(0, -100), 16);
+    int yPos = mapBg->getSurfaceLevel(player->getPosition().x) - 200;
+    glm::ivec2 textPos = glm::ivec2(player->getPosition().x, yPos);
+
+    Text *tutoText1   = createText("Find the              ...", textPos + glm::ivec2(0, 0), 16);
+    Text *tutoText1_2 = createText("         golden nugget   ", textPos + glm::ivec2(0, 0), 16);
     tutoText1->setColor(glm::vec4(1,1,1,1));
+    tutoText1_2->setColor(glm::vec4(1,1,0,1));
     tutoText1->setIsScreen(false);
-    Text *tutoText2 = createText("side of the map", player->getPosition() + glm::ivec2(0, -80), 16);
+    tutoText1_2->setIsScreen(false);
+
+    Text *tutoText2 = createText("To the east!", textPos + glm::ivec2(0, 20), 16);
     tutoText2->setColor(glm::vec4(1,1,1,1));
     tutoText2->setIsScreen(false);
-    Text *tutoText3 = createText("GOOD LUCK MINER!", player->getPosition() + glm::ivec2(500, -100), 20);
+
+    Text *tutoText3 = createText("GOOD LUCK MINER!", textPos + glm::ivec2(500, 0), 20);
     tutoText3->setColor(glm::vec4(0,0,0,1));
     tutoText3->setIsScreen(false);
-    tutoText3->setStroke(4, glm::vec4(1,0,0,1));
+    tutoText3->setStroke(4, glm::vec4(1,0.5,0,1));
 
     // Add to the list of characters
     characters.push_back(player);
@@ -116,6 +124,12 @@ void SceneGame::render()
 {
     Scene::render();
     map->render();
+}
+
+void SceneGame::renderOverlay()
+{
+    Scene::renderOverlay();
+    player->renderHearts(*getShaderProgram());
 }
 
 std::list<Character*> SceneGame::whosThere(const glm::ivec2 &pos)

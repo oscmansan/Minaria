@@ -35,6 +35,8 @@ public:
     void beginToDie();
     void die();
     void onBlockDeleted(Block *b);
+    void renderHearts(ShaderProgram &program);
+    bool isBlockSelected(Block *b);
 
     Block *lastMouseBlock = NULL;
 
@@ -70,6 +72,5 @@ protected:
     virtual void move(int deltaTime);
     void handleItemSelection();
     void handleMouseActions();
-    void renderHearts(ShaderProgram &program);
 };
 

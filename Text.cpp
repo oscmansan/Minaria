@@ -73,7 +73,7 @@ Text::~Text()
 void Text::render(ShaderProgram &program)
 {
     if (letterSprites.size() <= 0 || !visible) return;
-    glm::ivec2 letterSize = letterSprites.front()->getSize(); // The first char cant be a space !!!
+    glm::ivec2 letterSize = glm::ivec2(size);
 
     //Apply color
     for (Sprite *letterSprite : letterSprites)

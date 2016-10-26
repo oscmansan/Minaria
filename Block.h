@@ -9,6 +9,7 @@ class Block : public Item,
 public:
     bool isBg = false;
     bool undestroyable = false;
+    bool selectedByPlayer = false;
 
     enum Type
     {
@@ -57,6 +58,7 @@ protected:
 
     void advanceState(bool mining);
 
+    virtual void render() override;
     virtual void update(int deltaTime) override;
     int getAnimationFrame() const;
     glm::vec2 getSpriteFrame() const override;
