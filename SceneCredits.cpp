@@ -30,9 +30,14 @@ void SceneCredits::update(int deltaTime)
     Scene::update(deltaTime);
 
     Game *game = &(Game::instance());
+
     if (oscarText->getBoundingRect().contains(game->getMousePosScreen()))
     { oscarText->setText("OSCAR GAY", 40); } else { oscarText->setText("Oscar Manas", 25); }
     oscarText->centerHorizontally();
+
+    if (victorText->getBoundingRect().contains(game->getMousePosScreen()))
+    { victorText->setText("HABLAS MI IDIOMA?", 30); } else { victorText->setText("Victor Anton", 25); }
+    victorText->centerHorizontally();
 
     if (backText->getBoundingRect().contains(game->getMousePosScreen()))
     {

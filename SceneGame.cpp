@@ -81,8 +81,8 @@ void SceneGame::init()
     for (int i = 0; i < nenemies; ++i)
     {
         Enemy *enemy;
-        //if (rand() % 2 == 0) enemy = new FlyingEnemy(); else enemy = new GroundEnemy();
-        enemy = new FlyingEnemy(1000 + i * 130);
+        int posx = 1000 + i * 300;
+        if (rand() % 2 == 0) enemy = new FlyingEnemy(posx); else enemy = new GroundEnemy(posx);
         enemy->init();
         enemy->setTileMap(map);
         characters.push_back(enemy);
@@ -98,6 +98,7 @@ void SceneGame::init()
     */
 
     soundManager = new SoundManager();
+    soundManager->setVolume(80.f);
     //soundManager->playMusic("../sounds/hack_the_forest.ogg");
 }
 

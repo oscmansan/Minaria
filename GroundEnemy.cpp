@@ -65,7 +65,7 @@ void GroundEnemy::update(int deltaTime)
     Player *player = Game::getCurrentSceneGame()->getPlayer();
 
     int tileSize = Game::getCurrentSceneGame()->getTileMap()->getTileSize();
-    int detectThreshold = 10*tileSize;
+    int detectThreshold = 7*tileSize;
     switch(state) {
         case PATROL:
             if (abs(player->getPosition().x - getPosition().x) < detectThreshold)

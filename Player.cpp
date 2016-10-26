@@ -403,6 +403,7 @@ void Player::takeDamage(int damage)
     {
         damaged = true;
         health -= damage;
+        Game::getCurrentSceneGame()->getSoundManager()->playSound("../sounds/hurt.wav");
         if (health < 0)
         {
             beginToDie();
