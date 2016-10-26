@@ -23,9 +23,9 @@ void main()
     {
         if (stroke <= 0) discard;
 
-        for (float dx = -stroke; dx <= stroke; dx += stroke * 0.2)
+        for (float dx = -stroke; dx <= stroke; dx += stroke)
         {
-            for (float dy = -stroke; dy <= stroke; dy += stroke * 0.2)
+            for (float dy = -stroke; dy <= stroke; dy += stroke)
             {
                 if ((texCoordFrag.x - texCoordDispl.x) + dx * stepx <= letterWidth &&
                     (texCoordFrag.x - texCoordDispl.x) + dx * stepx >= 0.0 &&
