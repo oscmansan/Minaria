@@ -17,7 +17,7 @@ private:
     const glm::vec4 IdleColor = glm::vec4(1, 1, 1, 1);
     const glm::vec4 OverColor = glm::vec4(1, 0.7, 0, 1);
 
-    Text *playText, *instructionsText, *creditsText;
+    Text *title, *playText, *instructionsText, *creditsText;
 
     Sprite *spriteBg;
     Texture textureMenuBg;

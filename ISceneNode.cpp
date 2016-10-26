@@ -12,15 +12,19 @@ ISceneNode::~ISceneNode()
 {
 }
 
-void ISceneNode::prepareModelViewMatrix() const
+void ISceneNode::prepareModelViewMatrix(ShaderProgram *program) const
 {
-    prepareModelViewMatrix(position);
+    prepareModelViewMatrix(position, glm::vec2(1.0f), program);
 }
 
-void ISceneNode::prepareModelViewMatrix(const glm::ivec2 &pos, const glm::vec2 &scale) const
+void ISceneNode::prepareModelViewMatrix(const glm::ivec2 &pos, const glm::vec2 &scale, ShaderProgram *program) const
 {
     Scene *scene = Game::getCurrentScene(); if (!scene) return;
-    ShaderProgram *program = scene->getShaderProgram(); if (!program) return;
+    program = program ? program : scene->getShaderProgram(); if (!program) return;
+    program->use();
+
+    program->setUniformMatrix4f("projection", scene->getProjection());
+    program->setUniform2f("windowSize", Game::getScreenWidth(), Game::getScreenHeight());
 
     if (!isScreen && Game::getCurrentSceneGame()) program->setUniformMatrix4f("view", Game::getCurrentSceneGame()->getCamera()->getView());
     else program->setUniformMatrix4f("view", glm::mat4(1.0f));
@@ -46,6 +50,11 @@ void ISceneNode::setPosition(const glm::ivec2 &position)
 const glm::ivec2 &ISceneNode::getPosition() const
 {
     return position;
+}
+
+void ISceneNode::setIsScreen(bool screen)
+{
+    isScreen = screen;
 }
 
 bool ISceneNode::isScreenNode() const

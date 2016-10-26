@@ -22,9 +22,11 @@ void SceneMenu::init()
     //title->setColor(glm::vec4(1,1,1,1));
     //title->centerHorizontally();
 
+    title            = createText("MINARIA", glm::ivec2(0, 50), 60);
     playText         = createText("Play game", glm::ivec2(50, 300), 25);
     instructionsText = createText("Instructions", glm::ivec2(50, 350), 25);
     creditsText      = createText("Credits", glm::ivec2(50, 400), 25);
+    title->centerHorizontally();
     playText->centerHorizontally();
     instructionsText->centerHorizontally();
     creditsText->centerHorizontally();
@@ -33,6 +35,13 @@ void SceneMenu::init()
 void SceneMenu::update(int deltaTime)
 {
     Scene::update(deltaTime);
+
+    static int timer = 0;
+    timer += deltaTime;
+    float sizeFactor = abs(sin(float(timer) / 1000.0f * 5.0f));
+    title->setText("MINARIA", 5 * sizeFactor + 60);
+    title->centerHorizontally();
+    title->setColor(glm::vec4(1) * sizeFactor * 0.5f + 0.5f);
 
     Game *game = &(Game::instance());
     if (playText->getBoundingRect().contains(game->getMousePosScreen()))

@@ -3,19 +3,67 @@
 #include "Game.h"
 #include "Scene.h"
 
-Texture *Text::textSheet = NULL;
-glm::vec2 Text::letterSizeInTextsheet = glm::vec2(1.0f / 32, 1.0f / 3.1f);
+ShaderProgram Text::program;
+Texture *Text::textSheet1 = NULL;
+Texture *Text::textSheet2 = NULL;
+Texture *Text::textSheet3 = NULL;
+glm::vec2 Text::letterSizeInTextsheet = glm::vec2(1.0f / 32, 1.0f);
 
 Text::Text()
 {
     isScreen = true;
 
-    if (!Text::textSheet)
+    if (!Text::textSheet1)
     {
-        Text::textSheet = new Texture();
-        Text::textSheet->loadFromFile("images/textsheet.png", TEXTURE_PIXEL_FORMAT_RGBA);
-        Text::textSheet->setMinFilter(GL_NEAREST);
+        Text::textSheet1 = new Texture();
+        Text::textSheet1->loadFromFile("images/textsheet1.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        Text::textSheet2 = new Texture();
+        Text::textSheet2->loadFromFile("images/textsheet2.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        Text::textSheet3 = new Texture();
+        Text::textSheet3->loadFromFile("images/textsheet3.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        Text::textSheet1->setMinFilter(GL_NEAREST);
+        Text::textSheet1->setMagFilter(GL_NEAREST);
+        Text::textSheet2->setMagFilter(GL_NEAREST);
+        Text::textSheet2->setMinFilter(GL_NEAREST);
+        Text::textSheet3->setMinFilter(GL_NEAREST);
+        Text::textSheet3->setMagFilter(GL_NEAREST);
+        Text::textSheet1->setWrapS(GL_CLAMP);
+        Text::textSheet1->setWrapT(GL_CLAMP);
+        Text::textSheet2->setWrapS(GL_CLAMP);
+        Text::textSheet2->setWrapT(GL_CLAMP);
+        Text::textSheet3->setWrapS(GL_CLAMP);
+        Text::textSheet3->setWrapT(GL_CLAMP);
     }
+
+    if (!Text::program.isLinked())
+    {
+        Shader vShader, fShader;
+        vShader.initFromFile(VERTEX_SHADER, "shaders/text.vert");
+        if (!vShader.isCompiled())
+        {
+            cout << "Vertex Shader Error" << endl << "" << vShader.log() << endl << endl;
+        }
+
+        fShader.initFromFile(FRAGMENT_SHADER, "shaders/text.frag");
+        if (!fShader.isCompiled())
+        {
+            cout << "Fragment Shader Error" << endl << "" << fShader.log() << endl << endl;
+        }
+
+        Text::program.init();
+        Text::program.addShader(vShader);
+        Text::program.addShader(fShader);
+        Text::program.link();
+
+        if(!Text::program.isLinked())
+        {
+            cout << "Shader Linking Error" << endl << "" << Text::program.log() << endl << endl;
+        }
+        Text::program.bindFragmentOutput("outColor");
+        vShader.free(); fShader.free();
+    }
+
+    setStroke(3, glm::vec4(0,0,0,1));
 }
 
 Text::~Text()
@@ -38,7 +86,11 @@ void Text::render(ShaderProgram &program)
     {
         if (letterSprite != NULL) // NULL = Space char
         {
-            prepareModelViewMatrix(currentPos);
+            prepareModelViewMatrix(currentPos, glm::vec2(1.0f), letterSprite->getShaderProgram());
+            letterSprite->getShaderProgram()->setUniform1f("stroke", stroke);
+            letterSprite->getShaderProgram()->setUniform4f("strokeColor", strokeColor.x, strokeColor.y,
+                                                           strokeColor.z, strokeColor.w);
+            letterSprite->getShaderProgram()->setUniform2f("textureSize", 1024, 36);
             letterSprite->render();
         }
         currentPos.x += letterSize.x;
@@ -57,8 +109,7 @@ void Text::setColor(const glm::vec4 &color)
 
 void Text::setText(const std::string &str, int size)
 {
-    ShaderProgram *program = Scene::getShaderProgram();
-    if (currentText != str) // Avoid useless updates
+    if (currentText != str || this->size != size) // Avoid useless updates
     {
         for (Sprite *letterSprite : letterSprites)
         {
@@ -71,26 +122,30 @@ void Text::setText(const std::string &str, int size)
             char c = str[i];
             Sprite *letterSprite = Sprite::createSprite(glm::ivec2(size),
                                                         letterSizeInTextsheet,
-                                                        Text::textSheet,
-                                                        program);
+                                                        Text::textSheet1,
+                                                        &Text::program);
             letterSprite->setNumberAnimations(1);
+            letterSprite->setShaderProgram(Text::program);
 
             int framePosX = 0;
             int framePosY = 0;
             if (c >= 'a' && c <= 'z')
             {
                 framePosX = int(c - 'a');
-                framePosY = 2;
+                framePosY = 0;
+                letterSprite->setTexture(Text::textSheet3);
             }
             else if (c >= 'A' && c <= 'Z')
             {
                 framePosX = int(c - 'A');
-                framePosY = 1;
+                framePosY = 0;
+                letterSprite->setTexture(Text::textSheet2);
             }
             else if (c >= '0' && c <= '9')
             {
                 framePosX = int(c - '0') + 15;
                 framePosY = 0;
+                letterSprite->setTexture(Text::textSheet1);
             }
             else if (c == '.') { framePosX = 13; framePosY = 0; }
 
@@ -109,6 +164,7 @@ void Text::setText(const std::string &str, int size)
         }
         currentText = str;
     }
+    this->size = size;
 }
 
 void Text::centerHorizontally()
@@ -119,6 +175,12 @@ void Text::centerHorizontally()
 void Text::setVisible(bool visible)
 {
     this->visible = visible;
+}
+
+void Text::setStroke(int stroke, const glm::vec4 &strokeColor)
+{
+    this->stroke = stroke;
+    this->strokeColor = strokeColor;
 }
 
 Rect Text::getBoundingRect() const

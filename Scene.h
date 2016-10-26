@@ -41,6 +41,8 @@ public:
     static int getCurrentTime();
     static ShaderProgram *getShaderProgram();
 
+    const glm::mat4& getProjection() const;
+
 protected:
 
 	void initShaders();

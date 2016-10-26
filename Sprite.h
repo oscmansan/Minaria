@@ -42,6 +42,8 @@ public:
     void setTint(const glm::vec4 &tint);
 	glm::vec4 getTint() const;
 
+    void setShaderProgram(ShaderProgram &program);
+    ShaderProgram* getShaderProgram() const;
     void setTexture(Texture *texture);
 
 private:

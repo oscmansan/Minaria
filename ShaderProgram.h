@@ -39,8 +39,8 @@ public:
 	const string &log() const;
 
 private:
-	GLuint programId;
-	bool linked;
+    GLuint programId = 0;
+    bool linked = false;
 	string errorLog;
 
 };

@@ -136,6 +136,16 @@ glm::vec4 Sprite::getTint() const
     return tint;
 }
 
+void Sprite::setShaderProgram(ShaderProgram &program)
+{
+    this->shaderProgram = &program;
+}
+
+ShaderProgram* Sprite::getShaderProgram() const
+{
+    return shaderProgram;
+}
+
 void Sprite::setTexture(Texture *texture)
 {
     this->texture = texture;

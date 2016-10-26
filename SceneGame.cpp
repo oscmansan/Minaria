@@ -12,7 +12,6 @@
 
 SceneGame::SceneGame()
 {
-
 }
 
 SceneGame::~SceneGame()
@@ -54,6 +53,17 @@ void SceneGame::init()
     player = new Player();
     player->init();
     player->setTileMap(map);
+
+    Text *tutoText1 = createText("Arrive to the other", player->getPosition() + glm::ivec2(0, -100), 16);
+    tutoText1->setColor(glm::vec4(1,1,1,1));
+    tutoText1->setIsScreen(false);
+    Text *tutoText2 = createText("side of the map", player->getPosition() + glm::ivec2(0, -80), 16);
+    tutoText2->setColor(glm::vec4(1,1,1,1));
+    tutoText2->setIsScreen(false);
+    Text *tutoText3 = createText("GOOD LUCK MINER!", player->getPosition() + glm::ivec2(500, -100), 20);
+    tutoText3->setColor(glm::vec4(0,0,0,1));
+    tutoText3->setIsScreen(false);
+    tutoText3->setStroke(4, glm::vec4(1,0,0,1));
 
     // Add to the list of characters
     characters.push_back(player);

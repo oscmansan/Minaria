@@ -35,6 +35,11 @@ ShaderProgram *Scene::getShaderProgram()
     return &(Game::getCurrentScene()->texProgram);
 }
 
+const glm::mat4 &Scene::getProjection() const
+{
+    return projection;
+}
+
 
 void Scene::init()
 {
