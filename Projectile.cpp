@@ -11,13 +11,13 @@ Projectile::Projectile()
     if (Projectile::texture == NULL)
     {
         Projectile::texture = new Texture();
-        Projectile::texture->loadFromFile("images/bomb.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        Projectile::texture->loadFromFile("images/projectile.png", TEXTURE_PIXEL_FORMAT_RGBA);
         Projectile::texture->setMinFilter(GL_NEAREST);
         Projectile::texture->setMagFilter(GL_NEAREST);
     }
 
     ShaderProgram *program = Game::getCurrentSceneGame()->getShaderProgram();
-    sprite = Sprite::createSprite(glm::ivec2(24), glm::vec2(1.0f), Projectile::texture, program);
+    sprite = Sprite::createSprite(glm::ivec2(16), glm::vec2(1.0f), Projectile::texture, program);
 
     Game::getCurrentScene()->addSceneNode(this);
 }
@@ -144,7 +144,7 @@ void Projectile::explode()
         }
     }
 
-    BombExplosion *be = new BombExplosion();
+    BombExplosion *be = new BombExplosion(true);
     be->setPosition(getPosition() + sprite->getSize()/2);
     be->explosionSize = explosionRadius;
     be->init();

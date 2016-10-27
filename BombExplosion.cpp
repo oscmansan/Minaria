@@ -3,16 +3,22 @@
 #include "Game.h"
 #include "SceneGame.h"
 
-Texture* BombExplosion::explosionTexture = NULL;
+Texture* BombExplosion::orangeTexture = NULL;
+Texture* BombExplosion::purpleTexture = NULL;
 
-BombExplosion::BombExplosion()
+BombExplosion::BombExplosion(bool color)
 {
-    if (!BombExplosion::explosionTexture)
+    if (!BombExplosion::orangeTexture)
     {
-        BombExplosion::explosionTexture = new Texture();
-        BombExplosion::explosionTexture->loadFromFile("images/explosion2.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        BombExplosion::orangeTexture = new Texture();
+        BombExplosion::orangeTexture->loadFromFile("images/explosion2.png", TEXTURE_PIXEL_FORMAT_RGBA);
+    }
+    if (!BombExplosion::purpleTexture) {
+        BombExplosion::purpleTexture = new Texture();
+        BombExplosion::purpleTexture->loadFromFile("images/explosion3.png", TEXTURE_PIXEL_FORMAT_RGBA);
     }
 
+    this->color = color;
     lifeTime = 280;
 }
 
@@ -23,7 +29,8 @@ void BombExplosion::init()
     int size = explosionSize;
     float frameSizeX = 0.25f;
     float frameSizeY = 0.25f;
-    sprite = Sprite::createSprite(glm::ivec2(size), glm::vec2(frameSizeX, frameSizeY), BombExplosion::explosionTexture, Game::getCurrentScene()->getShaderProgram());
+    Texture* texture = color ? BombExplosion::purpleTexture : BombExplosion::orangeTexture;
+    sprite = Sprite::createSprite(glm::ivec2(size), glm::vec2(frameSizeX, frameSizeY), texture, Game::getCurrentScene()->getShaderProgram());
     setPosition(getPosition() - glm::ivec2(size/2));
     sprite->setNumberAnimations(1);
     sprite->setAnimationSpeed(0, 40);
