@@ -8,6 +8,7 @@
 class ISceneNode
 {
 public:
+    bool isVisible = true;
     virtual ~ISceneNode();
 
     virtual void init() {}

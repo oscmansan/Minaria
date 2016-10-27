@@ -89,13 +89,13 @@ void Scene::_render()
 
     for(ISceneNode *sceneNode : sceneNodes)
     {
-        if (!sceneNode->isScreenNode())
+        if (sceneNode->isVisible && !sceneNode->isScreenNode())
             sceneNode->render(texProgram);
     }
 
     for(ISceneNode *sceneNode : sceneNodes)
     {
-        if (sceneNode->isScreenNode())
+        if (sceneNode->isVisible && sceneNode->isScreenNode())
             sceneNode->render(texProgram);
     }
 

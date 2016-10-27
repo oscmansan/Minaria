@@ -337,10 +337,7 @@ void Player::handleMouseActions()
                             else if (b->getType() == Block::BEDROCK) { addedBlock = tmap->addTile<BlockBedRock>(mousePos); }
                             else if (b->getType() == Block::WOOD)    { addedBlock = tmap->addTile<BlockWood>(mousePos); }
                             else if (b->getType() == Block::PURPLE)  { addedBlock = tmap->addTile<BlockPurple>(mousePos); }
-                            else if (b->getType() == Block::GOLD)
-                            {
 
-                            }
 
                             if (addedBlock)
                             {
@@ -401,9 +398,11 @@ bool Player::isBlockSelected(Block *b)
     return lastMouseBlock == b && dynamic_cast<ItemPickaxe*>(selectedItem);
 }
 
-void Player::winGame()
+void Player::winGame(glm::ivec2 winningBlockPos)
 {
-
+    winSymbol = new WinSymbol();
+    winSymbol->setPosition(winningBlockPos);
+    Game::getCurrentSceneGame()->winGame();
 }
 
 void Player::takeDamage(int damage)

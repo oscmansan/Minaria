@@ -34,6 +34,7 @@ public:
     void renderBackLayer() override;
     void render() override;
     void renderOverlay() override;
+    void winGame();
     Player *getPlayer() const;
     Camera *getCamera() const;
     TileMap *getTileMap() const;
@@ -47,6 +48,8 @@ public:
     SoundManager* getSoundManager();
 
 private:
+    bool gameWon = false;
+
     Player *player = NULL;
     Camera *camera = NULL;
     std::list<Character*> characters;

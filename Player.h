@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Block.h"
+#include "WinSymbol.h"
 #include "Character.h"
 #include "Inventory.h"
 
@@ -37,9 +38,10 @@ public:
     void onBlockDeleted(Block *b);
     void renderHearts(ShaderProgram &program);
     bool isBlockSelected(Block *b);
-    void winGame();
+    void winGame(glm::ivec2 winningBlockPos);
 
     Block *lastMouseBlock = NULL;
+    WinSymbol *winSymbol = NULL;
 
 private:
     int itemCooldown = 300;

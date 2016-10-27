@@ -144,11 +144,9 @@ void Block::advanceState(bool mining)
                 case Block::BEDROCK: inv->addItem<BlockBedRock>(); break;
                 case Block::WOOD:    inv->addItem<BlockWood>();    break;
                 case Block::PURPLE:  inv->addItem<BlockPurple>();  break;
-                case Block::GOLD:    inv->addItem<BlockGold>();  break;
             }
-            player->onBlockDeleted(this);
         }
-        Game::getCurrentSceneGame()->getTileMap()->delTile( getPosition() );
+        state = GONE;
     }
     else
     {
@@ -160,6 +158,17 @@ void Block::advanceState(bool mining)
         else if (state == DEST_5) state = DEST_6;
         else if (state == DEST_6) state = DEST_7;
         else if (state == DEST_7) state = GONE;
+    }
+
+    if (state == GONE && getType() == Block::GOLD)
+    {
+        Game::getCurrentSceneGame()->getPlayer()->winGame(getPosition());
+    }
+
+    if (state == GONE)
+    {
+        Game::getCurrentSceneGame()->getTileMap()->delTile( getPosition() );
+        player->onBlockDeleted(this);
     }
 }
 

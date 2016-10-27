@@ -34,6 +34,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o"
   "CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o"
+  "CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o"
   "TerrariaLinux.pdb"
   "TerrariaLinux"
 )
