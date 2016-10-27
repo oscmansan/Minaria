@@ -35,7 +35,7 @@ public:
 	bool isGrounded();
 
     glm::ivec2 getScreenPosition() const;
-	Rect getBoundingBox() const;
+    virtual Rect getBoundingBox() const;
     glm::vec2 getVelocity() const;
 	
 protected:

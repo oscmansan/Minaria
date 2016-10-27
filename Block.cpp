@@ -12,8 +12,9 @@ Texture *BlockRock::s_texture    = NULL;
 Texture *BlockBedRock::s_texture = NULL;
 Texture *BlockWood::s_texture    = NULL;
 Texture *BlockPurple::s_texture  = NULL;
+Texture *BlockGold::s_texture  = NULL;
 
-Block::Block() : Tile(), Item()
+Block::Block() : Item(), Tile()
 {
     initBlock();
 }
@@ -142,7 +143,8 @@ void Block::advanceState(bool mining)
                 case Block::ROCK:    inv->addItem<BlockRock>();    break;
                 case Block::BEDROCK: inv->addItem<BlockBedRock>(); break;
                 case Block::WOOD:    inv->addItem<BlockWood>();    break;
-                case Block::PURPLE:  inv->addItem<BlockPurple>();    break;
+                case Block::PURPLE:  inv->addItem<BlockPurple>();  break;
+                case Block::GOLD:    inv->addItem<BlockGold>();  break;
             }
             player->onBlockDeleted(this);
         }
@@ -293,8 +295,18 @@ BlockPurple::BlockPurple(const glm::ivec2 &worldPos) : Block(worldPos)
     itemTexture = s_texture;
 }
 
+BlockGold::BlockGold(const glm::ivec2 &worldPos) : Block(worldPos)
+{
+    hitSpeed = 300;
+    type = GOLD;
 
+    if (!BlockGold::s_texture)
+    {
+        BlockGold::s_texture = new Texture();
+        BlockGold::s_texture->loadFromFile("images/gold.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        BlockGold::s_texture->setMagFilter(GL_NEAREST); BlockGold::s_texture->setMinFilter(GL_NEAREST);
+    }
+    sprite->setTexture(BlockGold::s_texture);
 
-
-
-
+    itemTexture = BlockGold::s_texture;
+}

@@ -77,7 +77,7 @@ void Character::processCollisions()
 
 void Character::jump()
 {
-	if (!bJumping)
+    if (!bJumping)
 	{
 		bJumping = true;
 		velocity.y = jumpSpeed;
@@ -99,7 +99,7 @@ void Character::update(int deltaTime)
 
 	move(deltaTime); // Apply movement
 	setPosition(getPosition() + glm::ivec2(velocity.x, velocity.y)); // Apply movement
-	processCollisions(); // Collision check
+    processCollisions(); // Collision check
 
 	setPosition(position);
 }

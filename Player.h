@@ -37,6 +37,7 @@ public:
     void onBlockDeleted(Block *b);
     void renderHearts(ShaderProgram &program);
     bool isBlockSelected(Block *b);
+    void winGame();
 
     Block *lastMouseBlock = NULL;
 
@@ -48,10 +49,11 @@ private:
 
     bool usingItem = false;
     bool dead = false;
+    float timeToDie = 4000.0f;
     float timeSinceDead = 0.0f;
 
     const int maxHealth = 10;
-    int health = maxHealth;
+    int health = 1;//maxHealth;
     const int heartSize = 25;
     const glm::ivec2 heartLinePosition = glm::ivec2(450, 30);
     Texture textureHeart;
@@ -72,5 +74,7 @@ protected:
     virtual void move(int deltaTime);
     void handleItemSelection();
     void handleMouseActions();
+
+    friend class ISceneNode;
 };
 

@@ -21,6 +21,8 @@ public:
     virtual void update(int deltaTime);
     virtual void move(int deltaTime);
 
+    virtual Rect getBoundingBox() const override;
+
     virtual void takeDamage(int damage = 1);
 
 protected:

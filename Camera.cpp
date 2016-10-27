@@ -34,6 +34,14 @@ void Camera::update(int deltaTime)
         setPosition(getPosition() + glm::ivec2(rand() % 3 - 1, rand() % 3 - 1) * trembleAmount);
         trembleChrono += deltaTime;
     }
+
+    totalRotation += spinSpeed;
+
+    if (zoomTimeChrono < zoomTimeTarget)
+    {
+        zoomTimeChrono += deltaTime;
+        zoom = 1.0f + (zoomTarget - 1) * (float(zoomTimeChrono) / zoomTimeTarget);
+    }
 }
 
 const glm::mat4 &Camera::getView() const
@@ -44,7 +52,13 @@ const glm::mat4 &Camera::getView() const
 void Camera::setPosition(const glm::ivec2 &position)
 {
 	this->position = position;
-    glm::mat4 m = glm::translate(glm::mat4(1.0f), glm::vec3(position,0) );
+    glm::mat4 m = glm::mat4(1.0f);
+    m = glm::translate(m, glm::vec3(position,0) );
+    glm::ivec2 screenSize = glm::ivec2(Game::instance().getScreenWidth(), Game::instance().getScreenHeight());
+    m = glm::translate(m, glm::vec3(screenSize / 2, 0) );
+    m = glm::rotate(m, totalRotation, glm::vec3(0, 0, 1.0f));
+    m = glm::scale(m, glm::vec3(1.0f/zoom));
+    m = glm::translate(m, glm::vec3(-screenSize / 2, 0) );
     view = glm::inverse(m);
 }
 
@@ -57,6 +71,18 @@ void Camera::tremble(int amount, int time)
 {
     trembling = true;
     trembleChrono = 0;
-    trembleTime = time;
+    trembleTime = max(trembleTime, time);
     trembleAmount = amount;
+}
+
+void Camera::spin(float speed, int time)
+{
+    spinSpeed = speed;
+}
+
+void Camera::zoomIn(float zoom, int time)
+{
+    zoomTarget = zoom;
+    zoomTimeTarget = time;
+    zoomTimeChrono = 0;
 }
