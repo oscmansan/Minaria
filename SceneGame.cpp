@@ -102,7 +102,7 @@ void SceneGame::init()
 
     soundManager = new SoundManager();
     soundManager->setVolume(80.f);
-    //soundManager->playMusic("../sounds/hack_the_forest.ogg");
+    soundManager->playMusic("../sounds/cavesong.ogg");
 }
 
 void SceneGame::update(int deltaTime)

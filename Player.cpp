@@ -238,6 +238,10 @@ void Player::handleItemSelection()
 
 void Player::handleMouseActions()
 {
+    glm::ivec2 mousePosScreen = Game::instance().getMousePosScreen();
+    Rect inventoryRect(inventory->getPosition(),inventory->getSize());
+    if (inventoryRect.contains(mousePosScreen)) return;
+
     TileMap *tmap = Game::getCurrentSceneGame()->getTileMap();
     glm::ivec2 mousePos = Game::instance().getMousePosWorld();
     bool mouseToLeft = (mousePos.x < (getPosition() + getSize() / 2).x);
@@ -279,6 +283,7 @@ void Player::handleMouseActions()
                 usingItem = true;
                 if (mouseToLeft && sprite->animation() != PICKAXE_LEFT) sprite->changeAnimation(PICKAXE_LEFT);
                 else if (!mouseToLeft && sprite->animation() != PICKAXE_RIGHT) sprite->changeAnimation(PICKAXE_RIGHT);
+                Game::getCurrentSceneGame()->getSoundManager()->playSound("../sounds/gravel.wav",70.f);
             }
 
             if (Game::instance().getMouseLeftButton())
@@ -298,6 +303,7 @@ void Player::handleMouseActions()
                 usingItem = true;
                 if (mouseToLeft && sprite->animation() != SWORD_LEFT) sprite->changeAnimation(SWORD_LEFT);
                 else if (!mouseToLeft && sprite->animation() != SWORD_RIGHT) sprite->changeAnimation(SWORD_RIGHT);
+                Game::getCurrentSceneGame()->getSoundManager()->playSound("../sounds/sword.wav",70.f);
 
                 for (Character *c : Game::getCurrentSceneGame()->getCharacters())
                 {
@@ -403,7 +409,7 @@ void Player::takeDamage(int damage)
     {
         damaged = true;
         health -= damage;
-        Game::getCurrentSceneGame()->getSoundManager()->playSound("../sounds/hurt.wav");
+        Game::getCurrentSceneGame()->getSoundManager()->playSound("../sounds/classic_hurt.wav");
         if (health < 0)
         {
             beginToDie();
@@ -421,7 +427,7 @@ void Player::beginToDie()
 
 void Player::die()
 {
-    Game::getCurrentSceneGame()->getSoundManager()->stopSound();
+    Game::getCurrentSceneGame()->getSoundManager()->stopMusic();
     Game::instance().gotoSceneGame();
 }
 

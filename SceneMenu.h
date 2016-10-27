@@ -2,6 +2,7 @@
 #define SCENEMENU_H
 
 #include "Scene.h"
+#include "SoundManager.h"
 
 class SceneMenu : public Scene
 {
@@ -21,6 +22,8 @@ private:
 
     Sprite *spriteBg;
     Texture textureMenuBg;
+
+    SoundManager* soundManager = NULL;
 };
 
 #endif // SCENEMENU_H

@@ -30,6 +30,10 @@ void SceneMenu::init()
     playText->centerHorizontally();
     instructionsText->centerHorizontally();
     creditsText->centerHorizontally();
+
+    soundManager = new SoundManager();
+    soundManager->setVolume(60.f);
+    soundManager->playMusic("../sounds/meadow.ogg");
 }
 
 void SceneMenu::update(int deltaTime)
@@ -49,6 +53,7 @@ void SceneMenu::update(int deltaTime)
         playText->setColor(OverColor);
         if (game->getMouseLeftButtonDown())
         {
+            soundManager->stopMusic();
             game->gotoSceneGame();
             return;
         }
