@@ -68,8 +68,10 @@ void GroundEnemy::update(int deltaTime)
     int detectThreshold = 7*tileSize;
     switch(state) {
         case PATROL:
-            if (abs(player->getPosition().x - getPosition().x) < detectThreshold)
+            if (abs(player->getPosition().x - getPosition().x) < detectThreshold) {
+                jump();
                 state = CHASE;
+            }
             break;
         case CHASE:
             if (abs(player->getPosition().x - getPosition().x) < tileSize)

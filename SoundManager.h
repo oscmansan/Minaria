@@ -24,7 +24,7 @@ private:
     sf::Sound* sound;
     sf::Music* music;
 
-    float volume;
+    float volume = 80.f;
 };
 
 #endif // SOUNDMANAGER_H

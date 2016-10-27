@@ -77,11 +77,14 @@ void SceneGame::init()
     characters.push_back(player);
 
     // Enemy init
-    int nenemies = 5;
+    int ini = 1500;
+    int offset = 300;
+    int mapWidth = map->getTotalSizeWorld().x - ini;
+    int nenemies = mapWidth / offset;
     for (int i = 0; i < nenemies; ++i)
     {
         Enemy *enemy;
-        int posx = 1000 + i * 300;
+        int posx = ini + i * offset;
         if (rand() % 2 == 0) enemy = new FlyingEnemy(posx); else enemy = new GroundEnemy(posx);
         enemy->init();
         enemy->setTileMap(map);
