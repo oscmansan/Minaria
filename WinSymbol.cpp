@@ -24,6 +24,11 @@ WinSymbol::~WinSymbol()
     delete winTexture;
 }
 
+float WinSymbol::getGrayAmount() const
+{
+    return (scale-1.0f) / maxScale;
+}
+
 void WinSymbol::init()
 {
     ISceneNode::init();

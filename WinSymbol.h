@@ -21,6 +21,7 @@ public:
     float maxScale = 10.0f;
 
     Text *replayText = NULL;
+    float getGrayAmount() const;
 
     virtual void init() override;
     virtual void update(int deltaTime) override;

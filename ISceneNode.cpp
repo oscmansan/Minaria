@@ -28,7 +28,18 @@ void ISceneNode::prepareModelViewMatrix(const glm::ivec2 &pos, const glm::vec2 &
     if (sceneGame)
     {
         Player *player = sceneGame->getPlayer();
-        program->setUniform1f("grayAmount", player->timeSinceDead / player->timeToDie);
+        if ( !player->winSymbol || (this != player->winSymbol && this != player->winSymbol->replayText) )
+        {
+            if (player->winSymbol)
+            {
+                program->setUniform1f("grayAmount", player->winSymbol->getGrayAmount());
+            }
+            else
+            {
+                program->setUniform1f("grayAmount", player->timeSinceDead / player->timeToDie);
+            }
+        }
+        else program->setUniform1f("grayAmount", 0.0f);
     }
 
     program->setUniform2f("windowSize", Game::getScreenWidth(), Game::getScreenHeight());
