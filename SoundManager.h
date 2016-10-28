@@ -19,6 +19,8 @@ public:
     void stopSound();
     void stopMusic();
     void setVolume(float v);
+    void setSoundLoop(bool loop);
+    void setMusicLoop(bool loop);
 
 private:
     sf::SoundBuffer* buffer;
