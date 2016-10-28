@@ -14,9 +14,9 @@ void SceneCredits::init()
     spriteBg = Sprite::createSprite(glm::ivec2(Game::getScreenWidth(), Game::getScreenHeight()), glm::vec2(1.0f), &textureMenuBg, &texProgram);
 
     creditsText = createText("Credits", glm::ivec2(210, 100), 45);
-    oscarText = createText("Oscar Manas", glm::ivec2(180, 200), 25);
-    victorText = createText("Victor Anton", glm::ivec2(160, 250), 25);
-    backText = createText("Back", glm::ivec2(50, 400), 25);
+    oscarText = createText("Oscar Manas", glm::ivec2(180, 300), 25);
+    victorText = createText("Victor Anton", glm::ivec2(160, 350), 25);
+    backText = createText("Back", glm::ivec2(50, 500), 25);
 
     creditsText->centerHorizontally();
     oscarText->centerHorizontally();

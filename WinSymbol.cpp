@@ -8,7 +8,7 @@ WinSymbol::WinSymbol() : ISceneNode()
     winTexture = new Texture();
     winTexture->loadFromFile("images/goldenNugget.png", TEXTURE_PIXEL_FORMAT_RGBA);
 
-    replayText = Game::getCurrentSceneGame()->createText("Replay", glm::ivec2(0, 400), 30);
+    replayText = Game::getCurrentSceneGame()->createText("Replay", glm::ivec2(0, 500), 30);
     replayText->centerHorizontally();
     replayText->setVisible(false);
 
@@ -42,7 +42,7 @@ void WinSymbol::update(int deltaTime)
 
     if (scale < maxScale && timeSinceBegin >= 500)
     {
-        scale += 0.05f;
+        scale += 0.06f;
         scale = min(scale, maxScale);
         if (scale >= maxScale) timeSinceBegin = 0;
     }

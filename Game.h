@@ -20,6 +20,7 @@ public:
 
     static Scene *getCurrentScene();
     static SceneGame *getCurrentSceneGame();
+    static SceneMenu *getCurrentSceneMenu();
 	
 	static Game &instance()
 	{
@@ -27,8 +28,8 @@ public:
 		return G;
 	}
 
-    int InitialWidth  = 640;
-    int InitialHeight = 480;
+    int InitialWidth  = 800;
+    int InitialHeight = 600;
     static int getScreenWidth();
     static int getScreenHeight();
 	

@@ -14,7 +14,6 @@ void SoundManager::playSound(string file, float v)
          return;
     // Create a sound instance and play it
     sound = new sf::Sound(*buffer);
-    std::cout << v << std::endl;
     sound->setVolume(v);
     sound->play();
 }

@@ -1172,6 +1172,7 @@ CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: SFML32/include/SFML/System/Vector3
 
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: AnimKeyframes.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Block.h
+CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: BombExplosion.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Camera.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Character.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: CraftingBar.h
@@ -1194,6 +1195,7 @@ CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: ShaderProgram.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: SoundManager.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Sprite.h
+CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: TemporaryEffect.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Tile.h

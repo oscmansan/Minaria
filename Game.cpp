@@ -42,6 +42,11 @@ SceneGame *Game::getCurrentSceneGame()
     return dynamic_cast<SceneGame*>(Game::instance().currentScene);
 }
 
+SceneMenu *Game::getCurrentSceneMenu()
+{
+    return dynamic_cast<SceneMenu*>(Game::instance().currentScene);
+}
+
 int Game::getScreenWidth()
 {
     return Game::instance().InitialWidth;

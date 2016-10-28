@@ -55,9 +55,9 @@ private:
     float timeSinceDead = 0.0f;
 
     const int maxHealth = 10;
-    int health = 1;//maxHealth;
+    int health = maxHealth;
     const int heartSize = 25;
-    const glm::ivec2 heartLinePosition = glm::ivec2(450, 30);
+    const glm::ivec2 heartLinePosition = glm::ivec2(600, 30);
     Texture textureHeart;
     Sprite *spriteHeart = NULL;
 

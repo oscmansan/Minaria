@@ -5,7 +5,7 @@
 
 TemporaryEffect::TemporaryEffect()
 {
-    Game::getCurrentSceneGame()->addSceneNode(this);
+    Game::getCurrentScene()->addSceneNode(this);
 }
 
 TemporaryEffect::~TemporaryEffect()
@@ -24,7 +24,7 @@ void TemporaryEffect::update(int deltaTime)
 
     if (time > lifeTime)
     {
-        Game::getCurrentSceneGame()->removeSceneNode(this);
+        Game::getCurrentScene()->removeSceneNode(this);
     }
 }
 

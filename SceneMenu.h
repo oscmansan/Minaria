@@ -12,9 +12,17 @@ public:
 
     void init() override;
     void update(int deltaTime) override;
-    void render() override;
+    void renderBackLayer() override;
+
+    void beginToPlay();
+
+    SoundManager* getSoundManager();
 
 private:
+    bool startingToPlay = false;
+    int chronoToPlay = 0;
+    int timeToPlay = 1000;
+
     const glm::vec4 IdleColor = glm::vec4(1, 1, 1, 1);
     const glm::vec4 OverColor = glm::vec4(1, 0.7, 0, 1);
 

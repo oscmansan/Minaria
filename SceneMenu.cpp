@@ -1,6 +1,7 @@
 #include "SceneMenu.h"
 
 #include "Game.h"
+#include "BombExplosion.h"
 
 SceneMenu::SceneMenu()
 {
@@ -22,10 +23,10 @@ void SceneMenu::init()
     //title->setColor(glm::vec4(1,1,1,1));
     //title->centerHorizontally();
 
-    title            = createText("MINARIA", glm::ivec2(0, 50), 60);
-    playText         = createText("Play game", glm::ivec2(50, 300), 25);
-    instructionsText = createText("Instructions", glm::ivec2(50, 350), 25);
-    creditsText      = createText("Credits", glm::ivec2(50, 400), 25);
+    title            = createText("MINARIA", glm::ivec2(0, 100), 60);
+    playText         = createText("Play game", glm::ivec2(50, 400), 25);
+    instructionsText = createText("Instructions", glm::ivec2(50, 450), 25);
+    creditsText      = createText("Credits", glm::ivec2(50, 500), 25);
     title->centerHorizontally();
     playText->centerHorizontally();
     instructionsText->centerHorizontally();
@@ -53,9 +54,7 @@ void SceneMenu::update(int deltaTime)
         playText->setColor(OverColor);
         if (game->getMouseLeftButtonDown())
         {
-            soundManager->stopMusic();
-            game->gotoSceneGame();
-            return;
+            beginToPlay();
         }
     }
     else
@@ -90,9 +89,33 @@ void SceneMenu::update(int deltaTime)
         creditsText->setColor(IdleColor);
     }
 
+    if (startingToPlay)
+    {
+        chronoToPlay += deltaTime;
+        texProgram.setUniform1f("grayAmount",    float(chronoToPlay) / timeToPlay);
+        Text::program.setUniform1f("grayAmount", float(chronoToPlay) / timeToPlay);
+        if (chronoToPlay >= timeToPlay)
+        {
+            soundManager->stopMusic();
+            game->gotoSceneGame();
+            return;
+        }
+    }
 }
 
-void SceneMenu::render()
+void SceneMenu::renderBackLayer()
 {
+    texProgram.setUniform1f("grayAmount",    float(chronoToPlay) / timeToPlay);
+    Text::program.setUniform1f("grayAmount", float(chronoToPlay) / timeToPlay);
     spriteBg->render();
+}
+
+void SceneMenu::beginToPlay()
+{
+    startingToPlay = true;
+}
+
+SoundManager *SceneMenu::getSoundManager()
+{
+    return soundManager;
 }

@@ -18,7 +18,7 @@ public:
 
     int timeSinceBegin = 0;
     float scale = 1.0f;
-    float maxScale = 10.0f;
+    float maxScale = 12.0f;
 
     Text *replayText = NULL;
     float getGrayAmount() const;
