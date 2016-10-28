@@ -80,15 +80,19 @@ void SceneGame::init()
     int ini = 1500;
     int offset = 300;
     int mapWidth = map->getTotalSizeWorld().x - ini;
-    int nenemies = mapWidth / offset;
-    for (int i = 0; i < nenemies; ++i)
+    int posx = ini;
+    while (posx < mapWidth)
     {
         Enemy *enemy;
-        int posx = ini + i * offset;
+
+        cout << posx << endl;
         if (rand() % 2 == 0) enemy = new FlyingEnemy(posx); else enemy = new GroundEnemy(posx);
         enemy->init();
         enemy->setTileMap(map);
         characters.push_back(enemy);
+
+        if (offset > 10) offset -= 14;
+        posx += offset;
     }
 
     camera = new Camera();
