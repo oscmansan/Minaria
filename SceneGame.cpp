@@ -147,6 +147,8 @@ void SceneGame::renderOverlay()
 
 void SceneGame::winGame()
 {
+    soundManager->stopMusic();
+    soundManager->playMusic("../sounds/FFVI_Victory_Fanfare.ogg");
     gameWon = true;
 }
 
