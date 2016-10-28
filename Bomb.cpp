@@ -162,7 +162,7 @@ void Bomb::explode()
         }
     }
 
-    BombExplosion *be = new BombExplosion();
+    BombExplosion *be = new BombExplosion(false);
     be->setPosition(getPosition() + sprite->getSize()/2);
     be->explosionSize = explosionRadius * 1.5f;
     be->init();

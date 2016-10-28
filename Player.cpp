@@ -183,8 +183,8 @@ void Player::move(int deltaTime)
 {
     if (!dead)
     {
-        bool leftPressed = Game::instance().getKey('a');
-        bool rightPressed = Game::instance().getKey('d');
+        bool leftPressed = Game::instance().getKey('a') || Game::instance().getKey('A');
+        bool rightPressed = Game::instance().getKey('d') || Game::instance().getKey('D');
         bool bothPressed = leftPressed && rightPressed;
         bool anyPressed = leftPressed || rightPressed;
 
@@ -194,10 +194,10 @@ void Player::move(int deltaTime)
         }
         else
         {
-            velocity.x = (leftPressed ? -8 : 8) * 4;
+            velocity.x = leftPressed ? -8 : 8;
         }
 
-        if (Game::instance().getKey('w') && !bJumping && isGrounded())
+        if ((Game::instance().getKey('w') || Game::instance().getKey('W')) && !bJumping && isGrounded())
         {
             jump();
         }
@@ -447,8 +447,8 @@ void Player::updateMovementAnimation()
 {
     if (usingItem) return;
 
-    bool leftPressed = Game::instance().getKey('a');
-    bool rightPressed = Game::instance().getKey('d');
+    bool leftPressed = Game::instance().getKey('a') || Game::instance().getKey('A');
+    bool rightPressed = Game::instance().getKey('d') || Game::instance().getKey('D');
     bool bothPressed = leftPressed && rightPressed;
     bool anyPressed = leftPressed || rightPressed;
 

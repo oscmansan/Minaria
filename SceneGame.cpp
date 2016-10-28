@@ -101,7 +101,7 @@ void SceneGame::init()
     */
 
     soundManager = new SoundManager();
-    soundManager->setVolume(80.f);
+    soundManager->setVolume(80.0f);
     //soundManager->playMusic("../sounds/hack_the_forest.ogg");
 }
 

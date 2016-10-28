@@ -84,7 +84,7 @@ void FlyingEnemy::update(int deltaTime)
         break;
     case ATTACK:
         Projectile *p = new Projectile();
-        p->setPosition(getPosition());
+        p->setPosition(getPosition() + glm::ivec2(0,16));
         glm::vec2 dir = glm::normalize(glm::vec2(player->getPosition() - getPosition()));
         float speed = 0.1f * glm::min(50.0f, glm::length(glm::vec2(player->getPosition() - getPosition())));
         p->setVelocity(dir * speed);

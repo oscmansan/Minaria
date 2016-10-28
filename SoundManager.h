@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <SFML/Audio.hpp>
+
 using namespace std;
 
 class SoundManager

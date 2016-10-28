@@ -7,12 +7,14 @@
 class BombExplosion : public TemporaryEffect
 {
 private:
-    static Texture* explosionTexture;
+    static Texture* orangeTexture;
+    static Texture* purpleTexture;
+    bool color;
 
 public:
     float explosionSize = 0.0f;
 
-    BombExplosion();
+    BombExplosion(bool color);
 
     void init() override;
     void update(int deltaTime) override;
