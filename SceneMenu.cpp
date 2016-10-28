@@ -10,6 +10,9 @@ SceneMenu::SceneMenu()
 SceneMenu::~SceneMenu()
 {
     delete spriteBg;
+    soundManager->stopMusic();
+    soundManager->stopSound();
+    delete soundManager;
 }
 
 void SceneMenu::init()

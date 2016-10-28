@@ -23,9 +23,9 @@ public:
     void setMusicLoop(bool loop);
 
 private:
-    sf::SoundBuffer* buffer;
-    sf::Sound* sound;
-    sf::Music* music;
+    sf::SoundBuffer* buffer = NULL;
+    sf::Sound* sound = NULL;
+    sf::Music* music = NULL;
 
     float volume = 80.f;
 };

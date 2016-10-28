@@ -84,7 +84,7 @@ static void idleCallback()
 
 void resize(int width, int height) {
     // we ignore the params and do:
-    glutReshapeWindow(640, 480);
+    glutReshapeWindow(Game::instance().getScreenWidth(), Game::instance().getScreenHeight());
 }
 
 

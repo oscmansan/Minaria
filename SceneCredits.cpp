@@ -6,6 +6,12 @@ SceneCredits::SceneCredits()
 {
 }
 
+SceneCredits::~SceneCredits()
+{
+    delete soundManager;
+}
+
+
 void SceneCredits::init()
 {
     Scene::init();
@@ -23,6 +29,9 @@ void SceneCredits::init()
     victorText->centerHorizontally();
 
     backText->setColor(glm::vec4(1,1,1,1));
+
+    soundManager = new SoundManager();
+    soundManager->setVolume(60.f);
 }
 
 void SceneCredits::update(int deltaTime)
@@ -32,11 +41,11 @@ void SceneCredits::update(int deltaTime)
     Game *game = &(Game::instance());
 
     if (oscarText->getBoundingRect().contains(game->getMousePosScreen()))
-    { oscarText->setText("OSCAR GAY", 40); } else { oscarText->setText("Oscar Manas", 25); }
+    { oscarText->setText("OSCAR GAY", 40); soundManager->playSound("../sounds/Wilhelm_Scream.ogg"); } else { oscarText->setText("Oscar Manas", 25); }
     oscarText->centerHorizontally();
 
     if (victorText->getBoundingRect().contains(game->getMousePosScreen()))
-    { victorText->setText("HABLAS MI IDIOMA?", 30); } else { victorText->setText("Victor Anton", 25); }
+    { victorText->setText("HABLAS MI IDIOMA?", 30); soundManager->playSound("../sounds/Wilhelm_Scream.ogg"); } else { victorText->setText("Victor Anton", 25); }
     victorText->centerHorizontally();
 
     if (backText->getBoundingRect().contains(game->getMousePosScreen()))

@@ -34,18 +34,29 @@ void SoundManager::playMusic(string file, float v)
     music->play();
 }
 
-void SoundManager::stopSound() {
-    sound->stop();
-    delete buffer;
-    delete sound;
+void SoundManager::stopSound()
+{
+    if (sound)
+    {
+        sound->stop();
+        delete sound;
+        sound = NULL;
+    }
+    if (buffer)delete buffer;
 }
 
-void SoundManager::stopMusic() {
-    music->stop();
-    delete music;
+void SoundManager::stopMusic()
+{
+    if (music)
+    {
+        music->stop();
+        delete music;
+        music = NULL;
+    }
 }
 
-void SoundManager::setVolume(float v) {
+void SoundManager::setVolume(float v)
+{
     volume = v;
 }
 
