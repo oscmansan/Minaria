@@ -13,6 +13,13 @@ Rect::Rect(int x, int y, int width, int height)
 	this->height = height;
 }
 
+Rect::Rect(glm::ivec2 pos, glm::ivec2 size) {
+    x = pos.x;
+    y = pos.y;
+    width = size.x;
+    height = size.y;
+}
+
 Rect::~Rect()
 {
 }

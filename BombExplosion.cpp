@@ -43,7 +43,7 @@ void BombExplosion::init()
     }
 
     sprite->changeAnimation(0);
-    Game::getCurrentSceneGame()->getSoundManager()->playSound("../sounds/explosion.wav", 10.f);
+    Game::getCurrentSceneGame()->getSoundManager()->playSound("../sounds/explosion.wav",20.f);
 }
 
 void BombExplosion::update(int deltaTime)

@@ -12,6 +12,7 @@ private:
 public:
 	Rect();
 	Rect(int x, int y, int width, int height);
+    Rect(glm::ivec2 pos, glm::ivec2 size);
 	~Rect();
 
 	int x = 0, y = 0, width = 0, height = 0;
