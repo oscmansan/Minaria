@@ -11,7 +11,7 @@ Bomb::Bomb()
     if (Bomb::bombTexture == NULL)
     {
         Bomb::bombTexture = new Texture();
-        Bomb::bombTexture->loadFromFile("images/bomb.png", TEXTURE_PIXEL_FORMAT_RGBA);
+        Bomb::bombTexture->loadFromFile("images/pumpkin.png", TEXTURE_PIXEL_FORMAT_RGBA);
         Bomb::bombTexture->setMinFilter(GL_NEAREST);
         Bomb::bombTexture->setMagFilter(GL_NEAREST);
     }
