@@ -106,6 +106,7 @@ void SceneGame::init()
     soundManager = new SoundManager();
     soundManager->setVolume(80.f);
     soundManager->playMusic("../sounds/cavesong.ogg");
+    soundManager->setMusicLoop(true);
 }
 
 void SceneGame::update(int deltaTime)
@@ -149,6 +150,7 @@ void SceneGame::winGame()
 {
     soundManager->stopMusic();
     soundManager->playMusic("../sounds/FFVI_Victory_Fanfare.ogg");
+    soundManager->setMusicLoop(false);
     gameWon = true;
 }
 

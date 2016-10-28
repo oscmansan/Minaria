@@ -49,3 +49,13 @@ void SoundManager::stopMusic() {
 void SoundManager::setVolume(float v) {
     volume = v;
 }
+
+void SoundManager::setSoundLoop(bool loop)
+{
+    sound->setLoop(loop);
+}
+
+void SoundManager::setMusicLoop(bool loop)
+{
+    music->setLoop(loop);
+}
