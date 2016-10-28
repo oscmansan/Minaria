@@ -180,3 +180,12 @@ void Inventory::dropItem(int index)
         }
     }
 }
+
+glm::ivec2 Inventory::getSize() const {
+    return size;
+}
+
+CraftingBar *Inventory::getCraftingBar()
+{
+    return craftingBar;
+}

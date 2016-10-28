@@ -240,7 +240,11 @@ void Player::handleMouseActions()
 {
     glm::ivec2 mousePosScreen = Game::instance().getMousePosScreen();
     Rect inventoryRect(inventory->getPosition(),inventory->getSize());
-    if (inventoryRect.contains(mousePosScreen)) return;
+    CraftingBar* cb = inventory->getCraftingBar();
+    Rect craftingRect(cb->getPosition(),cb->getSize());
+    if (inventoryRect.contains(mousePosScreen) or
+        craftingRect.contains(mousePosScreen))
+        return;
 
     TileMap *tmap = Game::getCurrentSceneGame()->getTileMap();
     glm::ivec2 mousePos = Game::instance().getMousePosWorld();
@@ -410,7 +414,7 @@ void Player::takeDamage(int damage)
         damaged = true;
         health -= damage;
         Game::getCurrentSceneGame()->getSoundManager()->playSound("../sounds/classic_hurt.wav");
-        if (health < 0)
+        if (health <= 0)
         {
             beginToDie();
         }

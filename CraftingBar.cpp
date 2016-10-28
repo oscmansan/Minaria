@@ -32,6 +32,7 @@ void CraftingBar::init()
     ShaderProgram *program = Game::getCurrentSceneGame()->getShaderProgram();
     Game::getCurrentScene()->addSceneNode(this);
 
+
     textureSlot = new Texture();
     textureSlot->loadFromFile("images/invSlot.png", TEXTURE_PIXEL_FORMAT_RGBA);
 
@@ -49,6 +50,8 @@ void CraftingBar::init()
     bombTexture = new Texture();
     bombTexture->loadFromFile("images/bomb.png", TEXTURE_PIXEL_FORMAT_RGBA);
     spriteBomb = Sprite::createSprite(glm::ivec2(glm::vec2(CraftingSlotSize) * 0.8f), glm::vec2(1.0f), bombTexture, program);
+
+    position = bombPosition;
 
     bombOverlayTexture = new Texture();
     bombOverlayTexture->loadFromFile("images/slotCraftingOverlayBomb.png", TEXTURE_PIXEL_FORMAT_RGBA);
@@ -134,4 +137,9 @@ void CraftingBar::render(ShaderProgram &program)
         prepareModelViewMatrix(OverlayPos);
         spriteBombOverlay->render();
     }
+}
+
+glm::ivec2 CraftingBar::getSize() const
+{
+    return (swordPosition + spriteSlotSword->getSize()) - bombPosition;
 }

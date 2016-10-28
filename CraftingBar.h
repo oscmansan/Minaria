@@ -20,6 +20,8 @@ public:
     virtual void update(int deltaTime) override;
     virtual void render(ShaderProgram &program) override;
 
+    glm::ivec2 getSize() const override;
+
 private:
     const int CraftingSlotSize = 32;
     const glm::ivec2 OverlaySize = glm::ivec2(96, 50);

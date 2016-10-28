@@ -115,6 +115,9 @@ public:
         return indexOf(it);
     }
 
+    glm::ivec2 getSize() const override;
+    CraftingBar* getCraftingBar();
+
     Rect getSlotScreenRect(int i) const;
 
     int getNumSlots() const;
