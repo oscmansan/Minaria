@@ -85,7 +85,6 @@ void SceneGame::init()
     {
         Enemy *enemy;
 
-        cout << posx << endl;
         if (rand() % 2 == 0) enemy = new FlyingEnemy(posx); else enemy = new GroundEnemy(posx);
         enemy->init();
         enemy->setTileMap(map);
@@ -111,14 +110,19 @@ void SceneGame::init()
 
 void SceneGame::update(int deltaTime)
 {
-    Scene::update(deltaTime);
+    if (!gameWon)
+    {
+        Scene::update(deltaTime);
 
-    currentTime += deltaTime;
-
-    camera->update(deltaTime);
-    background->update(deltaTime);
-    map->update(deltaTime);
-    mapBg->update(deltaTime);
+        camera->update(deltaTime);
+        background->update(deltaTime);
+        map->update(deltaTime);
+        mapBg->update(deltaTime);
+    }
+    else
+    {
+        player->winSymbol->update(deltaTime);
+    }
 }
 
 void SceneGame::renderBackLayer()
@@ -138,6 +142,12 @@ void SceneGame::renderOverlay()
 {
     Scene::renderOverlay();
     player->renderHearts(*getShaderProgram());
+    if (player->winSymbol) player->winSymbol->render(*getShaderProgram());
+}
+
+void SceneGame::winGame()
+{
+    gameWon = true;
 }
 
 std::list<Character*> SceneGame::whosThere(const glm::ivec2 &pos)
@@ -268,6 +278,13 @@ void SceneGame::generateProceduralTilemap()
             }
         }
     }
+
+    // Add gold nugget!
+    //glm::ivec2 pos = glm::ivec2(width * tileSize - tileSize * 30, 0);
+    //pos.y = map->getSurfaceLevel(pos.x) + tileSize * 4;
+    glm::ivec2 pos = glm::ivec2(30 * tileSize, 0);
+    pos.y = map->getSurfaceLevel(pos.x) - tileSize * 2;
+    map->addTile<BlockGold>(pos);
 
     // Add side big walls
     for (int x = 25; x >= 0; --x)

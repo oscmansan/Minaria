@@ -49,7 +49,7 @@ bool Tile::isVisible() const
 {
     const glm::mat4 &view = Game::getCurrentSceneGame()->getCamera()->getView();
 
-    int offset = 32;
+    int offset = 64;
     Rect screenRect = Rect(-offset, -offset, Game::getScreenWidth() + offset, Game::getScreenHeight() + offset);
     glm::vec4 v4 = (view * glm::vec4(getPosition(), 0, 1));
     return screenRect.contains( glm::ivec2(v4.x, v4.y) );

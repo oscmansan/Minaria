@@ -24,6 +24,24 @@ void ISceneNode::prepareModelViewMatrix(const glm::ivec2 &pos, const glm::vec2 &
     program->use();
 
     program->setUniformMatrix4f("projection", scene->getProjection());
+    SceneGame *sceneGame = Game::getCurrentSceneGame();
+    if (sceneGame)
+    {
+        Player *player = sceneGame->getPlayer();
+        if ( !player->winSymbol || (this != player->winSymbol && this != player->winSymbol->replayText) )
+        {
+            if (player->winSymbol)
+            {
+                program->setUniform1f("grayAmount", player->winSymbol->getGrayAmount());
+            }
+            else
+            {
+                program->setUniform1f("grayAmount", player->timeSinceDead / player->timeToDie);
+            }
+        }
+        else program->setUniform1f("grayAmount", 0.0f);
+    }
+
     program->setUniform2f("windowSize", Game::getScreenWidth(), Game::getScreenHeight());
 
     if (!isScreen && Game::getCurrentSceneGame()) program->setUniformMatrix4f("view", Game::getCurrentSceneGame()->getCamera()->getView());

@@ -133,7 +133,8 @@ void Player::update(int deltaTime)
             invulnerabilityTimer -= deltaTime;
         }
 
-        if (invulnerabilityTimer <= 0) {
+        if (invulnerabilityTimer <= 0)
+        {
             damaged = false;
             sprite->setVisible(true);
             invulnerabilityTimer = invulnerabilityPeriod;
@@ -141,13 +142,13 @@ void Player::update(int deltaTime)
 
         handleItemSelection();
         handleMouseActions();
+        updateMovementAnimation();
     }
     else
     {
         sprite->changeAnimation(DEAD);
 
         timeSinceDead += deltaTime;
-        float timeToDie = 4000.0f;
         Game::getCurrentSceneGame()->getShaderProgram()->
                 setUniform1f("grayAmount", timeSinceDead / timeToDie);
 
@@ -156,8 +157,6 @@ void Player::update(int deltaTime)
             die();
         }
     }
-
-    updateMovementAnimation();
 }
 
 void Player::render(ShaderProgram &program)
@@ -182,25 +181,27 @@ Inventory *Player::getInventory()
 
 void Player::move(int deltaTime)
 {
-    bool leftPressed = Game::instance().getKey('a') || Game::instance().getKey('A');
-    bool rightPressed = Game::instance().getKey('d') || Game::instance().getKey('D');
-	bool bothPressed = leftPressed && rightPressed;
-	bool anyPressed = leftPressed || rightPressed;
+    if (!dead)
+    {
+        bool leftPressed = Game::instance().getKey('a') || Game::instance().getKey('A');
+        bool rightPressed = Game::instance().getKey('d') || Game::instance().getKey('D');
+        bool bothPressed = leftPressed && rightPressed;
+        bool anyPressed = leftPressed || rightPressed;
 
-    if (!anyPressed || bothPressed)
-    {
-		velocity.x = 0;
-	}
-	else
-    {
-        velocity.x = leftPressed ? -8 : 8;
+        if (!anyPressed || bothPressed)
+        {
+            velocity.x = 0;
+        }
+        else
+        {
+            velocity.x = leftPressed ? -8 : 8;
+        }
+
+        if ((Game::instance().getKey('w') || Game::instance().getKey('W')) && !bJumping && isGrounded())
+        {
+            jump();
+        }
     }
-	
-    if ((Game::instance().getKey('w') || Game::instance().getKey('W')) && !bJumping && isGrounded())
-    {
-		jump();
-	}
-
     Character::applyGravity();
 }
 
@@ -294,7 +295,6 @@ void Player::handleMouseActions()
             {
                 if (mouseBlock && mouseBlock->getType() != 0)
                 {
-                    Game::getCurrentSceneGame()->getCamera()->tremble(1, 50);
                     mouseBlock->onHitBegin();
                 }
             }
@@ -347,6 +347,7 @@ void Player::handleMouseActions()
                             else if (b->getType() == Block::BEDROCK) { addedBlock = tmap->addTile<BlockBedRock>(mousePos); }
                             else if (b->getType() == Block::WOOD)    { addedBlock = tmap->addTile<BlockWood>(mousePos); }
                             else if (b->getType() == Block::PURPLE)  { addedBlock = tmap->addTile<BlockPurple>(mousePos); }
+
 
                             if (addedBlock)
                             {
@@ -407,6 +408,13 @@ bool Player::isBlockSelected(Block *b)
     return lastMouseBlock == b && dynamic_cast<ItemPickaxe*>(selectedItem);
 }
 
+void Player::winGame(glm::ivec2 winningBlockPos)
+{
+    winSymbol = new WinSymbol();
+    winSymbol->setPosition(winningBlockPos);
+    Game::getCurrentSceneGame()->winGame();
+}
+
 void Player::takeDamage(int damage)
 {
     if (!damaged)
@@ -424,6 +432,8 @@ void Player::takeDamage(int damage)
 void Player::beginToDie()
 {
     dead = true;
+    Game::getCurrentSceneGame()->getCamera()->zoomIn(5, timeToDie);
+    Game::getCurrentSceneGame()->getCamera()->spin(0.03f, timeToDie);
     Text *t = Game::getCurrentSceneGame()->createText("You died", glm::ivec2(0, 200), 60);
     t->centerHorizontally();
     Game::getCurrentSceneGame()->getSoundManager()->playSound("../sounds/Wilhelm_Scream.ogg");

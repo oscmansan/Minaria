@@ -6,6 +6,7 @@ uniform float stroke = 0.0;
 uniform vec2 texCoordDispl;
 uniform vec4 strokeColor;
 uniform vec2 textureSize;
+uniform float grayAmount; // 0.0 to 1.0
 
 in vec2 texCoordFrag;
 out vec4 outColor;
@@ -32,6 +33,10 @@ void main()
                     texture(tex, texCoordFrag + vec2(dx * stepx, dy * stepy)).a > 0.95)
                 {
                     outColor = strokeColor;
+                    if (grayAmount > 0.5)
+                    {
+                        outColor *= 1.0 - grayAmount * 2.0 + 1.0;
+                    }
                     return;
                 }
             }
@@ -41,5 +46,10 @@ void main()
     else
     {
         outColor = texColor * tint;
+        if (grayAmount > 0.5)
+        {
+            outColor *= 1.0 - grayAmount * 2.0 + 1.0;
+        }
     }
+
 }

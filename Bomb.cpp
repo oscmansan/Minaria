@@ -105,7 +105,7 @@ glm::ivec2 Bomb::getSize() const
 void Bomb::explode()
 {
     glm::ivec2 centerPos = getPosition() + getSize() / 2;
-    Game::getCurrentSceneGame()->getCamera()->tremble(2, 500);
+    Game::getCurrentSceneGame()->getCamera()->tremble(3, 500);
 
     TileMap *tmap = Game::getCurrentSceneGame()->getTileMap();
     int tileSize = tmap->getTileSize();
@@ -141,10 +141,10 @@ void Bomb::explode()
         if (!character) continue;
 
         float distToExplosionCenter = glm::distance(glm::vec2(character->getPosition()), glm::vec2(centerPos));
-        int damage = damageInCenter * (explosionRadius / (distToExplosionCenter + 0.01f));
+        int damage = damageInCenter * (explosionRadiusForCharacters / (distToExplosionCenter + 0.01f));
         damage = min(damageInCenter, damage);
 
-        if (distToExplosionCenter < explosionRadius)
+        if (distToExplosionCenter < explosionRadiusForCharacters)
         {
             Enemy *e = dynamic_cast<Enemy*>(character);
             if (e && !e->dead)
@@ -164,7 +164,7 @@ void Bomb::explode()
 
     BombExplosion *be = new BombExplosion(false);
     be->setPosition(getPosition() + sprite->getSize()/2);
-    be->explosionSize = explosionRadius;
+    be->explosionSize = explosionRadius * 1.5f;
     be->init();
 
     Game::getCurrentScene()->removeSceneNode(this);

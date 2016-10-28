@@ -29,6 +29,7 @@ CMakeFiles/TerrariaLinux.dir/Background.cpp.o: Sprite.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/Background.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -91,6 +92,7 @@ CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Tile.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: TileMap.h
+CMakeFiles/TerrariaLinux.dir/Block.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -156,6 +158,7 @@ CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: Tile.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: TileMap.h
+CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -219,6 +222,7 @@ CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: TemporaryEffect.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -280,6 +284,7 @@ CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Sprite.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -342,6 +347,7 @@ CMakeFiles/TerrariaLinux.dir/Character.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: Tile.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: TileMap.h
+CMakeFiles/TerrariaLinux.dir/Character.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -405,6 +411,7 @@ CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: Sprite.h
 CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -466,6 +473,7 @@ CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Sprite.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -529,6 +537,7 @@ CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Tile.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: TileMap.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -590,6 +599,7 @@ CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Sprite.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/Game.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -652,6 +662,7 @@ CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: Tile.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: TileMap.h
+CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -713,6 +724,7 @@ CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: Sprite.h
 CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -776,6 +788,7 @@ CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Sprite.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -864,6 +877,7 @@ CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Tile.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: TileMap.h
+CMakeFiles/TerrariaLinux.dir/Player.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -929,6 +943,7 @@ CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: Tile.h
 CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: TileMap.h
+CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -994,6 +1009,7 @@ CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: Tile.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: TileMap.h
+CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -1055,6 +1071,7 @@ CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: Sprite.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -1118,6 +1135,7 @@ CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: Tile.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: TileMap.h
+CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -1179,6 +1197,7 @@ CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Sprite.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -1291,6 +1310,7 @@ CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: TemporaryEffect.h
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -1352,6 +1372,7 @@ CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Text.cpp
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/Text.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -1418,6 +1439,7 @@ CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Tile.cpp
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Tile.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: TileMap.h
+CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -1480,6 +1502,7 @@ CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: Tile.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: TileMap.cpp
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: TileMap.h
+CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: SFML32/include/SFML/Audio/Export.hpp
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
@@ -1514,6 +1537,68 @@ CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: SFML32/include/SFML/System/Vector2.i
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: SFML32/include/SFML/System/Vector3.hpp
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: SFML32/include/SFML/System/Vector3.inl
 
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: AnimKeyframes.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Block.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Camera.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Character.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: CraftingBar.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: FlyingEnemy.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Game.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: GroundEnemy.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: ISceneNode.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Inventory.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Item.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: PerlinNoise.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Player.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Rect.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Scene.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SceneCredits.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SceneMenu.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Shader.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: ShaderProgram.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SoundManager.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Sprite.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Text.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Texture.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: WinSymbol.cpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: WinSymbol.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/Audio.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/Audio/Export.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/Audio/Music.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/Audio/Sound.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/Audio/SoundBuffer.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/Audio/SoundBufferRecorder.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/Audio/SoundRecorder.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/Audio/SoundSource.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/Audio/SoundStream.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/Config.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Clock.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Err.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Export.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/InputStream.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Lock.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Mutex.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/NonCopyable.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Sleep.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/String.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Thread.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Thread.inl
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/ThreadLocal.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/ThreadLocalPtr.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/ThreadLocalPtr.inl
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Time.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Utf.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Utf.inl
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Vector2.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Vector2.inl
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Vector3.hpp
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SFML32/include/SFML/System/Vector3.inl
+
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: AnimKeyframes.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: Camera.h
@@ -1540,6 +1625,7 @@ CMakeFiles/TerrariaLinux.dir/main.cpp.o: Sprite.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: Text.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: Texture.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/main.cpp.o: WinSymbol.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: main.cpp
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: SFML32/include/SFML/Audio.hpp
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: SFML32/include/SFML/Audio/Export.hpp

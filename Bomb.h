@@ -20,6 +20,7 @@ public:
 
 private:
     int explosionRadius = 96;
+    int explosionRadiusForCharacters = 60;
     int damageInCenter = 3;
     glm::vec2 velocity;
     float rotSpeed = 1;

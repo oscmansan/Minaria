@@ -14,6 +14,14 @@ private:
     int trembleChrono = trembleTime;
     int trembleAmount = 0;
 
+    float zoom = 1.0f;
+    float zoomTarget = 1.0f;
+    int zoomTimeTarget = 0;
+    int zoomTimeChrono = 0;
+
+    float totalRotation = 0.0;
+    float spinSpeed = 0.0;
+
 public:
 	Camera();
 	~Camera();
@@ -26,5 +34,7 @@ public:
 	const glm::ivec2& getPosition();
 
     void tremble(int amount = 1, int time = 500);
+    void spin(float speed = 1.0f, int time = 500);
+    void zoomIn(float zoom = 1.0f, int time = 500);
 };
 

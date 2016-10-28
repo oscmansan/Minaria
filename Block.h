@@ -17,7 +17,8 @@ public:
         ROCK    = 2,
         BEDROCK = 3,
         WOOD    = 4,
-        PURPLE  = 5
+        PURPLE  = 5,
+        GOLD = 6
     };
 
     enum State {
@@ -104,6 +105,15 @@ class BlockPurple : public Block
 {
 public:
     BlockPurple(const glm::ivec2 &worldPos = glm::ivec2(0));
+
+public:
+    static Texture *s_texture;
+};
+
+class BlockGold : public Block
+{
+public:
+    BlockGold(const glm::ivec2 &worldPos = glm::ivec2(0));
 
 private:
     static Texture *s_texture;

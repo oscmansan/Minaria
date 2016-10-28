@@ -33,6 +33,12 @@ void Enemy::move(int deltaTime)
     Character::move(deltaTime);
 }
 
+Rect Enemy::getBoundingBox() const
+{
+    if (dead) return Rect(0,0,0,0);
+    else return Character::getBoundingBox();
+}
+
 void Enemy::takeDamage(int damage)
 {
     beginToDie();
@@ -43,7 +49,6 @@ void Enemy::beginToDie()
     dead = true;
     velocity.x = 0.0f;
     sprite->changeAnimation(DEAD);
-    Game::getCurrentSceneGame()->removeCharacter(this);
 }
 
 void Enemy::die()

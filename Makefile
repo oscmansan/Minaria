@@ -927,6 +927,30 @@ TileMap.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/TileMap.cpp.s
 .PHONY : TileMap.cpp.s
 
+WinSymbol.o: WinSymbol.cpp.o
+.PHONY : WinSymbol.o
+
+# target to build an object file
+WinSymbol.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o
+.PHONY : WinSymbol.cpp.o
+
+WinSymbol.i: WinSymbol.cpp.i
+.PHONY : WinSymbol.i
+
+# target to preprocess a source file
+WinSymbol.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.i
+.PHONY : WinSymbol.cpp.i
+
+WinSymbol.s: WinSymbol.cpp.s
+.PHONY : WinSymbol.s
+
+# target to generate assembly for a file
+WinSymbol.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.s
+.PHONY : WinSymbol.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -1062,6 +1086,9 @@ help:
 	@echo "... TileMap.o"
 	@echo "... TileMap.i"
 	@echo "... TileMap.s"
+	@echo "... WinSymbol.o"
+	@echo "... WinSymbol.i"
+	@echo "... WinSymbol.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
