@@ -26,9 +26,9 @@ void Character::init()
 {
     bJumping = false;
 
-	jumpSpeed = -9.0f;
-	gravity = 0.4f;
-    maxFallSpeed = 3.0f;
+    jumpSpeed = -12.0f;
+    gravity = 0.7f;
+    maxFallSpeed = 4.0f;
 }
 
 bool Character::isGrounded()

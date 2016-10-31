@@ -64,6 +64,17 @@ void GroundEnemy::update(int deltaTime)
 
     Player *player = Game::getCurrentSceneGame()->getPlayer();
 
+    // GroundEnemy dies when player jumps over
+    Rect playerBB = player->getBoundingBox();
+    Rect enemyBB = getBoundingBox();
+    if (player->getVelocity().y > 0 &&
+            playerBB.intersects(enemyBB) &&
+            abs(playerBB.getMax().y-enemyBB.getMin().y) < 5) {
+        beginToDie();
+    }
+    if (dead) state = State(-1);
+    //
+
     int tileSize = Game::getCurrentSceneGame()->getTileMap()->getTileSize();
     int detectThreshold = 7*tileSize;
     switch(state) {

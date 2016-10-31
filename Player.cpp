@@ -289,7 +289,7 @@ void Player::handleMouseActions()
                 usingItem = true;
                 if (mouseToLeft && sprite->animation() != PICKAXE_LEFT) sprite->changeAnimation(PICKAXE_LEFT);
                 else if (!mouseToLeft && sprite->animation() != PICKAXE_RIGHT) sprite->changeAnimation(PICKAXE_RIGHT);
-                Game::getCurrentSceneGame()->getSoundManager()->playSound("../sounds/gravel.wav",70.f);
+                Game::getCurrentSceneGame()->getSoundManager()->playSound("sounds/gravel.wav",70.f);
             }
 
             if (Game::instance().getMouseLeftButton())
@@ -308,7 +308,7 @@ void Player::handleMouseActions()
                 usingItem = true;
                 if (mouseToLeft && sprite->animation() != SWORD_LEFT) sprite->changeAnimation(SWORD_LEFT);
                 else if (!mouseToLeft && sprite->animation() != SWORD_RIGHT) sprite->changeAnimation(SWORD_RIGHT);
-                Game::getCurrentSceneGame()->getSoundManager()->playSound("../sounds/sword.wav",70.f);
+                Game::getCurrentSceneGame()->getSoundManager()->playSound("sounds/sword.wav",70.f);
 
                 for (Character *c : Game::getCurrentSceneGame()->getCharacters())
                 {
@@ -422,7 +422,7 @@ void Player::takeDamage(int damage)
     {
         damaged = true;
         health -= damage;
-        Game::getCurrentSceneGame()->getSoundManager()->playSound("../sounds/classic_hurt.wav");
+        Game::getCurrentSceneGame()->getSoundManager()->playSound("sounds/classic_hurt.wav");
         if (health <= 0)
         {
             beginToDie();
@@ -437,7 +437,7 @@ void Player::beginToDie()
     Game::getCurrentSceneGame()->getCamera()->spin(0.03f, timeToDie);
     Text *t = Game::getCurrentSceneGame()->createText("You died", glm::ivec2(0, 200), 60);
     t->centerHorizontally();
-    Game::getCurrentSceneGame()->getSoundManager()->playSound("../sounds/Wilhelm_Scream.ogg");
+    Game::getCurrentSceneGame()->getSoundManager()->playSound("sounds/Wilhelm_Scream.ogg");
 }
 
 void Player::die()

@@ -37,7 +37,7 @@ void SceneMenu::init()
 
     soundManager = new SoundManager();
     soundManager->setVolume(60.f);
-    soundManager->playMusic("../sounds/prologue.ogg");
+    soundManager->playMusic("sounds/prologue.ogg");
     soundManager->setMusicLoop(true);
 }
 

@@ -105,7 +105,7 @@ void SceneGame::init()
 
     soundManager = new SoundManager();
     soundManager->setVolume(80.f);
-    soundManager->playMusic("../sounds/cavesong.ogg");
+    soundManager->playMusic("sounds/cavesong.ogg");
     soundManager->setMusicLoop(true);
 }
 
