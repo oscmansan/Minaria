@@ -7,7 +7,7 @@ Run in the root directory:
 ```
   cmake .
   make
-  ./TerrariaLinux
+  ./Minaria
 ```
 
 ## Recording instructions
