@@ -1,0 +1,19 @@
+## Integrants del grup
+  * Victor Anton
+  * Oscar Mañas
+
+## Funcionalitats implementades
+  * 2 enemics amb comportaments i representacions diferents
+  * Diversos tipus de materials, amb diferents resistències a ser destruits
+  * Sistema de crafteig, amb possibilitat de construir una espasa i bombes (x20)
+  * Inventari i gestió d'items (quantitats, redistribució en els slots...)
+  * Interfície gràfica que mostra objectes equipats, quantitat de materials, vida i sistema de crafteig
+  * Estructura de 4 pantalles: menú principal, instruccions, crèdits i jugar
+  * Efectes de so
+  * Música de fons pel menú principal i dins del joc
+  * Terreny generat procedimentalment
+  * Coves i cavitats generades procedimentalment
+  * Fons amb efecte parallax
+  * Camera shaking que acompanya les explosions
+  * Iluminació dinàmica al voltant del jugador, com si portés una llum
+  * Ambient occlusion a les coves
