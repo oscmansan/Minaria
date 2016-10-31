@@ -11,7 +11,7 @@ Run in the root directory:
 ```
 
 ## Recording instructions
-Run in the root directory
+Run in the root directory:
 ```
-  ffmpeg -video_size 800x600 -framerate 30 -f x11grab -i :0.0+100,100 output.mp4
+  ffmpeg -video_size 800x600 -framerate 30 -f x11grab -i :0.0+100,128 output.mp4
 ```
