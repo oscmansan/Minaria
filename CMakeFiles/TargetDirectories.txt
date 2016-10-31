@@ -1,1 +1,0 @@
-/home/sephirot47/Terraria-linux/CMakeFiles/Minaria.dir

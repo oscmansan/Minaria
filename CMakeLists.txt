@@ -4,7 +4,6 @@ cmake_policy(SET CMP0015 NEW)
 
 execute_process(COMMAND ln -s ../shaders)
 execute_process(COMMAND ln -s ../images)
-execute_process(COMMAND ln -s ../levels)
 
 set(appName Minaria)
 
