@@ -99,905 +99,905 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named TerrariaLinux
+# Target rules for targets named Minaria
 
 # Build rule for target.
-TerrariaLinux: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 TerrariaLinux
-.PHONY : TerrariaLinux
+Minaria: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Minaria
+.PHONY : Minaria
 
 # fast build rule for target.
-TerrariaLinux/fast:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/build
-.PHONY : TerrariaLinux/fast
+Minaria/fast:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/build
+.PHONY : Minaria/fast
 
-Background.o: Background.cpp.o
-.PHONY : Background.o
-
-# target to build an object file
-Background.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Background.cpp.o
-.PHONY : Background.cpp.o
-
-Background.i: Background.cpp.i
-.PHONY : Background.i
-
-# target to preprocess a source file
-Background.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Background.cpp.i
-.PHONY : Background.cpp.i
-
-Background.s: Background.cpp.s
-.PHONY : Background.s
-
-# target to generate assembly for a file
-Background.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Background.cpp.s
-.PHONY : Background.cpp.s
-
-Block.o: Block.cpp.o
-.PHONY : Block.o
+src/Background.o: src/Background.cpp.o
+.PHONY : src/Background.o
 
 # target to build an object file
-Block.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Block.cpp.o
-.PHONY : Block.cpp.o
+src/Background.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Background.cpp.o
+.PHONY : src/Background.cpp.o
 
-Block.i: Block.cpp.i
-.PHONY : Block.i
+src/Background.i: src/Background.cpp.i
+.PHONY : src/Background.i
 
 # target to preprocess a source file
-Block.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Block.cpp.i
-.PHONY : Block.cpp.i
+src/Background.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Background.cpp.i
+.PHONY : src/Background.cpp.i
 
-Block.s: Block.cpp.s
-.PHONY : Block.s
+src/Background.s: src/Background.cpp.s
+.PHONY : src/Background.s
 
 # target to generate assembly for a file
-Block.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Block.cpp.s
-.PHONY : Block.cpp.s
+src/Background.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Background.cpp.s
+.PHONY : src/Background.cpp.s
 
-Bomb.o: Bomb.cpp.o
-.PHONY : Bomb.o
+src/Block.o: src/Block.cpp.o
+.PHONY : src/Block.o
 
 # target to build an object file
-Bomb.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o
-.PHONY : Bomb.cpp.o
+src/Block.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Block.cpp.o
+.PHONY : src/Block.cpp.o
 
-Bomb.i: Bomb.cpp.i
-.PHONY : Bomb.i
+src/Block.i: src/Block.cpp.i
+.PHONY : src/Block.i
 
 # target to preprocess a source file
-Bomb.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Bomb.cpp.i
-.PHONY : Bomb.cpp.i
+src/Block.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Block.cpp.i
+.PHONY : src/Block.cpp.i
 
-Bomb.s: Bomb.cpp.s
-.PHONY : Bomb.s
+src/Block.s: src/Block.cpp.s
+.PHONY : src/Block.s
 
 # target to generate assembly for a file
-Bomb.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Bomb.cpp.s
-.PHONY : Bomb.cpp.s
+src/Block.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Block.cpp.s
+.PHONY : src/Block.cpp.s
 
-BombExplosion.o: BombExplosion.cpp.o
-.PHONY : BombExplosion.o
+src/Bomb.o: src/Bomb.cpp.o
+.PHONY : src/Bomb.o
 
 # target to build an object file
-BombExplosion.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o
-.PHONY : BombExplosion.cpp.o
+src/Bomb.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Bomb.cpp.o
+.PHONY : src/Bomb.cpp.o
 
-BombExplosion.i: BombExplosion.cpp.i
-.PHONY : BombExplosion.i
+src/Bomb.i: src/Bomb.cpp.i
+.PHONY : src/Bomb.i
 
 # target to preprocess a source file
-BombExplosion.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.i
-.PHONY : BombExplosion.cpp.i
+src/Bomb.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Bomb.cpp.i
+.PHONY : src/Bomb.cpp.i
 
-BombExplosion.s: BombExplosion.cpp.s
-.PHONY : BombExplosion.s
+src/Bomb.s: src/Bomb.cpp.s
+.PHONY : src/Bomb.s
 
 # target to generate assembly for a file
-BombExplosion.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.s
-.PHONY : BombExplosion.cpp.s
+src/Bomb.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Bomb.cpp.s
+.PHONY : src/Bomb.cpp.s
 
-Camera.o: Camera.cpp.o
-.PHONY : Camera.o
+src/BombExplosion.o: src/BombExplosion.cpp.o
+.PHONY : src/BombExplosion.o
 
 # target to build an object file
-Camera.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Camera.cpp.o
-.PHONY : Camera.cpp.o
+src/BombExplosion.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/BombExplosion.cpp.o
+.PHONY : src/BombExplosion.cpp.o
 
-Camera.i: Camera.cpp.i
-.PHONY : Camera.i
+src/BombExplosion.i: src/BombExplosion.cpp.i
+.PHONY : src/BombExplosion.i
 
 # target to preprocess a source file
-Camera.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Camera.cpp.i
-.PHONY : Camera.cpp.i
+src/BombExplosion.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/BombExplosion.cpp.i
+.PHONY : src/BombExplosion.cpp.i
 
-Camera.s: Camera.cpp.s
-.PHONY : Camera.s
+src/BombExplosion.s: src/BombExplosion.cpp.s
+.PHONY : src/BombExplosion.s
 
 # target to generate assembly for a file
-Camera.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Camera.cpp.s
-.PHONY : Camera.cpp.s
+src/BombExplosion.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/BombExplosion.cpp.s
+.PHONY : src/BombExplosion.cpp.s
 
-Character.o: Character.cpp.o
-.PHONY : Character.o
+src/Camera.o: src/Camera.cpp.o
+.PHONY : src/Camera.o
 
 # target to build an object file
-Character.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Character.cpp.o
-.PHONY : Character.cpp.o
+src/Camera.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Camera.cpp.o
+.PHONY : src/Camera.cpp.o
 
-Character.i: Character.cpp.i
-.PHONY : Character.i
+src/Camera.i: src/Camera.cpp.i
+.PHONY : src/Camera.i
 
 # target to preprocess a source file
-Character.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Character.cpp.i
-.PHONY : Character.cpp.i
+src/Camera.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Camera.cpp.i
+.PHONY : src/Camera.cpp.i
 
-Character.s: Character.cpp.s
-.PHONY : Character.s
+src/Camera.s: src/Camera.cpp.s
+.PHONY : src/Camera.s
 
 # target to generate assembly for a file
-Character.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Character.cpp.s
-.PHONY : Character.cpp.s
+src/Camera.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Camera.cpp.s
+.PHONY : src/Camera.cpp.s
 
-CraftingBar.o: CraftingBar.cpp.o
-.PHONY : CraftingBar.o
+src/Character.o: src/Character.cpp.o
+.PHONY : src/Character.o
 
 # target to build an object file
-CraftingBar.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o
-.PHONY : CraftingBar.cpp.o
+src/Character.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Character.cpp.o
+.PHONY : src/Character.cpp.o
 
-CraftingBar.i: CraftingBar.cpp.i
-.PHONY : CraftingBar.i
+src/Character.i: src/Character.cpp.i
+.PHONY : src/Character.i
 
 # target to preprocess a source file
-CraftingBar.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.i
-.PHONY : CraftingBar.cpp.i
+src/Character.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Character.cpp.i
+.PHONY : src/Character.cpp.i
 
-CraftingBar.s: CraftingBar.cpp.s
-.PHONY : CraftingBar.s
+src/Character.s: src/Character.cpp.s
+.PHONY : src/Character.s
 
 # target to generate assembly for a file
-CraftingBar.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.s
-.PHONY : CraftingBar.cpp.s
+src/Character.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Character.cpp.s
+.PHONY : src/Character.cpp.s
 
-Enemy.o: Enemy.cpp.o
-.PHONY : Enemy.o
+src/CraftingBar.o: src/CraftingBar.cpp.o
+.PHONY : src/CraftingBar.o
 
 # target to build an object file
-Enemy.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o
-.PHONY : Enemy.cpp.o
+src/CraftingBar.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/CraftingBar.cpp.o
+.PHONY : src/CraftingBar.cpp.o
 
-Enemy.i: Enemy.cpp.i
-.PHONY : Enemy.i
+src/CraftingBar.i: src/CraftingBar.cpp.i
+.PHONY : src/CraftingBar.i
 
 # target to preprocess a source file
-Enemy.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Enemy.cpp.i
-.PHONY : Enemy.cpp.i
+src/CraftingBar.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/CraftingBar.cpp.i
+.PHONY : src/CraftingBar.cpp.i
 
-Enemy.s: Enemy.cpp.s
-.PHONY : Enemy.s
+src/CraftingBar.s: src/CraftingBar.cpp.s
+.PHONY : src/CraftingBar.s
 
 # target to generate assembly for a file
-Enemy.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Enemy.cpp.s
-.PHONY : Enemy.cpp.s
+src/CraftingBar.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/CraftingBar.cpp.s
+.PHONY : src/CraftingBar.cpp.s
 
-FlyingEnemy.o: FlyingEnemy.cpp.o
-.PHONY : FlyingEnemy.o
+src/Enemy.o: src/Enemy.cpp.o
+.PHONY : src/Enemy.o
 
 # target to build an object file
-FlyingEnemy.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o
-.PHONY : FlyingEnemy.cpp.o
+src/Enemy.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Enemy.cpp.o
+.PHONY : src/Enemy.cpp.o
 
-FlyingEnemy.i: FlyingEnemy.cpp.i
-.PHONY : FlyingEnemy.i
+src/Enemy.i: src/Enemy.cpp.i
+.PHONY : src/Enemy.i
 
 # target to preprocess a source file
-FlyingEnemy.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.i
-.PHONY : FlyingEnemy.cpp.i
+src/Enemy.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Enemy.cpp.i
+.PHONY : src/Enemy.cpp.i
 
-FlyingEnemy.s: FlyingEnemy.cpp.s
-.PHONY : FlyingEnemy.s
+src/Enemy.s: src/Enemy.cpp.s
+.PHONY : src/Enemy.s
 
 # target to generate assembly for a file
-FlyingEnemy.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.s
-.PHONY : FlyingEnemy.cpp.s
+src/Enemy.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Enemy.cpp.s
+.PHONY : src/Enemy.cpp.s
 
-Game.o: Game.cpp.o
-.PHONY : Game.o
+src/FlyingEnemy.o: src/FlyingEnemy.cpp.o
+.PHONY : src/FlyingEnemy.o
 
 # target to build an object file
-Game.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Game.cpp.o
-.PHONY : Game.cpp.o
+src/FlyingEnemy.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/FlyingEnemy.cpp.o
+.PHONY : src/FlyingEnemy.cpp.o
 
-Game.i: Game.cpp.i
-.PHONY : Game.i
+src/FlyingEnemy.i: src/FlyingEnemy.cpp.i
+.PHONY : src/FlyingEnemy.i
 
 # target to preprocess a source file
-Game.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Game.cpp.i
-.PHONY : Game.cpp.i
+src/FlyingEnemy.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/FlyingEnemy.cpp.i
+.PHONY : src/FlyingEnemy.cpp.i
 
-Game.s: Game.cpp.s
-.PHONY : Game.s
+src/FlyingEnemy.s: src/FlyingEnemy.cpp.s
+.PHONY : src/FlyingEnemy.s
 
 # target to generate assembly for a file
-Game.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Game.cpp.s
-.PHONY : Game.cpp.s
+src/FlyingEnemy.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/FlyingEnemy.cpp.s
+.PHONY : src/FlyingEnemy.cpp.s
 
-GroundEnemy.o: GroundEnemy.cpp.o
-.PHONY : GroundEnemy.o
+src/Game.o: src/Game.cpp.o
+.PHONY : src/Game.o
 
 # target to build an object file
-GroundEnemy.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o
-.PHONY : GroundEnemy.cpp.o
+src/Game.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Game.cpp.o
+.PHONY : src/Game.cpp.o
 
-GroundEnemy.i: GroundEnemy.cpp.i
-.PHONY : GroundEnemy.i
+src/Game.i: src/Game.cpp.i
+.PHONY : src/Game.i
 
 # target to preprocess a source file
-GroundEnemy.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.i
-.PHONY : GroundEnemy.cpp.i
+src/Game.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Game.cpp.i
+.PHONY : src/Game.cpp.i
 
-GroundEnemy.s: GroundEnemy.cpp.s
-.PHONY : GroundEnemy.s
+src/Game.s: src/Game.cpp.s
+.PHONY : src/Game.s
 
 # target to generate assembly for a file
-GroundEnemy.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.s
-.PHONY : GroundEnemy.cpp.s
+src/Game.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Game.cpp.s
+.PHONY : src/Game.cpp.s
 
-ISceneNode.o: ISceneNode.cpp.o
-.PHONY : ISceneNode.o
+src/GroundEnemy.o: src/GroundEnemy.cpp.o
+.PHONY : src/GroundEnemy.o
 
 # target to build an object file
-ISceneNode.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o
-.PHONY : ISceneNode.cpp.o
+src/GroundEnemy.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/GroundEnemy.cpp.o
+.PHONY : src/GroundEnemy.cpp.o
 
-ISceneNode.i: ISceneNode.cpp.i
-.PHONY : ISceneNode.i
+src/GroundEnemy.i: src/GroundEnemy.cpp.i
+.PHONY : src/GroundEnemy.i
 
 # target to preprocess a source file
-ISceneNode.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.i
-.PHONY : ISceneNode.cpp.i
+src/GroundEnemy.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/GroundEnemy.cpp.i
+.PHONY : src/GroundEnemy.cpp.i
 
-ISceneNode.s: ISceneNode.cpp.s
-.PHONY : ISceneNode.s
+src/GroundEnemy.s: src/GroundEnemy.cpp.s
+.PHONY : src/GroundEnemy.s
 
 # target to generate assembly for a file
-ISceneNode.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.s
-.PHONY : ISceneNode.cpp.s
+src/GroundEnemy.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/GroundEnemy.cpp.s
+.PHONY : src/GroundEnemy.cpp.s
 
-Inventory.o: Inventory.cpp.o
-.PHONY : Inventory.o
+src/ISceneNode.o: src/ISceneNode.cpp.o
+.PHONY : src/ISceneNode.o
 
 # target to build an object file
-Inventory.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o
-.PHONY : Inventory.cpp.o
+src/ISceneNode.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ISceneNode.cpp.o
+.PHONY : src/ISceneNode.cpp.o
 
-Inventory.i: Inventory.cpp.i
-.PHONY : Inventory.i
+src/ISceneNode.i: src/ISceneNode.cpp.i
+.PHONY : src/ISceneNode.i
 
 # target to preprocess a source file
-Inventory.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Inventory.cpp.i
-.PHONY : Inventory.cpp.i
+src/ISceneNode.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ISceneNode.cpp.i
+.PHONY : src/ISceneNode.cpp.i
 
-Inventory.s: Inventory.cpp.s
-.PHONY : Inventory.s
+src/ISceneNode.s: src/ISceneNode.cpp.s
+.PHONY : src/ISceneNode.s
 
 # target to generate assembly for a file
-Inventory.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Inventory.cpp.s
-.PHONY : Inventory.cpp.s
+src/ISceneNode.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ISceneNode.cpp.s
+.PHONY : src/ISceneNode.cpp.s
 
-Item.o: Item.cpp.o
-.PHONY : Item.o
+src/Inventory.o: src/Inventory.cpp.o
+.PHONY : src/Inventory.o
 
 # target to build an object file
-Item.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Item.cpp.o
-.PHONY : Item.cpp.o
+src/Inventory.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Inventory.cpp.o
+.PHONY : src/Inventory.cpp.o
 
-Item.i: Item.cpp.i
-.PHONY : Item.i
+src/Inventory.i: src/Inventory.cpp.i
+.PHONY : src/Inventory.i
 
 # target to preprocess a source file
-Item.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Item.cpp.i
-.PHONY : Item.cpp.i
+src/Inventory.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Inventory.cpp.i
+.PHONY : src/Inventory.cpp.i
 
-Item.s: Item.cpp.s
-.PHONY : Item.s
+src/Inventory.s: src/Inventory.cpp.s
+.PHONY : src/Inventory.s
 
 # target to generate assembly for a file
-Item.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Item.cpp.s
-.PHONY : Item.cpp.s
+src/Inventory.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Inventory.cpp.s
+.PHONY : src/Inventory.cpp.s
 
-ItemBomb.o: ItemBomb.cpp.o
-.PHONY : ItemBomb.o
+src/Item.o: src/Item.cpp.o
+.PHONY : src/Item.o
 
 # target to build an object file
-ItemBomb.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp.o
-.PHONY : ItemBomb.cpp.o
+src/Item.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Item.cpp.o
+.PHONY : src/Item.cpp.o
 
-ItemBomb.i: ItemBomb.cpp.i
-.PHONY : ItemBomb.i
+src/Item.i: src/Item.cpp.i
+.PHONY : src/Item.i
 
 # target to preprocess a source file
-ItemBomb.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp.i
-.PHONY : ItemBomb.cpp.i
+src/Item.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Item.cpp.i
+.PHONY : src/Item.cpp.i
 
-ItemBomb.s: ItemBomb.cpp.s
-.PHONY : ItemBomb.s
+src/Item.s: src/Item.cpp.s
+.PHONY : src/Item.s
 
 # target to generate assembly for a file
-ItemBomb.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemBomb.cpp.s
-.PHONY : ItemBomb.cpp.s
+src/Item.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Item.cpp.s
+.PHONY : src/Item.cpp.s
 
-ItemPickaxe.o: ItemPickaxe.cpp.o
-.PHONY : ItemPickaxe.o
+src/ItemBomb.o: src/ItemBomb.cpp.o
+.PHONY : src/ItemBomb.o
 
 # target to build an object file
-ItemPickaxe.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.o
-.PHONY : ItemPickaxe.cpp.o
+src/ItemBomb.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ItemBomb.cpp.o
+.PHONY : src/ItemBomb.cpp.o
 
-ItemPickaxe.i: ItemPickaxe.cpp.i
-.PHONY : ItemPickaxe.i
+src/ItemBomb.i: src/ItemBomb.cpp.i
+.PHONY : src/ItemBomb.i
 
 # target to preprocess a source file
-ItemPickaxe.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.i
-.PHONY : ItemPickaxe.cpp.i
+src/ItemBomb.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ItemBomb.cpp.i
+.PHONY : src/ItemBomb.cpp.i
 
-ItemPickaxe.s: ItemPickaxe.cpp.s
-.PHONY : ItemPickaxe.s
+src/ItemBomb.s: src/ItemBomb.cpp.s
+.PHONY : src/ItemBomb.s
 
 # target to generate assembly for a file
-ItemPickaxe.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemPickaxe.cpp.s
-.PHONY : ItemPickaxe.cpp.s
+src/ItemBomb.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ItemBomb.cpp.s
+.PHONY : src/ItemBomb.cpp.s
 
-ItemSword.o: ItemSword.cpp.o
-.PHONY : ItemSword.o
+src/ItemPickaxe.o: src/ItemPickaxe.cpp.o
+.PHONY : src/ItemPickaxe.o
 
 # target to build an object file
-ItemSword.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.o
-.PHONY : ItemSword.cpp.o
+src/ItemPickaxe.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ItemPickaxe.cpp.o
+.PHONY : src/ItemPickaxe.cpp.o
 
-ItemSword.i: ItemSword.cpp.i
-.PHONY : ItemSword.i
+src/ItemPickaxe.i: src/ItemPickaxe.cpp.i
+.PHONY : src/ItemPickaxe.i
 
 # target to preprocess a source file
-ItemSword.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.i
-.PHONY : ItemSword.cpp.i
+src/ItemPickaxe.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ItemPickaxe.cpp.i
+.PHONY : src/ItemPickaxe.cpp.i
 
-ItemSword.s: ItemSword.cpp.s
-.PHONY : ItemSword.s
+src/ItemPickaxe.s: src/ItemPickaxe.cpp.s
+.PHONY : src/ItemPickaxe.s
 
 # target to generate assembly for a file
-ItemSword.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ItemSword.cpp.s
-.PHONY : ItemSword.cpp.s
+src/ItemPickaxe.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ItemPickaxe.cpp.s
+.PHONY : src/ItemPickaxe.cpp.s
 
-PerlinNoise.o: PerlinNoise.cpp.o
-.PHONY : PerlinNoise.o
+src/ItemSword.o: src/ItemSword.cpp.o
+.PHONY : src/ItemSword.o
 
 # target to build an object file
-PerlinNoise.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.o
-.PHONY : PerlinNoise.cpp.o
+src/ItemSword.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ItemSword.cpp.o
+.PHONY : src/ItemSword.cpp.o
 
-PerlinNoise.i: PerlinNoise.cpp.i
-.PHONY : PerlinNoise.i
+src/ItemSword.i: src/ItemSword.cpp.i
+.PHONY : src/ItemSword.i
 
 # target to preprocess a source file
-PerlinNoise.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.i
-.PHONY : PerlinNoise.cpp.i
+src/ItemSword.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ItemSword.cpp.i
+.PHONY : src/ItemSword.cpp.i
 
-PerlinNoise.s: PerlinNoise.cpp.s
-.PHONY : PerlinNoise.s
+src/ItemSword.s: src/ItemSword.cpp.s
+.PHONY : src/ItemSword.s
 
 # target to generate assembly for a file
-PerlinNoise.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/PerlinNoise.cpp.s
-.PHONY : PerlinNoise.cpp.s
+src/ItemSword.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ItemSword.cpp.s
+.PHONY : src/ItemSword.cpp.s
 
-Player.o: Player.cpp.o
-.PHONY : Player.o
+src/PerlinNoise.o: src/PerlinNoise.cpp.o
+.PHONY : src/PerlinNoise.o
 
 # target to build an object file
-Player.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Player.cpp.o
-.PHONY : Player.cpp.o
+src/PerlinNoise.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/PerlinNoise.cpp.o
+.PHONY : src/PerlinNoise.cpp.o
 
-Player.i: Player.cpp.i
-.PHONY : Player.i
+src/PerlinNoise.i: src/PerlinNoise.cpp.i
+.PHONY : src/PerlinNoise.i
 
 # target to preprocess a source file
-Player.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Player.cpp.i
-.PHONY : Player.cpp.i
+src/PerlinNoise.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/PerlinNoise.cpp.i
+.PHONY : src/PerlinNoise.cpp.i
 
-Player.s: Player.cpp.s
-.PHONY : Player.s
+src/PerlinNoise.s: src/PerlinNoise.cpp.s
+.PHONY : src/PerlinNoise.s
 
 # target to generate assembly for a file
-Player.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Player.cpp.s
-.PHONY : Player.cpp.s
+src/PerlinNoise.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/PerlinNoise.cpp.s
+.PHONY : src/PerlinNoise.cpp.s
 
-Projectile.o: Projectile.cpp.o
-.PHONY : Projectile.o
+src/Player.o: src/Player.cpp.o
+.PHONY : src/Player.o
 
 # target to build an object file
-Projectile.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o
-.PHONY : Projectile.cpp.o
+src/Player.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Player.cpp.o
+.PHONY : src/Player.cpp.o
 
-Projectile.i: Projectile.cpp.i
-.PHONY : Projectile.i
+src/Player.i: src/Player.cpp.i
+.PHONY : src/Player.i
 
 # target to preprocess a source file
-Projectile.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Projectile.cpp.i
-.PHONY : Projectile.cpp.i
+src/Player.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Player.cpp.i
+.PHONY : src/Player.cpp.i
 
-Projectile.s: Projectile.cpp.s
-.PHONY : Projectile.s
+src/Player.s: src/Player.cpp.s
+.PHONY : src/Player.s
 
 # target to generate assembly for a file
-Projectile.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Projectile.cpp.s
-.PHONY : Projectile.cpp.s
+src/Player.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Player.cpp.s
+.PHONY : src/Player.cpp.s
 
-Rect.o: Rect.cpp.o
-.PHONY : Rect.o
+src/Projectile.o: src/Projectile.cpp.o
+.PHONY : src/Projectile.o
 
 # target to build an object file
-Rect.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Rect.cpp.o
-.PHONY : Rect.cpp.o
+src/Projectile.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Projectile.cpp.o
+.PHONY : src/Projectile.cpp.o
 
-Rect.i: Rect.cpp.i
-.PHONY : Rect.i
+src/Projectile.i: src/Projectile.cpp.i
+.PHONY : src/Projectile.i
 
 # target to preprocess a source file
-Rect.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Rect.cpp.i
-.PHONY : Rect.cpp.i
+src/Projectile.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Projectile.cpp.i
+.PHONY : src/Projectile.cpp.i
 
-Rect.s: Rect.cpp.s
-.PHONY : Rect.s
+src/Projectile.s: src/Projectile.cpp.s
+.PHONY : src/Projectile.s
 
 # target to generate assembly for a file
-Rect.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Rect.cpp.s
-.PHONY : Rect.cpp.s
+src/Projectile.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Projectile.cpp.s
+.PHONY : src/Projectile.cpp.s
 
-Scene.o: Scene.cpp.o
-.PHONY : Scene.o
+src/Rect.o: src/Rect.cpp.o
+.PHONY : src/Rect.o
 
 # target to build an object file
-Scene.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Scene.cpp.o
-.PHONY : Scene.cpp.o
+src/Rect.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Rect.cpp.o
+.PHONY : src/Rect.cpp.o
 
-Scene.i: Scene.cpp.i
-.PHONY : Scene.i
+src/Rect.i: src/Rect.cpp.i
+.PHONY : src/Rect.i
 
 # target to preprocess a source file
-Scene.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Scene.cpp.i
-.PHONY : Scene.cpp.i
+src/Rect.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Rect.cpp.i
+.PHONY : src/Rect.cpp.i
 
-Scene.s: Scene.cpp.s
-.PHONY : Scene.s
+src/Rect.s: src/Rect.cpp.s
+.PHONY : src/Rect.s
 
 # target to generate assembly for a file
-Scene.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Scene.cpp.s
-.PHONY : Scene.cpp.s
+src/Rect.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Rect.cpp.s
+.PHONY : src/Rect.cpp.s
 
-SceneCredits.o: SceneCredits.cpp.o
-.PHONY : SceneCredits.o
+src/Scene.o: src/Scene.cpp.o
+.PHONY : src/Scene.o
 
 # target to build an object file
-SceneCredits.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o
-.PHONY : SceneCredits.cpp.o
+src/Scene.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Scene.cpp.o
+.PHONY : src/Scene.cpp.o
 
-SceneCredits.i: SceneCredits.cpp.i
-.PHONY : SceneCredits.i
+src/Scene.i: src/Scene.cpp.i
+.PHONY : src/Scene.i
 
 # target to preprocess a source file
-SceneCredits.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.i
-.PHONY : SceneCredits.cpp.i
+src/Scene.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Scene.cpp.i
+.PHONY : src/Scene.cpp.i
 
-SceneCredits.s: SceneCredits.cpp.s
-.PHONY : SceneCredits.s
+src/Scene.s: src/Scene.cpp.s
+.PHONY : src/Scene.s
 
 # target to generate assembly for a file
-SceneCredits.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.s
-.PHONY : SceneCredits.cpp.s
+src/Scene.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Scene.cpp.s
+.PHONY : src/Scene.cpp.s
 
-SceneGame.o: SceneGame.cpp.o
-.PHONY : SceneGame.o
+src/SceneCredits.o: src/SceneCredits.cpp.o
+.PHONY : src/SceneCredits.o
 
 # target to build an object file
-SceneGame.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o
-.PHONY : SceneGame.cpp.o
+src/SceneCredits.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SceneCredits.cpp.o
+.PHONY : src/SceneCredits.cpp.o
 
-SceneGame.i: SceneGame.cpp.i
-.PHONY : SceneGame.i
+src/SceneCredits.i: src/SceneCredits.cpp.i
+.PHONY : src/SceneCredits.i
 
 # target to preprocess a source file
-SceneGame.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.i
-.PHONY : SceneGame.cpp.i
+src/SceneCredits.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SceneCredits.cpp.i
+.PHONY : src/SceneCredits.cpp.i
 
-SceneGame.s: SceneGame.cpp.s
-.PHONY : SceneGame.s
+src/SceneCredits.s: src/SceneCredits.cpp.s
+.PHONY : src/SceneCredits.s
 
 # target to generate assembly for a file
-SceneGame.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.s
-.PHONY : SceneGame.cpp.s
+src/SceneCredits.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SceneCredits.cpp.s
+.PHONY : src/SceneCredits.cpp.s
 
-SceneInstructions.o: SceneInstructions.cpp.o
-.PHONY : SceneInstructions.o
+src/SceneGame.o: src/SceneGame.cpp.o
+.PHONY : src/SceneGame.o
 
 # target to build an object file
-SceneInstructions.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o
-.PHONY : SceneInstructions.cpp.o
+src/SceneGame.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SceneGame.cpp.o
+.PHONY : src/SceneGame.cpp.o
 
-SceneInstructions.i: SceneInstructions.cpp.i
-.PHONY : SceneInstructions.i
+src/SceneGame.i: src/SceneGame.cpp.i
+.PHONY : src/SceneGame.i
 
 # target to preprocess a source file
-SceneInstructions.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.i
-.PHONY : SceneInstructions.cpp.i
+src/SceneGame.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SceneGame.cpp.i
+.PHONY : src/SceneGame.cpp.i
 
-SceneInstructions.s: SceneInstructions.cpp.s
-.PHONY : SceneInstructions.s
+src/SceneGame.s: src/SceneGame.cpp.s
+.PHONY : src/SceneGame.s
 
 # target to generate assembly for a file
-SceneInstructions.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.s
-.PHONY : SceneInstructions.cpp.s
+src/SceneGame.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SceneGame.cpp.s
+.PHONY : src/SceneGame.cpp.s
 
-SceneMenu.o: SceneMenu.cpp.o
-.PHONY : SceneMenu.o
+src/SceneInstructions.o: src/SceneInstructions.cpp.o
+.PHONY : src/SceneInstructions.o
 
 # target to build an object file
-SceneMenu.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o
-.PHONY : SceneMenu.cpp.o
+src/SceneInstructions.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SceneInstructions.cpp.o
+.PHONY : src/SceneInstructions.cpp.o
 
-SceneMenu.i: SceneMenu.cpp.i
-.PHONY : SceneMenu.i
+src/SceneInstructions.i: src/SceneInstructions.cpp.i
+.PHONY : src/SceneInstructions.i
 
 # target to preprocess a source file
-SceneMenu.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.i
-.PHONY : SceneMenu.cpp.i
+src/SceneInstructions.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SceneInstructions.cpp.i
+.PHONY : src/SceneInstructions.cpp.i
 
-SceneMenu.s: SceneMenu.cpp.s
-.PHONY : SceneMenu.s
+src/SceneInstructions.s: src/SceneInstructions.cpp.s
+.PHONY : src/SceneInstructions.s
 
 # target to generate assembly for a file
-SceneMenu.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.s
-.PHONY : SceneMenu.cpp.s
+src/SceneInstructions.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SceneInstructions.cpp.s
+.PHONY : src/SceneInstructions.cpp.s
 
-Shader.o: Shader.cpp.o
-.PHONY : Shader.o
+src/SceneMenu.o: src/SceneMenu.cpp.o
+.PHONY : src/SceneMenu.o
 
 # target to build an object file
-Shader.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Shader.cpp.o
-.PHONY : Shader.cpp.o
+src/SceneMenu.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SceneMenu.cpp.o
+.PHONY : src/SceneMenu.cpp.o
 
-Shader.i: Shader.cpp.i
-.PHONY : Shader.i
+src/SceneMenu.i: src/SceneMenu.cpp.i
+.PHONY : src/SceneMenu.i
 
 # target to preprocess a source file
-Shader.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Shader.cpp.i
-.PHONY : Shader.cpp.i
+src/SceneMenu.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SceneMenu.cpp.i
+.PHONY : src/SceneMenu.cpp.i
 
-Shader.s: Shader.cpp.s
-.PHONY : Shader.s
+src/SceneMenu.s: src/SceneMenu.cpp.s
+.PHONY : src/SceneMenu.s
 
 # target to generate assembly for a file
-Shader.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Shader.cpp.s
-.PHONY : Shader.cpp.s
+src/SceneMenu.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SceneMenu.cpp.s
+.PHONY : src/SceneMenu.cpp.s
 
-ShaderProgram.o: ShaderProgram.cpp.o
-.PHONY : ShaderProgram.o
+src/Shader.o: src/Shader.cpp.o
+.PHONY : src/Shader.o
 
 # target to build an object file
-ShaderProgram.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ShaderProgram.cpp.o
-.PHONY : ShaderProgram.cpp.o
+src/Shader.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Shader.cpp.o
+.PHONY : src/Shader.cpp.o
 
-ShaderProgram.i: ShaderProgram.cpp.i
-.PHONY : ShaderProgram.i
+src/Shader.i: src/Shader.cpp.i
+.PHONY : src/Shader.i
 
 # target to preprocess a source file
-ShaderProgram.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ShaderProgram.cpp.i
-.PHONY : ShaderProgram.cpp.i
+src/Shader.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Shader.cpp.i
+.PHONY : src/Shader.cpp.i
 
-ShaderProgram.s: ShaderProgram.cpp.s
-.PHONY : ShaderProgram.s
+src/Shader.s: src/Shader.cpp.s
+.PHONY : src/Shader.s
 
 # target to generate assembly for a file
-ShaderProgram.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/ShaderProgram.cpp.s
-.PHONY : ShaderProgram.cpp.s
+src/Shader.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Shader.cpp.s
+.PHONY : src/Shader.cpp.s
 
-SoundManager.o: SoundManager.cpp.o
-.PHONY : SoundManager.o
+src/ShaderProgram.o: src/ShaderProgram.cpp.o
+.PHONY : src/ShaderProgram.o
 
 # target to build an object file
-SoundManager.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o
-.PHONY : SoundManager.cpp.o
+src/ShaderProgram.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ShaderProgram.cpp.o
+.PHONY : src/ShaderProgram.cpp.o
 
-SoundManager.i: SoundManager.cpp.i
-.PHONY : SoundManager.i
+src/ShaderProgram.i: src/ShaderProgram.cpp.i
+.PHONY : src/ShaderProgram.i
 
 # target to preprocess a source file
-SoundManager.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.i
-.PHONY : SoundManager.cpp.i
+src/ShaderProgram.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ShaderProgram.cpp.i
+.PHONY : src/ShaderProgram.cpp.i
 
-SoundManager.s: SoundManager.cpp.s
-.PHONY : SoundManager.s
+src/ShaderProgram.s: src/ShaderProgram.cpp.s
+.PHONY : src/ShaderProgram.s
 
 # target to generate assembly for a file
-SoundManager.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.s
-.PHONY : SoundManager.cpp.s
+src/ShaderProgram.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/ShaderProgram.cpp.s
+.PHONY : src/ShaderProgram.cpp.s
 
-Sprite.o: Sprite.cpp.o
-.PHONY : Sprite.o
+src/SoundManager.o: src/SoundManager.cpp.o
+.PHONY : src/SoundManager.o
 
 # target to build an object file
-Sprite.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Sprite.cpp.o
-.PHONY : Sprite.cpp.o
+src/SoundManager.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SoundManager.cpp.o
+.PHONY : src/SoundManager.cpp.o
 
-Sprite.i: Sprite.cpp.i
-.PHONY : Sprite.i
+src/SoundManager.i: src/SoundManager.cpp.i
+.PHONY : src/SoundManager.i
 
 # target to preprocess a source file
-Sprite.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Sprite.cpp.i
-.PHONY : Sprite.cpp.i
+src/SoundManager.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SoundManager.cpp.i
+.PHONY : src/SoundManager.cpp.i
 
-Sprite.s: Sprite.cpp.s
-.PHONY : Sprite.s
+src/SoundManager.s: src/SoundManager.cpp.s
+.PHONY : src/SoundManager.s
 
 # target to generate assembly for a file
-Sprite.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Sprite.cpp.s
-.PHONY : Sprite.cpp.s
+src/SoundManager.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/SoundManager.cpp.s
+.PHONY : src/SoundManager.cpp.s
 
-TemporaryEffect.o: TemporaryEffect.cpp.o
-.PHONY : TemporaryEffect.o
+src/Sprite.o: src/Sprite.cpp.o
+.PHONY : src/Sprite.o
 
 # target to build an object file
-TemporaryEffect.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o
-.PHONY : TemporaryEffect.cpp.o
+src/Sprite.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Sprite.cpp.o
+.PHONY : src/Sprite.cpp.o
 
-TemporaryEffect.i: TemporaryEffect.cpp.i
-.PHONY : TemporaryEffect.i
+src/Sprite.i: src/Sprite.cpp.i
+.PHONY : src/Sprite.i
 
 # target to preprocess a source file
-TemporaryEffect.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.i
-.PHONY : TemporaryEffect.cpp.i
+src/Sprite.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Sprite.cpp.i
+.PHONY : src/Sprite.cpp.i
 
-TemporaryEffect.s: TemporaryEffect.cpp.s
-.PHONY : TemporaryEffect.s
+src/Sprite.s: src/Sprite.cpp.s
+.PHONY : src/Sprite.s
 
 # target to generate assembly for a file
-TemporaryEffect.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.s
-.PHONY : TemporaryEffect.cpp.s
+src/Sprite.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Sprite.cpp.s
+.PHONY : src/Sprite.cpp.s
 
-Text.o: Text.cpp.o
-.PHONY : Text.o
+src/TemporaryEffect.o: src/TemporaryEffect.cpp.o
+.PHONY : src/TemporaryEffect.o
 
 # target to build an object file
-Text.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Text.cpp.o
-.PHONY : Text.cpp.o
+src/TemporaryEffect.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/TemporaryEffect.cpp.o
+.PHONY : src/TemporaryEffect.cpp.o
 
-Text.i: Text.cpp.i
-.PHONY : Text.i
+src/TemporaryEffect.i: src/TemporaryEffect.cpp.i
+.PHONY : src/TemporaryEffect.i
 
 # target to preprocess a source file
-Text.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Text.cpp.i
-.PHONY : Text.cpp.i
+src/TemporaryEffect.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/TemporaryEffect.cpp.i
+.PHONY : src/TemporaryEffect.cpp.i
 
-Text.s: Text.cpp.s
-.PHONY : Text.s
+src/TemporaryEffect.s: src/TemporaryEffect.cpp.s
+.PHONY : src/TemporaryEffect.s
 
 # target to generate assembly for a file
-Text.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Text.cpp.s
-.PHONY : Text.cpp.s
+src/TemporaryEffect.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/TemporaryEffect.cpp.s
+.PHONY : src/TemporaryEffect.cpp.s
 
-Texture.o: Texture.cpp.o
-.PHONY : Texture.o
+src/Text.o: src/Text.cpp.o
+.PHONY : src/Text.o
 
 # target to build an object file
-Texture.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Texture.cpp.o
-.PHONY : Texture.cpp.o
+src/Text.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Text.cpp.o
+.PHONY : src/Text.cpp.o
 
-Texture.i: Texture.cpp.i
-.PHONY : Texture.i
+src/Text.i: src/Text.cpp.i
+.PHONY : src/Text.i
 
 # target to preprocess a source file
-Texture.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Texture.cpp.i
-.PHONY : Texture.cpp.i
+src/Text.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Text.cpp.i
+.PHONY : src/Text.cpp.i
 
-Texture.s: Texture.cpp.s
-.PHONY : Texture.s
+src/Text.s: src/Text.cpp.s
+.PHONY : src/Text.s
 
 # target to generate assembly for a file
-Texture.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Texture.cpp.s
-.PHONY : Texture.cpp.s
+src/Text.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Text.cpp.s
+.PHONY : src/Text.cpp.s
 
-Tile.o: Tile.cpp.o
-.PHONY : Tile.o
+src/Texture.o: src/Texture.cpp.o
+.PHONY : src/Texture.o
 
 # target to build an object file
-Tile.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Tile.cpp.o
-.PHONY : Tile.cpp.o
+src/Texture.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Texture.cpp.o
+.PHONY : src/Texture.cpp.o
 
-Tile.i: Tile.cpp.i
-.PHONY : Tile.i
+src/Texture.i: src/Texture.cpp.i
+.PHONY : src/Texture.i
 
 # target to preprocess a source file
-Tile.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Tile.cpp.i
-.PHONY : Tile.cpp.i
+src/Texture.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Texture.cpp.i
+.PHONY : src/Texture.cpp.i
 
-Tile.s: Tile.cpp.s
-.PHONY : Tile.s
+src/Texture.s: src/Texture.cpp.s
+.PHONY : src/Texture.s
 
 # target to generate assembly for a file
-Tile.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/Tile.cpp.s
-.PHONY : Tile.cpp.s
+src/Texture.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Texture.cpp.s
+.PHONY : src/Texture.cpp.s
 
-TileMap.o: TileMap.cpp.o
-.PHONY : TileMap.o
+src/Tile.o: src/Tile.cpp.o
+.PHONY : src/Tile.o
 
 # target to build an object file
-TileMap.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o
-.PHONY : TileMap.cpp.o
+src/Tile.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Tile.cpp.o
+.PHONY : src/Tile.cpp.o
 
-TileMap.i: TileMap.cpp.i
-.PHONY : TileMap.i
+src/Tile.i: src/Tile.cpp.i
+.PHONY : src/Tile.i
 
 # target to preprocess a source file
-TileMap.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/TileMap.cpp.i
-.PHONY : TileMap.cpp.i
+src/Tile.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Tile.cpp.i
+.PHONY : src/Tile.cpp.i
 
-TileMap.s: TileMap.cpp.s
-.PHONY : TileMap.s
+src/Tile.s: src/Tile.cpp.s
+.PHONY : src/Tile.s
 
 # target to generate assembly for a file
-TileMap.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/TileMap.cpp.s
-.PHONY : TileMap.cpp.s
+src/Tile.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/Tile.cpp.s
+.PHONY : src/Tile.cpp.s
 
-WinSymbol.o: WinSymbol.cpp.o
-.PHONY : WinSymbol.o
+src/TileMap.o: src/TileMap.cpp.o
+.PHONY : src/TileMap.o
 
 # target to build an object file
-WinSymbol.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o
-.PHONY : WinSymbol.cpp.o
+src/TileMap.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/TileMap.cpp.o
+.PHONY : src/TileMap.cpp.o
 
-WinSymbol.i: WinSymbol.cpp.i
-.PHONY : WinSymbol.i
+src/TileMap.i: src/TileMap.cpp.i
+.PHONY : src/TileMap.i
 
 # target to preprocess a source file
-WinSymbol.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.i
-.PHONY : WinSymbol.cpp.i
+src/TileMap.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/TileMap.cpp.i
+.PHONY : src/TileMap.cpp.i
 
-WinSymbol.s: WinSymbol.cpp.s
-.PHONY : WinSymbol.s
+src/TileMap.s: src/TileMap.cpp.s
+.PHONY : src/TileMap.s
 
 # target to generate assembly for a file
-WinSymbol.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.s
-.PHONY : WinSymbol.cpp.s
+src/TileMap.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/TileMap.cpp.s
+.PHONY : src/TileMap.cpp.s
 
-main.o: main.cpp.o
-.PHONY : main.o
+src/WinSymbol.o: src/WinSymbol.cpp.o
+.PHONY : src/WinSymbol.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/main.cpp.o
-.PHONY : main.cpp.o
+src/WinSymbol.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/WinSymbol.cpp.o
+.PHONY : src/WinSymbol.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+src/WinSymbol.i: src/WinSymbol.cpp.i
+.PHONY : src/WinSymbol.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/main.cpp.i
-.PHONY : main.cpp.i
+src/WinSymbol.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/WinSymbol.cpp.i
+.PHONY : src/WinSymbol.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+src/WinSymbol.s: src/WinSymbol.cpp.s
+.PHONY : src/WinSymbol.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/main.cpp.s
-.PHONY : main.cpp.s
+src/WinSymbol.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/WinSymbol.cpp.s
+.PHONY : src/WinSymbol.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) -f CMakeFiles/Minaria.dir/build.make CMakeFiles/Minaria.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -1005,120 +1005,120 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... TerrariaLinux"
+	@echo "... Minaria"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... Background.o"
-	@echo "... Background.i"
-	@echo "... Background.s"
-	@echo "... Block.o"
-	@echo "... Block.i"
-	@echo "... Block.s"
-	@echo "... Bomb.o"
-	@echo "... Bomb.i"
-	@echo "... Bomb.s"
-	@echo "... BombExplosion.o"
-	@echo "... BombExplosion.i"
-	@echo "... BombExplosion.s"
-	@echo "... Camera.o"
-	@echo "... Camera.i"
-	@echo "... Camera.s"
-	@echo "... Character.o"
-	@echo "... Character.i"
-	@echo "... Character.s"
-	@echo "... CraftingBar.o"
-	@echo "... CraftingBar.i"
-	@echo "... CraftingBar.s"
-	@echo "... Enemy.o"
-	@echo "... Enemy.i"
-	@echo "... Enemy.s"
-	@echo "... FlyingEnemy.o"
-	@echo "... FlyingEnemy.i"
-	@echo "... FlyingEnemy.s"
-	@echo "... Game.o"
-	@echo "... Game.i"
-	@echo "... Game.s"
-	@echo "... GroundEnemy.o"
-	@echo "... GroundEnemy.i"
-	@echo "... GroundEnemy.s"
-	@echo "... ISceneNode.o"
-	@echo "... ISceneNode.i"
-	@echo "... ISceneNode.s"
-	@echo "... Inventory.o"
-	@echo "... Inventory.i"
-	@echo "... Inventory.s"
-	@echo "... Item.o"
-	@echo "... Item.i"
-	@echo "... Item.s"
-	@echo "... ItemBomb.o"
-	@echo "... ItemBomb.i"
-	@echo "... ItemBomb.s"
-	@echo "... ItemPickaxe.o"
-	@echo "... ItemPickaxe.i"
-	@echo "... ItemPickaxe.s"
-	@echo "... ItemSword.o"
-	@echo "... ItemSword.i"
-	@echo "... ItemSword.s"
-	@echo "... PerlinNoise.o"
-	@echo "... PerlinNoise.i"
-	@echo "... PerlinNoise.s"
-	@echo "... Player.o"
-	@echo "... Player.i"
-	@echo "... Player.s"
-	@echo "... Projectile.o"
-	@echo "... Projectile.i"
-	@echo "... Projectile.s"
-	@echo "... Rect.o"
-	@echo "... Rect.i"
-	@echo "... Rect.s"
-	@echo "... Scene.o"
-	@echo "... Scene.i"
-	@echo "... Scene.s"
-	@echo "... SceneCredits.o"
-	@echo "... SceneCredits.i"
-	@echo "... SceneCredits.s"
-	@echo "... SceneGame.o"
-	@echo "... SceneGame.i"
-	@echo "... SceneGame.s"
-	@echo "... SceneInstructions.o"
-	@echo "... SceneInstructions.i"
-	@echo "... SceneInstructions.s"
-	@echo "... SceneMenu.o"
-	@echo "... SceneMenu.i"
-	@echo "... SceneMenu.s"
-	@echo "... Shader.o"
-	@echo "... Shader.i"
-	@echo "... Shader.s"
-	@echo "... ShaderProgram.o"
-	@echo "... ShaderProgram.i"
-	@echo "... ShaderProgram.s"
-	@echo "... SoundManager.o"
-	@echo "... SoundManager.i"
-	@echo "... SoundManager.s"
-	@echo "... Sprite.o"
-	@echo "... Sprite.i"
-	@echo "... Sprite.s"
-	@echo "... TemporaryEffect.o"
-	@echo "... TemporaryEffect.i"
-	@echo "... TemporaryEffect.s"
-	@echo "... Text.o"
-	@echo "... Text.i"
-	@echo "... Text.s"
-	@echo "... Texture.o"
-	@echo "... Texture.i"
-	@echo "... Texture.s"
-	@echo "... Tile.o"
-	@echo "... Tile.i"
-	@echo "... Tile.s"
-	@echo "... TileMap.o"
-	@echo "... TileMap.i"
-	@echo "... TileMap.s"
-	@echo "... WinSymbol.o"
-	@echo "... WinSymbol.i"
-	@echo "... WinSymbol.s"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... src/Background.o"
+	@echo "... src/Background.i"
+	@echo "... src/Background.s"
+	@echo "... src/Block.o"
+	@echo "... src/Block.i"
+	@echo "... src/Block.s"
+	@echo "... src/Bomb.o"
+	@echo "... src/Bomb.i"
+	@echo "... src/Bomb.s"
+	@echo "... src/BombExplosion.o"
+	@echo "... src/BombExplosion.i"
+	@echo "... src/BombExplosion.s"
+	@echo "... src/Camera.o"
+	@echo "... src/Camera.i"
+	@echo "... src/Camera.s"
+	@echo "... src/Character.o"
+	@echo "... src/Character.i"
+	@echo "... src/Character.s"
+	@echo "... src/CraftingBar.o"
+	@echo "... src/CraftingBar.i"
+	@echo "... src/CraftingBar.s"
+	@echo "... src/Enemy.o"
+	@echo "... src/Enemy.i"
+	@echo "... src/Enemy.s"
+	@echo "... src/FlyingEnemy.o"
+	@echo "... src/FlyingEnemy.i"
+	@echo "... src/FlyingEnemy.s"
+	@echo "... src/Game.o"
+	@echo "... src/Game.i"
+	@echo "... src/Game.s"
+	@echo "... src/GroundEnemy.o"
+	@echo "... src/GroundEnemy.i"
+	@echo "... src/GroundEnemy.s"
+	@echo "... src/ISceneNode.o"
+	@echo "... src/ISceneNode.i"
+	@echo "... src/ISceneNode.s"
+	@echo "... src/Inventory.o"
+	@echo "... src/Inventory.i"
+	@echo "... src/Inventory.s"
+	@echo "... src/Item.o"
+	@echo "... src/Item.i"
+	@echo "... src/Item.s"
+	@echo "... src/ItemBomb.o"
+	@echo "... src/ItemBomb.i"
+	@echo "... src/ItemBomb.s"
+	@echo "... src/ItemPickaxe.o"
+	@echo "... src/ItemPickaxe.i"
+	@echo "... src/ItemPickaxe.s"
+	@echo "... src/ItemSword.o"
+	@echo "... src/ItemSword.i"
+	@echo "... src/ItemSword.s"
+	@echo "... src/PerlinNoise.o"
+	@echo "... src/PerlinNoise.i"
+	@echo "... src/PerlinNoise.s"
+	@echo "... src/Player.o"
+	@echo "... src/Player.i"
+	@echo "... src/Player.s"
+	@echo "... src/Projectile.o"
+	@echo "... src/Projectile.i"
+	@echo "... src/Projectile.s"
+	@echo "... src/Rect.o"
+	@echo "... src/Rect.i"
+	@echo "... src/Rect.s"
+	@echo "... src/Scene.o"
+	@echo "... src/Scene.i"
+	@echo "... src/Scene.s"
+	@echo "... src/SceneCredits.o"
+	@echo "... src/SceneCredits.i"
+	@echo "... src/SceneCredits.s"
+	@echo "... src/SceneGame.o"
+	@echo "... src/SceneGame.i"
+	@echo "... src/SceneGame.s"
+	@echo "... src/SceneInstructions.o"
+	@echo "... src/SceneInstructions.i"
+	@echo "... src/SceneInstructions.s"
+	@echo "... src/SceneMenu.o"
+	@echo "... src/SceneMenu.i"
+	@echo "... src/SceneMenu.s"
+	@echo "... src/Shader.o"
+	@echo "... src/Shader.i"
+	@echo "... src/Shader.s"
+	@echo "... src/ShaderProgram.o"
+	@echo "... src/ShaderProgram.i"
+	@echo "... src/ShaderProgram.s"
+	@echo "... src/SoundManager.o"
+	@echo "... src/SoundManager.i"
+	@echo "... src/SoundManager.s"
+	@echo "... src/Sprite.o"
+	@echo "... src/Sprite.i"
+	@echo "... src/Sprite.s"
+	@echo "... src/TemporaryEffect.o"
+	@echo "... src/TemporaryEffect.i"
+	@echo "... src/TemporaryEffect.s"
+	@echo "... src/Text.o"
+	@echo "... src/Text.i"
+	@echo "... src/Text.s"
+	@echo "... src/Texture.o"
+	@echo "... src/Texture.i"
+	@echo "... src/Texture.s"
+	@echo "... src/Tile.o"
+	@echo "... src/Tile.i"
+	@echo "... src/Tile.s"
+	@echo "... src/TileMap.o"
+	@echo "... src/TileMap.i"
+	@echo "... src/TileMap.s"
+	@echo "... src/WinSymbol.o"
+	@echo "... src/WinSymbol.i"
+	@echo "... src/WinSymbol.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

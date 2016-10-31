@@ -6,7 +6,7 @@ execute_process(COMMAND ln -s ../shaders)
 execute_process(COMMAND ln -s ../images)
 execute_process(COMMAND ln -s ../levels)
 
-set(appName TerrariaLinux)
+set(appName Minaria)
 
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11 -O3 -DGLM_FORCE_RADIANS")
 #SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11 -g -DGLM_FORCE_RADIANS")
@@ -40,7 +40,7 @@ link_directories(${GLUT_LIBRARY_DIRS})
 link_directories(${GLEW_LIBRARY_DIRS})
 link_directories(${SOIL_LIBRARY_DIRS})
 
-add_executable(${appName} Player.h Player.cpp AnimKeyframes.h Sprite.h Sprite.cpp TileMap.h TileMap.cpp Texture.h Texture.cpp Scene.h Scene.cpp Shader.h Shader.cpp ShaderProgram.h ShaderProgram.cpp Game.h Game.cpp Block.h Block.cpp Camera.h Camera.cpp Enemy.h Enemy.cpp GroundEnemy.h GroundEnemy.cpp FlyingEnemy.h FlyingEnemy.cpp Character.h Character.cpp Inventory.h Inventory.cpp Item.h Item.cpp Rect.h Rect.cpp PerlinNoise.h PerlinNoise.cpp Tile.h Tile.cpp Text.h Text.cpp SceneGame.h SceneGame.cpp SceneMenu.h SceneMenu.cpp SceneCredits.h SceneCredits.cpp Background.h Background.cpp main.cpp ItemSword.h ItemSword.cpp ItemPickaxe.h ItemPickaxe.cpp CraftingBar.h CraftingBar.cpp ItemBomb.h ItemBomb.cpp Bomb.h Bomb.cpp ISceneNode.h ISceneNode.cpp BombExplosion.h BombExplosion.cpp SoundManager.h SoundManager.cpp TemporaryEffect.h TemporaryEffect.cpp Projectile.h Projectile.cpp WinSymbol.h WinSymbol.cpp SceneInstructions.h SceneInstructions.cpp)
+add_executable(${appName} src/Player.h src/Player.cpp src/AnimKeyframes.h src/Sprite.h src/Sprite.cpp src/TileMap.h src/TileMap.cpp src/Texture.h src/Texture.cpp src/Scene.h src/Scene.cpp src/Shader.h src/Shader.cpp src/ShaderProgram.h src/ShaderProgram.cpp src/Game.h src/Game.cpp src/Block.h src/Block.cpp src/Camera.h src/Camera.cpp src/Enemy.h src/Enemy.cpp src/GroundEnemy.h src/GroundEnemy.cpp src/FlyingEnemy.h src/FlyingEnemy.cpp src/Character.h src/Character.cpp src/Inventory.h src/Inventory.cpp src/Item.h src/Item.cpp src/Rect.h src/Rect.cpp src/PerlinNoise.h src/PerlinNoise.cpp src/Tile.h src/Tile.cpp src/Text.h src/Text.cpp src/SceneGame.h src/SceneGame.cpp src/SceneMenu.h src/SceneMenu.cpp src/SceneCredits.h src/SceneCredits.cpp src/Background.h src/Background.cpp src/main.cpp src/ItemSword.h src/ItemSword.cpp src/ItemPickaxe.h src/ItemPickaxe.cpp src/CraftingBar.h src/CraftingBar.cpp src/ItemBomb.h src/ItemBomb.cpp src/Bomb.h src/Bomb.cpp src/ISceneNode.h src/ISceneNode.cpp src/BombExplosion.h src/BombExplosion.cpp src/SoundManager.h src/SoundManager.cpp src/TemporaryEffect.h src/TemporaryEffect.cpp src/Projectile.h src/Projectile.cpp src/WinSymbol.h src/WinSymbol.cpp src/SceneInstructions.h src/SceneInstructions.cpp)
 
 target_link_libraries(${appName} ${OPENGL_LIBRARIES} ${GLUT_LIBRARIES} ${GLEW_LIBRARIES} ${SOIL_LIBRARIES} ${FREETYPE_LIBRARIES}) # ${GLM_LIBRARIES})
 
