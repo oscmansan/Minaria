@@ -15,3 +15,12 @@ Run in the root directory:
 ```
   ffmpeg -video_size 800x600 -framerate 30 -f x11grab -i :0.0+100,128 output.mp4
 ```
+
+## Gameplay instructions:
+* Use your pickaxe to break the blocks
+* Use the blocks to build structures that will keep you save 
+* Collect the blocks to craft objects that will be useful in your adventure
+* Use the sword to defend yourself and kill angry enemies
+* Use the bombs to make a mess and destroy everything that gets in your way
+* Make your way through the cave and find the golden nugget to become the richest miner in the village
+* Good luck miner!
