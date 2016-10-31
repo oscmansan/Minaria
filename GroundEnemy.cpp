@@ -49,7 +49,7 @@ void GroundEnemy::init()
     sprite->addKeyframe(DEAD, glm::vec2(0.575f, 0.515f));
 
     int surfaceLevel = Game::getCurrentSceneGame()->getTileMap()->getSurfaceLevel(origx);
-    int origy = surfaceLevel - sprite->getSize().y;
+    int origy = surfaceLevel - sprite->getSize().y - 64;
     setPosition(glm::ivec2(origx, origy));
 
     state = PATROL;
@@ -65,6 +65,7 @@ void GroundEnemy::update(int deltaTime)
     Player *player = Game::getCurrentSceneGame()->getPlayer();
 
     // GroundEnemy dies when player jumps over
+    /*
     Rect playerBB = player->getBoundingBox();
     Rect enemyBB = getBoundingBox();
     if (player->getVelocity().y > 0 &&
@@ -73,6 +74,7 @@ void GroundEnemy::update(int deltaTime)
         beginToDie();
     }
     if (dead) state = State(-1);
+    */
     //
 
     int tileSize = Game::getCurrentSceneGame()->getTileMap()->getTileSize();
@@ -97,20 +99,6 @@ void GroundEnemy::update(int deltaTime)
                 player->takeDamage();
             break;
     }
-
-    /*
-    switch(state) {
-        case PATROL:
-            sprite->setTint(glm::vec4(0,0,1,1));
-            break;
-        case CHASE:
-            sprite->setTint(glm::vec4(0,1,1,1));
-            break;
-        case ATTACK:
-            sprite->setTint(glm::vec4(1,0,1,1));
-            break;
-    }
-    */
 }
 
 void GroundEnemy::move(int deltaTime)

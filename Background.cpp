@@ -61,12 +61,24 @@ void Background::update(int deltaTime)
 
 void Background::render()
 {
+    Player *player = Game::getCurrentSceneGame()->getPlayer();
     glBindVertexArray(vao);
     glEnableVertexAttribArray(posLocation);
     glEnableVertexAttribArray(texCoordLocation);
     for (int i = 0; i < 6; ++i)
     {
         program->setUniform4f("tint", 1, 1, 1, 0);
+        program->setUniform2f("texCoordDispl", offset[i], 0.f);
+
+        if (player->winSymbol)
+        {
+            program->setUniform1f("grayAmount", player->winSymbol->getGrayAmount());
+        }
+        else
+        {
+            program->setUniform1f("grayAmount", player->timeSinceDead / player->timeToDie);
+        }
+
         program->setUniform2f("texCoordDispl", offset[i], 0.f);
         texture[i].use();
         glDrawArrays(GL_TRIANGLES, 0, 6);

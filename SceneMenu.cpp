@@ -71,7 +71,8 @@ void SceneMenu::update(int deltaTime)
         instructionsText->setColor(OverColor);
         if (game->getMouseLeftButtonDown())
         {
-
+            game->gotoSceneInstructions();
+            return;
         }
     }
     else

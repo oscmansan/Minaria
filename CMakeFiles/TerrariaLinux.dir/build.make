@@ -877,6 +877,29 @@ CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o.provides: CMakeFiles/TerrariaLinux.
 
 CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o.provides.build: CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o
 
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: CMakeFiles/TerrariaLinux.dir/flags.make
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SceneInstructions.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/sephirot47/Terraria-linux/CMakeFiles $(CMAKE_PROGRESS_37)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o -c /home/sephirot47/Terraria-linux/SceneInstructions.cpp
+
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/sephirot47/Terraria-linux/SceneInstructions.cpp > CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.i
+
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/sephirot47/Terraria-linux/SceneInstructions.cpp -o CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.s
+
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o.requires:
+.PHONY : CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o.requires
+
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o.provides: CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o.requires
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o.provides.build
+.PHONY : CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o.provides
+
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o.provides.build: CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o
+
 # Object files for target TerrariaLinux
 TerrariaLinux_OBJECTS = \
 "CMakeFiles/TerrariaLinux.dir/Player.cpp.o" \
@@ -914,7 +937,8 @@ TerrariaLinux_OBJECTS = \
 "CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o" \
 "CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o" \
 "CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o" \
-"CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o"
+"CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o" \
+"CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o"
 
 # External object files for target TerrariaLinux
 TerrariaLinux_EXTERNAL_OBJECTS =
@@ -955,6 +979,7 @@ TerrariaLinux: CMakeFiles/TerrariaLinux.dir/SoundManager.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o
+TerrariaLinux: CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o
 TerrariaLinux: CMakeFiles/TerrariaLinux.dir/build.make
 TerrariaLinux: /usr/lib/i386-linux-gnu/libGLU.so
 TerrariaLinux: /usr/lib/i386-linux-gnu/libGL.so
@@ -1011,6 +1036,7 @@ CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/SoundManager
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o.requires
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o.requires
 CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o.requires
+CMakeFiles/TerrariaLinux.dir/requires: CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o.requires
 .PHONY : CMakeFiles/TerrariaLinux.dir/requires
 
 CMakeFiles/TerrariaLinux.dir/clean:

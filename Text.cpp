@@ -148,6 +148,9 @@ void Text::setText(const std::string &str, int size)
                 letterSprite->setTexture(Text::textSheet1);
             }
             else if (c == '.') { framePosX = 13; framePosY = 0; }
+            else if (c == '-') { framePosX = 12; framePosY = 0; }
+            else if (c == ',') { framePosX = 11; framePosY = 0; }
+            else if (c == '*') { framePosX = 9;  framePosY = 0; }
 
             if (c != ' ')
             {

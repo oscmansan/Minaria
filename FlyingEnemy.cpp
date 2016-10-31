@@ -93,18 +93,6 @@ void FlyingEnemy::update(int deltaTime)
         break;
     }
 
-    switch(state) {
-    case PATROL:
-        sprite->setTint(glm::vec4(0,0,1,1));
-        break;
-    case CHASE:
-        sprite->setTint(glm::vec4(0,1,1,1));
-        break;
-    case ATTACK:
-        sprite->setTint(glm::vec4(1,0,1,1));
-        break;
-    }
-
     bombTimer -= deltaTime;
     bombTimer = max(0,bombTimer);
 

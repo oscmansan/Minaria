@@ -77,6 +77,8 @@ protected:
     void handleItemSelection();
     void handleMouseActions();
 
+    friend class Text;
+    friend class Background;
     friend class ISceneNode;
 };
 

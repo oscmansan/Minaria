@@ -21,6 +21,7 @@ CMakeFiles/TerrariaLinux.dir/Background.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/Background.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Background.cpp.o: ShaderProgram.h
@@ -83,6 +84,7 @@ CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/Block.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Block.cpp.o: ShaderProgram.h
@@ -148,6 +150,7 @@ CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Bomb.cpp.o: ShaderProgram.h
@@ -213,6 +216,7 @@ CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/BombExplosion.cpp.o: ShaderProgram.h
@@ -276,6 +280,7 @@ CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Camera.cpp.o: ShaderProgram.h
@@ -338,6 +343,7 @@ CMakeFiles/TerrariaLinux.dir/Character.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/Character.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Character.cpp.o: ShaderProgram.h
@@ -403,6 +409,7 @@ CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/CraftingBar.cpp.o: ShaderProgram.h
@@ -465,6 +472,7 @@ CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Enemy.cpp.o: ShaderProgram.h
@@ -528,6 +536,7 @@ CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/FlyingEnemy.cpp.o: ShaderProgram.h
@@ -591,6 +600,7 @@ CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/Game.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Game.cpp.o: ShaderProgram.h
@@ -653,6 +663,7 @@ CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/GroundEnemy.cpp.o: ShaderProgram.h
@@ -716,6 +727,7 @@ CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/ISceneNode.cpp.o: ShaderProgram.h
@@ -780,6 +792,7 @@ CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Inventory.cpp.o: ShaderProgram.h
@@ -868,6 +881,7 @@ CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/Player.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Player.cpp.o: ShaderProgram.h
@@ -933,6 +947,7 @@ CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Projectile.cpp.o: ShaderProgram.h
@@ -1000,6 +1015,7 @@ CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: Scene.cpp
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Scene.cpp.o: ShaderProgram.h
@@ -1063,6 +1079,7 @@ CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: SceneCredits.cpp
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o: ShaderProgram.h
@@ -1126,6 +1143,7 @@ CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: SceneGame.cpp
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: ShaderProgram.h
@@ -1170,6 +1188,69 @@ CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: SFML32/include/SFML/System/Vector2
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: SFML32/include/SFML/System/Vector3.hpp
 CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o: SFML32/include/SFML/System/Vector3.inl
 
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: AnimKeyframes.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Block.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Camera.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Character.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: CraftingBar.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Enemy.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: FlyingEnemy.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Game.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: GroundEnemy.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: ISceneNode.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Inventory.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Item.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: PerlinNoise.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Player.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Rect.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Scene.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SceneCredits.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SceneInstructions.cpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SceneInstructions.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SceneMenu.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Shader.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: ShaderProgram.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SoundManager.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Sprite.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Text.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Texture.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: Tile.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: WinSymbol.h
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/Audio.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/Audio/Export.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/Audio/Listener.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/Audio/Music.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/Audio/Sound.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/Audio/SoundBuffer.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/Audio/SoundBufferRecorder.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/Audio/SoundRecorder.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/Audio/SoundSource.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/Audio/SoundStream.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/Config.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Clock.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Err.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Export.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/InputStream.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Lock.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Mutex.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/NonCopyable.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Sleep.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/String.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Thread.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Thread.inl
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/ThreadLocal.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/ThreadLocalPtr.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/ThreadLocalPtr.inl
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Time.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Utf.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Utf.inl
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Vector2.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Vector2.inl
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Vector3.hpp
+CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o: SFML32/include/SFML/System/Vector3.inl
+
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: AnimKeyframes.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Block.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: BombExplosion.h
@@ -1189,6 +1270,7 @@ CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: SceneMenu.cpp
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o: Shader.h
@@ -1302,6 +1384,7 @@ CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/TemporaryEffect.cpp.o: ShaderProgram.h
@@ -1365,6 +1448,7 @@ CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/Text.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Text.cpp.o: ShaderProgram.h
@@ -1431,6 +1515,7 @@ CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/Tile.cpp.o: ShaderProgram.h
@@ -1494,6 +1579,7 @@ CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/TileMap.cpp.o: ShaderProgram.h
@@ -1557,6 +1643,7 @@ CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/WinSymbol.cpp.o: ShaderProgram.h
@@ -1619,6 +1706,7 @@ CMakeFiles/TerrariaLinux.dir/main.cpp.o: Rect.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: Scene.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: SceneCredits.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: SceneGame.h
+CMakeFiles/TerrariaLinux.dir/main.cpp.o: SceneInstructions.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: SceneMenu.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: Shader.h
 CMakeFiles/TerrariaLinux.dir/main.cpp.o: ShaderProgram.h

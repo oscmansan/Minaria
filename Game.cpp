@@ -77,6 +77,11 @@ void Game::gotoSceneGame()
     nextScene = new SceneGame();
 }
 
+void Game::gotoSceneInstructions()
+{
+    nextScene = new SceneInstructions();
+}
+
 void Game::gotoSceneCredits()
 {
     nextScene = new SceneCredits();

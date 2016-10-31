@@ -28,7 +28,8 @@ void ISceneNode::prepareModelViewMatrix(const glm::ivec2 &pos, const glm::vec2 &
     if (sceneGame)
     {
         Player *player = sceneGame->getPlayer();
-        if ( !player->winSymbol || (this != player->winSymbol && this != player->winSymbol->replayText) )
+        if ( !player->winSymbol || (this != player->winSymbol && this != player->winSymbol->replayText &&
+                                    this != player->winSymbol->youwinText) )
         {
             if (player->winSymbol)
             {

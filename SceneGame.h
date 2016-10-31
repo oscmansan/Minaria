@@ -53,7 +53,6 @@ private:
     Player *player = NULL;
     Camera *camera = NULL;
     std::list<Character*> characters;
-    std::list<Text*> texts;
 
     Background *background = NULL;
 

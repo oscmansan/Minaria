@@ -19,6 +19,7 @@
   * Ambient occlusion a les coves
   * Animació de càmera quan el jugador mor
   * Animació de càmera quan el jugador guanya
+  * Instruccions in-game
   
 ## Gameplay instructions:
   * WASD per moure't

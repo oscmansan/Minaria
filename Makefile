@@ -687,6 +687,30 @@ SceneGame.cpp.s:
 	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.s
 .PHONY : SceneGame.cpp.s
 
+SceneInstructions.o: SceneInstructions.cpp.o
+.PHONY : SceneInstructions.o
+
+# target to build an object file
+SceneInstructions.cpp.o:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o
+.PHONY : SceneInstructions.cpp.o
+
+SceneInstructions.i: SceneInstructions.cpp.i
+.PHONY : SceneInstructions.i
+
+# target to preprocess a source file
+SceneInstructions.cpp.i:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.i
+.PHONY : SceneInstructions.cpp.i
+
+SceneInstructions.s: SceneInstructions.cpp.s
+.PHONY : SceneInstructions.s
+
+# target to generate assembly for a file
+SceneInstructions.cpp.s:
+	$(MAKE) -f CMakeFiles/TerrariaLinux.dir/build.make CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.s
+.PHONY : SceneInstructions.cpp.s
+
 SceneMenu.o: SceneMenu.cpp.o
 .PHONY : SceneMenu.o
 
@@ -1056,6 +1080,9 @@ help:
 	@echo "... SceneGame.o"
 	@echo "... SceneGame.i"
 	@echo "... SceneGame.s"
+	@echo "... SceneInstructions.o"
+	@echo "... SceneInstructions.i"
+	@echo "... SceneInstructions.s"
 	@echo "... SceneMenu.o"
 	@echo "... SceneMenu.i"
 	@echo "... SceneMenu.s"

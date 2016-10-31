@@ -8,6 +8,7 @@
 #include "SceneMenu.h"
 #include "SceneGame.h"
 #include "SceneCredits.h"
+#include "SceneInstructions.h"
 
 using namespace std;
 
@@ -39,6 +40,7 @@ public:
 
     void gotoSceneMenu();
     void gotoSceneGame();
+    void gotoSceneInstructions();
     void gotoSceneCredits();
 
 	// Input callback methods

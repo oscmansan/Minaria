@@ -28,6 +28,7 @@ SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/sephirot47/Terraria-linux/Scene.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/Scene.cpp.o"
   "/home/sephirot47/Terraria-linux/SceneCredits.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/SceneCredits.cpp.o"
   "/home/sephirot47/Terraria-linux/SceneGame.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/SceneGame.cpp.o"
+  "/home/sephirot47/Terraria-linux/SceneInstructions.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/SceneInstructions.cpp.o"
   "/home/sephirot47/Terraria-linux/SceneMenu.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/SceneMenu.cpp.o"
   "/home/sephirot47/Terraria-linux/Shader.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/Shader.cpp.o"
   "/home/sephirot47/Terraria-linux/ShaderProgram.cpp" "/home/sephirot47/Terraria-linux/CMakeFiles/TerrariaLinux.dir/ShaderProgram.cpp.o"

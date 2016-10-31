@@ -116,8 +116,10 @@ void Player::init()
     int y = surfaceLevel - 3 * sprite->getSize().y;
     setPosition(glm::ivec2(x, y));
 
+    jumpSpeed = -8.6f;
+
     //inventory->addItem<ItemSword>();
-    //for (int i = 0; i < 50; ++i) inventory->addItem<ItemBomb>();
+    for (int i = 0; i < 3; ++i) inventory->addItem<ItemBomb>();
 }
 
 void Player::update(int deltaTime)
@@ -198,7 +200,8 @@ void Player::move(int deltaTime)
             velocity.x = leftPressed ? -8 : 8;
         }
 
-        if ((Game::instance().getKey('w') || Game::instance().getKey('W')) && !bJumping && isGrounded())
+        if ((Game::instance().getKey('w') || Game::instance().getKey('W') ||
+             Game::instance().getKey('z') || Game::instance().getKey('Z')) && !bJumping && isGrounded())
         {
             jump();
         }
@@ -289,7 +292,6 @@ void Player::handleMouseActions()
                 usingItem = true;
                 if (mouseToLeft && sprite->animation() != PICKAXE_LEFT) sprite->changeAnimation(PICKAXE_LEFT);
                 else if (!mouseToLeft && sprite->animation() != PICKAXE_RIGHT) sprite->changeAnimation(PICKAXE_RIGHT);
-                Game::getCurrentSceneGame()->getSoundManager()->playSound("sounds/gravel.wav",70.f);
             }
 
             if (Game::instance().getMouseLeftButton())
@@ -297,6 +299,7 @@ void Player::handleMouseActions()
                 if (mouseBlock && mouseBlock->getType() != 0)
                 {
                     mouseBlock->onHitBegin();
+                    Game::getCurrentSceneGame()->getSoundManager()->playSound("sounds/gravel.wav",70.f);
                 }
             }
         }

@@ -20,7 +20,7 @@ public:
     float scale = 1.0f;
     float maxScale = 12.0f;
 
-    Text *replayText = NULL;
+    Text *replayText = NULL, *youwinText = NULL;
     float getGrayAmount() const;
 
     virtual void init() override;

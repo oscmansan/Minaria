@@ -8,6 +8,10 @@ WinSymbol::WinSymbol() : ISceneNode()
     winTexture = new Texture();
     winTexture->loadFromFile("images/goldenNugget.png", TEXTURE_PIXEL_FORMAT_RGBA);
 
+    youwinText = Game::getCurrentSceneGame()->createText("YOU WIN !!!", glm::ivec2(0, 50), 50);
+    youwinText->centerHorizontally();
+    youwinText->setVisible(false);
+
     replayText = Game::getCurrentSceneGame()->createText("Replay", glm::ivec2(0, 500), 30);
     replayText->centerHorizontally();
     replayText->setVisible(false);
@@ -26,7 +30,7 @@ WinSymbol::~WinSymbol()
 
 float WinSymbol::getGrayAmount() const
 {
-    return (scale-1.0f) / maxScale;
+    return (scale-1.0f) / maxScale * 0.4f;
 }
 
 void WinSymbol::init()
@@ -53,6 +57,7 @@ void WinSymbol::update(int deltaTime)
         if (timeSinceBegin >= 1000)
         {
             replayText->setVisible(true);
+            youwinText->setVisible(true);
             glm::ivec2 mousePos = Game::instance().getMousePosScreen();
             if (replayText->getBoundingRect().contains(mousePos))
             {
@@ -65,11 +70,11 @@ void WinSymbol::update(int deltaTime)
             }
             else
             {
+                youwinText->setColor(glm::vec4(1, 1, 1, 1));
                 replayText->setColor(glm::vec4(1, 1, 1, 1));
             }
         }
     }
-
 }
 
 void WinSymbol::render(ShaderProgram &program)

@@ -16,6 +16,7 @@ public:
 
 private:
     Text *oscarText, *victorText, *creditsText, *backText;
+    Text *lastOverText = NULL;
     Sprite *spriteBg;
     Texture textureMenuBg;
 

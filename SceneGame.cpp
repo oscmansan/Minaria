@@ -54,21 +54,31 @@ void SceneGame::init()
     player->init();
     player->setTileMap(map);
 
-    int yPos = mapBg->getSurfaceLevel(player->getPosition().x) - 200;
+    int yPos = mapBg->getSurfaceLevel(player->getPosition().x) - 240;
     glm::ivec2 textPos = glm::ivec2(player->getPosition().x, yPos);
 
-    Text *tutoText1   = createText("Find the              ...", textPos + glm::ivec2(0, 0), 16);
-    Text *tutoText1_2 = createText("         golden nugget   ", textPos + glm::ivec2(0, 0), 16);
+    Text *tutoText0_0 = createText("First of all, craft a ", textPos + glm::ivec2(-10, 0), 16);
+    Text *tutoText0_1 = createText("                      sword", textPos + glm::ivec2(-10, 0), 16);
+    Text *tutoText0_2 = createText("to fight the enemies...",     textPos + glm::ivec2(-10, 20), 16);
+    tutoText0_0->setColor(glm::vec4(1,1,1,1));
+    tutoText0_1->setColor(glm::vec4(1,0,0,1));
+    tutoText0_2->setColor(glm::vec4(1,1,1,1));
+    tutoText0_0->setIsScreen(false);
+    tutoText0_1->setIsScreen(false);
+    tutoText0_2->setIsScreen(false);
+
+    Text *tutoText1   = createText("Find the              ...", textPos + glm::ivec2(500, 20), 16);
+    Text *tutoText1_2 = createText("         golden nugget   ", textPos + glm::ivec2(500, 20), 16);
     tutoText1->setColor(glm::vec4(1,1,1,1));
     tutoText1_2->setColor(glm::vec4(1,1,0,1));
     tutoText1->setIsScreen(false);
     tutoText1_2->setIsScreen(false);
 
-    Text *tutoText2 = createText("To the east!", textPos + glm::ivec2(0, 20), 16);
+    Text *tutoText2 = createText("To the east!", textPos + glm::ivec2(600, 40), 16);
     tutoText2->setColor(glm::vec4(1,1,1,1));
     tutoText2->setIsScreen(false);
 
-    Text *tutoText3 = createText("GOOD LUCK MINER!", textPos + glm::ivec2(500, 0), 20);
+    Text *tutoText3 = createText("GOOD LUCK MINER!", textPos + glm::ivec2(1300, 40), 20);
     tutoText3->setColor(glm::vec4(0,0,0,1));
     tutoText3->setIsScreen(false);
     tutoText3->setStroke(4, glm::vec4(1,0.5,0,1));
@@ -97,14 +107,8 @@ void SceneGame::init()
     camera = new Camera();
     camera->init(player->getPosition());
 
-    /*
-    SceneGame::getInstance()->addText("0123456789.,", glm::ivec2(0, 0), 16);
-    SceneGame::getInstance()->addText("ABCDEFGHIJKLMNOPQRSTUVWXYZ", glm::ivec2(0, 20), 16);
-    SceneGame::getInstance()->addText("abcdefghijklmnopqrstuvwxyz", glm::ivec2(0, 40), 16);
-    */
-
     soundManager = new SoundManager();
-    soundManager->setVolume(80.f);
+    soundManager->setVolume(20.f);
     soundManager->playMusic("sounds/cavesong.ogg");
     soundManager->setMusicLoop(true);
 }
@@ -197,7 +201,7 @@ SoundManager* SceneGame::getSoundManager() {
 void SceneGame::generateProceduralTilemap()
 {
     int width = 256;
-    int height = 128;
+    int height = 140;
     map   = TileMap::createTileMap(glm::ivec2(width, height), texProgram);
     mapBg = TileMap::createTileMap(glm::ivec2(width, height), texProgram);
     mapBg->isBg = true;
@@ -301,9 +305,13 @@ void SceneGame::generateProceduralTilemap()
             map->addTile<BlockBedRock>(pos2 + glm::ivec2(0, y * tileSize)); // Right
         }
     }
+
     // Add bedrock ground
     for (int x = 0; x < width; ++x)
     {
-        map->addTile<BlockBedRock>(glm::ivec2(x * tileSize, mapSize.y - 1));
+        for (int y = 0; y < 14; ++y)
+        {
+            map->addTile<BlockBedRock>(glm::ivec2(x * tileSize, mapSize.y - y * tileSize - 1));
+        }
     }
 }
