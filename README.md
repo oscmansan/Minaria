@@ -1,6 +1,6 @@
 # Minaria
 
-A tribute to the 2011 2D action-adventure sandbox game developed by Re-Logic.
+A tribute to Terraria, the 2011 2D action-adventure sandbox game developed by Re-Logic.
 
 ## Run instructions
 Run in the root directory:
