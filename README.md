@@ -17,6 +17,9 @@ Run in the root directory:
 ```
 
 ## Gameplay instructions:
+* WASD to move
+* Q and E or numbers 1-7 to change the inventory slot
+* Left-click to break or build blocks
 * Use your pickaxe to break the blocks
 * Use the blocks to build structures that will keep you save 
 * Collect the blocks to craft objects that will be useful in your adventure
