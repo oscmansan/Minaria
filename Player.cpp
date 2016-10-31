@@ -116,7 +116,8 @@ void Player::init()
     int y = surfaceLevel - 3 * sprite->getSize().y;
     setPosition(glm::ivec2(x, y));
 
-    for (int i = 0; i < 99; ++i) inventory->addItem<ItemBomb>();
+    //inventory->addItem<ItemSword>();
+    //for (int i = 0; i < 50; ++i) inventory->addItem<ItemBomb>();
 }
 
 void Player::update(int deltaTime)

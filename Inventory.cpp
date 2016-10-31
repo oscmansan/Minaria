@@ -70,7 +70,6 @@ void Inventory::init()
     }
 
     addItem<ItemPickaxe>();
-    addItem<ItemSword>();
 }
 
 void Inventory::renderBackground()

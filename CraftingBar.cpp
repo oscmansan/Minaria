@@ -91,7 +91,7 @@ void CraftingBar::update(int deltaTime)
     {
         if (canCraftBomb && Game::instance().getMouseLeftButtonDown())
         {
-            Game::getCurrentSceneGame()->getPlayer()->getInventory()->addItem<ItemBomb>();
+            for (int i = 0; i < 20; ++i) inv->addItem<ItemBomb>();
             inv->drop<BlockWood>(5);
         }
         spriteSlotBomb->setTint(hoverTint);

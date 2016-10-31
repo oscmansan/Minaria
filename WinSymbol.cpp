@@ -59,7 +59,7 @@ void WinSymbol::update(int deltaTime)
                 replayText->setColor(glm::vec4(0.5, 1, 0, 1));
                 if (Game::instance().getMouseLeftButtonDown())
                 {
-                    Game::getCurrentSceneGame()->getSoundManager()->stopSound();
+                    Game::getCurrentSceneGame()->getSoundManager()->stopMusic();
                     Game::instance().gotoSceneGame();
                 }
             }

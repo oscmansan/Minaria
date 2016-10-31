@@ -284,10 +284,10 @@ void SceneGame::generateProceduralTilemap()
     }
 
     // Add gold nugget!
-    //glm::ivec2 pos = glm::ivec2(width * tileSize - tileSize * 30, 0);
-    //pos.y = map->getSurfaceLevel(pos.x) + tileSize * 4;
-    glm::ivec2 pos = glm::ivec2(30 * tileSize, 0);
-    pos.y = map->getSurfaceLevel(pos.x) - tileSize * 2;
+    glm::ivec2 pos = glm::ivec2(width * tileSize - tileSize * 30, 0);
+    pos.y = map->getSurfaceLevel(pos.x) + tileSize * 4;
+    //glm::ivec2 pos = glm::ivec2(30 * tileSize, 0);
+    //pos.y = map->getSurfaceLevel(pos.x) - tileSize * 2;
     map->addTile<BlockGold>(pos);
 
     // Add side big walls
