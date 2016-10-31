@@ -53,7 +53,7 @@ void GroundEnemy::init()
     setPosition(glm::ivec2(origx, origy));
 
     state = PATROL;
-    jumpSpeed = -5;
+    jumpSpeed = -7;
 }
 
 void GroundEnemy::update(int deltaTime)

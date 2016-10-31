@@ -22,7 +22,8 @@
   * Instruccions in-game
   
 ## Gameplay instructions:
-  * WASD per moure't
+  * A-D per moure't
+  * W-Z per saltar
   * Q and E o números 1-7 per canviar l'slot de l'inventari
   * Left-click per trencar o construir blocs
   * Utilitza el pic per trencar els blocs 
