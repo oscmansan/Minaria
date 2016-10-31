@@ -17,3 +17,17 @@
   * Camera shaking que acompanya les explosions
   * Iluminació dinàmica al voltant del jugador, com si portés una llum
   * Ambient occlusion a les coves
+  * Animació de càmera quan el jugador mor
+  * Animació de càmera quan el jugador guanya
+  
+## Gameplay instructions:
+  * WASD per moure't
+  * Q and E o números 1-7 per canviar l'slot de l'inventari
+  * Left-click per trencar o construir blocs
+  * Utilitza el pic per trencar els blocs 
+  * Utilitza els blocs per construir estructures que et mantindran fora de perill
+  * Colecciona blocs per craftejar objectes que et seran utils en la teva aventura
+  * Utilitza l'espasa per defensar-te i matar enemics poc amigables
+  * Utilitza les bombes per destruir tot allò que se't posi per davant
+  * Atravessa la cova i troba la palleta d'or per convertir-te en el miner més ric de la contrada
+  * Bona sort miner!
