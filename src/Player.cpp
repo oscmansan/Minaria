@@ -299,7 +299,7 @@ void Player::handleMouseActions()
                 if (mouseBlock && mouseBlock->getType() != 0)
                 {
                     mouseBlock->onHitBegin();
-                    Game::getCurrentSceneGame()->getSoundManager()->playSound("sounds/gravel.wav",70.f);
+                    Game::getCurrentSceneGame()->getSoundManager()->playSound("sounds/gravel.wav",30.f);
                 }
             }
         }

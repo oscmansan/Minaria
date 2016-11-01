@@ -137,6 +137,14 @@ void Block::advanceState(bool mining)
         if (mining)
         {
             Inventory *inv = player->getInventory();
+
+            // Play sound when item ready to craft
+            if (inv->getAmount<BlockWood>() == 4 && getType() == Block::WOOD)
+                Game::getCurrentSceneGame()->getSoundManager()->playSound("sounds/orb.wav");
+            if (inv->getAmount<BlockPurple>() == 3 && getType() == Block::PURPLE)
+                Game::getCurrentSceneGame()->getSoundManager()->playSound("sounds/orb.wav");
+            //
+
             switch (getType())
             {
                 case Block::DIRT:    inv->addItem<BlockDirt>();    break;
