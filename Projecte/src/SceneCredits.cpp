@@ -44,8 +44,8 @@ void SceneCredits::update(int deltaTime)
     lastOverText = NULL;
     if (oscarText->getBoundingRect().contains(game->getMousePosScreen()))
     {
-        oscarText->setText("OSCAR GAY", 40);
-        if (previousOverText != oscarText) soundManager->playSound("../sounds/Wilhelm_Scream.ogg", 10.0f);
+        oscarText->setText("Oscar Manas", 40);
+        if (previousOverText != oscarText) soundManager->playSound("sounds/Wilhelm_Scream.ogg", 10.0f);
         lastOverText = oscarText;
     }
     else
@@ -56,8 +56,8 @@ void SceneCredits::update(int deltaTime)
 
     if (victorText->getBoundingRect().contains(game->getMousePosScreen()))
     {
-        victorText->setText("HABLAS MI IDIOMA?", 30);
-        if (previousOverText != victorText) soundManager->playSound("../sounds/Wilhelm_Scream.ogg", 10.0f);
+        victorText->setText("Victor Anton", 40);
+        if (previousOverText != victorText) soundManager->playSound("sounds/Wilhelm_Scream.ogg", 10.0f);
         lastOverText = victorText;
     }
     else
